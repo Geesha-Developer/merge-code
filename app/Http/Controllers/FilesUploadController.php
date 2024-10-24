@@ -29,7 +29,10 @@ class FilesUploadController extends Controller
     public function getFiles($recordId)
     {
         $record = Load::findOrFail($recordId);
+<<<<<<< HEAD
 
+=======
+>>>>>>> old-repo/master
         $files = json_decode($record->public_file, true);
     
         $fileList = [];

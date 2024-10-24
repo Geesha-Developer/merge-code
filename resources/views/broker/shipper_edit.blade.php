@@ -2,6 +2,7 @@
 @section('content')
 
 @if(session('success'))
+<<<<<<< HEAD
 <div class="alert alert-success alert-dismissible fade show" role="alert">
     <i class="fa fa-check"></i>
     <h4 class="alert-heading"><b>Well done!</b></h4>
@@ -25,6 +26,20 @@
 </div>
 @endif
 
+=======
+<div class="alert alert-success" id="successMessage">
+    {{ session('success') }}
+</div>
+@endif
+@if(session('error'))
+<div class="alert alert-danger" id="errorMessage">
+    <script>
+        alert("{{ session('error') }}");
+    </script>
+    {{ session('error') }}
+</div>
+@endif
+>>>>>>> old-repo/master
 <style>
     button#hideFormButton {
         float: right;
@@ -53,7 +68,15 @@
 <section class="content">
     <div class="body_scroll">
         <div class="block-header">
+<<<<<<< HEAD
             <h2>{{ isset($shipper) ? 'Edit Shipper' : 'Add Shipper' }}</h2>
+=======
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>{{ isset($shipper) ? 'Edit Shipper' : 'Add Shipper' }}</h2>
+                </div>
+            </div>
+>>>>>>> old-repo/master
         </div>
 
         <div class="container-fluid">
@@ -62,9 +85,18 @@
                 <div class="col-lg-12 p-0">
                     <div class="card">
                         <div class="body">
+<<<<<<< HEAD
                             <form action="{{ route('shipper.update', ['id' => $shipper->id]) }}" method="POST">
                                 @csrf
                                 @method('PUT')
+=======
+                            <form method="POST"
+                                action="{{ isset($shipper) ? route('shipper.update', $shipper->id) : route('shipper.store') }}">
+                                @csrf
+                                @if(isset($shipper))
+                                @method('PUT')
+                                @endif
+>>>>>>> old-repo/master
 
                                 <div class="card-body">
                                     <div class="row">
@@ -88,9 +120,15 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Country<code>*</code></label>
+<<<<<<< HEAD
                                                 <select class="form-control select2" name="carrier_country"
                                                     id="country">
 
+=======
+                                                <select
+                                                    style="font-family: 'Poppins', sans-serif;font-weight: 400;font-size: 14px;line-height: 0.2em;color: #666;width: 100%;height:30px;padding: 0px 0 0 10px;"
+                                                    class="form-control select2" name="carrier_country" id="country">
+>>>>>>> old-repo/master
                                                     <option
                                                         style="font-family: 'Poppins', sans-serif;font-weight: 400;font-size: 14px;line-height: 0.2em;color: #666;"
                                                         selected="selected">Please Select</option>
@@ -154,11 +192,19 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
+<<<<<<< HEAD
                                                 <label for="shipper_telephone">Telephone </label>
                                                 <input type="text" id="shipper_telephone" class="form-control"
                                                     name="shipper_telephone"
                                                     value="{{ old('shipper_telephone', isset($shipper) ? $shipper->shipper_telephone : '') }}"
                                                     >
+=======
+                                                <label for="shipper_telephone">Telephone <code>*</code></label>
+                                                <input type="text" id="shipper_telephone" class="form-control"
+                                                    name="shipper_telephone"
+                                                    value="{{ old('shipper_telephone', isset($shipper) ? $shipper->shipper_telephone : '') }}"
+                                                    required>
+>>>>>>> old-repo/master
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -219,6 +265,7 @@
                                                     name="shipper_internal_notes">{{ old('shipper_internal_notes', isset($shipper) ? $shipper->shipper_internal_notes : '') }}</textarea>
                                             </div>
                                         </div>
+<<<<<<< HEAD
 
                                         <div class="col-md-3">
                                             <div class="form-group d-flex">
@@ -228,15 +275,22 @@
                                             </div>
                                         </div>
 
+=======
+>>>>>>> old-repo/master
                                     </div>
                                 </div>
 
                                 <div class="mt-4 text-center">
+<<<<<<< HEAD
                                     <button type="submit"
                                         class="btn btn-info">{{ isset($shipper) ? 'Save' : 'Add' }}</button>
                                     <button type="button" class="btn btn-danger" data-dismiss="modal"><a
                                             class="text-white"
                                             href="https://crmcargoconvoy.co/shipper">Cancel</a></button>
+=======
+                                    <button type="submit" class="btn btn-info">{{ isset($shipper) ? 'Save' : 'Add' }}</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal"><a class="text-white" href="https://crmcargoconvoy.co/shipper">Cancel</a></button>
+>>>>>>> old-repo/master
                                 </div>
                             </form>
                         </div>

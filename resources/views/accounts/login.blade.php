@@ -31,7 +31,11 @@
     margin-right: 10px;  
 }
 .nav li a {
+<<<<<<< HEAD
     background: #1D2531;
+=======
+    background: #263544;
+>>>>>>> old-repo/master
     color: #fff;
     padding: 10px 20px;
     margin: 0px 10px;
@@ -40,7 +44,11 @@
     font-size: 18px;
 }
 .nav li a:hover {
+<<<<<<< HEAD
     background: #62830b !important;
+=======
+    background: #88939f !important;
+>>>>>>> old-repo/master
 }
 .nav{
     margin-top: 20px;
@@ -108,6 +116,16 @@
                             @endif
                             <form method="post" action="{{ route('account.login.auth') }}">
                                 @csrf
+<<<<<<< HEAD
+=======
+                                @if ($errors->has('email'))
+                                <div class="alert alert-danger text-center">
+                                        <span class="help-block font-red-mint">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
+                                    </div>
+                                    @endif
+>>>>>>> old-repo/master
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" for="email" class="col-md-4 col-form-label text-md-end">
@@ -115,11 +133,14 @@
                                         </span>
                                     </div>
                                     <input type="text" class="form-control" id="email" name="email" placeholder="Email" value="{{ old('email') }}" />
+<<<<<<< HEAD
                                     @if ($errors->has('email'))
                                         <span class="help-block font-red-mint">
                                             <strong>{{ $errors->first('email') }}</strong>
                                         </span>
                                     @endif
+=======
+>>>>>>> old-repo/master
                                 </div>
 
                                 <div class="input-group mb-3">
@@ -157,7 +178,11 @@
                                     </span>
                                 @endif
 
+<<<<<<< HEAD
                                 <button type="submit" class="btn btn-primary" style="background: #1D2531;" tabindex="4">Login</button>
+=======
+                                <button type="submit" class="btn btn-primary" tabindex="4">Login</button>
+>>>>>>> old-repo/master
                             </form>
 
     @if (session('error'))

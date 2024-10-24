@@ -1,9 +1,12 @@
 @extends('layouts.broker.app')
 @section('content')
 <style>
+<<<<<<< HEAD
     .table>:not(caption)>*>* {
         background-color: unset !important;
     }
+=======
+>>>>>>> old-repo/master
 .chart {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 10px;
@@ -16,6 +19,7 @@
 <section class="content">
     <div class="body_scroll">
         <div class="block-header">
+<<<<<<< HEAD
            <h2>Broker Dashboard</h2>
         </div>
         <div class="container-fluid">
@@ -56,6 +60,52 @@
                 <div class="tab-content col-12" id="myTabContent">
                     <div class="tab-pane fade show active" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
                         
+=======
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>Broker Dashboard</h2>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <ul class="nav nav-tabs mb-2" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a Class="nav-link active" id="dashboard-tab" data-bs-toggle="tab" href="#dashboard" role="tab"
+                            aria-controls="carriers" aria-selected="true"
+                            style="font-size: 15px;color: #000;font-weight:500">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="all-tab" data-bs-toggle="tab" href="#all" role="tab"
+                            aria-controls="carriers" aria-selected="true"
+                            style="font-size: 15px;color: #000;font-weight:500">All</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="open-tab" data-bs-toggle="tab" href="#open" role="tab"
+                            aria-controls="carriers" aria-selected="true"
+                            style="font-size: 15px;color: #000;font-weight:500">Open</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="delivered-tab" data-bs-toggle="tab" href="#delivered" role="tab"
+                            aria-controls="carriers" aria-selected="true"
+                            style="font-size: 15px;color: #000;font-weight:500">Delivered</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="completed-tab" data-bs-toggle="tab" href="#completed" role="tab"
+                            aria-controls="customers" aria-selected="false"
+                            style="font-size: 15px;color: #000;font-weight:500">Completed</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="invoice-tab" data-bs-toggle="tab" href="#invoice" role="tab"
+                            aria-controls="customers" aria-selected="false"
+                            style="font-size: 15px;color: #000;font-weight:500">Invoice</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content col-12" id="myTabContent">
+                    <div class="tab-pane fade show active" id="dashboard" ole="tabpanel"
+                        aria-labelledby="customers-tab">
+>>>>>>> old-repo/master
                         <div class="row dynamic-data">
                             <div class="col-lg-4 col-md-4">
                                 <div class="card">
@@ -131,6 +181,7 @@
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
                     <div class="tab-pane fade" id="all" role="tabpanel" aria-labelledby="all-tab">
                         <div class="table-responsive">
                             <table id="dataTable" class="table table-bordered">
@@ -196,6 +247,50 @@
                     <div class="tab-pane fade" id="open" role="tabpanel" aria-labelledby="open-tab">
                       <div class="table-responsive">
                         <table id="dataTableOpen" class="table table-bordered table-striped display">
+=======
+                    <div class="tab-pane fade" id="all" ole="tabpanel" aria-labelledby="customers-tab">
+                        <table id="dataTable" class="table table-bordered table-hover js-basic-example dataTable">
+                            <thead>
+                                <tr>
+                                    <th>Sr No</th>
+                                    <th>Load #</th>
+                                    <th>W/O #</th>
+                                    <th>Customer #</th>
+                                    <th>Load Create Date</th>
+                                    <th>Shipper Date</th>
+                                    <th>Del Date</th>
+                                    <th>Carrier</th>
+                                    <th>Pickup Location</th>
+                                    <th>Unloading Location</th>
+
+                                    <!-- <th>Status & RC</th> -->
+                                    <!-- <th>PDF View</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                $i=1;
+                                @endphp
+                                @foreach($load as $loads)
+                                <tr>
+                                    <td class="dynamic-data">{{ $i++ }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_number }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_workorder }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_bill_to }}</td>
+                                    <td class="dynamic-data">{{ $loads->created_at->format('Y-m-d') }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_shipper_appointment }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_consignee_appointment }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_carrier }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_shipper_location }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_consignee }}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="open" ole="tabpanel" aria-labelledby="customers-tab">
+                        <table id="dataTableOpen" class="table table-bordered table-hover js-basic-example dataTable">
+>>>>>>> old-repo/master
                             <thead>
                                 <tr>
                                     <th>Sr No</th>
@@ -208,6 +303,10 @@
                                     <th>Carrier</th>
                                     <th>Pickup Location</th>
                                     <th>Unloading Location</th>
+<<<<<<< HEAD
+=======
+                                    <th>Final Del</th>
+>>>>>>> old-repo/master
                                     <th>Load Status</th>
                                 </tr>
                             </thead>
@@ -223,6 +322,7 @@
                                     <td class="dynamic-data">{{ $loads->load_workorder }}</td>
                                     <td class="dynamic-data">{{ $loads->load_bill_to }}</td>
                                     <td class="dynamic-data">{{ $loads->created_at->format('Y-m-d') }}</td>
+<<<<<<< HEAD
                                     @php
                                 $shipper_appointment =
                                 json_decode($loads->load_shipper_appointment,true);
@@ -249,11 +349,21 @@
                                     {{ $last_consignee_location['location'] ?? '' }}
                                 </td>
                                 <td class="dynamic-data">{{ $loads->load_status }}</td>
+=======
+                                    <td class="dynamic-data">{{ $loads->load_shipper_appointment }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_consignee_appointment }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_carrier }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_shipper_location }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_consignee }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_consignee_1 }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_status }}</td>
+>>>>>>> old-repo/master
                                 </tr>
                                 @endif
                                 @endforeach
                             </tbody>
                         </table>
+<<<<<<< HEAD
                      </div>
                     </div>
                     <div class="tab-pane fade" id="delivered" role="tabpanel" aria-labelledby="delivered-tab">
@@ -452,6 +562,137 @@
                                  </tbody>
                              </table>
                          </div>
+=======
+                    </div>
+                    <div class="tab-pane fade" id="delivered" ole="tabpanel" aria-labelledby="customers-tab">
+                        <table id="dataTableDelivered" class="table table-bordered table-hover js-basic-example dataTable">
+                            <thead>
+                                <tr>
+                                    <th>Sr No</th>
+                                    <th>Load #</th>
+                                    <th>W/O #</th>
+                                    <th>Carrier</th>
+                                    <th>Shipper Date</th>
+                                    <th>Load Create Date</th>
+                                    <th>Del Date</th>
+                                    <th>Customer #</th>
+                                    <th>Pickup Location</th>
+                                    <th>Unloading Location</th>
+                                    <th>Final Del</th>
+                                    <th>Load Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                $i=1;
+                                @endphp
+                                @foreach($load as $loads)
+                                @if($loads->load_status == 'Deliverd')
+                                <tr>
+                                    <td class="dynamic-data">{{ $i++ }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_number }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_workorder }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_carrier }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_shipper_appointment }}</td>
+                                    <td class="dynamic-data">{{ $loads->created_at->format('Y-m-d') }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_consignee_appointment }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_bill_to }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_shipper_location }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_consignee }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_consignee_1 }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_status }}</td>
+                                </tr>
+                                @endif
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="completed" ole="tabpanel" aria-labelledby="customers-tab">
+                        <table id="dataTableDelivered" class="table table-bordered table-hover js-basic-example dataTable">
+                            <thead>
+                                <tr>
+                                    <th>Sr No</th>
+                                    <th>Load #</th>
+                                    <th>W/O #</th>
+                                    <th>Carrier</th>
+                                    <th>Shipper Date</th>
+                                    <th>Load Create Date</th>
+                                    <th>Del Date</th>
+                                    <th>Customer #</th>
+                                    <th>Pickup Location</th>
+                                    <th>Unloading Location</th>
+                                    <th>Final Del</th>
+                                    <th>Load Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                $i=1;
+                                @endphp
+                                @foreach($load as $loads)
+                                @if($loads->load_status == 'Completed')
+                                <tr>
+                                    <td class="dynamic-data">{{ $i++ }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_number }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_workorder }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_carrier }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_shipper_appointment }}</td>
+                                    <td class="dynamic-data">{{ $loads->created_at->format('Y-m-d') }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_consignee_appointment }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_bill_to }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_shipper_location }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_consignee }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_consignee_1 }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_status }}</td>
+                                </tr>
+                                @endif
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="invoice" ole="tabpanel" aria-labelledby="customers-tab">
+                        <table id="dataTableDelivered" class="table table-bordered table-hover js-basic-example dataTable">
+                            <thead>
+                                <tr>
+                                    <th>Sr No</th>
+                                    <th>Load #</th>
+                                    <th>W/O #</th>
+                                    <th>Carrier</th>
+                                    <th>Shipper Date</th>
+                                    <th>Load Create Date</th>
+                                    <th>Del Date</th>
+                                    <th>Customer #</th>
+                                    <th>Pickup Location</th>
+                                    <th>Unloading Location</th>
+                                    <th>Final Del</th>
+                                    <th>Load Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                $i=1;
+                                @endphp
+                                @foreach($load as $loads)
+                                @if($loads->invoice_status == 'Paid Record')
+                                <tr>
+                                    <td class="dynamic-data">{{ $i++ }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_number }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_workorder }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_carrier }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_shipper_appointment }}</td>
+                                    <td class="dynamic-data">{{ $loads->created_at->format('Y-m-d') }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_consignee_appointment }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_bill_to }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_shipper_location }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_consignee }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_consignee_1 }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_status }}</td>
+                                </tr>
+                                @endif
+                                @endforeach
+                            </tbody>
+                        </table>
+>>>>>>> old-repo/master
                     </div>
                 </div>
             </div>
@@ -459,7 +700,40 @@
     </div>
 </section>
 
+<<<<<<< HEAD
 
+=======
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+    // Check if script is running
+    console.log("Document is ready");
+
+    // Inject CSS dynamically via JavaScript
+    var style = '<style>' +
+                    'tbody tr.highlight-row {' +
+                        'background-color: #CAF1EB !important;' +
+                    '}' +
+                '</style>';
+    $('head').append(style); // Append the style to the head
+
+    // Check if tbody exists
+    console.log($('tbody'));
+
+    // Event delegation to target the first <td> in each row
+    $('tbody').on('click', 'td', function() {
+        console.log("A cell was clicked"); // Check if click event is triggered
+
+        // Remove the highlight from any previously selected row
+        $('tbody tr').removeClass('highlight-row');
+
+        // Add highlight to the clicked row
+        $(this).closest('tr').addClass('highlight-row');
+        console.log($(this).closest('tr')); // Log the row that was clicked
+    });
+});
+</script>
+>>>>>>> old-repo/master
 <script>
     function renderCharts() {
         fetch('/fetch-load-data')
@@ -547,7 +821,11 @@
     renderCharts();
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<<<<<<< HEAD
 <!-- <script>
+=======
+<script>
+>>>>>>> old-repo/master
     document.addEventListener('DOMContentLoaded', function () {
         // Retrieve the last active tab from local storage
         var lastActiveTab = localStorage.getItem('lastActiveTab');
@@ -567,6 +845,7 @@
         $('#dataTableOpen').DataTable();
         $('#dataTableDelivered').DataTable();
     });
+<<<<<<< HEAD
 </script> -->
 
 
@@ -635,4 +914,8 @@
     });
 </script>
 <script>
+=======
+</script>
+
+>>>>>>> old-repo/master
 @endsection

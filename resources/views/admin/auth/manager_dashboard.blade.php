@@ -14,9 +14,12 @@
 </div>
 @endif
 <style>
+<<<<<<< HEAD
      .table>:not(caption)>*>* {
         background-color: unset !important;
     }
+=======
+>>>>>>> old-repo/master
     .db {
         display: grid;
         grid-gap: 1.5em;
@@ -666,7 +669,11 @@
 <section class="content">
     <div class="body_scroll">
         <div class="block-header" style="padding: 16px 15px !important;">
+<<<<<<< HEAD
             <h2><b>Status Data</b></h2>
+=======
+            <h2><b>Reporting</b></h2>
+>>>>>>> old-repo/master
         </div>
             <!-- Tab buttons -->
             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -693,7 +700,11 @@
                 <li class="nav-item">
                     <a class="nav-link" id="loads-tab" data-bs-toggle="tab" href="#loads" role="tab"
                         aria-controls="loads" aria-selected="false"
+<<<<<<< HEAD
                         style="font-size: 15px;color: #000;font-weight:500">Loads</a>
+=======
+                        style="font-size: 15px;color: #000;font-weight:500">Load Customer</a>
+>>>>>>> old-repo/master
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="sales-tab" data-bs-toggle="tab" href="#sales" role="tab"
@@ -712,7 +723,11 @@
                     <div class="main">
                         <div class="row">
                             <div class="col-md-8">
+<<<<<<< HEAD
                                 <div class="db__cell">
+=======
+                                <div class="db__cell dynamic-data">
+>>>>>>> old-repo/master
                                 <div class="d-flex justify-content-between">
                                 <h1 class="db__heading">Overview</h1>
                                 </div>
@@ -810,16 +825,54 @@
                                         </div>
                                     </div>
                                 </div>
+<<<<<<< HEAD
                                 <div class="db__cell mt-3">
+=======
+                                <div class="db__cell dynamic-data mt-3">
+>>>>>>> old-repo/master
                                     <h2 class="db__subheading">Sales</h2>
                                     <canvas id="salesChart"></canvas>
                                 </div>
                                 
+<<<<<<< HEAD
                                 
                             </div>
                             <div class="col-md-4">
                                 <div class="col-md-12">
                                     <div class="db__cell">
+=======
+                                <div class="db__cell dynamic-data mt-3">
+                                    <h2 class="db__subheading">Best Performance Broker</h2>
+                                    <table class="table table-responsive table-bordered table-hover dataTable js-exportable table-responsive">
+                                        <thead>
+                                            <tr>
+                                                <th style="color: #fff !important;">Broker</th>
+                                                <th style="color: #fff !important;">No of Load</th>
+                                                <th style="color: #fff !important;">Total Carrier Pay</th>
+                                                <th style="color: #fff !important;">Status</th>
+                                                <th style="color: #fff !important;">Margin</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($bestPerformance as $index => $bpc)
+                                            <tr>
+                                                <td style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $bpc->name }}</td>
+                                                <td style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $bpc->load_number }}</td>
+                                                <td style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $bpc->total_fee }}</td>
+                                                <td style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $bpc->load_status }}</td>
+                                                <td style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $bpc->load_final_carrier_fee }}</td>
+                                            </tr>
+                                            @endforeach
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="col-md-12">
+                                    <div class="db__cell dynamic-data">
+>>>>>>> old-repo/master
                                         <h2 class="db__subheading">Number of Shippers and Carriers</h2>
                                         <div class="db__bubbles" style="height: 17.7em;">
                                             <div class="db__bubble">
@@ -833,7 +886,11 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12">
+<<<<<<< HEAD
                                     <div class="db__cell mt-3">
+=======
+                                    <div class="db__cell dynamic-data mt-3">
+>>>>>>> old-repo/master
                                         <h2 class="db__subheading">Maximum Loads With Customers</h2>
                                         @foreach($topMaximumLoadCustomers as $loadCount)
                                         <div class="db__order">
@@ -851,6 +908,7 @@
                                     </div>
                                 </div>
                             </div>
+<<<<<<< HEAD
                             <div class="col-md-12">
                             <div class="db__cell mt-3">
                                     <h2 class="db__subheading">Best Performance Broker</h2>
@@ -881,11 +939,14 @@
                                     </div>
                                 </div>
                             </div>
+=======
+>>>>>>> old-repo/master
                         </div>
                     </div>
                 </div>
 
                 <div class="tab-pane fade" id="carriers" role="tabpanel" aria-labelledby="carriers-tab">
+<<<<<<< HEAD
                    
                    <div class="table-responsive">
                     <table class="table table-responsive table-bordered table-hover dataTable js-exportable table-responsive">
@@ -1175,6 +1236,293 @@
                         </table>
                    </div>
                 </div>
+=======
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover dataTable js-exportable">
+                                <thead>
+                                    <tr>
+                                        <th style="color: #fff !important;">Carrier</th>
+                                        <th style="color: #fff !important;"># of Load</th>
+                                        <th style="color: #fff !important;">Gross Revenue</th>
+                                        <th style="color: #fff !important;">Carrier Pay</th>
+                                        <th style="color: #fff !important;">Profit</th>
+                                        <th style="color: #fff !important;">Miles</th>
+                                        <th style="color: #fff !important;">Revenue / Mile</th>
+                                        <th style="color: #fff !important;">Pay / Mile</th>
+    
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($totalRevenueloadcarrier as $LoadCarrier)
+                                    @php
+                                    $finalRate = $LoadCarrier->total_revenue - $LoadCarrier->revenue_difference;
+                                    @endphp
+                                    <tr>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $LoadCarrier->load_carrier }}</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $LoadCarrier->load_count }}</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $LoadCarrier->total_revenue }}</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $LoadCarrier->revenue_difference }}</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $finalRate }}</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">-</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">-</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">-</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+                <div class="tab-pane fade" id="customers" role="tabpanel" aria-labelledby="customers-tab">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover dataTable js-exportable">
+                                <thead>
+                                    <tr>
+                                        <th style="color: #fff !important;">Customer</th>
+                                        <th style="color: #fff !important;">Gross Revenue</th>
+                                        <th style="color: #fff !important;">Carrier Pay</th>
+                                        <th style="color: #fff !important;">Margin</th>
+                                        <th style="color: #fff !important;">No. Of Loads</th>
+                                        <th style="color: #fff !important;">Open Loads</th>
+                                        <th style="color: #fff !important;">Delivered Loads</th>
+                                        <th style="color: #fff !important;">Completed Loads</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($totalRevenueCustomer as $rc)
+                                    @php
+                                    $finalRate = $rc->total_revenue - $rc->revenue_difference;
+                                    @endphp
+                                    <tr>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $rc->load_bill_to }}</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $rc->total_revenue }}</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $rc->revenue_difference }}</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $finalRate }}</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $rc->load_count }}</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $rc->open_load_count }}</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $rc->deliverd_load_count }}</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $rc->completed_load_count }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="dispatchers" role="tabpanel" aria-labelledby="customers-tab">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover dataTable js-exportable">
+                                <thead>
+                                    <tr>
+                                        <th style="color: #fff !important;">Dispatcher</th>
+                                        <th style="color: #fff !important;">No of Load</th>
+                                        <th style="color: #fff !important;">Revenue</th>
+                                        <th style="color: #fff !important;">Carrier Amount</th>
+                                        <th style="color: #fff !important;">Margin </th>
+                                        <th style="color: #fff !important;">Open Loads</th>
+                                        <th style="color: #fff !important;">Delivered Loads</th>
+                                        <th style="color: #fff !important;">Invoiced Loads</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($totalRevenueCarrier as $revenue)
+                                    @php
+                                    $finalRate = $revenue->total_revenue - $revenue->revenue_difference;
+                                    @endphp
+
+                                    <tr>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $revenue->name }}</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $revenue->load_count }}</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $revenue->total_revenue }}</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">${{ number_format($revenue->sum_load_final_carrier_fee, 2) }}</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $revenue->revenue_difference }}</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $revenue->open_load_count }}</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $revenue->delivered_load_count }}</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $revenue->invoiced_load_count }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+
+                <div class="tab-pane fade" id="loads" role="tabpanel" aria-labelledby="customers-tab">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover dataTable js-exportable table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th style="color: #fff !important;">Load No</th>
+                                        <th style="color: #fff !important;">Status</th>
+                                        <th style="color: #fff !important;">Carrier</th>
+                                        <th style="color: #fff !important;">Created</th>
+                                        <th style="color: #fff !important;">Dispatcher</th>
+                                        <th style="color: #fff !important;">Customer</th>
+                                        <th style="color: #fff !important;">Shipper</th>
+                                        <th style="color: #fff !important;">Ship Date</th>
+                                        <th style="color: #fff !important;">Location</th>
+                                        <th style="color: #fff !important;">Consignee</th>
+                                        <th style="color: #fff !important;">Delevery Date</th>
+                                        <th style="color: #fff !important;">Delivery Location</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($dashboard as $load)
+                                        @php
+                                            $shipper = json_decode($load->load_shipperr, true);
+                                            $consignee = json_decode($load->load_consignee, true);
+                                            $shipper_appointment = json_decode($load->load_shipper_appointment, true);
+                                            $shipper_location = json_decode($load->load_shipper_location, true); 
+                                            $consignee_location = json_decode($load->load_consignee_location, true); 
+                                            $consignee_appointment = json_decode($load->load_consignee_appointment, true);
+                                        @endphp
+
+                                                <tr>
+                                            <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $load->load_number }}</td>
+                                            <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $load->load_status }}</td>
+                                            <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $load->load_carrier }}</td>
+                                            <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $load->created_at->format('Y-m-d') }}</td>
+                                            <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $load->user->name }}</td>
+                                            <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $load->load_bill_to }}</td>
+                                            <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ isset($shipper[0]['name']) ? $shipper[0]['name'] : '' }}</td>
+                                            <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                                @if(isset($shipper_appointment[0]['appointment']))
+                                                    {{ \Carbon\Carbon::parse($shipper_appointment[0]['appointment'])->format('Y-m-d') }}
+                                                @else
+                                                    'Old Data'
+                                                @endif
+                                            </td>
+                                            <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ isset($shipper_location[0]['location']) ? $shipper_location[0]['location'] : 'No Location Entered' }}</td>
+                                            <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ isset($consignee[0]['name']) ? $consignee[0]['name'] : 'Old Data' }}</td>
+                                            <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ isset($consignee_appointment[0]['appointment']) ? \Carbon\Carbon::parse($consignee_appointment[0]['appointment'])->format('y-m-d') : '' }}</td>
+                                            <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ isset($consignee_location[0]['location']) ? $consignee_location[0]['location'] : 'No Location Entered' }}</td>
+                                        </tr>
+                                        @endforeach
+                                </tbody>           
+
+                            </table>
+                    </div>
+                </div>
+
+
+                <div class="tab-pane fade" id="sales" role="tabpanel" aria-labelledby="customers-tab">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover dataTable js-exportable">
+                           <thead>
+                               <tr>
+                                   <th style="color: #fff !important;">Sales Rep</th>
+                                   <th style="color: #fff !important;">No of Load</th>
+                                   <th style="color: #fff !important;">Gross Revenue</th>
+                                   <th style="color: #fff !important;">Carrier Pay</th>
+                                   <th style="color: #fff !important;">Margin</th>
+                                   <th style="color: #fff !important;">Open Load</th>
+                               </tr>
+                           </thead>
+                           <tbody>
+                               @foreach($totalRevenueBroker as $r)
+                               @php
+                               $finalRate = $r->total_revenue - $r->revenue_difference;
+                               @endphp
+   
+                               <tr>
+                                   <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $r->name }}</td>
+                                   <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $r->load_count }}</td>
+                                   <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $r->total_revenue }}</td>
+                                   <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $finalRate }}</td>
+                                   <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $r->revenue_difference }}</td>
+                                   <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $r->open_load_count }}</td>
+                               </tr>
+                               @endforeach
+                           </tbody>
+                       </table>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="log" role="tabpanel" aria-labelledby="customers-tab">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover dataTable js-exportable">
+                           <thead>
+                               <tr>
+                                   <th style="color: #fff !important;">Load #</th>
+                                   <th style="color: #fff !important;">Agent Name</th>
+                                   <th style="color: #fff !important;">Load Status</th>
+                                   <th style="color: #fff !important;">Load Create Date</th>
+                                   <th style="color: #fff !important;">Load Shipper Date</th>
+                                   <th style="color: #fff !important;">Load Type</th>
+                                   <th style="color: #fff !important;">Carrier Advance Payment</th>
+                                   <th style="color: #fff !important;">Delivery Date</th>
+                                   <th style="color: #fff !important;">Carrier Due Date</th>
+                                   <th style="color: #fff !important;">Carrier Mark Payment Date</th>
+                                   <th style="color: #fff !important;">Carrier Fee</th>
+                                   <th style="color: #fff !important;">Shipper Rate</th>
+                                   <th style="color: #fff !important;">Invoice No</th>
+                                   <th style="color: #fff !important;">Invoice Date</th>
+                                   <th style="color: #fff !important;">Customer Payment Amount</th>
+                                   <th style="color: #fff !important;">Customer Payment Received Date</th>
+                                   <th style="color: #fff !important;">Customer Payment</th>
+                                   <th style="color: #fff !important;">Carrier Payment</th>
+                                   <th style="color: #fff !important;">Margin</th>
+                               </tr>
+                           </thead>
+                           <tbody>
+                               @foreach($dashboard as $log)
+                               @php
+                                   $shipper = json_decode($load->load_shipperr, true);
+                                   $consignee = json_decode($load->load_consignee, true);
+                                   $shipper_appointment = json_decode($load->load_shipper_appointment,true);
+                                   $shipper_location = json_decode($load->load_shipper_location, true); 
+                                   $consignee_location = json_decode($load->load_consignee_location, true); 
+                                   $consignee_appointment = json_decode($load->load_consignee_appointment,true)
+                                   
+                               @endphp
+                               <tr>
+                               <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->load_number }}</td>
+                               <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->user->name }}</td>
+                               <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->load_status }}</td>
+                               <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->created_at->format('Y-m-d') }}</td>
+                               <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                   @if(isset($shipper_appointment[0]['appointment']))
+                                       {{ \Carbon\Carbon::parse($shipper_appointment[0]['appointment'])->format('Y-m-d') }}
+                                   @else
+                                       'Old Data'
+                                   @endif
+                               </td>
+                               <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->load_type_two }}</td>
+                               <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->load_advance_payment }}</td>
+                               <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->load_actual_delivery_date }}</td>
+                               <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->load_carrier_due_date }}</td>
+                               <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->load_carrier_due_date_on }}</td>
+                               <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->load_carrier_fee }}</td>
+                               <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->load_shipper_rate }}</td>
+                               <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->invoice_number }}</td>
+                               <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->invoice_date }}</td>
+                               <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->shipper_load_final_rate }}</td>
+                               <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->invoice_status_date }}</td>
+                               <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->shipper_load_final_rate }}</td>
+                               <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->load_final_carrier_fee }}</td>
+                               @php
+                                   // Assign default values if null
+                                   $shipperLoadFinalRate = $log->shipper_load_final_rate ?? 0;
+                                   $loadFinalCarrierFee = $log->load_final_carrier_fee ?? 0;
+
+                                   // Ensure values are numeric
+                                   $shipperLoadFinalRate = is_numeric($shipperLoadFinalRate) ? $shipperLoadFinalRate : 0;
+                                   $loadFinalCarrierFee = is_numeric($loadFinalCarrierFee) ? $loadFinalCarrierFee : 0;
+
+                                   // Calculate margin
+                                   $margin = $shipperLoadFinalRate - $loadFinalCarrierFee;
+                               @endphp
+                               <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ number_format($margin, 2) }}</td>
+                               </tr>
+                               @endforeach
+                           </tbody>
+                       </table>
+                    </div>
+                </div>
+
+>>>>>>> old-repo/master
             </div>
 </section>
 <div class="modal fade" id="datePickerModal" tabindex="-1" role="dialog" aria-labelledby="datePickerModalLabel"
@@ -1328,6 +1676,7 @@
     });
 </script>
 
+<<<<<<< HEAD
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
@@ -1349,4 +1698,6 @@
         });
     });
 </script>
+=======
+>>>>>>> old-repo/master
 @endsection

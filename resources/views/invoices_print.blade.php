@@ -128,6 +128,10 @@
     /** Invoice 2 Start **/
     .invoice-2 {
         padding: 30px 0;
+<<<<<<< HEAD
+=======
+        background: #f9fdee;
+>>>>>>> old-repo/master
     }
 
     .invoice-2 .mb-30 {
@@ -174,6 +178,10 @@
 
 
     .invoice-2 .invoice-top {
+<<<<<<< HEAD
+=======
+        padding: 0 50px 0 50px;
+>>>>>>> old-repo/master
         font-size: 15px;
     }
     p {
@@ -202,13 +210,25 @@ td {
 
 
     .invoice-2 img {
+<<<<<<< HEAD
         width: 50%;
     margin-bottom: 17px;
 
+=======
+        width: 69%;
+    margin-left: 45px;
+    margin-bottom: 17px;
+    padding: 35px 0 0;
+>>>>>>> old-repo/master
     }
 
     .invoice-2 .invoice-id .info {
         max-width: 100%;
+<<<<<<< HEAD
+=======
+    padding: 35px 0 0;
+    margin-right: 50px;
+>>>>>>> old-repo/master
     }
 
 
@@ -272,7 +292,11 @@ td {
 
     <!-- Invoice 2 start -->
     <div class="invoice-2 invoice-content">
+<<<<<<< HEAD
         <div class="container-fluid">
+=======
+        <div class="container">
+>>>>>>> old-repo/master
             <div class="row">
                 <div class="col-lg-12">
                     <div class="invoice-inner clearfix">
@@ -353,7 +377,11 @@ td {
                                             </div>
                                             <div class="col-md-6">
                                                 <p><b>Quantity:</b> {{ isset($shipper_qty[$key]['shipper_qty']) ? $shipper_qty[$key]['shipper_qty'] : '' }}</p>
+<<<<<<< HEAD
                                                 <p><b>Date:</b> {{ isset($shipper_appointment_date[$key]['appointment']) ? \Carbon\Carbon::parse($shipper_appointment_date[$key]['appointment'])->setTimezone('America/New_York')->format('d-m-Y') : '' }}</p>
+=======
+                                                <p><b>Date:</b> {{ isset($shipper_appointment_date[$key]['appointment']) ? \Carbon\Carbon::parse($shipper_appointment_date[$key]['appointment'])->format('m-d-Y') : '' }}</p>
+>>>>>>> old-repo/master
                                                 <p><b>Weight:</b> {{ isset($shipper_weight[$key]['shipper_weight']) ? $shipper_weight[$key]['shipper_weight'] : '' }} lbs</p>
                                                
                                             </div>
@@ -393,7 +421,11 @@ td {
                                         </div>
                                         <div class="col-md-6">
                                             <p><b>Quantity:</b> {{ isset($consignees_qty[$key]['consignee_qty']) ? $consignees_qty[$key]['consignee_qty'] : '' }}</p>
+<<<<<<< HEAD
                                             <p><b>Date:</b> {{ isset($consignee_appointment[$key]['appointment']) ? date('d-m-Y', strtotime($consignee_appointment[$key]['appointment'])) : '' }}</p>
+=======
+                                            <p><b>Date:</b> {{ isset($consignee_appointment[$key]['appointment']) ? date('m-d-Y', strtotime($consignee_appointment[$key]['appointment'])) : '' }}</p>
+>>>>>>> old-repo/master
                                             <p><b>Weight:</b> {{ isset($consignees_weight[$key]['consignee_weight']) ? $consignees_weight[$key]['consignee_weight'] : '' }} lbs</p>
                                             
                                         </div>
@@ -435,9 +467,15 @@ td {
                                       <p class="m-0"> <b>${{ $invoice->shipper_load_final_rate }}</b></p>
                                     </div>
                             </div>
+<<<<<<< HEAD
                                 <div class="payment-method mb-30" style=" padding-top: 20px;">
                                     <h3 class="inv-title-1">Account Details:</h3>
                                     <p class="m-1"><strong>Account Name:</strong> Cargo Convoy Inc.</p>
+=======
+                                <div class="payment-method mb-30" style="padding:50px;">
+                                    <h3 class="inv-title-1">Account Details:</h3>
+                                    <p class="m-1"><strong>Account Name:</strong> Cargo Convyo Inc.</p>
+>>>>>>> old-repo/master
                                     <p class="m-1"><strong>Bank Name:</strong> Chase Bank</p>
                                     <p class="m-1"><strong>Branch Number:</strong>927021821</p>
                                     <p class="m-1"><strong>Bank Address:</strong> 3604 West Chester Pike, Newtown Square, PA 19073, United States</p>
@@ -446,7 +484,11 @@ td {
                                    
                                    
                                 </div>
+<<<<<<< HEAD
                                 <p class="text-center" style="padding-bottom: 28px !important;">Your insights and experiences are invaluable to us. If you have any feedback, suggestions, or concerns, please don’t hesitate to reach out to us at <a href="#">feedback@cargoconvoy.co</a></p>
+=======
+                                <p class="text-center" style="padding-bottom: 28px !important;padding: 0 50px;">Your insights and experiences are invaluable to us. If you have any feedback, suggestions, or concerns, please don’t hesitate to reach out to us at <a href="#">feedback@cargoconvoy.co</a></p>
+>>>>>>> old-repo/master
                         </div>
                     </div>
                 </div>

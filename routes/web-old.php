@@ -30,10 +30,13 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+<<<<<<< HEAD
 Route::group(['middleware' => ['auth']], function () {
     // Protected routes here
     Route::get('/', [DashboardController::class, 'index']);
 });
+=======
+>>>>>>> old-repo/master
 
 
 // Customer Controller Route //

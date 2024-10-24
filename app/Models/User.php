@@ -17,8 +17,14 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+<<<<<<< HEAD
     protected $fillable = [
         'name', 'email', 'password', 'address', 'office', 'manager', 'team_lead','emergency_contact','emp_code','profile_picture',
+=======
+    protected $guarded = ['web'];
+    protected $fillable = [
+        'name', 'email', 'password', 'address', 'office', 'manager', 'team_lead','emergency_contact','emp_code',
+>>>>>>> old-repo/master
     ];
 
     public function profileData()
@@ -69,5 +75,13 @@ class User extends Authenticatable
 }
 
 
+<<<<<<< HEAD
+=======
+    public function teamlead()
+    {
+        return $this->hasOne(TeamLead::class, 'team_lead', 'id');
+    }
+
+>>>>>>> old-repo/master
 
 }

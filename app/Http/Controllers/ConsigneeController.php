@@ -20,13 +20,27 @@ class ConsigneeController extends Controller
 
    
     public function add_consignee(){
+<<<<<<< HEAD
         $countries = Country::orderByRaw('CASE WHEN id = 233 THEN 0 WHEN id = 39 THEN 1 ELSE 2 END')->orderBy('name')->get();
         $consignees = Consignee::where('user_id', auth()->user()->id)->get();
+=======
+        $user = auth()->user();
+        
+        if(!$user){
+            $user = Auth::guard('teamlead')->user();  
+        }
+        $countries = Country::orderByRaw('CASE WHEN id = 233 THEN 0 WHEN id = 39 THEN 1 ELSE 2 END')->orderBy('name')->get();
+        $consignees = Consignee::where('user_id', $user->id)->get();
+>>>>>>> old-repo/master
         $states = States::orderBy('name')->get();
         $cities = Cities::all();
         // print_r($consignees); die();
 
+<<<<<<< HEAD
         return view('broker.consignee', compact('countries', 'states', 'cities', 'consignees'));
+=======
+        return view('broker.consignee', compact('countries', 'states', 'cities', 'consignees','user'));
+>>>>>>> old-repo/master
     }
 
     public function consignee_list()
@@ -46,11 +60,23 @@ class ConsigneeController extends Controller
 
     public function edit($id)
     {
+<<<<<<< HEAD
+=======
+        $user = auth()->user();
+        
+        if(!$user){
+            $user = Auth::guard('teamlead')->user();  
+        }
+>>>>>>> old-repo/master
         $consignee = Consignee::findOrFail($id);
         $countries = Country::orderByRaw('CASE WHEN id = 233 THEN 0 WHEN id = 39 THEN 1 ELSE 2 END')->orderBy('name')->get();
         $states = States::orderBy('name')->get();
         $cities = Cities::all();  
+<<<<<<< HEAD
         $customers = Customer::where('user_id', auth()->user()->id)->get();
+=======
+        $customers = Customer::where('user_id', $user->id)->get();
+>>>>>>> old-repo/master
         $customers->transform(function ($customer) {
             $totalLoadRate = Load::where('user_id', $customer->user_id)->sum(DB::raw('CAST(shipper_load_final_rate AS UNSIGNED)'));
 
@@ -67,6 +93,10 @@ class ConsigneeController extends Controller
         // Validate the request data
         $request->validate([
             'consignee_name' => 'required|string|max:255',
+<<<<<<< HEAD
+=======
+            // Add other validation rules as necessary
+>>>>>>> old-repo/master
         ]);
     
         // Find the consignee by ID or fail if not found
@@ -121,9 +151,20 @@ class ConsigneeController extends Controller
                     'shipper_internal_notes' => $request->input('consignee_internal_notes') ?? '',
                 ]);
             } else {
+<<<<<<< HEAD
                 // Create new shipper if it does not exist
                 Shipper::create([
                     'user_id' => auth()->user()->id,
+=======
+                $user = auth()->user();
+        
+        if(!$user){
+            $user = Auth::guard('teamlead')->user();  
+        }
+                // Create new shipper if it does not exist
+                Shipper::create([
+                    'user_id' => $user->id,
+>>>>>>> old-repo/master
                     'shipper_name' => $request->input('consignee_name') ?? '',
                     'shipper_address' => $request->input('consignee_address') ?? '',
                     'shipper_country' => $request->input('consignee_country') ?? '',
@@ -156,9 +197,19 @@ class ConsigneeController extends Controller
     public function store(Request $request)
     {
                 // echo '<pre>'; print_r($request->all()); die();
+<<<<<<< HEAD
 
         Consignee::create([
             'user_id' => auth()->user()->id,
+=======
+                $user = auth()->user();
+        
+                if(!$user){
+                    $user = Auth::guard('teamlead')->user();  
+                }
+        Consignee::create([
+            'user_id' => $user->id,
+>>>>>>> old-repo/master
             'consignee_name' => $request->input('consignee_name') ?? '',
             'consignee_address' => $request->input('consignee_address') ?? '',
             'consignee_country' => $request->input('consignee_country') ?? '',
@@ -181,8 +232,18 @@ class ConsigneeController extends Controller
 
 
         if($request->consignee_add_shippper) {
+<<<<<<< HEAD
         Shipper::create([
             'user_id' => auth()->user()->id,
+=======
+            $user = auth()->user();
+        
+        if(!$user){
+            $user = Auth::guard('teamlead')->user();  
+        }
+        Shipper::create([
+            'user_id' => $user->id,
+>>>>>>> old-repo/master
             'shipper_name' => $request->consignee_name ?? '',
             'shipper_address' => $request->consignee_address ?? '',
             'shipper_country' => $request->consignee_country ?? '',

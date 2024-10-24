@@ -386,8 +386,11 @@ $(document).ready(function() {
 });
 </script>
 
+<<<<<<< HEAD
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+=======
+>>>>>>> old-repo/master
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 
@@ -551,7 +554,11 @@ $(document).ready(function() {
         // Inject CSS dynamically via JavaScript
         var style = '<style>' +
                         'tbody tr.highlight-row {' +
+<<<<<<< HEAD
                             'background-color: #aae900 !important;' +
+=======
+                            'background-color: #CAF1EB !important;' +
+>>>>>>> old-repo/master
                         '}' +
                     '</style>';
         $('head').append(style); // Append the style to the head

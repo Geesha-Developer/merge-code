@@ -250,12 +250,16 @@ tbody {
     }
 
     #menu-btn{
+<<<<<<< HEAD
   background-color:#fff;
   border:none;
   width:25px;
   position:absolute;
   left:20px;
   top:20px;
+=======
+
+>>>>>>> old-repo/master
   span{
     display:inline-block;
     width:100%;
@@ -319,11 +323,15 @@ aside.shrink{
 .user-info.hide small {
     display: none;
 }
+<<<<<<< HEAD
 .card-header {
     background-color: #555555 !important;
     margin-bottom: 15px !important;
     padding: 0.55rem 1.25rem;
 }
+=======
+
+>>>>>>> old-repo/master
  .card-header h3 {
     font-size: 18px;
     text-align: center;

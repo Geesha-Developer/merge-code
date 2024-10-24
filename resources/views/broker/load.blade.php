@@ -2,6 +2,7 @@
 @section('content')
 
 @if(session('success'))
+<<<<<<< HEAD
 <div class="alert alert-success alert-dismissible fade show" role="alert" id="successMessage">
     <i class="fa fa-check"></i>
   <h4 class="alert-heading"><b>Well done!</b></h4>
@@ -24,6 +25,22 @@
   <button type="button" class="btn btn-danger" onclick="$('.alert').alert('close');">OK</button>
 </div>
 @endif
+=======
+<div class="alert alert-success" id="successMessage">
+    {{ session('success') }}
+</div>
+@endif
+@if(session('error'))
+<div class="alert alert-danger" id="errorMessage">
+    <script>
+        alert("{{ session('error') }}");
+
+    </script>
+    {{ session('error') }}
+</div>
+@endif
+<style>
+>>>>>>> old-repo/master
 
 <style>
 
@@ -312,6 +329,14 @@
                     aria-controls="customers" aria-selected="false"
                     style="font-size: 15px;color: #000;font-weight:500">Invoiced</a>
             </li>
+<<<<<<< HEAD
+=======
+            <li class="nav-item">
+                <a class="nav-link" id="invoicepaid-tab" data-bs-toggle="tab" href="#invoicepaid" role="tab"
+                    aria-controls="customers" aria-selected="false"
+                    style="font-size: 15px;color: #000;font-weight:500">Invoiced/Paid</a>
+            </li>
+>>>>>>> old-repo/master
         </ul>
 
         <div class="tab-content" id="myTabContent">
@@ -319,8 +344,12 @@
                 <div class="row mb-3">
                     <div class="col-md-6 text-center">
                         <button type="button" class="btn btn-primary" data-toggle="modal" style="padding: 5px 10px;"
+<<<<<<< HEAD
                             data-target="#exampleModal">Create Load</button>
                         
+=======
+                            data-target="#exampleModal">Create Load</button> 
+>>>>>>> old-repo/master
                     </div>
                     <div class="col-md-6 text-center date-time">
                         <div class="date" style="margin-top: 0;">
@@ -360,12 +389,22 @@
                             </tr>
                         </thead>
                         <tbody>
+<<<<<<< HEAD
+=======
+                        @php
+                            $load = app(\App\Models\Load::class)->where('user_id', auth()->user()->id)->get();
+                        @endphp
+>>>>>>> old-repo/master
 
                             @foreach($load as $loads)
                             <tr class="load-row" data-created-at="{{ $loads->created_at->format('Y-m-d') }}">
                             <!-- <td class="dynamic-data"><input type="checkbox" class="selected-invoice"></td> -->
                                 @if ($loads->load_status != 'Delivered' )
+<<<<<<< HEAD
                                 <td class="dynamic-data"><a style="color: rgb(40 122 7) !important;" href="{{ route('broker.load.edit', ['id' => $loads->id]) }}">{{ $loads->load_number }}</a></td>
+=======
+                                <td class="dynamic-data"><a style="color: rgb(40 122 7) !important;font-weight: 700;" href="{{ route('broker.load.edit', ['id' => $loads->id]) }}">{{ $loads->load_number }}</a></td>
+>>>>>>> old-repo/master
                                 @else
                                 <td class="dynamic-data">{{ $loads->load_number }}</td>
                                 @endif
@@ -505,7 +544,11 @@
                                     @endif
                                 </td>
 
+<<<<<<< HEAD
                                 @if($loads->load_status == "Open")
+=======
+                                @if(in_array($loads->load_status, ['Open', 'On Route', 'Covered','Unloading']))
+>>>>>>> old-repo/master
                                 <td class="dynamic-data">{{ $loads->cpr_check }}</td>
                                 @elseif($loads->load_status == "Delivered")
                                 <td class="dynamic-data">Verified</td>
@@ -637,11 +680,19 @@
                         <tbody>
 
                             @foreach($load as $loads)
+<<<<<<< HEAD
                             @if(in_array($loads->load_status, ['Open', 'On Route', 'Covered','Unloading']))
                             <tr>
                                 <!-- <td class="dynamic-data"><input type="checkbox" class="selected-invoice"></td> -->
                                 @if ($loads->load_status != 'Delivered')
                                 <td class="dynamic-data"><a style="color: rgb(40 122 7) !important;" href="{{ route('broker.load.edit', ['id' => $loads->id]) }}">{{ $loads->load_number }}</a></td>
+=======
+                            @if($loads->load_status == 'Open')
+                            <tr>
+                                <!-- <td class="dynamic-data"><input type="checkbox" class="selected-invoice"></td> -->
+                                @if ($loads->load_status != 'Delivered')
+                                <td class="dynamic-data"><a style="font-weight: 700;color: rgb(40 122 7) !important;" href="{{ route('broker.load.edit', ['id' => $loads->id]) }}">{{ $loads->load_number }}</a></td>
+>>>>>>> old-repo/master
                                 @else
                                 <td class="dynamic-data">{{ $loads->load_number }}</td>
                                 @endif
@@ -777,7 +828,11 @@
                                     @endif
                                 </td> -->
 
+<<<<<<< HEAD
                                 @if(in_array($loads->load_status, ['Open', 'On Route', 'Covered','Unloading']))
+=======
+                                @if($loads->load_status == "Open")
+>>>>>>> old-repo/master
                                 <td class="dynamic-data">{{ $loads->cpr_check }}</td>
                                 @elseif($loads->load_status == "Delivered")
                                 <td class="dynamic-data">Verified</td>
@@ -904,7 +959,11 @@
                                 <tr>
                                     <!-- <td class="dynamic-data"><input type="checkbox" class="selected-invoice"></td> -->
                                     @if ($loads->load_status != 'Delivered')
+<<<<<<< HEAD
                                     <td class="dynamic-data"><a style="color: rgb(40 122 7) !important;" href="{{ route('broker.load.edit', ['id' => $loads->id]) }}">{{ $loads->load_number }}</a></td>
+=======
+                                    <td class="dynamic-data"><a style="font-weight: 700;color: rgb(40 122 7) !important;" href="{{ route('broker.load.edit', ['id' => $loads->id]) }}">{{ $loads->load_number }}</a></td>
+>>>>>>> old-repo/master
                                     @else
                                     <td class="dynamic-data">{{ $loads->load_number }}</td>
                                     @endif
@@ -1168,7 +1227,11 @@
                                 <tr>
                                     <!-- <td class="dynamic-data"><input type="checkbox" class="selected-invoice"></td> -->
                                     @if ($loads->load_status != 'Delivered')
+<<<<<<< HEAD
                                     <td class="dynamic-data"><a style="color: rgb(40 122 7) !important;" href="{{ route('broker.load.edit', ['id' => $loads->id]) }}">{{ $loads->load_number }}</a></td>
+=======
+                                    <td class="dynamic-data"><a style="font-weight: 700;color: rgb(40 122 7) !important;" href="{{ route('broker.load.edit', ['id' => $loads->id]) }}">{{ $loads->load_number }}</a></td>
+>>>>>>> old-repo/master
                                     @else
                                     <td class="dynamic-data">{{ $loads->load_number }}</td>
                                     @endif
@@ -1429,11 +1492,19 @@
                             <tbody>
 
                                 @foreach($load as $loads)
+<<<<<<< HEAD
                                 @if($loads->invoice_status == 'Paid Record' || $loads->invoice_status == 'Paid')
                                 <tr>
                                     <!-- <td class="dynamic-data"><input type="checkbox" class="selected-invoice"></td> -->
                                     @if ($loads->load_status != 'Delivered')
                                     <td class="dynamic-data"><a style="color: rgb(40 122 7) !important;" href="{{ route('broker.load.edit', ['id' => $loads->id]) }}">{{ $loads->load_number }}</a></td>
+=======
+                                @if($loads->invoice_status == 'Paid Record')
+                                <tr>
+                                    <!-- <td class="dynamic-data"><input type="checkbox" class="selected-invoice"></td> -->
+                                    @if ($loads->load_status != 'Delivered')
+                                    <td class="dynamic-data"><a style="font-weight: 700;color: rgb(40 122 7) !important;" href="{{ route('broker.load.edit', ['id' => $loads->id]) }}">{{ $loads->load_number }}</a></td>
+>>>>>>> old-repo/master
                                     @else
                                     <td class="dynamic-data">{{ $loads->load_number }}</td>
                                     @endif
@@ -1479,6 +1550,7 @@
                                         // Decode the JSON string to an associative array
                                         $shipper_location = json_decode($loads->load_shipper_location, true);
 
+<<<<<<< HEAD
                                         // Debug to check the structure of the decoded JSON (for development)
                                         // dd($shipper_location); // Uncomment this to see the structure if you're unsure
 
@@ -1492,6 +1564,14 @@
 
                                     <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
                                         {{-- Output the 'location' key if $firstLocation is not null and contains the 'location' --}}
+=======
+                                        // Get the first location, if it exists
+                                        $firstLocation = !empty($shipper_location) && is_array($shipper_location) ? $shipper_location[0] : null;
+                                    @endphp
+
+                                    <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                        {{-- Output the 'location' key if $firstLocation is not null --}}
+>>>>>>> old-repo/master
                                         {{ $firstLocation['location'] ?? '' }}
                                     </td>
 
@@ -1499,6 +1579,281 @@
 
 
 
+<<<<<<< HEAD
+=======
+                                    @php
+                                        $consignees = json_decode($loads->load_consignee, true); // Decode JSON string for consignee names
+                                    @endphp
+                                    
+                                    @if($consignees && isset($consignees[0]))
+                                    <td class="dynamic-data">
+                                        {{ $consignees[0]['name'] ?? '' }}
+                                    </td>
+                                    @else
+                                    <td class="dynamic-data">No Consignee</td>
+                                    @endif
+
+                                    <td class="dynamic-data">{{ date('m-d-Y', strtotime($loads->load_actual_delivery_date)) }}</td>
+                                    @if($loads->load_status !== 'Delivered')
+                                    <td class="dynamic-data">
+                                        <select name="load_status" data-load-id="{{ $loads->id }}">
+                                            <option style="background-color:#fff" value="{{ $loads->load_status }}" selected>
+                                                Invoiced
+                                            </option>
+                                            @php
+                                            // Define the list of status options with associated colors
+                                            $statusOptions = [
+                                            'Open' => '#74d1f0',
+                                            'Covered' => 'rgb(69 7 172 / 72%)',
+                                            'On Route' => 'green',
+                                            'Delivered' => '#7C2B1A',
+                                            'Unloading' => 'gray',
+                                            'Completed' => '#3597dc'
+                                            ];
+                                            @endphp
+                                            @foreach($statusOptions as $status => $color)
+                                            @if($status !== $loads->load_status)
+                                            @if($status === 'Completed')
+                                            <option value="{{ $status }}" style="background-color: {{ $color }}; color:#fff"
+                                                disabled>
+                                                {{ $status }}
+                                            </option>
+                                            @else
+                                            <option value="{{ $status }}" style="background-color: {{ $color }}; color:#fff">
+                                            
+                                                {{ $status }}
+                                            
+                                            </option>
+                                            @endif
+                                            @endif
+                                            @endforeach
+                                        </select>
+                                    </td>
+                                    @else
+                                    <td class="dynamic-data">
+                                        <select name="load_status" data-load-id="{{ $loads->id }}" disabled>
+                                            <option selected value="{{ $loads->load_status }}" disabled>
+                                               Invoiced
+                                            </option>
+                                    </td>
+                                    @endif
+
+                                    @php
+                                        $shipperRate = floatval($loads->shipper_load_final_rate);
+                                        $carrierFee = floatval($loads->load_final_carrier_fee);
+                                        $getMargin = $shipperRate - $carrierFee;
+                                    @endphp
+
+
+                                    <td class="dynamic-data">
+                                        @if($loads->load_status == 'Delivered' || $loads->invoice_status == null)
+                                        @php
+                                        $deliveredDate = \Carbon\Carbon::parse($loads->created_at);
+                                        $currentDate = \Carbon\Carbon::now();
+                                        $differenceInDays = $deliveredDate->diffInDays($currentDate);
+                                        @endphp
+                                        {{ $differenceInDays }} days
+                                        @elseif($loads->invoice_status == 'paid' || $loads->load_status == 'Delivered')
+                                        Aging Complete
+                                        @endif
+                                    </td>
+                                    <td class="dynamic-data" style="color: {{ $getMargin >= 0 ? 'green' : 'red' }};">
+                                        ${{ number_format($getMargin, 2) }}
+                                    </td>
+                                    @php
+                                        $shipperRate = floatval($loads->shipper_load_final_rate);
+                                        $carrierFee = floatval($loads->load_final_carrier_fee);
+                                        $getMargin = $shipperRate - $carrierFee;
+
+                                        // Calculate margin percentage
+                                        if ($shipperRate > 0) {
+                                            $marginPercent = ($getMargin / $shipperRate) * 100;
+                                        } else {
+                                            $marginPercent = 0; // Handle division by zero case
+                                        }
+                                     @endphp
+
+                                <!-- Display the margin percentage and set color based on whether the percentage is negative or positive -->
+                                <td class="dynamic-data" style="color: {{ $marginPercent >= 0 ? 'green' : 'red' }};">
+                                    {{ number_format($marginPercent, 2) }}%
+                                </td>
+                                    @if($loads->load_status)
+                                    <td class="dynamic-data" colspan="2">
+
+                                        <div class="dropdown">
+                                            <button type="button" class="btn btn-primary dropdown-toggle"
+                                                data-toggle="dropdown">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <li>
+                                                    <a href="{{ route('download.pdf', ['id' => $loads->id]) }}" target="_blank">
+                                                        <i class="fas fa-file-pdf dynamic-data"
+                                                            style="margin:0 10px; font-size: 20px;"></i> Carrier RC
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="{{ route('shipper.rc.pdf', ['id' => $loads->id]) }}"
+                                                        target="_blank">
+                                                        <i class="fas fa-file-pdf dynamic-data"
+                                                            style="margin:0 10px; font-size: 20px;"></i>Shipper RC
+                                                    </a>
+                                                </li>
+
+
+
+                                                @if ($loads->load_status != 'Delivered')
+                                                    <li>
+                                                        <a href="{{ route('clone.load', ['id' => $loads->id]) }}" class="clone-link">
+                                                            <i class="fas fa-clone dynamic-data" style="margin:0 10px; font-size: 20px;"></i> Clone
+                                                        </a>
+                                                    </li>
+
+
+                                                <li>
+                                                    <a href="{{ route('broker.load.edit', ['id' => $loads->id]) }}">
+                                                        <i class="fas fa-pen dynamic-data" style="font-size: 20px; margin:0 10px;"></i>Edit
+                                                    </a>
+                                                </li>
+
+                                                @endif
+
+
+
+
+                                                <li>
+                                                    <a href="{{ route('files.upload', ['filesId' => $loads->id]) }}"><i
+                                                            class="fa fa-upload dynamic-data" aria-hidden="true"
+                                                            style="margin:0 10px; font-size: 20px;"></i>Upload</a>
+                                                </li>
+                                            </div>
+                                        </div>
+
+
+                                        @elseif($loads->invoice_status == 'Paid Record')
+                                    <td class="dynamic-data"><span>Paid</span></td>
+                                    @elseif($loads->invoice_status == 'Paid')
+                                    <td class="dynamic-data"><span> Invoiced</span></td>
+                                    @elseif($loads->invoice_status == 'Completed')
+                                    <td class="dynamic-data"><span> Completed </span></td>
+                                    @else
+                                    <td class="dynamic-data"><span>Delivered</span></td>
+                                    @endif
+                                    </td>
+                                </tr>
+                                @endif
+                                @endforeach
+                            </tbody>
+                        </table>
+                     </div>
+            </div>
+            <div class="tab-pane fade" id="invoicepaid" ole="tabpanel" aria-labelledby="customers-tab">
+                <div class="row">
+                    <div class="col-md-6 text-center">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" style="padding: 5px 10px;"
+                            data-target="#exampleModal">Create Load</button>
+                        
+                    </div>
+                    <div class="text-center date-time">
+                        <div class="date" style="margin-top: 0;">
+                            <label for="start">Start Date</label>
+                            <input id="start" style="height: 30px;color: #3e3e40;" type="date" />
+                        </div>
+                        <div class="date" style="margin-top: 0;margin-left: 14px;">
+                            <label for="end">End Date</label>
+                            <input id="end" style="height: 30px;color: #3e3e40;" type="date" />
+                        </div>
+                    </div>
+                </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover js-basic-example dataTable">
+                        <thead>
+                                <tr>
+                                    <!-- <th><input type="checkbox" id="select-invoice"></th> -->
+                                    <th>Load #</th>
+                                    <th>Invoice #</th>
+                                    <th>Invoice Date</th>
+                                    <th>W/O #</th>
+                                    <th>Customer #</th>
+                                    <th>Load Create Date</th>
+                                    <th>Shipper Date</th>
+                                    <th>Deliver date</th>
+                                    <th>Carrier</th>
+                                    <th>Pickup Location</th>
+                                    <th>Unloading Location</th>
+                                    <th>Actual Del Date</th>
+                                    <th>Load Status</th>
+                                    <th>Aging</th>
+                                    <th>Margin</th>
+                                    <th>Margin %</th>
+                                    <th>Action</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach($load as $loads)
+                                @if($loads->invoice_status == 'Paid')
+                                <tr>
+                                    <!-- <td class="dynamic-data"><input type="checkbox" class="selected-invoice"></td> -->
+                                    @if ($loads->load_status != 'Delivered')
+                                    <td class="dynamic-data"><a style="font-weight: 700;color: rgb(40 122 7) !important;" href="{{ route('broker.load.edit', ['id' => $loads->id]) }}">{{ $loads->load_number }}</a></td>
+                                    @else
+                                    <td class="dynamic-data">{{ $loads->load_number }}</td>
+                                    @endif
+                                    <td class="dynamic-data">{{ $loads->invoice_number }}</td>
+                                    <td class="dynamic-data">{{ \Carbon\Carbon::parse($loads->invoice_date)->format('m-d-Y') }}</td>
+
+                                    <td class="dynamic-data">{{ $loads->load_workorder }}</td>
+                                    <td class="dynamic-data">{{ $loads->load_bill_to }}</td>
+                                    <td class="dynamic-data">{{ $loads->created_at->format('m-d-Y') }}</td>
+                                    @php
+                                        $shipper_appointment_date = json_decode($loads->load_shipper_appointment, true);
+                                    @endphp
+
+                                    @if($shipper_appointment_date)
+                                        @foreach ($shipper_appointment_date as $key => $shipper)
+                                            <td class="dynamic-data">
+                                                {{ isset($shipper['appointment']) ? \Carbon\Carbon::parse($shipper['appointment'])->format('m-d-Y') : '' }}
+                                            </td>
+                                        @endforeach
+                                    @else
+                                        <td class="dynamic-data">No appointments available</td>
+                                    @endif
+
+                                    @php
+                                        $consignee_appointment_date = json_decode($loads->load_consignee_appointment, true);
+                                    @endphp
+
+                                    @if($consignee_appointment_date)
+                                        @php
+                                            $lastAppointment = end($consignee_appointment_date);
+                                            $appointmentDate = isset($lastAppointment['appointment']) ? \Carbon\Carbon::parse($lastAppointment['appointment'])->format('m-d-Y') : 'No appointments available';
+                                        @endphp
+                                        <td class="dynamic-data">{{ $appointmentDate }}</td>
+                                    @else
+                                        <td class="dynamic-data">No appointments available</td>
+                                    @endif
+
+
+                                    <td class="dynamic-data">{{ $loads->load_carrier }}</td>
+                                    <!-- <td class="dynamic-data">{{ $loads->load_shipper_location }}</td> -->
+                                    @php
+                                        $shipper_location = json_decode($loads->load_shipper_location, true);
+                                    @endphp
+
+                                    @php
+                                        $firstLocation = !empty($shipper_location) ? $shipper_location[0] : null;
+                                    @endphp
+
+                                    <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                        {{ $firstLocation['location'] ?? '' }}
+                                    </td>
+
+
+
+>>>>>>> old-repo/master
 
                                     @php
                                         $consignees = json_decode($loads->load_consignee, true); // Decode JSON string for consignee names
@@ -1713,9 +2068,15 @@
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label>Dispatcher <code>*</code></label>
+<<<<<<< HEAD
                                 <input class="form-control" name="load_dispatcher"
                                     value="{{ Auth::user()->name }}" required readonly
                                     style="width: 100%;">
+=======
+                                <input class="form-control" name="load_dispatcher" value="@if(Auth::guard('teamlead')->check()) {{ Auth::guard('teamlead')->user()->name }} @elseif(Auth::guard('web')->check()) 
+                                    {{ Auth::guard('web')->user()->name }} @endif" required readonly style="width: 100%;">
+
+>>>>>>> old-repo/master
                             </div>
                         </div>
                         <div class="col-md-2">
@@ -1824,6 +2185,7 @@
                                 </label>
                                 <input class="form-control number percent" style="width: 100%;">
                             </div>
+<<<<<<< HEAD
 
                             <div class="modal close_shipper_other_charges_form p-0" id="myModal">
                                 <div class="modal-dialog">
@@ -1886,6 +2248,8 @@
                                     </div>
                                 </div>
                             </div>
+=======
+>>>>>>> old-repo/master
                         </div>
                         <div class="col-md-2">
                             <div class="form-group">
@@ -1896,6 +2260,7 @@
                         </div>
                         <div class="col-md-2">
                             <div class="form-group">
+<<<<<<< HEAD
                                 <label>DOT #</label>
                                 <input class="form-control" name="carrier_dot" id="carrier_dot" style="width: 100%;" placeholder="Enter DOT Number">
                             </div>
@@ -1920,6 +2285,31 @@
                             <div class="form-group">
                                 <label>Carrier Phone<code>*</code></label>
                                 <input type="number" id="load_carrier_phone" name="load_carrier_phone" required class="form-control" readonly style="width: 100%;">
+=======
+                                <label>Carrier <code>*</code></label>
+                                <input type="text" id="load_carrier" name="load_carrier" class="form-control" style="width: 100%;" autocomplete="off">
+                                <input type="text" hidden name="carrier_id" id="carrier_id">
+                                <!-- Dropdown to show the carrier suggestions -->
+                                <ul id="carrier-list" class="list-group" style="position: absolute; z-index: 1000; width: 100%; display: none;"></ul>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>MC No <code>*</code></label>
+                                <input class="form-control" required name="load_mc_no" id="carrier_mc_ff_input" style="width: 100%;" placeholder="Enter MC Number">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>DOT No <code>*</code></label>
+                                <input class="form-control" name="carrier_dot" id="carrier_dot" style="width: 100%;" placeholder="Enter DOT Number">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>Carrier Phone<code>*</code></label>
+                                <input type="text" id="load_carrier_phone" name="load_carrier_phone" class="form-control" style="width: 100%;" readonly>
+>>>>>>> old-repo/master
                             </div>
                         </div>
                         <div class="col-md-2">
@@ -1969,6 +2359,7 @@
                                     style="width: 100%;">
                             </div>
                             <!-- Modal -->
+<<<<<<< HEAD
                             <div class="modal fade" id="otherChargesModal" tabindex="-1" role="dialog"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -2004,6 +2395,9 @@
                                     </div>
                                 </div>
                             </div>
+=======
+                            
+>>>>>>> old-repo/master
                         </div>
                         <div class="col-md-2">
                             <div class="form-group">
@@ -2017,9 +2411,13 @@
                                 <label>Currency</label>
                                 <select class="form-control select2" name="load_currency"
                                     style="width: 100%;">
+<<<<<<< HEAD
                                     <option selected="selected">Select
                                         Currency
                                     </option>
+=======
+                                    <option selected="selected">Select Currency</option>
+>>>>>>> old-repo/master
                                     <option>$</option>
                                     <option>CAD</option>
                                 </select>
@@ -2609,10 +3007,146 @@
     </div>
 </div>
 
+<<<<<<< HEAD
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
 
+=======
+    <div class="modal close_shipper_other_charges_form p-0" id="myModal">
+        <div class="modal-dialog" style="max-width: 730px;">
+            <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="card-header" style="font-size: 17px;text-align: left;font-weight: 700;"> Other Charges</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+                <!-- Modal Body -->
+                <div class="modal-body pt-0">
+                    <div class="container" style="max-width: 100% !important;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="shipperchargeType"> Charge Type:</label>
+                                    <input type="text" class="form-control" name="shipperchargeType[]" placeholder="Enter charge type">
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label> Charge Amount:</label>
+                                    <input type="number" class="form-control" name="shipperchargeAmount[]" placeholder="Enter charge amount">
+                                </div>
+                            </div>
+                            <div
+                                class="col-md-1" style="margin-top: 27px;">
+                                <a type="button" class="remove-charge" name="shipperchargeAmountdelete[]">
+                                    <i class="fa fa-trash" style="color:red;margin-top: 19px;" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="row" id="chargeRowTemplate" style="display: none;">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="shipperchargeType"> Charge Type:</label>
+                                    <input type="text" class="form-control"
+                                        name="shipperchargeType[]"
+                                        placeholder="Enter charge type">
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label>Charge Amount:</label>
+                                    <input type="number" class="form-control" name="shipperchargeAmount[]" placeholder="Enter charge amount">
+                                </div>
+                            </div>
+                            <div
+                                class="col-md-1" style="margin-top: 27px;">
+                                <a type="button" class="remove-charge" name="shipperchargeAmountdelete[]">
+                                    <i class="fa fa-trash" style="color:red;margin-top: 19px;" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer mt-2">
+                    <button type="button" class="btn btn-success" id="addChargeBtn">Add More Charges</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="otherChargesModal">
+        <div class="modal-dialog" style="max-width: 730px;" role="document">
+            <div class="modal-content" id="model_content">
+                <div class="modal-header">
+                    <h4 class="card-header" style="font-size: 17px;text-align: left;font-weight: 700;"> Other Charges</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body pt-0">
+                    <div id="inputs">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="shipperchargeType">Charge Type:</label>
+                                    <input class="w-100 form-control" type="text" name="shipper_type_charge[]" placeholder="Type Of Charge">
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label>Charge Amount:</label>
+                                    <input class="w-100 form-control" type="number" name="shipper_other_charge[]" placeholder="Price" />
+                                </div>
+                            </div>
+                            <div class="col-md-1" style="margin-top: 27px;">
+                                <a type="button" class="remove-charge" name="shipperchargeAmountdelete[]">
+                                    <i class="fa fa-trash" style="color:red;margin-top: 19px;" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer mt-2">
+                        <button class='create-input btn btn-success'>Add More Charges</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+<script>
+    $(document).ready(function() {
+    // Check if script is running
+    console.log("Document is ready");
+
+    // Inject CSS dynamically via JavaScript
+    var style = '<style>' +
+                    'tbody tr.highlight-row {' +
+                        'background-color: #CAF1EB !important;' +
+                    '}' +
+                '</style>';
+    $('head').append(style); // Append the style to the head
+
+    // Check if tbody exists
+    console.log($('tbody'));
+
+    // Event delegation to target the first <td> in each row
+    $('tbody').on('click', 'td', function() {
+        console.log("A cell was clicked"); // Check if click event is triggered
+
+        // Remove the highlight from any previously selected row
+        $('tbody tr').removeClass('highlight-row');
+
+        // Add highlight to the clicked row
+        $(this).closest('tr').addClass('highlight-row');
+        console.log($(this).closest('tr')); // Log the row that was clicked
+    });
+});
+</script>
+>>>>>>> old-repo/master
 <script>
     // alert('fuck off everone');
     $(document).ready(function () {
@@ -2687,6 +3221,7 @@
     });
 </script>
 
+<<<<<<< HEAD
 
 <script>
 $(document).ready(function () {
@@ -2752,6 +3287,8 @@ $(document).ready(function () {
 });
 </script>
 
+=======
+>>>>>>> old-repo/master
 <script>
 $(function () {
     let customers = [];
@@ -3058,9 +3595,15 @@ $(function () {
             e.preventDefault(); // Prevent the default form submission
 
             var inputRow = $('<div class="row">' +
+<<<<<<< HEAD
                 '<div class="col-md-5"><div class="form-group"><input class="form-control" style="width:100%;margin-top: 29px;" type="text" name="shipper_type_charge[]" placeholder="Type Of Charge"></div></div>' +
                 '<div class="col-md-5"><div class="form-group"><input class="form-control" style="width:100%;margin-top: 29px;" type="number" name="shipper_other_charge[]" placeholder="Price" /></div></div>' +
                 '<div class="col-md-2"><div class="form-group"><button class="closebtn" style="margin-top: 17px;color:red;border: none;background: unset;"><i class="fa fa-trash"></i></button></div></div>' +
+=======
+                '<div class="col-md-6"><div class="form-group"><input class="form-control" style="width:100%;margin-top: 29px;" type="text" name="shipper_type_charge[]" placeholder="Type Of Charge"></div></div>' +
+                '<div class="col-md-5"><div class="form-group"><input class="form-control" style="width:100%;margin-top: 29px;" type="number" name="shipper_other_charge[]" placeholder="Price" /></div></div>' +
+                '<div class="col-md-1"><div class="form-group"><button class="closebtn" style="margin-top: 17px;color:red;border: none;background: unset;"><i class="fa fa-trash"></i></button></div></div>' +
+>>>>>>> old-repo/master
                 '</div>');
             $('#inputs').append(inputRow);
         });
@@ -3821,6 +4364,7 @@ $(function () {
 });
 
 </script>
+<<<<<<< HEAD
 <script>
     $(document).ready(function() {
         // Inject CSS dynamically via JavaScript
@@ -3841,6 +4385,9 @@ $(function () {
         });
     });
 </script>
+=======
+
+>>>>>>> old-repo/master
 <script>
 $(document).ready(function () {
     // Function to clear all form data
@@ -3918,6 +4465,7 @@ $(document).ready(function () {
 
     });
 </script>
+<<<<<<< HEAD
 <!-- <script>
     $(document).ready(function() {
     // When the form is submitted
@@ -3977,6 +4525,95 @@ $(document).ready(function () {
             $('#errorMessage').fadeOut('slow');
         }, 1000);
     });
+=======
+
+<script>
+    $(document).ready(function () {
+    // Function to fetch carrier suggestions based on any input (name, MC number, DOT number)
+    function fetchCarrierSuggestions(field, inputValue) {
+    $.ajax({
+        url: '{{ route('fetch.carrier.suggestions') }}',
+        method: 'POST',
+        data: {
+            field: field,          // Specify the field (name, MC, DOT)
+            inputValue: inputValue, // User input
+            _token: '{{ csrf_token() }}'
+        },
+        success: function (response) {
+            let carrierList = $('#carrier-list');
+            carrierList.empty(); 
+
+            if (response.length > 0) {
+                response.forEach(function (carrier) {
+                    carrierList.append('<li class="list-group-item carrier-item" data-id="' + carrier.id + '">' + carrier.carrier_name + ' - MC: ' + carrier.mcNumber + ', DOT: ' + carrier.dotNumber + '</li>');
+                });
+                carrierList.show();
+            } else {
+                carrierList.hide();
+            }
+        },
+        error: function (xhr, status, error) {
+            console.error("Error fetching carrier suggestions: ", error);
+        }
+    });
+}
+
+
+    // Function to fetch full carrier details once a carrier is selected
+    function fetchCarrierDetails(carrierId) {
+    $.ajax({
+        url: '{{ route('fetch.carrier.details') }}',
+        method: 'POST',
+        data: {
+            carrierId: carrierId, 
+            _token: '{{ csrf_token() }}'
+        },
+        success: function (response) {
+            if (response) {
+                $('#carrier_id').val(response.id);
+                $('#load_carrier').val(response.carrier_name);
+                $('#carrier_mc_ff_input').val(response.mcNumber);
+                $('#carrier_dot').val(response.dotNumber);
+                $('#load_carrier_phone').val(response.phone);
+            }
+            $('#carrier-list').hide(); 
+        },
+        error: function (xhr, status, error) {
+            console.error("Error fetching carrier details: ", error);
+        }
+    });
+}
+
+
+    // Event handler for input fields to trigger carrier suggestions
+    function handleInputChange() {
+        let inputValue = $(this).val();
+        let field = $(this).attr('id');
+
+        if (inputValue.length >= 3) {
+            fetchCarrierSuggestions(field, inputValue);
+        } else {
+            $('#carrier-list').hide();
+        }
+    }
+
+    // Attach the event to all relevant fields (carrier name, MC number, DOT number)
+    $('#load_carrier, #carrier_mc_ff_input, #carrier_dot').on('input', handleInputChange);
+
+    // Handle selection of a carrier from the suggestion list
+    $(document).on('click', '.carrier-item', function () {
+        let carrierId = $(this).data('id');
+        fetchCarrierDetails(carrierId); // Fetch the full carrier details
+    });
+
+    // Hide the suggestion list when clicking outside the input fields
+    $(document).click(function (e) {
+        if (!$(e.target).closest('#load_carrier, #carrier_mc_ff_input, #carrier_dot, #carrier-list').length) {
+            $('#carrier-list').hide();
+        }
+    });
+});
+>>>>>>> old-repo/master
 </script>
 
 @endsection

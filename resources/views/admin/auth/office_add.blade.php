@@ -105,6 +105,7 @@
                         <div class="block-header" style="padding: 16px 15px !important;">
                             <h2><b>Add Office</b></h2>
                         </div>
+<<<<<<< HEAD
                         <form method="POST" action="{{ route('add.office') }}">
                             @csrf
                             <div class="body text-left">
@@ -128,6 +129,30 @@
                         <div class="body">
                         
                             <div class="table-responsive">
+=======
+                        <div class="table-responsive">
+                            <form method="POST" action="{{ route('add.office') }}">
+                                @csrf
+                                <div class="body text-left">
+                                    <div class="row clearfix">
+                                        <div class="col-md-12 p-2" style="background:#d9d9d9;">
+                                            <label for="office_name"
+                                                style="margin-bottom: 7px;font-weight: 600;font-size: 16px;color: #4a4a4a;">Office
+                                                Name</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="office_name"
+                                                    placeholder="Please enter the office name" name="office_name"
+                                                    autocomplete="off" required
+                                                    style="background: #fff; padding: 17px 8px;">
+                                                <button type="submit" class="btn btn-sm btn-primary"
+                                                    style="padding: 0 14px; margin: 0; margin-left: 13px;">Add</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="body">
+>>>>>>> old-repo/master
                                 <table class="table table-bordered table-responsive dataTable no-footer">
                                     <thead>
                                         <tr>
@@ -177,8 +202,13 @@
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
+<<<<<<< HEAD
                 <h4 class="modal-title">Edit Office</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+=======
+                <h5 class="modal-title"><b>Edit Office</b></h5>
+                <button type="button" class="close" style="padding: 0 3px;" data-dismiss="modal">&times;</button>
+>>>>>>> old-repo/master
             </div>
             <div class="modal-body">
                     <form id="editOfficeForm">

@@ -1,9 +1,12 @@
 @extends('layouts.accounts.app')
 @section('content')
+<<<<<<< HEAD
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
 <!-- Optional: Include Flatpickr Theme CSS (for styling) -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_blue.css">
+=======
+>>>>>>> old-repo/master
 @if(session('success'))
 <div class="alert alert-success" id="successMessage">
     {{ session('success') }}
@@ -18,9 +21,12 @@
 </div>
 @endif
 <style>
+<<<<<<< HEAD
     .table>:not(caption)>*>* {
         background-color: unset !important;
     }
+=======
+>>>>>>> old-repo/master
     .button {
         display: inline-block;
         padding: 2px 6px;
@@ -184,6 +190,7 @@
     .dropdown-menu.show {
     width: max-content;
 }
+<<<<<<< HEAD
 textarea {
     text-indent: 0;
     padding-left: 0;
@@ -209,6 +216,8 @@ a{
     width: min-content;
     margin-top: 5px;
 }
+=======
+>>>>>>> old-repo/master
 </style>
 <section class="content">
     <div class="body_scroll">
@@ -225,38 +234,66 @@ a{
                             <li class="nav-item">
                                 <a class="nav-link active" id="delivered-tab" data-bs-toggle="tab" role="tab"
                                     aria-controls="delivered" aria-selected="true" style="font-size:15px;"
+<<<<<<< HEAD
                                     href="#home_with_icon_title"> Delivered
+=======
+                                    href="#home_with_icon_title">
+                                     Delivered
+>>>>>>> old-repo/master
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="completed-tab" data-bs-toggle="tab" role="tab"
                                     aria-controls="completed" aria-selected="false"
+<<<<<<< HEAD
                                     style="font-size:15px;" href="#profile_with_icon_title"> Completed
+=======
+                                    style="font-size:15px;" href="#profile_with_icon_title">
+                                   Completed
+>>>>>>> old-repo/master
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="invoiced-tab" data-bs-toggle="tab" role="tab"
                                     aria-controls="invoiced" aria-selected="false"
+<<<<<<< HEAD
                                     style="font-size:15px;" href="#messages_with_icon_title"> Invoiced
+=======
+                                    style="font-size:15px;" href="#messages_with_icon_title">
+                                 Invoiced
+>>>>>>> old-repo/master
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="invoiced-paid-tab" data-bs-toggle="tab" role="tab"
                                     aria-controls="invoicedpaid" aria-selected="false"
+<<<<<<< HEAD
                                     style="font-size:15px;" href="#settings_with_icon_title">Invoice / Paid
                                 </a>
                             </li>
                         </ul>
                         <!-- End Nav tabs -->
+=======
+                                    style="font-size:15px;" href="#settings_with_icon_title">
+                                   Invoiced / Paid
+                                </a>
+                            </li>
+                        </ul>
+>>>>>>> old-repo/master
 
 
 
                         <!-- Tab panes -->
+<<<<<<< HEAD
                         <div class="tab-content" id="myTabContent">
+=======
+                        <div class="tab-content">
+>>>>>>> old-repo/master
                             <div class="tab-pane fade show active" role="tabpanel" id="home_with_icon_title"
                                 aria-labelledby="delivered-tab">
                                 <div class="body p-0">
                                     <div class="table-responsive">
+<<<<<<< HEAD
                                         <div class="col-md-12 p-0 date-time mb-2">
                                             <div class="date d-flex mt-0">
                                                 <label for="start">Start Date:</label>                                   
@@ -275,22 +312,51 @@ a{
 
                                             <select name="manager" id="manager" class="manager_filter filter-dropdown"
                                                 style="margin-left:7px; margin-top: 7px; height: 20px;color: #3e3e40;">
+=======
+                                        <div class="col-md-12 text-center date-time mb-2">
+                                            <div class="date">
+                                                <label for="start">Start Date</label>
+                                                <input id="start" class="start_filter filter-dropdown"
+                                                    style="height: 20px;color: #3e3e40;" type="date" />
+                                            </div>
+                                            <div class="date" style="margin-left: 14px;">
+                                                <label for="end">End Date</label>
+                                                <input id="end" class="end_filter filter-dropdown"
+                                                    style="height: 20px;color: #3e3e40;" type="date" />
+                                            </div>
+
+                                            <select name="manager" id="manager" class="manager_filter filter-dropdown"
+                                                style="margin-left:7px; margin-top: 17px; height: 20px;color: #3e3e40;">
+>>>>>>> old-repo/master
                                                 <option value="" selected>Sort By Manager</option>
                                                 @foreach($manager as $managers)
                                                 <option value="{{ $managers->manager }}">{{ $managers->manager }}
                                                 </option>
                                                 @endforeach
                                             </select>
+<<<<<<< HEAD
                                             <select name="team_lead" id="team_lead"
                                                 class="team_lead_filter filter-dropdown"
                                                 style="height: 20px;color: #3e3e40;margin-left:7px; margin-top: 7px;">
+=======
+
+                                            <select name="team_lead" id="team_lead"
+                                                class="team_lead_filter filter-dropdown"
+                                                style="height: 20px;color: #3e3e40;margin-left:7px; margin-top: 17px;">
+>>>>>>> old-repo/master
                                                 <option value="" selected>Sort By TL</option>
                                                 @foreach($teamlead as $teamLead)
                                                 <option value="{{ $teamLead->tl }}">{{ $teamLead->tl }}</option>
                                                 @endforeach
                                             </select>
+<<<<<<< HEAD
                                             <select name="office" id="office" class="office_filter filter-dropdown"
                                                 style="height: 20px;color: #3e3e40;margin-left:7px; margin-top: 7px;">
+=======
+
+                                            <select name="office" id="office" class="office_filter filter-dropdown"
+                                                style="height: 20px;color: #3e3e40;margin-left:7px; margin-top: 17px;">
+>>>>>>> old-repo/master
                                                 <option value="" selected>Sort By Office</option>
                                                 @foreach($office as $offices)
                                                 @if($offices->status == 'Active')
@@ -299,14 +365,21 @@ a{
                                                 @endif
                                                 @endforeach
                                             </select>
+<<<<<<< HEAD
                                             
                                         </div>
                                                       
                                         <table class="table table-bordered dataTable no-footer" id="dataTable">
+=======
+                                        </div>
+
+                                        <table class="table table-bordered table-hover js-basic-example dataTable no-footer">
+>>>>>>> old-repo/master
                                             <thead>
                                                 <tr>
                                                     <th>Sr No.</th>
                                                     <th>Load #</th>
+<<<<<<< HEAD
                                                     <th>W/O #</th>
                                                     <th>Customer Name</th>
                                                     <th>Agent</th>
@@ -318,11 +391,27 @@ a{
                                                     <th>Delivered Date</th>
                                                     <th>Actual Del Date</th>
                                                     <th>Carrier</th>
+=======
+                                                    <th>Agent Name</th>
+                                                    <th>W/O #</th>
+                                                    <th>Customer #</th>
+                                                    <th>Office</th>
+                                                    <th>Manager</th>
+                                                    <th>Team Leader</th>
+                                                    <th>Load Create Date</th>
+                                                    <th>Shipper Date</th>
+                                                    <th>Delivery Date</th>
+                                                    <th>Actual Delivery Date</th>
+                                                    <th>Carrier Name</th>
+>>>>>>> old-repo/master
                                                     <th>Pickup Location</th>
                                                     <th>Unloading Location</th>
                                                     <th>Load Status</th>
                                                     <th>Aging</th>
+<<<<<<< HEAD
                                                     <th>Internal Team Notes</th>
+=======
+>>>>>>> old-repo/master
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -339,28 +428,48 @@ a{
                                                             {{ $delivered->load_number }}
                                                         </a>
                                                     </td>
+<<<<<<< HEAD
                                                     <td class="dynamic-data">{{ $delivered->load_workorder }}</td>
                                                     <td class="dynamic-data">{{ $delivered->load_bill_to }}</td>
                                                     <td class="dynamic-data">{{ $delivered->user->name }}</td>
                                                     <td class="dynamic-data">{{ $delivered->user->office }}</td>
                                                     <td class="dynamic-data">{{ $delivered->user->team_lead }}</td>
                                                     <td class="dynamic-data">{{ $delivered->user->manager }}</td>
+=======
+                                                    <td class="dynamic-data">{{ $delivered->user->name }}</td>
+                                                    <td class="dynamic-data">{{ $delivered->load_workorder }}</td>
+                                                    <td class="dynamic-data">{{ $delivered->load_bill_to }}</td>
+                                                    <td class="dynamic-data">{{ $delivered->user->office }}</td>
+                                                    <td class="dynamic-data">{{ $delivered->user->manager }}</td>
+                                                    <td class="dynamic-data">{{ $delivered->user->team_lead }}</td>
+>>>>>>> old-repo/master
                                                     <td class="dynamic-data">{{ $delivered->created_at }}</td>
                                                     @php
                                                     $shipper_appointment =
                                                     json_decode($delivered->load_shipper_appointment,true);
                                                     @endphp
+<<<<<<< HEAD
                                                     <td class="dynamic-data">{{ isset($shipper_appointment[0]['appointment']) ? \Carbon\Carbon::parse($shipper_appointment[0]['appointment'])->format('d-m-Y') : '' }}
+=======
+                                                    <td class="dynamic-data">{{ isset($shipper_appointment[0]['appointment']) ? \Carbon\Carbon::parse($shipper_appointment[0]['appointment'])->format('y-m-d') : '' }}
+>>>>>>> old-repo/master
                                                     </td>
                                                     @php
                                                     $consignee_appointment =
                                                     json_decode($delivered->load_consignee_appointment,true);
                                                     @endphp
+<<<<<<< HEAD
                                                     <td class="dynamic-data"> {{ isset($consignee_appointment[0]['appointment']) ? \Carbon\Carbon::parse($consignee_appointment[0]['appointment'])->format('d-m-Y') : '' }}
                                                     </td>
 
                                                     <td class="dynamic-data">{{ $delivered->load_actual_delivery_date ? \Carbon\Carbon::parse($delivered->load_actual_delivery_date)->format('d-m-Y') : '' }}
                                                     </td>
+=======
+                                                    <td class="dynamic-data"> {{ isset($consignee_appointment[0]['appointment']) ? \Carbon\Carbon::parse($consignee_appointment[0]['appointment'])->format('y-m-d') : '' }}
+                                                    </td>
+
+                                                    <td class="dynamic-data">{{ $delivered->load_actual_delivery_date }}</td>
+>>>>>>> old-repo/master
 
                                                     <td class="dynamic-data">{{$delivered->load_carrier}}</td>
 
@@ -370,33 +479,46 @@ a{
 
                                                     @if (!empty($shipper_location))
                                                         <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
+<<<<<<< HEAD
                                                             {{ $shipper_location[0]['location'] ?? 'NA' }} <!-- Default to 'NA' if location is not set -->
                                                         </td>
                                                     @else
                                                         <td>
                                                             Not Found Any Pickup Loacation
+=======
+                                                            {{ $shipper_location[0]['location'] ?? '' }}
+>>>>>>> old-repo/master
                                                         </td>
                                                     @endif
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> old-repo/master
                                                     @php
                                                     $consignee_location =
                                                     json_decode($delivered->load_consignee_location, true);
                                                     $last_consignee_location = end($consignee_location);
                                                     @endphp
 
+<<<<<<< HEAD
                                                     @if (!empty($last_consignee_location))
+=======
+>>>>>>> old-repo/master
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ $last_consignee_location['location'] ?? '' }}
                                                     </td>
+<<<<<<< HEAD
                                                     @else
                                                         <td>
                                                             Not Found Any Drop Loacation
                                                         </td>
                                                     @endif
+=======
+>>>>>>> old-repo/master
 
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
@@ -412,6 +534,7 @@ a{
                                                         {{ $differenceInDays }} days
                                                     </td>
                                                     <td class="dynamic-data">
+<<<<<<< HEAD
                                                         @if(!empty($delivered->internal_notes))
                                                             <div class="existing-notes" style="border: 1px solid #ddd; padding: 5px; margin-bottom: 5px;">
                                                                 {{ nl2br(e($delivered->internal_notes)) }} <!-- Display existing notes -->
@@ -421,6 +544,8 @@ a{
                                                     </td>
 
                                                     <td class="dynamic-data">
+=======
+>>>>>>> old-repo/master
                                                         <div class="dropdown">
                                                             <button type="button"
                                                                 class="btn btn-primary dropdown-toggle pt-1 pb-1"
@@ -456,6 +581,7 @@ a{
                                                                             class="fas fa-reply"
                                                                             style="margin-right: 10px; font-size: 19px;"></i>Back</a>
                                                                 </li> -->
+<<<<<<< HEAD
                                                                 @if($delivered->public_file)
                                                                 <li>
                                                                     <a onclick="openModal({{ $delivered->id }})" data-toggle="modal" data-target="#view-file"><i class="fa fa-eye" style="margin-right: 10px; font-size: 20px;"></i>View Upload</a>
@@ -465,12 +591,25 @@ a{
                                                                 <a href="javascript:void(0);" style="text-decoration:unset"> <i class="fa fa-eye-slash" style="margin-right: 10px; font-size: 20px;"></i>No files Uploded </a>
                                                                 </li>
                                                                 @endif
+=======
+                                                                <li>
+                                                                    <a onclick="openModal({{ $delivered->id }})"
+                                                                        data-toggle="modal" data-target="#view-file"><i
+                                                                            class="fa fa-eye"
+                                                                            style="margin-right: 10px; font-size: 20px;"></i>View
+                                                                        Upload</a>
+                                                                </li>
+>>>>>>> old-repo/master
 
                                                             </div>
                                                         </div>
                                                     </td>
                                                 </tr>
+<<<<<<< HEAD
                                                 @endif
+=======
+                                                 @endif
+>>>>>>> old-repo/master
                                                 @endforeach
                                             </tbody>
                                         </table>
@@ -480,6 +619,7 @@ a{
                             <div class="tab-pane fade" role="tabpanel" id="profile_with_icon_title"
                                 aria-labelledby="completed-tab">
                                 <div class="body p-0">
+<<<<<<< HEAD
                                   <div class="table-responsive">
                                     <div class="col-md-12 text-center date-time mb-2">
                                             <div class="date d-flex mt-0">
@@ -499,6 +639,23 @@ a{
 
                                             <select name="manager" id="manager" class="manager_filter filter-dropdown"
                                                 style="margin-left:7px; margin-top: 7px; height: 20px;color: #3e3e40;">
+=======
+                                    <div class="table-responsive">
+                                    <div class="col-md-12 text-center date-time mb-2">
+                                            <div class="date">
+                                                <label for="start">Start Date</label>
+                                                <input id="start" class="start_filter filter-dropdown"
+                                                    style="height: 20px;color: #3e3e40;" type="date" />
+                                            </div>
+                                            <div class="date" style="margin-left: 14px;">
+                                                <label for="end">End Date</label>
+                                                <input id="end" class="end_filter filter-dropdown"
+                                                    style="height: 20px;color: #3e3e40;" type="date" />
+                                            </div>
+
+                                            <select name="manager" id="manager" class="manager_filter filter-dropdown"
+                                                style="margin-left:7px; margin-top: 17px; height: 20px;color: #3e3e40;">
+>>>>>>> old-repo/master
                                                 <option value="" selected>Sort By Manager</option>
                                                 @foreach($manager as $managers)
                                                 <option value="{{ $managers->manager }}">{{ $managers->manager }}
@@ -508,7 +665,11 @@ a{
 
                                             <select name="team_lead" id="team_lead"
                                                 class="team_lead_filter filter-dropdown"
+<<<<<<< HEAD
                                                 style="height: 20px;color: #3e3e40;margin-left:7px; margin-top: 7px;">
+=======
+                                                style="height: 20px;color: #3e3e40;margin-left:7px; margin-top: 17px;">
+>>>>>>> old-repo/master
                                                 <option value="" selected>Sort By TL</option>
                                                 @foreach($teamlead as $teamLead)
                                                 <option value="{{ $teamLead->tl }}">{{ $teamLead->tl }}</option>
@@ -516,7 +677,11 @@ a{
                                             </select>
 
                                             <select name="office" id="office" class="office_filter filter-dropdown"
+<<<<<<< HEAD
                                                 style="height: 20px;color: #3e3e40;margin-left:7px; margin-top: 7px;">
+=======
+                                                style="height: 20px;color: #3e3e40;margin-left:7px; margin-top: 17px;">
+>>>>>>> old-repo/master
                                                 <option value="" selected>Sort By Office</option>
                                                 @foreach($office as $offices)
                                                 @if($offices->status == 'Active')
@@ -525,13 +690,17 @@ a{
                                                 @endif
                                                 @endforeach
                                             </select>
+<<<<<<< HEAD
                                             
+=======
+>>>>>>> old-repo/master
                                         </div>
                                         <table class="table table-bordered table-hover js-basic-example dataTable no-footer">
                                             <thead>
                                                 <tr>
                                                     <th>Sr No.</th>
                                                     <th>Load #</th>
+<<<<<<< HEAD
                                                     <th>W/O #</th>
                                                     <th>Customer Name</th>
                                                     <th>Agent</th>
@@ -543,6 +712,19 @@ a{
                                                     <th>Delivered Date</th>
                                                     <th>Actual Del Date</th>
                                                     <th>Carrier</th>
+=======
+                                                    <th>Agent Name</th>
+                                                    <th>W/O #</th>
+                                                    <th>Customer #</th>
+                                                    <th>Office</th>
+                                                    <th>Manager</th>
+                                                    <th>Team Leader</th>
+                                                    <th>Load Create Date</th>
+                                                    <th>Shipper Date</th>
+                                                    <th>Delivery Date</th>
+                                                    <th>Actual Delivery Date</th>
+                                                    <th>Carrier Name</th>
+>>>>>>> old-repo/master
                                                     <th>Pickup Location</th>
                                                     <th>Unloading Location</th>
                                                     <th>Load Status</th>
@@ -565,17 +747,30 @@ a{
                                                             {{ $completed->load_number }}
                                                         </a>
                                                     </td>
+<<<<<<< HEAD
                                                     <td class="dynamic-data">{{ $completed->load_workorder }}</td>
                                                     <td class="dynamic-data">{{ $completed->load_bill_to }}</td>
+=======
+>>>>>>> old-repo/master
                                                     <td class="dynamic-data">
                                                         {{$completed->user->name}}
                                                     </td>
 
+<<<<<<< HEAD
                                                     <td class="dynamic-data">{{ $completed->user->office }}</td>
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ $completed->user->team_lead }}</td>
                                                     <td class="dynamic-data">{{ $completed->user->manager }}</td>
+=======
+                                                    <td class="dynamic-data">{{ $completed->load_workorder }}</td>
+                                                    <td class="dynamic-data">{{ $completed->load_bill_to }}</td>
+                                                    <td class="dynamic-data">{{ $completed->user->office }}</td>
+                                                    <td class="dynamic-data">{{ $completed->user->manager }}</td>
+                                                    <td class="dynamic-data"
+                                                        style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                                        {{ $completed->user->team_lead }}</td>
+>>>>>>> old-repo/master
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ $completed->created_at->format('m-d-y H:i:s') }}</td>
@@ -583,13 +778,21 @@ a{
                                                     $shipper_appointment =
                                                     json_decode($completed->load_shipper_appointment,true);
                                                     @endphp
+<<<<<<< HEAD
                                                     <td class="dynamic-data">{{ isset($shipper_appointment[0]['appointment']) ? \Carbon\Carbon::parse($shipper_appointment[0]['appointment'])->format('d-m-Y') : '' }}
+=======
+                                                    <td class="dynamic-data">{{ isset($shipper_appointment[0]['appointment']) ? \Carbon\Carbon::parse($shipper_appointment[0]['appointment'])->format('y-m-d') : '' }}
+>>>>>>> old-repo/master
                                                     </td>
                                                     @php
                                                     $consignee_appointment =
                                                     json_decode($completed->load_consignee_appointment,true);
                                                     @endphp
+<<<<<<< HEAD
                                                     <td class="dynamic-data"> {{ isset($consignee_appointment[0]['appointment']) ? \Carbon\Carbon::parse($consignee_appointment[0]['appointment'])->format('d-m-Y') : '' }}
+=======
+                                                    <td class="dynamic-data"> {{ isset($consignee_appointment[0]['appointment']) ? \Carbon\Carbon::parse($consignee_appointment[0]['appointment'])->format('y-m-d') : '' }}
+>>>>>>> old-repo/master
                                                     </td>
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
@@ -665,6 +868,7 @@ a{
                                                                         @endif
                                                                     </a>
                                                                 </li>
+<<<<<<< HEAD
                                                                 @if($completed->public_file)
                                                                 <li>
                                                                     <a onclick="openModal({{ $completed->id }})" data-toggle="modal" data-target="#view-file"><i class="fa fa-eye" style="margin-right: 10px; font-size: 20px;"></i>View Upload</a>
@@ -674,6 +878,12 @@ a{
                                                                 <a href="javascript:void(0);" style="text-decoration:unset"> <i class="fa fa-eye-slash" style="margin-right: 10px; font-size: 20px;"></i>No files Uploded </a>
                                                                 </li>
                                                                 @endif
+=======
+                                                                <li>
+                                                                    <a onclick="openModal({{ $completed->id }})" data-toggle="modal" data-target="#view-file"><i class="fa fa-eye"
+                                                                            style="margin-right: 10px; font-size: 20px;"></i>View Upload</a>
+                                                                </li>
+>>>>>>> old-repo/master
                                                                 <li>
                                                                     <a href="{{ route('accounting.load.edit', $completed->id) }}">
                                                                         <i class="fa fa-pen"
@@ -704,6 +914,7 @@ a{
                             <div class="tab-pane fade" role="tabpanel" id="messages_with_icon_title"
                                 aria-labelledby="invoiced-tab">
                                 <div class="body p-0">
+<<<<<<< HEAD
                                  <div class="table-responsive">
                                     <div class="col-md-12 text-center date-time mb-2">
                                             <div class="date d-flex mt-0">
@@ -723,6 +934,23 @@ a{
 
                                             <select name="manager" id="manager" class="manager_filter filter-dropdown"
                                                 style="margin-left:7px; margin-top: 7px; height: 20px;color: #3e3e40;">
+=======
+                                    <div class="table-responsive">
+                                    <div class="col-md-12 text-center date-time mb-2">
+                                            <div class="date">
+                                                <label for="start">Start Date</label>
+                                                <input id="start" class="start_filter filter-dropdown"
+                                                    style="height: 20px;color: #3e3e40;" type="date" />
+                                            </div>
+                                            <div class="date" style="margin-left: 14px;">
+                                                <label for="end">End Date</label>
+                                                <input id="end" class="end_filter filter-dropdown"
+                                                    style="height: 20px;color: #3e3e40;" type="date" />
+                                            </div>
+
+                                            <select name="manager" id="manager" class="manager_filter filter-dropdown"
+                                                style="margin-left:7px; margin-top: 17px; height: 20px;color: #3e3e40;">
+>>>>>>> old-repo/master
                                                 <option value="" selected>Sort By Manager</option>
                                                 @foreach($manager as $managers)
                                                 <option value="{{ $managers->manager }}">{{ $managers->manager }}
@@ -732,7 +960,11 @@ a{
 
                                             <select name="team_lead" id="team_lead"
                                                 class="team_lead_filter filter-dropdown"
+<<<<<<< HEAD
                                                 style="height: 20px;color: #3e3e40;margin-left:7px; margin-top: 7px;">
+=======
+                                                style="height: 20px;color: #3e3e40;margin-left:7px; margin-top: 17px;">
+>>>>>>> old-repo/master
                                                 <option value="" selected>Sort By TL</option>
                                                 @foreach($teamlead as $teamLead)
                                                 <option value="{{ $teamLead->tl }}">{{ $teamLead->tl }}</option>
@@ -740,7 +972,11 @@ a{
                                             </select>
 
                                             <select name="office" id="office" class="office_filter filter-dropdown"
+<<<<<<< HEAD
                                                 style="height: 20px;color: #3e3e40;margin-left:7px; margin-top: 7px;">
+=======
+                                                style="height: 20px;color: #3e3e40;margin-left:7px; margin-top: 17px;">
+>>>>>>> old-repo/master
                                                 <option value="" selected>Sort By Office</option>
                                                 @foreach($office as $offices)
                                                 @if($offices->status == 'Active')
@@ -749,13 +985,17 @@ a{
                                                 @endif
                                                 @endforeach
                                             </select>
+<<<<<<< HEAD
                                             
+=======
+>>>>>>> old-repo/master
                                         </div>
                                         <table class="table table-bordered table-hover js-basic-example dataTable no-footer">
                                             <thead>
                                                 <tr>
                                                     <th>Sr No.</th>
                                                     <th>Load #</th>
+<<<<<<< HEAD
                                                     <th>W/O #</th>
                                                     <th>Customer Name</th>
                                                     <th>Invoice #</th>
@@ -769,6 +1009,21 @@ a{
                                                     <th>Delivered Date</th>
                                                     <th>Actual Del Date</th>
                                                     <th>Carrier</th>
+=======
+                                                    <th>Agent Name</th>
+                                                    <th>W/O #</th>
+                                                    <th>Invoice #</th>
+                                                    <th>Invoice Date</th>
+                                                    <th>Customer #</th>
+                                                    <th>Office</th>
+                                                    <th>Manager</th>
+                                                    <th>Team Leader</th>
+                                                    <th>Load Create Date</th>
+                                                    <th>Shipper Date</th>
+                                                    <th>Delivery Date</th>
+                                                    <th>Actual Delivery Date</th>
+                                                    <th>Carrier Name</th>
+>>>>>>> old-repo/master
                                                     <th>Pickup Location</th>
                                                     <th>Unloading Location</th>
                                                     <th>Load Status</th>
@@ -799,18 +1054,31 @@ a{
                                                             {{ $invoice->load_number }}
                                                         </a>
                                                     </td>
+<<<<<<< HEAD
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ $invoice->load_workorder }}</td>
                                                         <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ $invoice->load_bill_to }}</td>
+=======
+
+                                                    <td class="dynamic-data"
+                                                        style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                                        {{ $invoice->user->name }}
+                                                    </td>
+                                                    <td class="dynamic-data"
+                                                        style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                                        {{ $invoice->load_workorder }}</td>
+
+>>>>>>> old-repo/master
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ $invoice->invoice_number }}</td>
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ date('d-m-Y', strtotime($invoice->invoice_date)) }}</td>
+<<<<<<< HEAD
                                                         <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ $invoice->user->name }}
@@ -826,6 +1094,21 @@ a{
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ $invoice->user->manager }}</td>
+=======
+
+                                                    <td class="dynamic-data"
+                                                        style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                                        {{ $invoice->load_bill_to }}</td>
+                                                    <td class="dynamic-data"
+                                                        style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                                        {{ $invoice->user->office }}</td>
+                                                    <td class="dynamic-data"
+                                                        style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                                        {{ $invoice->user->manager }}</td>
+                                                    <td class="dynamic-data"
+                                                        style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                                        {{ $invoice->user->team_lead }}</td>
+>>>>>>> old-repo/master
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ $invoice->created_at }}</td>
@@ -833,13 +1116,21 @@ a{
                                                     $shipper_appointment =
                                                     json_decode($delivered->load_shipper_appointment,true);
                                                     @endphp
+<<<<<<< HEAD
                                                     <td class="dynamic-data">{{ isset($shipper_appointment[0]['appointment']) ? \Carbon\Carbon::parse($shipper_appointment[0]['appointment'])->format('d-m-Y') : '' }}
+=======
+                                                    <td class="dynamic-data">{{ isset($shipper_appointment[0]['appointment']) ? \Carbon\Carbon::parse($shipper_appointment[0]['appointment'])->format('y-m-d') : '' }}
+>>>>>>> old-repo/master
                                                     </td>
                                                     @php
                                                     $consignee_appointment =
                                                     json_decode($delivered->load_consignee_appointment,true);
                                                     @endphp
+<<<<<<< HEAD
                                                     <td class="dynamic-data"> {{ isset($consignee_appointment[0]['appointment']) ? \Carbon\Carbon::parse($consignee_appointment[0]['appointment'])->format('d-m-Y') : '' }}
+=======
+                                                    <td class="dynamic-data"> {{ isset($consignee_appointment[0]['appointment']) ? \Carbon\Carbon::parse($consignee_appointment[0]['appointment'])->format('y-m-d') : '' }}
+>>>>>>> old-repo/master
                                                     </td>
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
@@ -895,7 +1186,12 @@ a{
                                                             name="receiving_amount" data-invoice-id="{{ $invoice->id }}"
                                                             data-shipper-load-final-rate="{{ $invoice->shipper_load_final_rate }}"
                                                             id="receiving_amount_{{ $invoice->id }}"
+<<<<<<< HEAD
                                                             value="{{ $invoice->receiving_amount }}">
+=======
+                                                            value="{{ $invoice->receiving_amount }}"
+                                                            style="width:100px">
+>>>>>>> old-repo/master
                                                     </td>
                                                     @php
                                                     $shipperLoadFinalRate = floatval($invoice->shipper_load_final_rate);
@@ -903,7 +1199,11 @@ a{
                                                     $remaining = max($shipperLoadFinalRate - $receivingAmount, 0);
                                                     @endphp
                                                     <td class="dynamic-data">
+<<<<<<< HEAD
                                                         <input type="text" readonly class="form-control remaining_amount" name="remaining_amount" id="remaining_amount_{{ $invoice->id }}" value="{{ number_format($remaining, 2) }}">
+=======
+                                                        <input type="text" readonly class="remaining_amount" name="remaining_amount" id="remaining_amount_{{ $invoice->id }}" value="{{ number_format($remaining, 2) }}" style="width:100px">
+>>>>>>> old-repo/master
                                                     </td>
 
 
@@ -925,6 +1225,7 @@ a{
                                                                             aria-hidden="true"></i>Mark as Paid
                                                                     </a>
                                                                 </li>
+<<<<<<< HEAD
                                                                 @if($invoice->public_file)
                                                                 <li>
                                                                     <a onclick="openModal({{ $invoice->id }})" data-toggle="modal" data-target="#view-file"><i class="fa fa-eye" style="margin-right: 10px; font-size: 20px;"></i>View Upload</a>
@@ -934,6 +1235,12 @@ a{
                                                                 <a href="javascript:void(0);" style="text-decoration:unset"> <i class="fa fa-eye-slash" style="margin-right: 10px; font-size: 20px;"></i>No files Uploded </a>
                                                                 </li>
                                                                 @endif
+=======
+                                                                <li>
+                                                                    <a onclick="openModal({{ $invoice->id }})" data-toggle="modal" data-target="#view-file"><i class="fa fa-eye"
+                                                                            style="margin-right: 10px; font-size: 20px;"></i>View Upload</a>
+                                                                </li>
+>>>>>>> old-repo/master
                                                                 <li>
                                                                     <a href="{{ route('accounting.load.edit', $invoice->id) }}">
                                                                         <i class="fa fa-pen"
@@ -948,8 +1255,17 @@ a{
                                                                     </a>
                                                                 </li>
                                                                 <li>
+<<<<<<< HEAD
                                                                     <a href="#" class="text-left" data-toggle="modal" data-target="#customMailModal" data-invoice-id="{{ $invoice->invoice_number }}" data-load-number="{{ $invoice->load_number }}">
                                                                         <i class="fas fa-envelope-open" style="margin-right: 10px; font-size: 20px;"></i>Send Email
+=======
+                                                                    <a href="#" class="text-left"
+                                                                        data-toggle="modal"
+                                                                        data-target="#customMailModal">
+                                                                        <i class="fas fa-envelope-open"
+                                                                            style="margin-right: 10px;font-size: 20px;"></i>Send
+                                                                        Email
+>>>>>>> old-repo/master
                                                                     </a>
                                                                 </li>
 
@@ -976,6 +1292,7 @@ a{
                             <div class="tab-pane fade" role="tabpanel" id="settings_with_icon_title"
                                 aria-labelledby="invoiced-paid-tab">
                                 <div class="body p-0">
+<<<<<<< HEAD
                                   <div class="table-responsive">
                                     <div class="col-md-12 text-center date-time mb-2">
                                             <div class="date d-flex mt-0">
@@ -995,6 +1312,23 @@ a{
 
                                             <select name="manager" id="manager" class="manager_filter filter-dropdown"
                                                 style="margin-left:7px; margin-top: 7px; height: 20px;color: #3e3e40;">
+=======
+                                    <div class="table-responsive">
+                                    <div class="col-md-12 text-center date-time mb-2">
+                                            <div class="date">
+                                                <label for="start">Start Date</label>
+                                                <input id="start" class="start_filter filter-dropdown"
+                                                    style="height: 20px;color: #3e3e40;" type="date" />
+                                            </div>
+                                            <div class="date" style="margin-left: 14px;">
+                                                <label for="end">End Date</label>
+                                                <input id="end" class="end_filter filter-dropdown"
+                                                    style="height: 20px;color: #3e3e40;" type="date" />
+                                            </div>
+
+                                            <select name="manager" id="manager" class="manager_filter filter-dropdown"
+                                                style="margin-left:7px; margin-top: 17px; height: 20px;color: #3e3e40;">
+>>>>>>> old-repo/master
                                                 <option value="" selected>Sort By Manager</option>
                                                 @foreach($manager as $managers)
                                                 <option value="{{ $managers->manager }}">{{ $managers->manager }}
@@ -1004,7 +1338,11 @@ a{
 
                                             <select name="team_lead" id="team_lead"
                                                 class="team_lead_filter filter-dropdown"
+<<<<<<< HEAD
                                                 style="height: 20px;color: #3e3e40;margin-left:7px; margin-top: 7px;">
+=======
+                                                style="height: 20px;color: #3e3e40;margin-left:7px; margin-top: 17px;">
+>>>>>>> old-repo/master
                                                 <option value="" selected>Sort By TL</option>
                                                 @foreach($teamlead as $teamLead)
                                                 <option value="{{ $teamLead->tl }}">{{ $teamLead->tl }}</option>
@@ -1012,7 +1350,11 @@ a{
                                             </select>
 
                                             <select name="office" id="office" class="office_filter filter-dropdown"
+<<<<<<< HEAD
                                                 style="height: 20px;color: #3e3e40;margin-left:7px; margin-top: 7px;">
+=======
+                                                style="height: 20px;color: #3e3e40;margin-left:7px; margin-top: 17px;">
+>>>>>>> old-repo/master
                                                 <option value="" selected>Sort By Office</option>
                                                 @foreach($office as $offices)
                                                 @if($offices->status == 'Active')
@@ -1021,13 +1363,17 @@ a{
                                                 @endif
                                                 @endforeach
                                             </select>
+<<<<<<< HEAD
                                             
+=======
+>>>>>>> old-repo/master
                                         </div>
                                         <table class="table table-bordered table-hover js-basic-example dataTable no-footer">
                                             <thead>
                                                 <tr>
                                                     <th>Sr No.</th>
                                                     <th>Load #</th>
+<<<<<<< HEAD
                                                     <th>W/O #</th>
                                                     <th>Customer Name</th>
                                                     <th>Invoice #</th>
@@ -1046,6 +1392,23 @@ a{
                                                     <th>Shipper Final Amount</th>
                                                     <th>Received Amount</th>
                                                     <th>Remaining Amount</th>
+=======
+                                                    <th>Agent Name</th>
+                                                    <th>Invoice #</th>
+                                                    <th>Invoice Date</th>
+                                                    <th>W/O #</th>
+                                                    <th>Customer #</th>
+                                                    <th>Customer Receiving Payment Date</th>
+                                                    <th>Office</th>
+                                                    <th>Manager</th>
+                                                    <th>Team Leader</th>
+                                                    <th>Load Create Date</th>
+                                                    <th>Shipper Date</th>
+                                                    <th>Delivery Date</th>
+                                                    <th>Carrier</th>
+                                                    <th>Pickup Location</th>
+                                                    <th>Unloading Location</th>
+>>>>>>> old-repo/master
                                                     <th>Load Status</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -1067,12 +1430,17 @@ a{
                                                             {{ $record->load_number }}
                                                         </a>
                                                     </td>
+<<<<<<< HEAD
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ $record-> load_workorder }}</td>
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ $record-> load_bill_to }}
+=======
+                                                    <td class="dynamic-data">
+                                                        {{ $record->user->name }}
+>>>>>>> old-repo/master
                                                     </td>
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
@@ -1082,35 +1450,63 @@ a{
                                                         {{ $record->invoice_date }}</td>
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
+<<<<<<< HEAD
                                                         {{ $record-> invoice_status_date }}
                                                     </td>
                                                     <td class="dynamic-data">
                                                         {{ $record->user->name }}
+=======
+                                                        {{ $record-> load_workorder }}</td>
+                                                    <td class="dynamic-data"
+                                                        style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                                        {{ $record-> load_bill_to }}
+                                                    </td>
+                                                    <td class="dynamic-data"
+                                                        style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                                        {{ $record-> invoice_status_date }}
+>>>>>>> old-repo/master
                                                     </td>
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ $record->user->office }}</td>
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
+<<<<<<< HEAD
                                                         {{ $record-> user->team_lead }}</td>
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
+=======
+>>>>>>> old-repo/master
                                                         {{ $record->user->manager }}</td>
 
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
+<<<<<<< HEAD
+=======
+                                                        {{ $record-> user->team_lead }}</td>
+                                                    <td class="dynamic-data"
+                                                        style="padding: 7px 10px !important; vertical-align: middle !important;">
+>>>>>>> old-repo/master
                                                         {{ $record->created_at }}</td>
                                                     @php
                                                     $shipper_appointment =
                                                     json_decode($delivered->load_shipper_appointment,true);
                                                     @endphp
+<<<<<<< HEAD
                                                     <td class="dynamic-data">{{ isset($shipper_appointment[0]['appointment']) ? \Carbon\Carbon::parse($shipper_appointment[0]['appointment'])->format('d-m-Y') : '' }}
+=======
+                                                    <td class="dynamic-data">{{ isset($shipper_appointment[0]['appointment']) ? \Carbon\Carbon::parse($shipper_appointment[0]['appointment'])->format('y-m-d') : '' }}
+>>>>>>> old-repo/master
                                                     </td>
                                                     @php
                                                     $consignee_appointment =
                                                     json_decode($delivered->load_consignee_appointment,true);
                                                     @endphp
+<<<<<<< HEAD
                                                     <td class="dynamic-data"> {{ isset($consignee_appointment[0]['appointment']) ? \Carbon\Carbon::parse($consignee_appointment[0]['appointment'])->format('d-m-Y') : '' }}
+=======
+                                                    <td class="dynamic-data"> {{ isset($consignee_appointment[0]['appointment']) ? \Carbon\Carbon::parse($consignee_appointment[0]['appointment'])->format('y-m-d') : '' }}
+>>>>>>> old-repo/master
                                                     </td>
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
@@ -1131,6 +1527,7 @@ a{
                                                         {{ $consignee_loaction[0]['location'] ?? '' }}
 
                                                     </td>
+<<<<<<< HEAD
                                                     <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $record->shipper_load_final_rate }}</td>
                                                     @php
                                                     $shipperLoadFinalRate = floatval($record->shipper_load_final_rate);
@@ -1142,6 +1539,8 @@ a{
 
 
 
+=======
+>>>>>>> old-repo/master
 
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
@@ -1164,6 +1563,7 @@ a{
                                                                             style="margin-right: 10px; font-size: 20px;"></i>Edit
                                                                     </a>
                                                                 </li>
+<<<<<<< HEAD
                                                                 @if($record->public_file)
                                                                 <li>
                                                                     <a onclick="openModal({{ $record->id }})" data-toggle="modal" data-target="#view-file"><i class="fa fa-eye" style="margin-right: 10px; font-size: 20px;"></i>View Upload</a>
@@ -1173,6 +1573,12 @@ a{
                                                                 <a href="javascript:void(0);" style="text-decoration:unset"> <i class="fa fa-eye-slash" style="margin-right: 10px; font-size: 20px;"></i>No files Uploded </a>
                                                                 </li>
                                                                 @endif
+=======
+                                                                <li>
+                                                                    <a onclick="openModal({{ $record->id }})" data-toggle="modal" data-target="#view-file"><i class="fa fa-eye"
+                                                                            style="margin-right: 10px; font-size: 20px;"></i>View Upload</a>
+                                                                </li>
+>>>>>>> old-repo/master
                                                                 <li>
                                                                     <a href="javascript:void(0);"
                                                                         onclick="markAsBackInvoiceRecord({{ $record->id }})">
@@ -1201,7 +1607,10 @@ a{
                                 </div>
                             </div>
                         </div>
+<<<<<<< HEAD
                         <!-- End Tab panes -->
+=======
+>>>>>>> old-repo/master
                     </div>
                 </div>
             </div>
@@ -1216,12 +1625,21 @@ a{
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">View Files</h4>
+<<<<<<< HEAD
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
                 <ul id="file-list"></ul>
                 <!-- <button id="mergeButton" type="button" class="btn btn-primary"><i class="fa fa-file-pdf-o"></i> Merge
                     Documents</button> -->
+=======
+                <button type="button" class="close" data-dismiss="modal" style="padding: 0 5px;top: 30px;right: 30px;">&times;</button>
+            </div>
+            <div class="modal-body">
+                <ul id="file-list"></ul>
+                <button id="mergeButton" type="button" class="btn btn-primary"><i class="fa fa-file-pdf-o"></i> Merge
+                    Documents</button>
+>>>>>>> old-repo/master
             </div>
         </div>
 
@@ -1236,7 +1654,11 @@ a{
         <div class="modal-content">
             <div class="modal-body p-0 m-0">
                 <h4 class="modal-title">CUSTOMER DETAILS</h4>
+<<<<<<< HEAD
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+=======
+                <button type="button" class="close" data-dismiss="modal" style="padding: 0 5px;top: 30px;right: 30px;">&times;</button>
+>>>>>>> old-repo/master
                 <div class="card-body text-left">
                     <div class="row">
                         <div class="col-md-3">
@@ -2617,6 +3039,7 @@ a{
 <!-- CUSTOMER DETAILS popup end -->
 
 <!-- Add Shipper popup start -->
+<<<<<<< HEAD
 <div class="modal" id="add-shipper">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -2652,11 +3075,144 @@ a{
                                             <option>Albania</option>
                                             <option>Algeria</option>
                                             <option>American Samroa</option>
+=======
+    <div class="modal" id="add-shipper">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body p-0 m-0">
+                    <h4 class="modal-title">Add Shipper</h4>
+                    <button type="button" class="close" data-dismiss="modal" style="padding: 0 5px;top: 30px;right: 30px;">&times;</button>
+                    <form>
+                        <div class="card-body text-left">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Name <code>*</code></label>
+                                        <input type="text" class="form-control" name="shipper_name">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <label>Address</label>
+                                        <input type="text" class="form-control" name="shipper_address">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Country <code>*</code></label>
+                                        <div>
+                                            <select>
+                                                <option>United State</option>
+                                                <option>Canada</option>
+                                                <option>Albania</option>
+                                                <option>Algeria</option>
+                                                <option>American Samroa</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>State <code>*</code></label>
+                                        <div>
+                                            <select>
+                                                <option>Albama</option>
+                                                <option>Alaska</option>
+                                                <option>California</option>
+                                                <option>Guam</option>
+                                                <option>Hawai</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>City <code>*</code></label>
+                                        <input type="text" class="form-control select2" required name="customer_city">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Zip <code>*</code></label>
+                                        <input type="number" class="form-control select2" required name="customer_zip">
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Contact Name</label>
+                                        <input type="text" class="form-control" name="shipper_contact_name">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Contact Email</label>
+                                        <input type="email" class="form-control" name="shipper_contact_email">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Telephone <code>*</code></label>
+                                        <input type="number" class="form-control" name="shipper_telephone">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Ext. </label>
+                                        <input type="text" class="form-control" name="shipper_extn">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Toll Free</label>
+                                        <input type="number" class="form-control" name="shipper_toll_free">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Fax</label>
+                                        <input type="text" class="form-control" name="shipper_fax">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Shipping Hours</label>
+                                        <input type="time" class="form-control" name="shipper_hours">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Appointments</label>
+                                        <select class="form-control select2" name="shipper_appointments">
+                                            <option selected="selected">Select</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+>>>>>>> old-repo/master
                                         </select>
                                     </div>
                                 </div>
                             </div>
 
+<<<<<<< HEAD
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>State <code>*</code></label>
@@ -2667,10 +3223,38 @@ a{
                                             <option>California</option>
                                             <option>Guam</option>
                                             <option>Hawai</option>
+=======
+                            <div class="row">
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Major Intersections</label>
+                                        <input type="text" class="form-control" name="shipper_major_intersections">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="col-12 col-sm-3">
+                                        <div class="form-group d-flex align-items-center">
+                                            <input class="form-control" type="checkbox" name="same_as_consignee">
+                                            <label class="one-line-label mr-2" style="white-space: nowrap;">Add as
+                                                consignee</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Status <code>*</code></label>
+                                        <select class="form-control select2" name="shipper_status">
+                                            <option selected="selected">Select</option>
+                                            <option>Active</option>
+                                            <option>In-Active</option>
+>>>>>>> old-repo/master
                                         </select>
                                     </div>
                                 </div>
                             </div>
+<<<<<<< HEAD
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>City <code>*</code></label>
@@ -2807,16 +3391,52 @@ a{
         </div>
     </div>
 </div>
+=======
+
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Shipping Notes </label>
+                                        <textarea class="form-control" name="shipper_shipping_notes"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Internal Notes </label>
+                                        <textarea class="form-control" name="shipper_internal_notes"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer justify-content-center align-item-center">
+                            <input type="submit" class="btn btn-info" value="Add">
+                            <input type="button" class="btn btn-danger" data-dismiss="modal" value="Cancel">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+>>>>>>> old-repo/master
 <!-- Add Shipper popup end -->
 
 <!-- Add consignee popup start -->
 
+<<<<<<< HEAD
 <div class="modal" id="add-consignee">
+=======
+  <div class="modal" id="add-consignee">
+>>>>>>> old-repo/master
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body p-0 m-0">
                 <h4 class="modal-title">Add Consignee</h4>
+<<<<<<< HEAD
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+=======
+                <button type="button" class="close" data-dismiss="modal" style="padding: 0 5px;top: 30px;right: 30px;">&times;</button>
+>>>>>>> old-repo/master
                 <form>
                     <div class="card-body text-left">
                         <div class="row">
@@ -3012,17 +3632,28 @@ a{
 
 <!-- Your Modal HTML -->
 <div class="modal" id="customMailModal">
+<<<<<<< HEAD
     <div class="modal-dialog modal-lg">
+=======
+    <div class="modal-dialog">
+        <!-- Modal content -->
+>>>>>>> old-repo/master
         <form id="mailForm" enctype="multipart/form-data" action="{{ route('send.invoice.email') }}" method="POST">
             @csrf
             <div class="modal-content">
                 <div class="modal-header" style="padding: 12px 30px;width: 100%;background: #555555;">
                     <h4 class="modal-title">Send Custom Email</h4>
+<<<<<<< HEAD
                     <button type="button" style="top: 16px !important;color: #fff;font-size: 30px;" class="close" data-dismiss="modal">&times;</button>
+=======
+                    <button type="button" style="padding: 0 5px;top: 30px;right: 30px;" class="close"
+                        data-dismiss="modal">&times;</button>
+>>>>>>> old-repo/master
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="toEmail">To:</label>
+<<<<<<< HEAD
                         <input type="text" class="form-control" id="toEmail" name="toEmail" placeholder="Enter recipient email" required>
                         <small id="toEmailHelp" class="form-text text-muted">Separate multiple emails with commas(,)</small>
                     </div>
@@ -3043,10 +3674,39 @@ a{
                 </div>
                 <div class="modal-footer">
                     <button type="button" style="background-color: #ee2558;color: #fff;" class="btn btn-danger" data-dismiss="modal">Close</button>
+=======
+                        <input type="text" class="form-control" id="toEmail" name="toEmail"
+                            placeholder="Enter recipient email" required>
+                        <small id="toEmailHelp" class="form-text text-muted">Separate multiple emails with commas
+                            (,)</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject:</label>
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter subject"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="attachments">Attachment:</label>
+                        <i id="uploadIcon" class="fa fa-upload" style="cursor: pointer;"></i>
+                        <input type="file" class="form-control-file d-none" id="attachments" name="attachments[]"
+                            multiple>
+                        <div id="selectedFiles"></div> <!-- Display selected files -->
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea class="form-control" id="message" name="message" rows="4" placeholder="Enter message"
+                            required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" style="background-color: #ee2558;color: #fff;" class="btn btn-danger"
+                        data-dismiss="modal">Close</button>
+>>>>>>> old-repo/master
                     <button type="button" id="sendMailBtn" class="btn btn-info">Send</button>
                 </div>
             </div>
         </form>
+<<<<<<< HEAD
     </div>
 </div>
 
@@ -3065,6 +3725,13 @@ a{
         branding: false
     });
 </script> -->
+=======
+
+
+    </div>
+</div>
+
+>>>>>>> old-repo/master
 <script>
     function openModal(recordId) {
         $.ajax({
@@ -3153,6 +3820,7 @@ a{
         }, true);
     }
 </script>
+<<<<<<< HEAD
 
 
 <script>
@@ -3237,6 +3905,88 @@ $('#sendMailBtn').on('click', function () {
 
 
 });
+=======
+<script>
+    $(document).ready(function () {
+        var selectedFiles = []; // Array to store selected files
+
+        // Handle file input change event
+        $('#attachments').on('change', function () {
+            var newFiles = $(this).prop('files');
+            addSelectedFiles(newFiles); // Add newly selected files to selectedFiles array
+            displaySelectedFiles(); // Display all selected files
+        });
+
+        // Function to add selected files to selectedFiles array
+        function addSelectedFiles(newFiles) {
+            if (newFiles.length > 0) {
+                // Append new files to selectedFiles array
+                $.each(newFiles, function (index, file) {
+                    selectedFiles.push(file);
+                });
+            }
+        }
+
+        // Function to display selected files
+        function displaySelectedFiles() {
+            $('#selectedFiles').empty(); // Clear previous selections
+
+            if (selectedFiles.length > 0) {
+                // Display all selected file names
+                $.each(selectedFiles, function (index, file) {
+                    $('#selectedFiles').append('<div>' + file.name +
+                        ' <span class="deleteFile" data-index="' + index + '">&times;</span></div>');
+                });
+
+                // Handle click on delete icon
+                $('.deleteFile').on('click', function () {
+                    var index = $(this).data('index');
+                    selectedFiles.splice(index, 1); // Remove file from selectedFiles array
+                    displaySelectedFiles(); // Update displayed files
+                });
+            }
+        }
+
+        // Handle form submission
+        $('#sendMailBtn').on('click', function () {
+            var formData = new FormData($('#mailForm')[0]);
+
+            // Append all selected files to formData
+            $.each(selectedFiles, function (index, file) {
+                formData.append('attachments[]', file);
+            });
+
+            // Send AJAX request to send email
+            $.ajax({
+                url: '{{ route("send.invoice.email") }}',
+                type: 'POST',
+                enctype: 'multipart/form-data',
+                processData: false,
+                contentType: false,
+                data: formData,
+                success: function (response) {
+                    if (response.success) {
+                        alert(response.message); // Show success message
+                        $('#mailForm')[0].reset(); // Reset form
+                        $('#selectedFiles').empty(); // Clear selected files display
+                        selectedFiles = []; // Clear selected files array
+                    } else {
+                        alert('Error: ' + response.message); // Show error message
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error(xhr.responseText);
+                    alert('AJAX Error: ' + xhr.responseText); // Show AJAX error message
+                }
+            });
+        });
+
+        // Trigger file input click on icon click
+        $('#uploadIcon').on('click', function () {
+            $('#attachments').click();
+        });
+    });
+>>>>>>> old-repo/master
 </script>
 
 <script>
@@ -3302,6 +4052,7 @@ $('#sendMailBtn').on('click', function () {
 </script>
 
 
+<<<<<<< HEAD
 <script>
   $(document).ready(function () {
     // Get the last active tab from localStorage
@@ -3464,4 +4215,6 @@ $(document).ready(function () {
 });
 </script>
 
+=======
+>>>>>>> old-repo/master
 @endsection

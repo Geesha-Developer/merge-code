@@ -16,7 +16,22 @@
 <section class="content">
     <div class="body_scroll">
         <div class="block-header">
+<<<<<<< HEAD
            <h2><b>Shipper Data</b> </h2>
+=======
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2><strong>Shipper</strong> Data </h2>
+
+                    <button class="btn btn-primary btn-icon mobile_menu" type="button"><i
+                            class="zmdi zmdi-sort-amount-desc"></i></button>
+                </div>
+                <!-- <div class="col-lg-5 col-md-6 col-sm-12">
+                    <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i
+                            class="zmdi zmdi-arrow-right"></i></button>
+                </div> -->
+            </div>
+>>>>>>> old-repo/master
         </div>
 
         <div class="container-fluid p-0">
@@ -25,7 +40,10 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="body">
+<<<<<<< HEAD
                        
+=======
+>>>>>>> old-repo/master
                             <div class="table-responsive">
                                 <!-- <table class="table table-bordered table-responsive dataTable no-footer"> -->
                                 <table class="table table-bordered table-responsive dataTable no-footer" id="dataTable">
@@ -73,6 +91,7 @@
 
     </div>
 </section>
+<<<<<<< HEAD
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
@@ -95,4 +114,6 @@
         });
     });
 </script>
+=======
+>>>>>>> old-repo/master
 @endsection

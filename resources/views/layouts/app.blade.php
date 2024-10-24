@@ -133,7 +133,11 @@
     margin-right: 10px;  
 }
 .nav li a {
+<<<<<<< HEAD
     background: #1D2531;
+=======
+    background: #263544;
+>>>>>>> old-repo/master
     color: #fff;
     padding: 10px 20px;
     margin: 0px 10px;
@@ -142,7 +146,11 @@
     font-size: 18px;
 }
 .nav li a:hover {
+<<<<<<< HEAD
     background: #62830b !important;
+=======
+    background: #88939f !important;
+>>>>>>> old-repo/master
 }
 .nav{
     margin-top: 20px;

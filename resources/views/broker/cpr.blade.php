@@ -14,9 +14,12 @@
 </div>
 @endif
 <style>
+<<<<<<< HEAD
     .form-group {
        font-family: 'poppins' !important;
     }
+=======
+>>>>>>> old-repo/master
     .modal .card-header h3 {
         font-size: 13px;
         text-align: left;
@@ -60,7 +63,15 @@
 <section class="content">
     <div class="body_scroll">
         <div class="block-header">
+<<<<<<< HEAD
            <h2>CPR Check </h2>
+=======
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>CPR Check </h2>
+                </div>
+            </div>
+>>>>>>> old-repo/master
         </div>
         <div class="container-fluid">
             <!-- Exportable Table -->
@@ -71,6 +82,11 @@
                             <div class="table-responsive">
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
                                     data-target="#exampleModal">ADD CPR</button>
+<<<<<<< HEAD
+=======
+                                <button type="button" class="btn btn-success" id="hideFormButton"><i
+                                        class="fa fa-eye"></i></button>
+>>>>>>> old-repo/master
                                 <table class="table table-bordered table-hover js-basic-example dataTable">
 
                                     <thead>
@@ -96,6 +112,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
+<<<<<<< HEAD
                                             <td class="dynamic-data">1503188</td>
                                             <td class="dynamic-data">1220230724</td>
                                             <td class="dynamic-data">Seaport logistics</td>
@@ -113,6 +130,25 @@
                                             <td class="dynamic-data">Amren K_1</td>
                                             <td class="dynamic-data"><i class="fa fa-edit text-info  " style="font-size: 18px;"></i></td>
                                             <td class="dynamic-data">
+=======
+                                            <td>1503188</td>
+                                            <td>1220230724</td>
+                                            <td>Seaport logistics</td>
+                                            <td>10000</td>
+                                            <td>CNC MACHINE</td>
+                                            <td>Container Trailer</td>
+                                            <td>Not Approved</td>
+                                            <td>12/08/2023</td>
+                                            <td>Dan Edwards</td>
+                                            <td>Bella C</td>
+                                            <td>Bella C</td>
+                                            <td>Amren K_1</td>
+                                            <td>Amren K_1</td>
+                                            <td>Amren K_1</td>
+                                            <td>Amren K_1</td>
+                                            <td><i class="fa fa-edit text-info  " style="font-size: 18px;"></i></td>
+                                            <td>
+>>>>>>> old-repo/master
                                                 <button type="button" class="btn" data-toggle="modal"
                                                     data-target="#exception"><i class="fa fa-book"></i></button>
                                             </td>
@@ -173,6 +209,7 @@
                                 <input type="number" class="form-control" required style="width: 100%;">
                             </div>
                         </div>
+<<<<<<< HEAD
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Equipment Type<code>*</code></label>
@@ -295,6 +332,8 @@
                                 </select>
                             </div>
                         </div>
+=======
+>>>>>>> old-repo/master
                     </div>
                 </div>
                 <div class="card-body text-left mt-4">
@@ -419,6 +458,7 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <script>
@@ -438,6 +478,23 @@
             
             // Add highlight to the clicked row
             $(this).closest('tr').addClass('highlight-row');
+=======
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#LoadTypeID').on('change', function () {
+            var selectedValue = $(this).val();
+
+            // Hide all form sections
+            $('.form-section').removeClass('active');
+
+            // Show the selected form section
+            if (selectedValue == '1') {
+                $('#formSection1').addClass('active');
+            } else if (selectedValue == '2') {
+                $('#formSection2').addClass('active');
+            }
+>>>>>>> old-repo/master
         });
     });
 </script>

@@ -17,7 +17,15 @@
 <section class="content">
     <div class="body_scroll">
         <div class="block-header">
+<<<<<<< HEAD
             <h2><b>Edit Customer</b></h2>
+=======
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2><b>Edit Customer</b></h2>
+                </div>
+            </div>
+>>>>>>> old-repo/master
         </div>
 
         <div class="container-fluid p-0">
@@ -110,6 +118,7 @@
                                                 required>
                                         </div>
                                     </div>
+<<<<<<< HEAD
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Approved Credit Limits</label>
@@ -119,6 +128,12 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="adv_customer_credit_limit">Add Credit Limit <code>*</code></label>
+=======
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="adv_customer_credit_limit">Credit Limit <code>*</code></label>
+>>>>>>> old-repo/master
                                             <input type="text" class="form-control" id="adv_customer_credit_limit"
                                                 name="adv_customer_credit_limit"
                                                 value="{{ $customer->adv_customer_credit_limit }}" required>
@@ -127,6 +142,7 @@
 
                                     <div class="col-md-3">
                                         <div class="form-group">
+<<<<<<< HEAD
                                             <label for="remaining_credit">Remaining Limit <code>*</code></label>
                                             <input type="text" class="form-control" id="remaining_credit"
                                                 name="remaining_credit"
@@ -151,6 +167,10 @@
                                         <div class="form-group">
                                             <label>Assign Broker <code>*</code></label>
                                             <select class="form-control" required name="user_id" id="user_id">
+=======
+                                            <label>Assign Broker <code>*</code></label>
+                                            <select class="form-control select2" required name="user_id" id="user_id">
+>>>>>>> old-repo/master
                                                 <option class="hiddenOption" disabled>Select Broker</option>
                                                 @foreach($users as $user)
                                                 <option value="{{ $user->id }}"
@@ -165,7 +185,13 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Commenter's Name<code>*</code></label>
+<<<<<<< HEAD
                                             <select class="form-control" required name="commenter_name[]"
+=======
+                                            <select
+                                                style="font-family: 'Poppins', sans-serif;font-weight: 400;font-size: 9px;line-height: 0.2em;color: #666;width: 100%;padding: 0px 0 0 10px;"
+                                                class="form-control select2" required name="commenter_name[]"
+>>>>>>> old-repo/master
                                                 id="commenter_name">
                                                 @if($customer->commenter_name)
                                                 @else
@@ -176,6 +202,7 @@
                                             </select>
                                         </div>
                                     </div>
+<<<<<<< HEAD
                                     
                                     <div class="col-md-12">
                                         <div class="form-group">
@@ -184,6 +211,15 @@
                                         </div>
                                     </div>
 
+=======
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Comment</label>
+                                            <textarea name="comment_notes[]" class="form-control" cols="60"
+                                                rows="5">{{ $customer->comment_notes }}</textarea>
+                                        </div>
+                                    </div>
+>>>>>>> old-repo/master
                                     <div id="commentFields">
                                         <!-- Initial comment fields here -->
                                     </div>
@@ -215,7 +251,11 @@
             html += '<div class="form-group">';
             html += '<label>Commenter\'s Name</label>';
             html +=
+<<<<<<< HEAD
                 '<select style="font-family: \'Poppins\', sans-serif;font-weight: 400;font-size: 9px;line-height: 0.2em;color: #666;width: 100%;height:30px;padding: 0px 0 0 10px;" class="form-control" required name="commenter_name[]" id="commenter_name">';
+=======
+                '<select style="font-family: \'Poppins\', sans-serif;font-weight: 400;font-size: 9px;line-height: 0.2em;color: #666;width: 100%;height:30px;padding: 0px 0 0 10px;" class="form-control select2" required name="commenter_name[]" id="commenter_name">';
+>>>>>>> old-repo/master
             html += '<option value="Please Select">Please Select</option>';
             html += '<option value="Adam Smith">Adam Smith</option>';
             html += '<option value="Amren">Amren</option>';
@@ -235,6 +275,7 @@
     });
 </script>
 
+<<<<<<< HEAD
 <script>
 $(document).ready(function() {
     // Get the original remaining credit and credit limit
@@ -279,4 +320,6 @@ $(document).ready(function() {
 </script>
 
 
+=======
+>>>>>>> old-repo/master
 @endsection

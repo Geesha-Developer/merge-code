@@ -13,6 +13,7 @@
     {{ session('error') }}
 </div>
 @endif
+<<<<<<< HEAD
 <style>
     .table>:not(caption)>*>* {
         background-color: unset !important;
@@ -22,6 +23,17 @@
     <div class="body_scroll">
         <div class="block-header">
             <h2><b>Account Users</b></h2>
+=======
+
+<section class="content">
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2><b>Account Users</b></h2>
+                </div>
+            </div>
+>>>>>>> old-repo/master
         </div>
 
         <div class="container-fluid p-0">
@@ -71,7 +83,11 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="editAccountModalLabel">Edit Account</h5>
+<<<<<<< HEAD
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+=======
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"style="padding: 0 3px;">
+>>>>>>> old-repo/master
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
@@ -124,8 +140,12 @@
 </section>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<<<<<<< HEAD
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>>
+=======
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+>>>>>>> old-repo/master
 
 <script>
 $(document).ready(function() {
@@ -202,6 +222,7 @@ $(document).ready(function() {
 });
 </script>
 
+<<<<<<< HEAD
 <script>
     $(document).ready(function() {
         // Inject CSS dynamically via JavaScript
@@ -222,4 +243,6 @@ $(document).ready(function() {
         });
     });
 </script>
+=======
+>>>>>>> old-repo/master
 @endsection

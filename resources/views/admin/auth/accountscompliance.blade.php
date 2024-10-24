@@ -1,6 +1,7 @@
 @extends('layouts.admin.app')
 
 @section('content')
+<<<<<<< HEAD
 <style>
     thead#sticky {
     position: fixed;
@@ -10,6 +11,8 @@
     /* background-color: white; */
 }
 </style>
+=======
+>>>>>>> old-repo/master
 @if(session('success'))
 <div class="alert alert-success" id="successMessage">
     {{ session('success') }}
@@ -24,11 +27,15 @@
     {{ session('error') }}
 </div>
 @endif
+<<<<<<< HEAD
 <style>
     .table>:not(caption)>*>* {
         background-color: unset !important;
     }
 </style>
+=======
+
+>>>>>>> old-repo/master
 <section class="content">
     <div class="body_scroll">
         <div class="block-header" style="padding: 16px 15px !important;">
@@ -44,14 +51,22 @@
                                 <a class="nav-link active" id="delivered-tab" data-bs-toggle="tab" role="tab"
                                     aria-controls="delivered" aria-selected="true" style="font-size:15px;"
                                     href="#home_with_icon_title">
+<<<<<<< HEAD
                                     MC Check
+=======
+                                    <i class="fas fa-shipping-fast"></i> MC Check
+>>>>>>> old-repo/master
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="completed-tab" data-bs-toggle="tab" role="tab"
                                     aria-controls="completed" aria-selected="false"
                                     style="font-size:15px;" href="#profile_with_icon_title">
+<<<<<<< HEAD
                                    CPR Check
+=======
+                                    <i class="fa fa-check"></i> CPR Check
+>>>>>>> old-repo/master
                                 </a>
                             </li>
                         </ul>
@@ -62,6 +77,7 @@
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane in active col-12 p-0" id="home_with_icon_title">
                                 <div class="body p-0">
+<<<<<<< HEAD
                                 
                                    <div class="table-responsive">
                                    <table class="table table-bordered table-responsive dataTable no-footer" id="dataTable">
@@ -69,10 +85,22 @@
                                                 <tr>
                                                     <th>MC NO</th>
                                                     <th>DOT</th>
+=======
+                                    <div class="table-responsive">
+                                    <table class="table table-bordered table-responsive dataTable no-footer" id="dataTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>Sr No</th>
+                                                    <th>MC NO</th>
+>>>>>>> old-repo/master
                                                     <th>Carrier Name</th>
                                                     <th>Added By Agent</th>
                                                     <th>Added Date</th>
                                                     <th>MC Check</th>
+<<<<<<< HEAD
+=======
+                                                    <!-- <th>CPR</th> -->
+>>>>>>> old-repo/master
                                                     <th>MC / CPR Status</th>
                                                 </tr>
                                             </thead>
@@ -86,10 +114,17 @@
                                                 <tr style="background-color: {{ $c->created_at == $latestDate ? '#CAF1EB' : 'transparent' }};">
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
+<<<<<<< HEAD
                                                         {{ $c->carrier_mc_ff_input }}</td>
                                                         <td class="dynamic-data">
                                                         {{ $c->carrier_dot }}
                                                     </td>
+=======
+                                                        {{ $i++ }}</td>
+                                                    <td class="dynamic-data"
+                                                        style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                                        {{ $c->carrier_mc_ff_input }}</td>
+>>>>>>> old-repo/master
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ $c->carrier_name }}
@@ -103,19 +138,36 @@
                                                         {{ $c->created_at }}
                                                     </td>
                                                     <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
+<<<<<<< HEAD
                                                         <select style="width: 100%;padding: 4px 0;border-radius: 7px;" name="mc_check"
                                                                 id="mc_check-{{ $c->id }}" data-load-id="{{ $c->id }}">
+=======
+                                                        <select name="mc_check" id="mc_check-{{ $c->id }}" data-load-id="{{ $c->id }}">
+>>>>>>> old-repo/master
                                                             <option value="">Please Select MC</option>
                                                             <option value="Approved" {{ $c->mc_check == 'Approved' ? 'selected' : '' }}>Approved</option>
                                                             <option value="Not Approved" {{ $c->mc_check == 'Not Approved' ? 'selected' : '' }}>Not Approved</option>
                                                         </select>
                                                     </td>
+<<<<<<< HEAD
 
                                                     <td class="dynamic-data status-{{ $c->id }}"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important; 
                                                         color: {{ $c->mc_check == 'Approved' ? 'green' : 'red' }};">
                                                         {{ $c->mc_check == 'Approved' ? 'Approved' : 'Not Approved' }}
                                                     </td>
+=======
+                                                  
+                                                    @if($c->mc_check == 'Approved')
+                                                    <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important; color: green;">
+                                                        Approved</td>
+                                                    @else
+                                                    <td class="dynamic-data"
+                                                        style="padding: 7px 10px !important; vertical-align: middle !important;    font-weight: 100 !important;">
+                                                        Not Approved </td>
+                                                    @endif
+
+>>>>>>> old-repo/master
                                                 </tr>
                                                 @endforeach
                                             </tbody>
@@ -126,6 +178,7 @@
                             </div>
                             <div role="tabpanel" class="tab-pane" id="profile_with_icon_title">
                                 <div class="body p-0">
+<<<<<<< HEAD
                             
                                 <div class="table-responsive">
                                 <table class="table table-bordered table-responsive dataTable no-footer" id="dataTable">
@@ -150,11 +203,35 @@
                                                     <th>CPR</th>
                                                     <th>Macro</th>
                                                     <th>No Of Macro</th>
+=======
+                                    <div class="table-responsive">
+                                    <table class="table table-bordered table-responsive dataTable no-footer" id="dataTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>Sr No.</th>
+                                                    <th>Load #</th>
+                                                    <th>Agent Name</th>
+                                                    <th>W/O #</th>
+                                                    <th>Customer #</th>
+                                                    <th>Office</th>
+                                                    <th>Manager</th>
+                                                    <th>Team Leader</th>
+                                                    <th>Load Create Date</th>
+                                                    <th>Shipper Date</th>
+                                                    <th>Delivery Date</th>
+                                                    <th>Equipment Type</th>
+                                                    <th>Carrier Name</th>
+                                                    <th>Pickup Location</th>
+                                                    <th>Unloading Location</th>
+                                                    <th>Load Status</th>
+                                                    <th>CPR</th>
+>>>>>>> old-repo/master
                                                     <th>CPR Status</th>
                                                     <th>Documents</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+<<<<<<< HEAD
                                                     @php
                                                         $i = 1; // Initialize the counter
                                                         $latestDate = $loads->max('created_at'); // Get the latest date from the collection
@@ -253,6 +330,108 @@
                                                     @endforeach
                                                 </tbody>
 
+=======
+                                                @php
+                                                $i = 1;
+                                                $latestDate = $loads->max('created_at');
+                                                @endphp
+                                                @foreach($loads as $delivered)
+                                                <tr style="background-color: {{ $delivered->created_at == $latestDate ? '#CAF1EB' : 'transparent' }};">
+                                                    <td class="dynamic-data">{{ $i++ }}</td>
+                                                    <td class="dynamic-data">
+                                                        <a style="color: rgb(10 185 90) !important;font-weight: 700;" href="{{ route('accounting.load.edit', $delivered->id) }}" style="text-decoration: unset;">
+                                                            {{ $delivered->load_number }}
+                                                        </a>
+                                                    </td>
+                                                    <td class="dynamic-data">{{ $delivered->user->name }}</td>
+                                                    <td class="dynamic-data">{{ $delivered->load_workorder }}</td>
+                                                    <td class="dynamic-data">{{ $delivered->load_bill_to }}</td>
+                                                    <td class="dynamic-data">{{ $delivered->user->office }}</td>
+                                                    <td class="dynamic-data">{{ $delivered->user->manager }}</td>
+                                                    <td class="dynamic-data">{{ $delivered->user->team_lead }}</td>
+                                                    <td class="dynamic-data">{{ $delivered->created_at->format('Y-m-d') }}</td>
+                                                    @php
+                                                    $shipper_appointment =
+                                                    json_decode($delivered->load_shipper_appointment,true);
+                                                    @endphp
+                                                    <td class="dynamic-data">{{ isset($shipper_appointment[0]['appointment']) ? \Carbon\Carbon::parse($shipper_appointment[0]['appointment'])->format('y-m-d') : '' }}
+                                                    </td>
+                                                    @php
+                                                    $consignee_appointment =
+                                                    json_decode($delivered->load_consignee_appointment,true);
+                                                    @endphp
+                                                    <td class="dynamic-data"> {{ isset($consignee_appointment[0]['appointment']) ? \Carbon\Carbon::parse($consignee_appointment[0]['appointment'])->format('y-m-d') : '' }}
+                                                    </td>
+                                                    <td class="dynamic-data">{{ $delivered->load_equipment_type }}</td>
+
+                                                    <td class="dynamic-data">{{$delivered->load_carrier}}</td>
+
+                                                    @php
+                                                    $shipper_location = json_decode($delivered->load_shipper_location, true);
+                                                    @endphp
+
+                                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                                            {{ $shipper_location[0]['location'] ?? '' }}
+                                                        </td>
+
+
+
+                                                    @php
+                                                    $consignee_location = json_decode($delivered->load_consignee_location, true);
+                                                    $last_consignee_location = end($consignee_location);
+                                                    @endphp
+
+                                                    <td class="dynamic-data"
+                                                        style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                                        {{ $last_consignee_location['location'] ?? '' }}
+                                                    </td>
+
+                                                    <td class="dynamic-data"
+                                                        style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                                        {{ $delivered->load_status }}
+                                                    </td>
+                                                    <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                                        <select name="cpr_check" id="cpr_check-{{ $delivered->id }}" data-load-id="{{ $delivered->id }}">
+                                                            <option value="">Please Select CPR</option>
+                                                            <option value="Verified" {{ $delivered->cpr_check == 'Verified' ? 'selected' : '' }}>Verified</option>
+                                                            <option value="Not Verified" {{ $delivered->cpr_check == 'Not Verified' ? 'selected' : '' }}>Not Verified</option>
+                                                            <option value="Not Received" {{ $delivered->cpr_check == 'Not Received' ? 'selected' : '' }}>Not Received</option>
+                                                        </select>
+                                                    </td>
+                                                    @if($delivered->cpr_check == 'Verified')
+                                                    <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;color: green;">
+                                                    Verified
+                                                    </td>
+                                                    @elseif($delivered->cpr_check == 'Not Verified')
+                                                    <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                                        Not Verified
+                                                    </td>
+                                                    @elseif($delivered->cpr_check == 'Not Received')
+                                                    <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                                        Not Received
+                                                    </td>
+                                                    @elseif($delivered->cpr_check != 'Verified')
+                                                    <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                                        Please Check CPR
+                                                    </td>
+                                                    @endif
+                                                    <td class="dynamic-data">
+                                                        @if (!empty($delivered->load_delivery_do_file))
+                                                            @php
+                                                                $fileUrl = asset('storage/' . $delivered->load_delivery_do_file);
+                                                            @endphp
+                                                            <a href="{{ $fileUrl }}" target="_blank"><i class="fa fa-eye" style="font-size: 15px;color: #000; margin-right: 6px;"></i></a> | 
+                                                            <a href="{{ $fileUrl }}" download><i class="fa fa-download" style="font-size: 15px;color: #000; margin-left: 6px;"></i></a>
+                                                        @else
+                                                            No File Available
+                                                        @endif
+                                                    </td>
+
+
+                                                </tr>
+                                                @endforeach
+                                            </tbody>
+>>>>>>> old-repo/master
                                         </table>
                                     </div>
                                 </div>
@@ -328,6 +507,7 @@
 });
 </script>
 
+<<<<<<< HEAD
 <script>
     $(document).ready(function() {
     $('select[name="macro"], select[name="no_of_macro"]').change(function() {
@@ -376,6 +556,9 @@
     });
   });
 </script>
+=======
+
+>>>>>>> old-repo/master
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Bootstrap JavaScript library -->

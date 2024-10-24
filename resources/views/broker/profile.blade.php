@@ -171,7 +171,11 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="passwordChangeModalLabel">Change Password</h5>
+<<<<<<< HEAD
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+=======
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="padding: 1px 5px;font-size: 21px;top: 28px;">
+>>>>>>> old-repo/master
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -212,7 +216,11 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="profileChangeModalLabel">Profile Edit</h5>
+<<<<<<< HEAD
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+=======
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="padding: 1px 5px;font-size: 21px;top: 28px;">
+>>>>>>> old-repo/master
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>

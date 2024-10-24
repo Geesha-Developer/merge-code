@@ -17,12 +17,20 @@ use App\Models\BrowserUsage;
 use App\Models\Office;
 use App\Models\Manger;
 use App\Models\Accounts;
+<<<<<<< HEAD
 use App\Models\TeamLeader;
+=======
+use App\Models\TeamLead as TeamLeader;
+>>>>>>> old-repo/master
 use App\Models\Shipper;
 use App\Models\Consignee;
 use App\Models\AdminData;
 use App\Models\Country;
 use App\Models\States;
+<<<<<<< HEAD
+=======
+use App\Models\TeamLead;
+>>>>>>> old-repo/master
 use App\Models\Cities;
 use App\Models\SuperAdmin;
 use App\Models\AccountsAdmin;
@@ -32,6 +40,7 @@ use Dompdf\Dompdf;
 use Dompdf\Options;
 use PDF;
 use Carbon\Carbon;
+<<<<<<< HEAD
 
 
 class AdminCustomerController extends Controller
@@ -61,10 +70,101 @@ class AdminCustomerController extends Controller
                 return redirect()->route('SuperAdminLogin')
                                  ->withErrors(['error' => 'Incorrect Username or Password']);
             }
+=======
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
+
+use function getCurrentUserAndGuard;
+use function setUserToAuthGuard;
+class AdminCustomerController extends Controller
+{
+
+    public function loginAgentOrTL(Request $request)
+{
+    // Validate the login request
+    $credentials = $request->only('email', 'password');
+
+    // Use the helper function to check the user and guard
+    $user = getCurrentUserAndGuard($credentials);
+
+    if ($user) {
+        // Set the user to the auth guard
+        setUserToAuthGuard($user);
+
+        // Redirect based on the guard
+        return redirect()->route('home');
+    }
+
+    // Throw validation exception if credentials do not match
+    throw ValidationException::withMessages([
+        'email' => ['The provided credentials do not match our records.'],
+    ]);
+}
+    // public function loginAgentOrTL(Request $request)
+    // {
+    //     // Validate the login request
+    //     $credentials = $request->only('email', 'password');
+
+    //     // Check if the user exists in the 'teamlead' table
+    //     $teamLead = TeamLead::where('email', $credentials['email'])->first();
+
+    //     if ($teamLead) {
+            
+    //         // Attempt to authenticate with the 'teamlead' guard
+    //         if (Auth::guard('teamlead')->attempt($credentials)) {
+    //             $user = Auth::guard('teamlead')->user();
+                
+    //             return redirect()->route('home');
+    //         }
+    //     } else {
+    //         // Attempt to authenticate with the 'web' guard
+    //         if (Auth::guard('web')->attempt($credentials)) {
+    //             $user = Auth::guard('web')->user();
+    //             return redirect()->route('home');
+    //         }
+    //     }
+    //     // $credentials = $request->only('email', 'password');
+
+    //     // if (Auth::guard('web')->attempt($credentials)) {
+    //     //     session()->put('role','Agent');
+    //     //     return redirect()->route('home'); 
+    //     // } 
+    //     // if (Auth::guard('teamlead')->attempt($credentials)) {
+    //     //     session()->put('role','Team Lead');
+    //     //     return redirect()->route('home');
+       
+    //     // }
+    //     // else{
+    //     //     throw ValidationException::withMessages([
+    //     //         'email' => ['The provided credentials do not match our records.'],
+    //     //     ]);
+    //     // }
+       
+    // }
+    public function SuperAdminLogin(Request $req)
+    {
+        $submit = $req['submit'];
+        if ($submit == 'submit') {
+            $req->validate([
+                'email' => 'required',
+                'password' => 'required',
+            ]);
+    
+            // Attempt to authenticate using the SuperAdmin model and the 'superadmin' guard
+            if (\Auth::guard('superadmin')->attempt($req->only('email', 'password'))) {
+                return redirect(route('all.load.status'));
+            } else {
+                return redirect(route('SuperAdminLogin'))->withError('Incorrect Username or Password');
+            }
+            
+>>>>>>> old-repo/master
         }
     
         return view('admin.auth.login');
     }
+<<<<<<< HEAD
     
 
     
@@ -84,6 +184,18 @@ class AdminCustomerController extends Controller
     }
     
 
+=======
+
+
+
+
+    public function SuperAdminLogout()
+    {
+        \Session::flush();
+        \Auth::logout();
+        return redirect(route('SuperAdminLogin'));
+    }
+>>>>>>> old-repo/master
 
 
     public function showRegistrationForm()
@@ -141,7 +253,14 @@ class AdminCustomerController extends Controller
 
 
     public function userChart(){
+<<<<<<< HEAD
 
+=======
+        $user = auth()->user();
+        if(!$user){
+            $user = Auth::guard('teamlead')->user();  
+        }
+>>>>>>> old-repo/master
         $usersCount = User::count();
         $loadCount = Load::count();
         $status = Load::get();
@@ -221,6 +340,7 @@ class AdminCustomerController extends Controller
         ];
         
         // return view('admin.auth.dashboard', compact('datasets', 'datasets2', 'labels', 'labels2','usersCount','loadCount'));
+<<<<<<< HEAD
         return view('admin.auth.dashboard', compact('datasets', 'datasets2', 'labels', 'labels2', 'usersCount', 'loadCount','status'));
 
     }
@@ -284,6 +404,42 @@ class AdminCustomerController extends Controller
     return view('admin.auth.customer_data', compact('countries', 'states', 'cities', 'customers', 'approvedCustomers', 'users', 'external', 'shipper', 'consignee', 'loads','manager','teamlead','office'));
 }
 
+=======
+        return view('admin.auth.dashboard', compact('datasets', 'datasets2', 'labels', 'labels2', 'usersCount', 'loadCount','status','user'));
+
+    }
+
+    public function broker_data()
+    {
+        $customers = Customer::orderBy('id', 'DESC')->get();
+        $countries = Country::orderByRaw('CASE WHEN id = 233 THEN 0 WHEN id = 39 THEN 1 ELSE 2 END')->orderBy('name')->get();
+        $states = States::orderBy('name')->get();
+        $cities = Cities::all();    
+        $users = User::get();
+        $approvedCustomers = $customers->where('status', 'Approved');
+        $external = External::orderBy('id', 'ASC')->get();
+        $shipper = Shipper::select(
+            'shippers.*', 
+            'users.name as user_name',
+            'users.manager',
+            'users.team_lead'
+        )
+        ->join('users', 'shippers.user_id', '=', 'users.id')
+        ->orderBy('shippers.id', 'ASC')
+        ->get();  
+        $consignee = Consignee::orderBy('id', 'ASC')->get();
+        $loads = Load::orderBy('id', 'ASC')->get();
+    
+        // Calculate days ago for each customer
+        foreach ($customers as $customer) {
+            $lastLoad = $customer->loads()->latest()->first(); // Assuming loads() is the relationship method
+            $lastLoadDate = $lastLoad ? $lastLoad->created_at : null; // Get the created_at date
+            $customer->daysAgo = $lastLoadDate ? Carbon::now()->diffInDays($lastLoadDate) : null; // Add daysAgo property to customer
+        }
+    
+        return view('admin.auth.customer_data', compact('countries', 'states', 'cities', 'customers', 'approvedCustomers', 'users', 'external', 'shipper', 'consignee', 'loads'));
+    }
+>>>>>>> old-repo/master
     
 
     public function approveCustomer($id)
@@ -312,6 +468,16 @@ public function delete_customer($id)
     }
 }
 
+<<<<<<< HEAD
+=======
+// public function editCustomer($id)
+// {
+//     $customer = customer::find($id);
+//     $users = User::get();
+//     return view('admin.auth.edit_customer', compact('customer','users'));
+// }
+
+>>>>>>> old-repo/master
 public function editCustomer($id)
 {
     $customer = customer::find($id);
@@ -319,6 +485,17 @@ public function editCustomer($id)
     return view('admin.auth.edit_customer', compact('customer','users'));
 }
 
+<<<<<<< HEAD
+=======
+// public function customer_edit($id)
+// {
+//     // Find the customer by ID
+//     $customer = customer::findOrFail($id);
+    
+//     // Return the edit view with the customer data
+//     return view('admin.auth.edit_customer', compact('customer'));
+// }
+>>>>>>> old-repo/master
 
 public function updateCustomer(Request $request, $id)
 {
@@ -331,17 +508,30 @@ public function updateCustomer(Request $request, $id)
         'customer_telephone' => $request->input('customer_telephone'),
         'adv_customer_credit_limit' => $request->input('adv_customer_credit_limit'),
         'user_id' => $request->input('user_id'),
+<<<<<<< HEAD
         'comment_notes' => $request->input('comment_notes')[0] ?? null,
         'commenter_name' => $request->input('commenter_name'),
         'approved_limit' => $request->input('approved_limit'),
     ]);
 
+=======
+        'comment_notes' => $request->input('comment_notes'),
+        'commenter_name' => $request->input('commenter_name'),
+    ]);
+
+    // If you want to verify the updated customer object
+    // echo "<pre>"; print_r($customer); die();
+
+>>>>>>> old-repo/master
     return redirect()->route('broker_data')->with('success', 'Customer updated successfully');
 }
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> old-repo/master
 public function carrier_data()
 {
     $external = External::orderBy('id','ASC')->get();
@@ -446,12 +636,21 @@ public function addLeader()
 public function LeaderAdd(Request $request)
 {
     // dd($request->all());
+<<<<<<< HEAD
     $request->validate([
         'leader' => 'required|string|max:255',
         'leader_email' => 'required|email|max:255',
         'leader_manager' => 'required|string|max:255',
     ]);
 
+=======
+    // $request->validate([
+    //     'leader' => 'required|string|max:255',
+    //     'leader_email' => 'required|email|max:255',
+    //     'leader_manager' => 'required|string|max:255',
+    // ]);
+    $status = 0;
+>>>>>>> old-repo/master
     if ($request->Manager) {
         Manger::create([
             'leader' => $request->leader,  
@@ -460,6 +659,7 @@ public function LeaderAdd(Request $request)
             'leader_manager' => $request->leader_manager,
             'office' => $request->leader_office,
         ]);
+<<<<<<< HEAD
     }
 
     if ($request->TL) {
@@ -473,6 +673,29 @@ public function LeaderAdd(Request $request)
     }
 
     return redirect()->back()->with('success', 'New Leader has been added!');
+=======
+        $status = 1;
+    }
+    
+    if ($request->TL) {
+        $teamLeader = TeamLeader::create([
+            'name' => $request->leader,  
+            'password' => Hash::make($request->leader.'@12345'),
+            'email' => $request->leader_email,
+            'manager' => $request->leader_manager,
+            'office' => $request->leader_office,
+        ]);
+        
+        // Get the ID of the created record
+        $id = $teamLeader->id;
+
+        $status = $this->assignRoleAndPermissions($id);
+        // echo $status;
+        // die;
+    }
+    return $status;
+    
+>>>>>>> old-repo/master
 }
 
 
@@ -1037,6 +1260,14 @@ public function updateInvoiceStatusAsBackDelivered($id)
 // }
     
 public function AccountsCreateLogin(Request $request) {
+<<<<<<< HEAD
+=======
+    // echo "<pre>";
+    // print_r($request->all());
+    // die;
+    //Old Code Blocked on 19-08-2024 Starts here
+    /*
+>>>>>>> old-repo/master
     $existingUser = AccountsAdmin::where('email', $request->input('email'))->first();
     if ($existingUser) {
         return redirect()->back()->with('error', 'Email Already Registered');
@@ -1052,7 +1283,105 @@ public function AccountsCreateLogin(Request $request) {
     $yourModel->role = $request->input('role') ?? '';
     // echo "<pre>"; print_r($yourModel); die;
     $yourModel->save();
+<<<<<<< HEAD
 
+=======
+    */
+    //Old Code Bloacked on 19-08-2024 Ends Here
+
+
+    
+    // Validate the incoming request data
+
+    // $validated = $request->validate([
+    //     'name' => 'required|string|max:255',
+    //     'email' => 'required|string|email|max:255|unique:accountslogin',
+    //     'password' => 'required|string|min:8|confirmed',
+    //     'confirm_password' => 'required_with:password|same:password',
+    //     'manager' => 'nullable|string|max:255',
+    //     'team_lead' => 'nullable|string|max:255',
+    //     'role' => 'nullable|string|max:255',
+    // ]);
+
+    //New Code Block on 19-08-2024 Starts here
+        // Check if the email already exists
+        $existingUser = AccountsAdmin::where('email', $request->input('email'))->first();
+        if ($existingUser) {
+    //         echo "<pre>";
+    // print_r($request->all());
+    // die;
+            return redirect()->back()->with('error', 'Email Already Registered');
+        }
+        // echo "Not if<pre>";
+        // print_r($request->all());
+        // die;
+        // Create a new AccountsAdmin instance
+        $yourModel = new AccountsAdmin();
+        $yourModel->name = $request->input('name');
+        $yourModel->email = $request->input('email');
+        $yourModel->password = Hash::make($request->input('password')); // Hash the password
+        $yourModel->manager = $request->input('manager');
+        $yourModel->team_lead = $request->input('team_lead');
+        $yourModel->role = $request->input('role');
+        // Save the model
+        $yourModel->save();
+
+        // Setup the access role
+    $roleName = $request->input('role');
+    $role = Role::where('name', $roleName)->where('guard_name', 'accountsadmin')->first();
+
+    if (!$role) {
+        return response()->json(['error' => 'Role does not exist.'], 404);
+    }
+
+    // Assign the role to the newly created user
+    $yourModel->assignRole($role);
+
+    // Assign permissions based on role
+    switch ($roleName) {
+        case 'Accounts Manager':
+            $yourModel->givePermissionTo([
+                'view dashboard',
+                'manage accounting',
+                'manage account-manager',
+                'manage reporting',
+                'manage vendors',
+                'view compliance',
+                'manage compliance'
+            ]);
+            break;
+        case 'Compliance':
+            $yourModel->givePermissionTo([
+                'view dashboard',
+                'view compliance',
+                'manage compliance'
+            ]);
+            break;
+        case 'Accounts Payable':
+            $yourModel->givePermissionTo([
+                'manage vendors',
+                'view dashboard'
+            ]);
+            break;
+        case 'Accounts Receivable':
+            $yourModel->givePermissionTo([
+                'manage accounting',
+                'view dashboard'
+            ]);
+            break;
+        case 'MIS Reporting':
+            $yourModel->givePermissionTo([
+                'view dashboard',
+                'manage reporting',
+                'manage account-manager'
+            ]);
+            break;
+        default:
+            return response()->json(['error' => 'Invalid role.'], 400);
+    }
+       
+    //new Code Block on 19-08-2024 Starts here
+>>>>>>> old-repo/master
     // Send email
     $to = $request->input('email');
     $subject = "Accounts Login Credentials";
@@ -1096,13 +1425,20 @@ public function AdminEditLoad($id)
     $allCustomers = customer::get();
     $load = Load::find($id);
     $post = Load::find($id);
+<<<<<<< HEAD
     $consignee = Consignee::get();
+=======
+>>>>>>> old-repo/master
 
     if (!$load) {
         return redirect()->back()->with('error', 'Load not found.');
     }
 
+<<<<<<< HEAD
     return view('admin.auth.adminupdateload', compact('loads', 'loads_completed', 'loads_paid', 'loads_paid_record', 'load','post','allCustomers','consignee'));
+=======
+    return view('admin.auth.adminupdateload', compact('loads', 'loads_completed', 'loads_paid', 'loads_paid_record', 'load','post'));
+>>>>>>> old-repo/master
 }
 
 
@@ -1110,6 +1446,7 @@ public function AdminEditLoad($id)
     public function AdminUpdateLoad(Request $request, $id)
     {
         // dd($request->all());
+<<<<<<< HEAD
          // Find the load instance
          $load = Load::find($id);
     
@@ -1619,6 +1956,464 @@ public function AdminEditLoad($id)
  
      } 
  
+=======
+        // Find the load instance
+        $load = Load::find($id);
+   
+        // Handle shipper data
+        $shipper_name = [];
+        $shipper_location = [];
+        $shipper_appointment = [];
+        $shipper_description = [];
+        $shipper_commodity_type = [];
+        $shipper_commodity_name = [];
+        $shipper_qty = [];
+        $shipper_weight = [];
+        $shipper_value = [];
+        $shipper_note = [];
+        $shipper_po_number = [];
+        $shipper_contact = [];
+
+
+
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 shippers based on your form
+            if ($request->has("load_shipper{$i}")) {
+                $shipper = [
+                    'name' => $request->input("load_shipper{$i}"),
+                ];
+    
+                // Add shipper data to array if name is not null
+                if (!empty($shipper['name'])) {
+                    $shipper_name[] = $shipper;
+                }
+            }
+        }
+
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 shippers based on your form
+            if ($request->has("load_shipper_location{$i}")) {
+                $shipper = [
+                    'location' => $request->input("load_shipper_location{$i}"),
+                ];
+    
+                // Add shipper data to array if name is not null
+                if (!empty($shipper['location'])) {
+                    $shipper_location[] = $shipper;
+                }
+            }
+        }
+
+
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 shippers based on your form
+            if ($request->has("load_shipper_appointment{$i}")) {
+                $shipper = [
+                    'appointment' => $request->input("load_shipper_appointment{$i}"),
+                ];
+    
+                // Add shipper data to array if name is not null
+                if (!empty($shipper['appointment'])) {
+                    $shipper_appointment [] = $shipper;
+                }
+            }
+        }
+
+
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 shippers based on your form
+            if ($request->has("load_shipper_description{$i}")) {
+                $shipper = [
+                    'description' => $request->input("load_shipper_description{$i}"),
+                ];
+    
+                // Add shipper data to array if name is not null
+                if (!empty($shipper['description'])) {
+                    $shipper_description [] = $shipper;
+                }
+            }
+        }
+
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 shippers based on your form
+            if ($request->has("load_shipper_commodity_type{$i}")) {
+                $shipper = [
+                    'commodity_type' => $request->input("load_shipper_commodity_type{$i}"),
+                ];
+    
+                // Add shipper data to array if name is not null
+                if (!empty($shipper['commodity_type'])) {
+                    $shipper_commodity_type [] = $shipper;
+                }
+            }
+        }
+
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 shippers based on your form
+            if ($request->has("load_shipper_commodity{$i}")) {
+                $shipper = [
+                    'commodity_name' => $request->input("load_shipper_commodity{$i}"),
+                ];
+    
+                // Add shipper data to array if name is not null
+                if (!empty($shipper['commodity_name'])) {
+                    $shipper_commodity_name [] = $shipper;
+                }
+            }
+        }
+
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 shippers based on your form
+            if ($request->has("load_shipper_qty{$i}")) {
+                $shipper = [
+                    'shipper_qty' => $request->input("load_shipper_qty{$i}"),
+                ];
+    
+                // Add shipper data to array if name is not null
+                if (!empty($shipper['shipper_qty'])) {
+                    $shipper_qty [] = $shipper;
+                }
+            }
+        }
+
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 shippers based on your form
+            if ($request->has("load_shipper_weight{$i}")) {
+                $shipper = [
+                    'shipper_weight' => $request->input("load_shipper_weight{$i}"),
+                ];
+    
+                // Add shipper data to array if name is not null
+                if (!empty($shipper['shipper_weight'])) {
+                    $shipper_weight [] = $shipper;
+                }
+            }
+        }
+
+
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 shippers based on your form
+            if ($request->has("load_shipper_value{$i}")) {
+                $shipper = [
+                    'shipper_value' => $request->input("load_shipper_value{$i}"),
+                ];
+    
+                // Add shipper data to array if name is not null
+                if (!empty($shipper['shipper_value'])) {
+                    $shipper_value [] = $shipper;
+                }
+            }
+        }
+
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 shippers based on your form
+            if ($request->has("load_shipper_shipping_notes{$i}")) {
+                $shipper = [
+                    'shipping_notes' => $request->input("load_shipper_shipping_notes{$i}"),
+                ];
+    
+                // Add shipper data to array if name is not null
+                if (!empty($shipper['shipping_notes'])) {
+                    $shipper_note [] = $shipper;
+                }
+            }
+        }
+
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 shippers based on your form
+            if ($request->has("load_shipper_po_numbers{$i}")) {
+                $shipper = [
+                    'shipping_po_numbers' => $request->input("load_shipper_po_numbers{$i}"),
+                ];
+    
+                // Add shipper data to array if name is not null
+                if (!empty($shipper['shipping_po_numbers'])) {
+                    $shipper_po_number [] = $shipper;
+                }
+            }
+        }
+
+
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 shippers based on your form
+            if ($request->has("load_shipper_contact{$i}")) {
+                $shipper = [
+                    'shipping_contact' => $request->input("load_shipper_contact{$i}"),
+                ];
+    
+                // Add shipper data to array if name is not null
+                if (!empty($shipper['shipping_contact'])) {
+                    $shipper_contact [] = $shipper;
+                }
+            }
+        }
+    
+        // Handle consignee dataaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        $consignee_name = [];
+        $consignee_location = [];
+        $load_consignee_appointment = [];
+        $consignee_description = [];
+        $load_consignee_type = [];
+        $consignee_commodity_name = [];
+        $consignee_qty = [];
+        $consignee_weight = [];
+        $consignee_value = [];
+        $consignee_note = [];
+        $consignee_po_number = [];
+        $consignee_contact = [];
+        $consignee_delivery_note = [];
+        $load_consignee_commodity = [];
+        $load_consigneer_contact = [];
+
+
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 consignees based on your form
+            if ($request->has("load_consignee_{$i}")) {
+                $consignee = [
+                    'name' => $request->input("load_consignee_{$i}"),
+                ];
+    
+                // Add consignee data to array if name is not null
+                if (!empty($consignee['name'])) {
+                    $consignee_name [] = $consignee;
+                }
+            }
+        }
+
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 consignees based on your form
+            if ($request->has("load_consignee_location_{$i}")) {
+                $consignee = [
+                    'location' => $request->input("load_consignee_location_{$i}"),
+                ];
+    
+                // Add consignee data to array if name is not null
+                if (!empty($consignee['location'])) {
+                    $consignee_location [] = $consignee;
+                }
+            }
+        }
+
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 consignees based on your form
+            if ($request->has("load_consignee_appointment_{$i}")) {
+                $consignee = [
+                    'appointment' => $request->input("load_consignee_appointment_{$i}"),
+                ];
+    
+                // Add consignee data to array if name is not null
+                if (!empty($consignee['appointment'])) {
+                    $load_consignee_appointment [] = $consignee;
+                }
+            }
+        }
+
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 consignees based on your form
+            if ($request->has("load_consignee_discription_{$i}")) {
+                $consignee = [
+                    'description' => $request->input("load_consignee_discription_{$i}"),
+                ];
+    
+                // Add consignee data to array if name is not null
+                if (!empty($consignee['description'])) {
+                    $consignee_description [] = $consignee;
+                }
+            }
+        }
+
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 consignees based on your form
+            if ($request->has("load_consignee_commodity_{$i}")) {
+                $consignee = [
+                    'consignee_commodity' => $request->input("load_consignee_commodity_{$i}"),
+                ];
+    
+                // Add consignee data to array if name is not null
+                if (!empty($consignee['consignee_commodity'])) {
+                    $load_consignee_commodity [] = $consignee;
+                }
+            }
+        }
+
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 consignees based on your form
+            if ($request->has("load_consignee_type_{$i}")) {
+                $consignee = [
+                    'consignee_type' => $request->input("load_consignee_type_{$i}"),
+                ];
+    
+                // Add consignee data to array if name is not null
+                if (!empty($consignee['consignee_type'])) {
+                    $load_consignee_type [] = $consignee;
+                }
+            }
+        }
+
+
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 consignees based on your form
+            if ($request->has("load_consignee_qty_{$i}")) {
+                $consignee = [
+                    'consignee_qty' => $request->input("load_consignee_qty_{$i}"),
+                ];
+    
+                // Add consignee data to array if name is not null
+                if (!empty($consignee['consignee_qty'])) {
+                    $consignee_qty [] = $consignee;
+                }
+            }
+        }
+
+
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 consignees based on your form
+            if ($request->has("load_consignee_weight_{$i}")) {
+                $consignee = [
+                    'consignee_weight' => $request->input("load_consignee_weight_{$i}"),
+                ];
+    
+                // Add consignee data to array if name is not null
+                if (!empty($consignee['consignee_weight'])) {
+                    $consignee_weight [] = $consignee;
+                }
+            }
+        }
+
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 consignees based on your form
+            if ($request->has("load_consignee_value_{$i}")) {
+                $consignee = [
+                    'consignee_value' => $request->input("load_consignee_value_{$i}"),
+                ];
+    
+                // Add consignee data to array if name is not null
+                if (!empty($consignee['consignee_value'])) {
+                    $consignee_value [] = $consignee;
+                }
+            }
+        }
+
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 consignees based on your form
+            if ($request->has("load_consigneer_notes_{$i}")) {
+                $consignee = [
+                    'consignee_notes' => $request->input("load_consigneer_notes_{$i}"),
+                ];
+    
+                // Add consignee data to array if name is not null
+                if (!empty($consignee['consignee_notes'])) {
+                    $consignee_note [] = $consignee;
+                }
+            }
+        }
+
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 consignees based on your form
+            if ($request->has("load_consignee_po_numbers_{$i}")) {
+                $consignee = [
+                    'consignee_po_number' => $request->input("load_consignee_po_numbers_{$i}"),
+                ];
+    
+                // Add consignee data to array if name is not null
+                if (!empty($consignee['consignee_po_number'])) {
+                    $consignee_po_number [] = $consignee;
+                }
+            }
+        }
+
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 consignees based on your form
+            if ($request->has("load_consigneer_contact_{$i}")) {
+                $consignee = [
+                    'consignee_contact' => $request->input("load_consigneer_contact_{$i}"),
+                ];
+    
+                // Add consignee data to array if name is not null
+                if (!empty($consignee['consignee_contact'])) {
+                    $load_consigneer_contact [] = $consignee;
+                }
+            }
+        }
+
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 consignees based on your form
+            if ($request->has("load_consignee_delivery_notes_{$i}")) {
+                $consignee = [
+                    'consignee_delivery_notes' => $request->input("load_consignee_delivery_notes_{$i}"),
+                ];
+    
+                // Add consignee data to array if name is not null
+                if (!empty($consignee['consignee_delivery_notes'])) {
+                    $consignee_delivery_note  [] = $consignee;
+                }
+            }
+        }
+
+        for ($i = 1; $i <= 2; $i++) {
+            // Check if the form input for consignee note exists
+            if ($request->has("load_consignee_notes_{$i}")) {
+                // Get the consignee note value from the request
+                $note = $request->input("load_consignee_notes_{$i}");
+        
+                // Add consignee note to array if not empty
+                if (!empty($note)) {
+                    $consignee_note[] = ['load_consignee_notes' => $note];
+                }
+            }
+        }
+
+    
+        $load->load_shipperr = json_encode($shipper_name);
+        $load->load_shipper_location = json_encode($shipper_location);
+        $load->load_shipper_discription = json_encode($shipper_description);
+        $load->load_shipper_commodity_type = json_encode($shipper_commodity_type);
+        $load->load_shipper_qty = json_encode($shipper_qty);
+        $load->load_shipper_weight = json_encode($shipper_weight);
+        $load->load_shipper_commodity = json_encode($shipper_commodity_name);
+        $load->load_shipper_value = json_encode($shipper_value);
+        $load->load_shipper_shipping_notes = json_encode($shipper_note);
+        $load->load_shipper_po_numbers = json_encode($shipper_po_number);
+        $load->load_shipper_contact = json_encode($shipper_contact);
+        $load->load_shipper_appointment = json_encode($shipper_appointment);
+    
+        $load->load_consignee = json_encode($consignee_name);
+        $load->load_consignee_location = json_encode($consignee_location);
+        $load->load_consignee_appointment = json_encode($load_consignee_appointment);
+        $load->load_consignee_discription = json_encode($consignee_description);
+        $load->load_consignee_type = json_encode($load_consignee_type);
+        $load->load_consignee_commodity = json_encode($load_consignee_commodity);
+        $load->load_consignee_qty = json_encode($consignee_qty);
+        $load->load_consignee_weight = json_encode($consignee_weight);
+        $load->load_consignee_value = json_encode($consignee_value);
+        $load->load_consigneer_notes = json_encode($consignee_note);
+        $load->load_consignee_po_numbers = json_encode($consignee_po_number);
+        $load->load_consigneer_contact = json_encode($load_consigneer_contact);
+        $load->load_consignee_delivery_notes = json_encode($consignee_delivery_note);
+        $load->load_consignee_appointment = json_encode($load_consignee_appointment);
+
+
+        $load->load_bill_to = $request->input('load_bill_to', null);
+        $load->load_dispatcher = $request->input('load_dispatcher') ?? '';
+        $load->load_status = $request->input('load_status') ?? '';
+        $load->load_workorder = $request->input('load_workorder') ?? '';
+        $load->load_payment_type = $request->input('load_payment_type') ?? '';
+        $load->load_type = $request->input('load_type') ?? '';
+        $load->load_shipper_rate = $request->input('load_shipper_rate') ?? '';
+        $load->load_pds = $request->input('load_pds') ?? '';
+        $load->load_fsc_rate = $request->input('load_fsc_rate') ?? '';
+        $load->load_telephone = $request->input('load_telephone') ?? '';
+        $load->shipper_load_other_charge = $request->input('shipper_load_other_charge') ?? '';
+        $load->load_carrier = $request->input('load_carrier') ?? '';
+        $load->load_carrier_phone = $request->input('load_carrier_phone') ?? '';
+        $load->load_advance_payment = $request->input('load_advance_payment') ?? '';
+        $load->load_type_two = $request->input('load_type_two') ?? '';
+        $load->load_billing_type = $request->input('load_billing_type') ?? '';
+        $load->load_mc_no = $request->input('load_mc_no') ?? '';
+        $load->load_equipment_type = $request->input('load_equipment_type') ?? '';
+        $load->load_carrier_fee = $request->input('load_carrier_fee') ?? '';
+        $load->load_currency = $request->input('load_currency') ?? '';
+        $load->load_pds_two = $request->input('load_pds_two') ?? '';
+        $load->load_billing_fsc_rate = $request->input('load_billing_fsc_rate') ?? '';
+        $load->load_final_carrier_fee = $request->input('load_final_carrier_fee') ?? '';
+        $load->load_other_change = $request->input('load_other_change') ?? '';
+        $load->load_final_rate = $request->input('shipper_load_final_rate') ?? '';
+        $load->load_other_charge = $request->input('load_other_charge') ?? '';
+        $load->shipper_load_final_rate = $request->input('shipper_load_final_rate') ?? '';
+
+        $load->shipper_load_final_rate = $request->input('shipper_load_final_rate') ?? '';
+
+        $load->comment = $request->input('comment') ?? '';
+        $load->invoice_number = '';
+        $load->invoice_date = '0000-00-00';
+        $load->load_carrier_due_date = '';
+        $load->carrier_mark_as_paid = '';
+
+        // echo "<pre>"; print_r($load); die();
+    
+        $load->save();
+    
+        // Return success response
+        // return response()->json(['message' => 'Load updated successfully']);
+        return redirect()->back()->with('success', 'Load status updated successfully');
+
+    } 
+>>>>>>> old-repo/master
 
     public function adminRcDownload($id)
     {
@@ -1683,6 +2478,7 @@ public function AdminEditLoad($id)
         return $pdf->stream($filename, ['Attachment' => false]);
     }
 
+<<<<<<< HEAD
     public function adminShipperRcDownload($id)
     {
         // Fetch the load based on the provided id
@@ -1746,6 +2542,8 @@ public function AdminEditLoad($id)
         return $pdf->stream($filename, ['Attachment' => false]);
     }
 
+=======
+>>>>>>> old-repo/master
 // OfficeController.php
 public function officeDestroy($id)
 {
@@ -1900,7 +2698,105 @@ public function adminDestroyLoad($id)
         return redirect()->back()->with('error', 'Error deleting load: ' . $e->getMessage());
     }
 }
+<<<<<<< HEAD
 
+=======
+public function assignRoleAndPermissions($teamleadId)
+{
+    // Find the teamlead by ID
+    $teamlead = TeamLeader::find($teamleadId);
+
+    if (!$teamlead) {
+        return 0;
+    }
+
+    $permissions = ['view', 'edit', 'delete', 'create'];
+    $roleName = "TeamLead";
+
+    // Find or create the role with the correct guard
+    $role = Role::firstOrCreate(['name' => $roleName, 'guard_name' => 'teamlead']);
+
+    // Assign the role to the teamlead with the correct guard
+    $teamlead->assignRole($role);
+
+    // Find or create the permissions with the correct guard and assign them to the role
+    foreach ($permissions as $permission) {
+        $perm = Permission::firstOrCreate(
+            ['name' => $permission, 'guard_name' => 'teamlead'] // Specify the correct guard for the permissions
+        );
+        $role->givePermissionTo($perm);
+    }
+
+    return 1;
+}
+public function adminShipperRcDownload($id)
+    {
+        // Fetch the load based on the provided id
+        $load = Load::find($id);
+    
+        // Check if $load is found
+        if (!$load) {
+            abort(404, 'Load not found.');
+        }
+    
+        // Consolidate consignee data
+        $consigneeData = [
+            'load_consignee' => $load->load_consignee,
+            'load_consignee_location' => $load->load_consignee_location,
+            'load_consignee_date' => $load->load_consignee_date,
+            'load_consignee_discription' => $load->load_consignee_discription,
+            'load_consignee_type' => $load->load_consignee_type,
+            'load_consignee_qty' => $load->load_consignee_qty,
+            'load_consignee_weight' => $load->load_consignee_weight,
+            'load_consignee_commodity' => $load->load_consignee_commodity,
+            'load_consignee_value' => $load->load_consignee_value,
+            'load_consignee_delivery_notes' => $load->load_consignee_delivery_notes,
+            'load_consignee_po_numbers' => $load->load_consignee_po_numbers,
+            'load_consignee_appointment' => $load->load_consignee_appointment
+        ];
+    
+        // Prepare shipper data
+        $shipperData = [
+            'load_shipperr' => $load->load_shipperr,
+            'load_shipper_location' => $load->load_shipper_location,
+            'load_shipper_date' => $load->load_shipper_date,
+            'load_shipper_discription' => $load->load_shipper_discription,
+            'load_shipper_commodity_type' => $load->load_shipper_commodity_type,
+            'load_shipper_qty' => $load->load_shipper_qty,
+            'load_shipper_weight' => $load->load_shipper_weight,
+            'load_shipper_commodity' => $load->load_shipper_commodity,
+            'load_shipper_value' => $load->load_shipper_value,
+            'load_shipper_shipping_notes' => $load->load_shipper_shipping_notes,
+            'load_shipper_po_numbers' => $load->load_shipper_po_numbers,
+            'load_shipper_contact' => $load->load_shipper_contact,
+            'load_shipper_appointment' => $load->load_shipper_appointment
+        ];
+    
+        $pdf = new Dompdf();
+        $options = new Options();
+        $options->set('isHtml5ParserEnabled', true);
+        $options->set('isPhpEnabled', true);
+        $pdf->setOptions($options);
+    
+        // Pass title and other data to the view
+        $view = view('broker.shipper_rc', compact('load', 'consigneeData', 'shipperData'))->render();
+    
+        $pdf->loadHtml($view);
+        $pdf->setPaper('A4', 'portrait');
+        $pdf->render();
+    
+        // Get the load number for the filename
+        $filename = 'Load No - ' . $load->load_number . '.pdf';
+    
+        // Stream the PDF to the browser for preview
+        return $pdf->stream($filename, ['Attachment' => false]);
+    }
+    public function itsData()
+{
+    $its = DB::select("SELECT * FROM load_bkp");
+    return view('admin.auth.its_data',compact('its'));
+}
+>>>>>>> old-repo/master
 public function destroyCustomer($id)
 {
     $customer = Customer::find($id);
@@ -1910,8 +2806,11 @@ public function destroyCustomer($id)
     $customer->delete();
     return response()->json(['success' => 'Customer deleted successfully.']);
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> old-repo/master
 public function destroyCarrier($id)
 {
     $carrier = External::find($id);
@@ -1921,6 +2820,7 @@ public function destroyCarrier($id)
     $carrier->delete();
     return response()->json(['success' => 'Carrier deleted successfully.']);
 }
+<<<<<<< HEAD
 
 public function itsData()
 {
@@ -1929,6 +2829,8 @@ public function itsData()
 }
 
 
+=======
+>>>>>>> old-repo/master
 public function consignee_edit($id)
 {
     // Fetch the consignee data by ID
@@ -1938,7 +2840,10 @@ public function consignee_edit($id)
     // Pass the consignee data to the edit view
     return view('admin.auth.consignee_edit', compact('consignee','countries','states'));
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> old-repo/master
 public function consignee_update(Request $request, $id)
 {
     // Validate the request data
@@ -2013,7 +2918,10 @@ public function consignee_update(Request $request, $id)
     // Redirect to consignee index or anywhere appropriate with success message
     return redirect()->back()->with('success', 'Consignee updated successfully!');
 }
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> old-repo/master
 }

@@ -14,9 +14,12 @@
 </div>
 @endif
 <style>
+<<<<<<< HEAD
     .form-group {
        font-family: 'poppins' !important;
     }
+=======
+>>>>>>> old-repo/master
     .modal .card-header h3 {
         font-size: 15px !important;
         text-align: left;
@@ -45,7 +48,15 @@
 <section class="content">
     <div class="body_scroll">
         <div class="block-header">
+<<<<<<< HEAD
             <h2>MC Check </h2>
+=======
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>MC Check </h2>
+                </div>
+            </div>
+>>>>>>> old-repo/master
         </div>
         <div class="container-fluid">
             <!-- Exportable Table -->
@@ -56,10 +67,16 @@
                             <div class="table-responsive">
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
                                     data-target="#exampleModal">ADD MC</button>
+<<<<<<< HEAD
+=======
+                                <button type="button" class="btn btn-success" id="hideFormButton"><i
+                                        class="fa fa-eye"></i></button>
+>>>>>>> old-repo/master
                                 <table class="table table-bordered table-hover js-basic-example dataTable">
 
                                     <thead>
                                         <tr>
+<<<<<<< HEAD
                                             <th>MC NO</th>
                                             <th>DOT</th>
                                             <th>Carrier Name</th>
@@ -83,6 +100,44 @@
                                             @endif
                                         </tr>
                                         @endforeach
+=======
+                                            <th>MC No</th>
+                                            <th>MC Reference No</th>
+                                            <th>Carrier Name</th>
+                                            <th>Commodity Value</th>
+                                            <th>Commodity Type</th>
+                                            <th>Equipment Type</th>
+                                            <th>Approval Status</th>
+                                            <th>Date Added</th>
+                                            <th>Added by User</th>
+                                            <th>Team Lead</th>
+                                            <th>Team Manager</th>
+                                            <th>Ops Manager</th>
+                                            <th>Actions</th>
+                                            <th>Raise Exception</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1503188</td>
+                                            <td>1220230724</td>
+                                            <td>Seaport logistics</td>
+                                            <td>10000</td>
+                                            <td>CNC MACHINE</td>
+                                            <td>Container Trailer</td>
+                                            <td>Not Approved</td>
+                                            <td>12/08/2023</td>
+                                            <td>Dan Edwards</td>
+                                            <td>Bella C</td>
+                                            <td>Bella C</td>
+                                            <td>Amren K_1</td>
+                                            <td><i class="fa fa-edit text-info  " style="font-size: 18px;"></i></td>
+                                            <td>
+                                                <button type="button" class="btn" data-toggle="modal"
+                                                    data-target="#exception"><i class="fa fa-book"></i></button>
+                                            </td>
+                                        </tr>
+>>>>>>> old-repo/master
                                     </tbody>
                                 </table>
                             </div>
@@ -100,6 +155,7 @@
             <div class="modal-header">
                 <button type="button" class="close mt-0" data-dismiss="modal" style="color: #000;">&times;</button>
             </div>
+<<<<<<< HEAD
             <form method="POST" action="{{ route('mc.check.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="card-header">
@@ -287,6 +343,99 @@
                             <div class="form-group">
                                 <label>Commodity Value Proof <code>*</code></label>
                                 <input class="form-control" type="file" id="myFile" name="commodity_file">
+=======
+            <form method="POST">
+                <div class="card-header">
+                    <h3 class="card-title">Add MC Check</h3>
+                </div>
+
+                <div class="card-body text-left">
+                    <div class="row">
+                    <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Dispatcher Name <code>*</code></label>
+                                <input type="text" class="form-control" required style="width: 100%;">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>MC Number <code>*</code></label>
+                                <input type="number" class="form-control" required style="width: 100%;">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Carrier Name<code>*</code></label>
+                                <input type="text" class="form-control" required style="width: 100%;">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Carrier Email<code>*</code></label>
+                                <input type="email" class="form-control" required style="width: 100%;">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Contact Number<code>*</code></label>
+                                <input type="number" class="form-control" required style="width: 100%;">
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Commodity Type <code>*</code></label>
+                                <input type="text" class="form-control select2" required
+                                    style="width: 100%;height:30px;padding: 0px 0 0 10px;">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Commodity Name <code>*</code></label>
+                                <input type="text" class="form-control select2" required
+                                    style="width: 100%;height:30px;padding: 0px 0 0 10px;">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Commodity Value <code>*</code></label>
+                                <input type="number" class="form-control select2" required
+                                    style="width: 100%;height:30px ;padding: 0px 0 0 10px;">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Equipment Type<code>*</code></label>
+                                <select style="width:100%;border: 1px solid #ced4da;padding: .375rem .75rem;">
+                                    <option>Select Equipment</option>
+                                    <option>Container Trailer</option>
+                                    <option>22'VAN</option>
+                                    <option>48'Reefer</option>
+                                    <option>53'Reefer</option>
+                                    <option>53'VAN</option>
+                                    <option>Air Freight</option>
+                                    <option>Anhydros Ammonia</option>
+                                    <option>Animal Carrier</option>
+                                    <option>Any Equipment</option>
+                                    <option>Any Equipment (Searching Services only)</option>
+                                    <option>Auto Carrier</option>
+                                    <option>B-Train/Supertrain</option>
+                                    <option>B-Train/Supertrain(Canada Only)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>MC Purpose<code>*</code></label>
+                                <input type="email" class="form-control" required style="width: 100%;">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label style="margin-bottom: 0;font-weight: 600;color: #4a4a4a;">Commodity
+                                    Value Proof <code>*</code></label>
+                                <input type="file" id="myFile" name="filename">
+>>>>>>> old-repo/master
                             </div>
                         </div>
                     </div>
@@ -294,6 +443,7 @@
                         <input type="submit" class="btn btn-info" value="Add">
                         <input type="button" class="btn btn-danger" data-dismiss="modal" value="Cancel">
                     </div>
+<<<<<<< HEAD
                 </div>
             </form>
 
@@ -322,6 +472,12 @@
         });
     });
 </script>
+=======
+            </form>
+        </div>
+    </div>
+</div>
+>>>>>>> old-repo/master
 @endsection
 <div class="modal" id="exception">
     <div class="modal-dialog">
@@ -351,4 +507,8 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> old-repo/master

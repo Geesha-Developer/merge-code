@@ -50,7 +50,11 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
+<<<<<<< HEAD
                     <h2>Edit Load</h2>
+=======
+                    <h2><b>Edit Load</b></h2>
+>>>>>>> old-repo/master
                 </div>
                 <div class="col-lg-5 col-md-6 col-sm-12">
                     <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i

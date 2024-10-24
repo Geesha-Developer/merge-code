@@ -11029,7 +11029,11 @@ section.content {
 }
 
 .ls-toggle-menu .sidebar {
+<<<<<<< HEAD
     width: 50px
+=======
+    width: 0
+>>>>>>> old-repo/master
 }
 
 .ls-toggle-menu .sidebar .user-info .image {
@@ -11107,7 +11111,11 @@ section.content {
 }
 
 .ls-toggle-menu section.content {
+<<<<<<< HEAD
     margin-left: 50px
+=======
+    margin-left: 0
+>>>>>>> old-repo/master
 }
 
 .right_icon_toggle .right_icon_toggle_btn i::before {
@@ -21275,7 +21283,11 @@ section.content {
 }
 
 .rtl section.content {
+<<<<<<< HEAD
     margin: 20px 260px 20px 70px
+=======
+    margin:8px 260px 20px 70px
+>>>>>>> old-repo/master
 }
 
 .rtl .navbar-right .navbar-nav .dropdown-menu {

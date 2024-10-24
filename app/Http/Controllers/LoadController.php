@@ -287,7 +287,11 @@ class LoadController extends Controller
         }
     
     
+<<<<<<< HEAD
         return redirect()->back()->with('success', 'Load details updated successfully.');
+=======
+        return redirect()->back()->with('success', 'Load has been created successfully!');
+>>>>>>> old-repo/master
     }
     
     public function updateInvoiceStatus(Request $request, $loadId)
@@ -443,6 +447,7 @@ class LoadController extends Controller
    
     public function fetchCarrierDetails(Request $request)
     {
+<<<<<<< HEAD
         $carrierName = $request->input('carrierName');
         $mcNumber = $request->input('mcNumber');
         $dotNumber = $request->input('dotNumber');
@@ -470,10 +475,26 @@ class LoadController extends Controller
                          ->first();
     
         // Return the carrier data as a JSON response
+=======
+        // Retrieve the carrier ID
+        $carrierId = $request->input('carrierId');
+    
+        // Fetch the carrier based on the ID and ensure it's approved
+        $carrier = External::where('id', $carrierId)
+                            ->where('mc_check', 'Approved') // Ensure it's an approved carrier
+                            ->select('id', 'carrier_name', 'carrier_mc_ff_input as mcNumber', 'carrier_dot as dotNumber', 'carrier_telephone as phone')
+                            ->first();
+    
+        // Return the carrier details as a JSON response
+>>>>>>> old-repo/master
         return response()->json($carrier);
     }
     
     
+<<<<<<< HEAD
+=======
+    
+>>>>>>> old-repo/master
 
 
     
@@ -721,7 +742,11 @@ class LoadController extends Controller
         $newLoad->save();
 
         // Redirect with success message
+<<<<<<< HEAD
         return redirect()->back()->with('success', 'Load cloned successfully.');
+=======
+        return redirect()->back()->with('success', 'Load has been cloned successfully');
+>>>>>>> old-repo/master
     }
     
     public function BrokerLoadEdit($id)
@@ -1304,8 +1329,12 @@ class LoadController extends Controller
         $load->save();
     
 
+<<<<<<< HEAD
         return redirect('/load')->with('success', 'Shipper information updated successfully!');
 
+=======
+    return redirect()->back()->with('success', 'Load has been updated successfully!');
+>>>>>>> old-repo/master
 
     } 
     
@@ -1557,19 +1586,29 @@ public function updateProfilePicture(Request $request)
 
     $user = auth()->user();
 
+<<<<<<< HEAD
     // Handle file upload
     if ($request->hasFile('profile_picture')) {
         // Delete old profile picture if it exists
+=======
+    if ($request->hasFile('profile_picture')) {
+>>>>>>> old-repo/master
         if ($user->profile_picture && Storage::exists('public/' . $user->profile_picture)) {
             Storage::delete('public/' . $user->profile_picture);
         }
 
+<<<<<<< HEAD
         // Store new profile picture
+=======
+>>>>>>> old-repo/master
         $path = $request->file('profile_picture')->store('profile_pictures', 'public');
         $user->profile_picture = $path;
         $user->save();
 
+<<<<<<< HEAD
         // Return success response with image path
+=======
+>>>>>>> old-repo/master
         return response()->json([
             'success' => true,
             'image_path' => asset('storage/' . $path),
@@ -1623,4 +1662,9 @@ public function fetchCarrierDetailsBroker(Request $request)
 
     return response()->json(null);
 }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> old-repo/master
 }

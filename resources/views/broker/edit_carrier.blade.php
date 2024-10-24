@@ -2,6 +2,7 @@
 
 @section('content')
 @if(session('success'))
+<<<<<<< HEAD
 <div class="alert alert-success alert-dismissible fade show" role="alert">
     <i class="fa fa-check"></i>
   <h4 class="alert-heading"><b>Well done!</b></h4>
@@ -22,6 +23,18 @@
     <span aria-hidden="true">&times;</span>
   </button>
   <button type="button" class="btn btn-danger" onclick="$('.alert').alert('close');">OK</button>
+=======
+<div class="alert alert-success" id="successMessage">
+    {{ session('success') }}
+</div>
+@endif
+@if(session('error'))
+<div class="alert alert-danger" id="errorMessage">
+    <script>
+        alert("{{ session('error') }}");
+    </script>
+    {{ session('error') }}
+>>>>>>> old-repo/master
 </div>
 @endif
 
@@ -42,7 +55,15 @@
 <section class="content">
     <div class="body_scroll">
         <div class="block-header">
+<<<<<<< HEAD
             <h2>Carrier Listing</h2>
+=======
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>Carrier Listing</h2>
+                </div>
+            </div>
+>>>>>>> old-repo/master
         </div>
 
         <div class="container-fluid">

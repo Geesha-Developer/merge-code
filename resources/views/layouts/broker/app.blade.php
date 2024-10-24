@@ -32,7 +32,11 @@
 </head>
 
 <style>
+<<<<<<< HEAD
     .profile-picture-container {
+=======
+     .profile-picture-container {
+>>>>>>> old-repo/master
     border: 2px solid #263544;
     border-radius: 110px;
     padding: 3px;
@@ -158,7 +162,11 @@
     }
     section.content {
     font-family: poppins;
+<<<<<<< HEAD
     margin: 20px 0 20px 214px;
+=======
+    margin: 8px 0 20px 214px;
+>>>>>>> old-repo/master
 }
 ul.dropdown-menu.info.show {
     right: 0 !important;
@@ -234,14 +242,32 @@ ul.dropdown-menu.info.show {
     </div>
     <!-- Left Sidebar -->
     <aside id="leftsidebar" class="sidebar">
+<<<<<<< HEAD
         <button class="btn-menu ls-toggle-btn" id="menu-btn" onclick="toggleMenu()" type="button"><i
                 class="zmdi zmdi-menu"></i></button>
+=======
+>>>>>>> old-repo/master
         <div class="user-info">
             <a href="{{ route('home') }}" class="text-center"><img src="{{ asset('images/only logo.png') }}" width="35%"
                     alt="Aero" /></a>
             <div class="detail text-center m-0">
+<<<<<<< HEAD
                 <h4><a class="text-white" href="{{ route('profile') }}">{{ strtoupper(Auth::user()->name) }}</a></h4>
                 <small>EMP: {{ strtoupper(Auth::user()->emp_code) }}</small>
+=======
+                <h4><a class="text-white" href="{{ route('profile') }}"></a></h4>
+                @if(Auth::guard('teamlead')->check())
+                    {{ Auth::guard('teamlead')->user()->name }}
+                @elseif(Auth::guard('web')->check())
+                    {{ Auth::guard('web')->user()->name }}
+                @endif
+
+                @if(Auth::guard('teamlead')->check() && Auth::guard('teamlead')->user()->user && Auth::guard('teamlead')->user()->user->emp_code)
+                    <small>EMP: {{ Auth::guard('teamlead')->user()->user->emp_code }}</small>
+                @elseif(Auth::guard('web')->check() && Auth::guard('web')->user()->emp_code)
+                    <small>EMP: {{ Auth::guard('web')->user()->emp_code }}</small>
+                @endif
+>>>>>>> old-repo/master
             </div>
         </div>
         <div class="menu">
@@ -274,7 +300,17 @@ ul.dropdown-menu.info.show {
                             src="{{ asset('assets/images/sidebar-icons/loaded-truck-side-view.png') }}"
                             width="25"><span>Load Creation</span></a>
                 </li>
+<<<<<<< HEAD
 
+=======
+                @if (Auth::guard('teamlead')->check())
+                    <li class="menu {{ isset($activeIndex) && $activeIndex == 6 ? 'active' : '' }}">
+                        <a href="{{ url('/agentportal') }}"><img
+                                src="{{ asset('assets/images/sidebar-icons/loaded-truck-side-view.png') }}"
+                                width="25"><span>Agent Portal</span></a>
+                    </li>
+                    @endif
+>>>>>>> old-repo/master
                 <!-- <li class="menu {{ isset($activeIndex) && $activeIndex == 6 ? 'active' : '' }}">
                     <a href="{{ url('/mc') }}">
                         <img src="{{ asset('assets/images/sidebar-icons/loaded-truck-side-view.png') }}" width="25">
@@ -289,11 +325,14 @@ ul.dropdown-menu.info.show {
                     </a>
                 </li> -->
 
+<<<<<<< HEAD
                 <!-- <li class="menu {{ isset($activeIndex) && $activeIndex == 8 ? 'active' : '' }}">
                     <a href="{{ url('/bol') }}"><img
                             src="{{ asset('assets/images/sidebar-icons/loaded-truck-side-view.png') }}"
                             width="25"><span>BOL</span></a>
                 </li> -->
+=======
+>>>>>>> old-repo/master
                 <li class="menu {{ isset($activeIndex) && $activeIndex == 9 ? 'active' : '' }}">
                     <a href="{{ route('dashboardhome') }}"><img
                             src="{{ asset('assets/images/sidebar-icons/dashboard-control.png') }}"
@@ -323,6 +362,7 @@ ul.dropdown-menu.info.show {
     </aside>
     <div class="profile-notification">
         <ul class="d-flex p-0">
+<<<<<<< HEAD
             <!-- <li>
                 <div class="btn-group show-on-hover">
                     <button type="button" class="btn dropdown-toggle p-0 m-0" data-toggle="dropdown"><i
@@ -398,20 +438,30 @@ ul.dropdown-menu.info.show {
                     </ul>
                 </div>
             </li> -->
+=======
+            <li class="mr-3"><button class="btn-menu ls-toggle-btn" id="menu-btn" onclick="toggleMenu()" type="button"><i class="zmdi zmdi-menu"></i></button></li>
+>>>>>>> old-repo/master
             <li>
               <i class="zmdi zmdi-eye toggleBlurButton"></i>
             </li>
             <li>
                 <div class="btn-group ml-3">
                     <button type="button" class="btn dropdown-toggle p-0 m-0" data-toggle="dropdown">
+<<<<<<< HEAD
                         @if(auth()->user()->profile_picture)
                             <div class="profile-picture-container" style="position: relative; display: inline-block;">
                                 <img id="profileImage" 
                                     src="{{ asset('storage/' . auth()->user()->profile_picture) }}" 
+=======
+                            <div class="profile-picture-container" style="position: relative; display: inline-block;">
+                                <img id="profileImage" 
+                                    src="" 
+>>>>>>> old-repo/master
                                     alt="avatar" 
                                     class="rounded-circle img-fluid" 
                                     style="width: 30px; height: 30px; object-fit: cover;">
                             </div>
+<<<<<<< HEAD
                         @else
                             <div class="profile-picture-container" style="position: relative; display: inline-block;">
                                 <img id="profileImage" 
@@ -425,6 +475,12 @@ ul.dropdown-menu.info.show {
                     <ul class="dropdown-menu info" role="menu">
                     
                         <li><a class="text-white" href="https://crmcargoconvoy.co/profile"><i
+=======
+                    </button>
+                    <ul class="dropdown-menu info" role="menu">
+                    
+                        <li><a class="text-white" href="{{ route('profile') }}"><i
+>>>>>>> old-repo/master
                                     style="background:unset;color:#fff; margin-top:0;"
                                     class="mr-2 zmdi zmdi-account-circle"></i>Profile</a></li>
                         <li><a class="text-white" href="{{ route('logout') }}"
@@ -454,8 +510,13 @@ ul.dropdown-menu.info.show {
         <div class="notification-container">
             <div class="notification-content">
                 <p class="notification-text">
+<<<<<<< HEAD
                     <strong>evondev</strong>, <strong>Trần Anh Tuấn</strong> and 154 others react to your post in
                     <strong>Cộng đồng Frontend Việt Nam</strong>
+=======
+                    <strong>evondev</strong>, <strong>Tr?n Anh Tu?n</strong> and 154 others react to your post in
+                    <strong>C?ng d?ng Frontend Vi?t Nam</strong>
+>>>>>>> old-repo/master
                 </p>
                 <span class="notification-timer">a few seconds ago</span>
             </div>
@@ -505,6 +566,10 @@ ul.dropdown-menu.info.show {
             document.body.style.zoom = "85%";
         }
     </script> -->
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> old-repo/master
     <script>
         $(document).ready(function () {
             $('#map').vectorMap({

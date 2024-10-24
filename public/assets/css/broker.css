@@ -119,7 +119,11 @@ label.upload-button {
 
 .modal .modal-header .close {
     color: #ffffff !important;
+<<<<<<< HEAD
     text-shadow: none;
+=======
+        text-shadow: none;
+>>>>>>> old-repo/master
     padding: 0 5px;
     font-size: 23px;
     top: 30px;

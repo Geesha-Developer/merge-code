@@ -271,12 +271,15 @@ tbody {
     margin: 11px 59px 20px 259px !important;
 } */
     #menu-btn{
+<<<<<<< HEAD
   background-color:#fff;
   border:none;
   width:25px;
   position:absolute;
   left:0;
   top:20px;
+=======
+>>>>>>> old-repo/master
   span{
     display:inline-block;
     width:100%;

@@ -22,11 +22,15 @@
         border: 1px solid #cccc;
         width: 100%;
     }
+<<<<<<< HEAD
     .disspatch {
     position: absolute;
     right: 0;
     top: 55px;
 }
+=======
+
+>>>>>>> old-repo/master
     h3 {
         text-align: center;
         color: #749c09;
@@ -50,12 +54,19 @@ li{
     list-style:none;
 }
 .rate{
+<<<<<<< HEAD
     margin-left: 19px;
 }
 .rate h4{
     margin:unset;
     margin-bottom:10px;
 }
+=======
+    display: flex;  
+    width: 100%;
+    margin-left: 19px;
+}
+>>>>>>> old-repo/master
 .info td{
     border:1px solid #000;
 }
@@ -74,7 +85,15 @@ li{
 
 <body>
   <section class="rate-load-confirmation">
+<<<<<<< HEAD
                 <h3>CUSTOMER RATE & LOAD CONFIRMATION</h3>
+=======
+                <h3>RATE & LOAD CONFIRMATION</h3>
+                <ul style="float: right;">
+                        <li><p class="mb-1"><b>CUSTOMER RATE & LOAD CONFIRMATION :</b><span>{{ $load->load_number }}</span></p></li>
+                        <li><p class="mb-0"><b>Load Create Date: </b><span>{{ $load->created_at->setTimezone('America/New_York')->format('d-m-Y h:i:s A') }}</span></p></li>
+                        </ul>
+>>>>>>> old-repo/master
                         <div class="direction">
                             <div class="logo" style="text-align:center; width: 30%;">
                                 @php
@@ -99,12 +118,24 @@ li{
                                             <p><b>Dispatcher:</b>{{ $load->user->name }}</p>
                                         </td>
                                         <td style="width:35% !important">
+<<<<<<< HEAD
                                             
+=======
+                                            <p><b>Phone #:</b>{{ $load->user->emergency_contact }}</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:65% !important">
+                                            <p><b>W/O:</b>{{ $load->load_workorder }}</p>
+                                        </td>
+                                        <td style="width:35% !important">
+>>>>>>> old-repo/master
                                             <p><b>Load #:</b>{{ $load->load_number }}</p>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="width:65% !important">
+<<<<<<< HEAD
                                           <p><b>Phone #:</b>{{ $load->user->emergency_contact }}</p>
                                             
                                         </td>
@@ -116,6 +147,9 @@ li{
                                         <td style="width:65% !important">
                                            <p><b>Email:</b>{{ $load->user->email }}</p>
                                             <!-- <p><b>C.r/f #:</b>{{ $load->customer_refrence_number }}</p> -->
+=======
+                                            <p><b>C.r/f #:</b>{{ $load->customer_refrence_number }}</p>
+>>>>>>> old-repo/master
                                         </td>
                                          
                                         @php
@@ -129,15 +163,26 @@ li{
                                             }
                                         @endphp
                                         <td style="width:35% !important">
+<<<<<<< HEAD
                                         <p><b>Ship Date:</b> {{ isset($lastAppointment['appointment']) ? \Carbon\Carbon::parse($lastAppointment['appointment'])->format('m/d/Y') : 'No Ship Date' }}</p>
+=======
+                                        <p><b>Ship Date:</b> {{ isset($lastAppointment['appointment']) ? \Carbon\Carbon::parse($lastAppointment['appointment'])->format('m-d-Y') : 'No Ship Date' }}</p>
+>>>>>>> old-repo/master
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="width:65% !important">
+<<<<<<< HEAD
                                            <p><b>C.r/f #:</b>{{ $load->customer_refrence_number }}</p>
                                         </td>
                                         <td style="width:35% !important">
                                             <p><b>Today's Date:</b>{{ $load->created_at->setTimezone('America/New_York')->format('m-d-Y') }}
+=======
+                                            <p><b>Email:</b>{{ $load->user->email }}</p>
+                                        </td>
+                                        <td style="width:35% !important">
+                                            <p><b>Today's Date:</b>{{ $load->created_at->setTimezone('America/New_York')->format('m-d-Y H:i:s') }}
+>>>>>>> old-repo/master
                                             </p>
                                         </td>
                                     </tr>
@@ -147,6 +192,7 @@ li{
                 
                         <div class="detail" style="width: 100%;">
                             <table style="width:100%">
+<<<<<<< HEAD
                                 <thead>
                                     <tr>
                                         <th><b>Customer:</b></th>
@@ -168,6 +214,32 @@ li{
                                     <td style="text-align:center;">
                                         <p>${{ $load->shipper_load_final_rate }}</p>
                                     </td>
+=======
+                                <tr>
+                                    <td>
+                                        <p><b>Customer:</b>{{ $load->load_bill_to }}</p>
+                                    </td>
+                                    <td>
+                                        <p><b>FAX #:</b>25</p>
+                                    </td>
+                                </tr>
+                                <!-- <tr>
+                                    <td>
+                                        <p><b>Contact Person: </b>{{ $load->customer->customer_primary_contact }}</p>
+                                    </td>
+                                    <td>
+                                        <p><b>Agreed Amount:</b>$ {{ $load->load_shipper_rate }} </p>
+                                    </td>
+                                </tr> -->
+                                <tr>
+                                    <td>
+                                        <p><b>Phone:</b>{{ $load->customer->customer_telephone }}</p>
+                                    </td>
+                                    <td>
+                                        <p><b>Equipment:</b>{{ $load->load_equipment_type }}</p>
+                                    </td>
+
+>>>>>>> old-repo/master
                                 </tr>
                             </table>
                         </div>
@@ -191,6 +263,7 @@ li{
                         $carbon_date = isset($shipper_appointment_date['appointment']) ? Carbon::parse($shipper_appointment_date['appointment']) : null;
                         $formatted_date = $carbon_date ? $carbon_date->format('Y-m-d H:i') : 'N/A';
                         $shipperLocation = json_decode($load->load_shipper_location, true);
+<<<<<<< HEAD
                         $shipperContact = json_decode($load->load_shipper_contact, true) ?? [];
                         $shipperLocation = json_decode($load->load_shipper_location, true) ?? [];
                         $shipperNotes = json_decode($load->load_shipper_shipping_notes, true) ?? [];
@@ -199,6 +272,8 @@ li{
                         $shipperWeight = json_decode($load->load_shipper_weight, true) ?? [];
                         $shipperQty = json_decode($load->load_shipper_qty, true) ?? [];
 
+=======
+>>>>>>> old-repo/master
                         
                         @endphp
                         
@@ -215,19 +290,41 @@ li{
                                     <p><b>Name:</b> {{ isset($shipper['name']) ? $shipper['name'] : '' }}</p>
                                 </td>
                                 <td style="width:35% !important">
+<<<<<<< HEAD
                                     <p><b>Type:</b> {{ isset($shipperType[$key]['commodity_type']) ? $shipperType[$key]['commodity_type'] : ($shipperType[$key]['type'] ?? '') }}</p>
+=======
+                                    <p><b>Quantity:</b> {{ isset($shipper_qty[$key]['shipper_qty']) ? $shipper_qty[$key]['shipper_qty'] : '' }}</p>
+>>>>>>> old-repo/master
                                 </td>
                             </tr>
                             <tr>
                                 <td style="width:65% !important">
+<<<<<<< HEAD
                                    <p><b>Contact:</b> {{ $shipperContact[$key]['shipping_contact'] ?? $shipperContact[$key]['contact'] ?? '' }}</p>
                                 </td>
                                 <td style="width:35% !important">
                                 <p><b>PO Numbers :</b> {{ isset($shipperPoNumber[$key]['shipping_po_numbers']) ? $shipperPoNumber[$key]['shipping_po_numbers'] : $shipperPoNumber[$key]['po_number'] ?? '' }}</p> 
+=======
+                                    <p><b>Type:</b> {{ isset($shipper_type[$key]['commodity_type']) ? $shipper_type[$key]['commodity_type'] : '' }}</p>
+                                </td>
+                                <td style="width:35% !important">
+                                <p><b>Date:</b> 
+                                    {{ isset($shipper_appointmet[$key]['appointment']) ? \Carbon\Carbon::parse($shipper_appointmet[$key]['appointment'])->format('m-d-Y') : '' }}
+                                </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:65% !important">
+                                    <p><b>Weight:</b> {{ isset($shipper_weight[$key]['shipper_weight']) ? $shipper_weight[$key]['shipper_weight'] : '' }} lbs</p>
+                                </td>
+                                <td style="width:35% !important">
+                                <p><b>PO Numbers :</b> {{ isset($sipper_po_number[$key]['shipping_po_numbers']) ? $sipper_po_number[$key]['shipping_po_numbers'] : '' }}</p> 
+>>>>>>> old-repo/master
                                 </td>
                             </tr>
                             <tr>
                                 <td style="width:35% !important">
+<<<<<<< HEAD
                                 <p><b>Shipping Address:</b> {{ $shipperLocation[$key]['location'] ?? '' }}" title="{{ $shipperLocation[$key]['location'] ?? '' }}</p> 
                                 </td>
                                 <td style="width:65% !important">
@@ -249,10 +346,22 @@ li{
                                 </td>
                                 <td style="width:65% !important">
                                 <p><b>Date:</b>{{ isset($shipper_appointmet[$key]['appointment']) ? \Carbon\Carbon::parse($shipper_appointmet[$key]['appointment'])->format('m-d-Y') : '' }}</p>
+=======
+                                    <p><b>Contact:</b> {{ isset($shipper_contact[$key]['shipping_contact']) ? $shipper_contact[$key]['shipping_contact'] : '' }}</p>
+>>>>>>> old-repo/master
                                 </td>
                                 
                             </tr>
                         </table>
+<<<<<<< HEAD
+=======
+                        <div class="notes" style="margin-left:5px;"><b>Description</b> {{ isset($shipper_discription[$key]['description']) ? $shipper_discription[$key]['description'] : '' }}</div>
+                        <div class="notes" style="margin-left:5px;">
+                            <b>Shipping Address:</b> 
+                            {{ isset($shipperLocation[$key]['location']) ? $shipperLocation[$key]['location'] : 'N/A' }}
+                        </div>
+                        <div class="notes" style="margin-left:5px;"><b>Shipping Note:</b> {{ isset($shipper_notes[$key]['shipping_notes']) ? $shipper_notes[$key]['shipping_notes'] : '' }}</div>
+>>>>>>> old-repo/master
                     </div>
                             @endforeach
                             @php
@@ -287,16 +396,27 @@ li{
                         </tr>
                         <tr>
                             <td style="width:65% !important">
+<<<<<<< HEAD
                             <p><b>Contact:</b> {{ isset($consignees_contact[$key]['consignee_contact']) ? $consignees_contact[$key]['consignee_contact'] : '' }}</p>
                             <!-- <p><b>Quantity:</b>{{ isset($consignees_qty[$key]['consignee_qty']) ? $consignees_qty[$key]['consignee_qty'] : '' }}</p> -->
                             </td>
                             <td style="width:35% !important">
                             <!-- <p><b>Date:</b>{{ isset($consignee_appointment[$key]['appointment']) ? date('m-d-Y', strtotime($consignee_appointment[$key]['appointment'])) : '' }}</p> -->
                             <p><b>PO Numbers:</b> {{ isset($load_consignee_po_numbers[$key]['consignee_po_number']) ? $load_consignee_po_numbers[$key]['consignee_po_number'] : '' }}</p>
+=======
+                            <p><b>Quantity:</b>{{ isset($consignees_qty[$key]['consignee_qty']) ? $consignees_qty[$key]['consignee_qty'] : '' }}</p>
+                            </td>
+                            <td style="width:35% !important">
+                            <p><b>Date:</b> 
+                                {{ isset($consignee_appointment[$key]['appointment']) ? date('m-d-Y', strtotime($consignee_appointment[$key]['appointment'])) : '' }}
+                            </p>
+
+>>>>>>> old-repo/master
                             </td>
                         </tr>
                         <tr>
                             <td style="width:65% !important">
+<<<<<<< HEAD
                                 <p><b>Consignee Address:</b> {{ isset($consigneesLocation[$key]['location']) ? $consigneesLocation[$key]['location'] : '' }}</p>
                                 <!-- <p><b>Weight:</b>{{ isset($consignees_weight[$key]['consignee_weight']) ? $consignees_weight[$key]['consignee_weight'] : '' }} lbs</p> -->
                             </td>
@@ -307,10 +427,22 @@ li{
                             </td>
                             @else
                                <p>No consignee notes available.</p>
+=======
+                                <p><b>Weight:</b>{{ isset($consignees_weight[$key]['consignee_weight']) ? $consignees_weight[$key]['consignee_weight'] : '' }} lbs</p>
+                            </td>
+                            @if(isset($load->load_consigneer_notes))
+                            <td style="width:35% !important">
+                            <p><b>PO Numbers:</b> {{ isset($load_consignee_po_numbers[$key]['consignee_po_number']) ? $load_consignee_po_numbers[$key]['consignee_po_number'] : '' }}</p>
+
+                            </td>
+                            @else
+                                <p>No consignee notes available.</p>
+>>>>>>> old-repo/master
                             @endif
                         </tr>
                         <tr>
                             <td>
+<<<<<<< HEAD
                                 <p><b>Description:</b>{{ isset($consigneesDiscription[$key]['description']) ? $consigneesDiscription[$key]['description'] : '' }}</p>
                             </td>
                             <td>
@@ -326,6 +458,15 @@ li{
                             </td>
                         </tr>
                     </table>
+=======
+                                <p><b>Contact:</b> {{ isset($consignees_contact[$key]['consignee_contact']) ? $consignees_contact[$key]['consignee_contact'] : '' }}</p>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="notes" style="margin-left:5px;margin-bottom:7px;"><b>Description:</b>{{ isset($consigneesDiscription[$key]['description']) ? $consigneesDiscription[$key]['description'] : '' }}</div>
+                    <div class="notes" style="margin-left:5px;margin-bottom:7px;"><b>Consignee Address:</b> {{ isset($consigneesLocation[$key]['location']) ? $consigneesLocation[$key]['location'] : '' }}</div>
+                    <div class="notes" style="margin-left:5px;"><b>Consignee Note:</b>{{ isset($consignees_notes[$key]['load_consignee_notes']) ? $consignees_notes[$key]['load_consignee_notes'] : '' }}</div>
+>>>>>>> old-repo/master
                 </div>
                 @endforeach
 

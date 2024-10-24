@@ -21,9 +21,12 @@
         padding: 1.5em;
         width: 100%;
     }
+<<<<<<< HEAD
     .table>:not(caption)>*>* {
         background-color: unset !important;
     }
+=======
+>>>>>>> old-repo/master
 
     .db__bars {
         display: grid;
@@ -525,7 +528,11 @@
         }
 
         .db__bubbles {
+<<<<<<< HEAD
             height: 18em;
+=======
+            height: 20em;
+>>>>>>> old-repo/master
         }
 
         .db__cell:nth-child(2) {
@@ -687,11 +694,14 @@
                         style="font-size: 15px;color: #000;font-weight:500">Customers</a>
                 </li>
                 <li class="nav-item">
+<<<<<<< HEAD
                     <a class="nav-link" id="customers-detail-tab" data-bs-toggle="tab" href="#customers-detail" role="tab"
                         aria-controls="customers-detail" aria-selected="false"
                         style="font-size: 15px;color: #000;font-weight:500">Customer Detail</a>
                 </li>
                 <li class="nav-item">
+=======
+>>>>>>> old-repo/master
                     <a class="nav-link" id="dispatchers-tab" data-bs-toggle="tab" href="#dispatchers" role="tab"
                         aria-controls="dispatchers" aria-selected="false"
                         style="font-size: 15px;color: #000;font-weight:500">Dispatchers</a>
@@ -699,7 +709,11 @@
                 <li class="nav-item">
                     <a class="nav-link" id="loads-tab" data-bs-toggle="tab" href="#loads" role="tab"
                         aria-controls="loads" aria-selected="false"
+<<<<<<< HEAD
                         style="font-size: 15px;color: #000;font-weight:500">Loads</a>
+=======
+                        style="font-size: 15px;color: #000;font-weight:500">Load Customer</a>
+>>>>>>> old-repo/master
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="sales-tab" data-bs-toggle="tab" href="#sales" role="tab"
@@ -725,7 +739,11 @@
                                    
                                     <div class="row mb-2">
                                         <div class="col-md-4">
+<<<<<<< HEAD
                                             <div class="db__cell box1 mt-3">
+=======
+                                            <div class="db__cell dynamic-data box1 mt-3">
+>>>>>>> old-repo/master
                                                 <h2 class="db__top-stat">Total Revenue</h2>
                                                 <div class="db__progress">
                                                     <div class="db__progress-fill" style="transform:translateX(15%)">
@@ -743,7 +761,11 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4">
+<<<<<<< HEAD
                                             <div class="db__cell box2 mt-3">
+=======
+                                            <div class="db__cell dynamic-data box2 mt-3">
+>>>>>>> old-repo/master
                                                 <h2 class="db__top-stat">Total Carrier</h2>
                                                 <div class="db__progress">
                                                     <div class="db__progress-fill" style="transform:translateX(20%)">
@@ -758,7 +780,11 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4">
+<<<<<<< HEAD
                                             <div class="db__cell box3 mt-3">
+=======
+                                            <div class="db__cell dynamic-data box3 mt-3">
+>>>>>>> old-repo/master
                                                 <h2 class="db__top-stat">Total Margin <span style="font-size:10px">(Customer Amt - Carrier Amt)</span></h2>
                                                 <div class="db__progress">
                                                     <div class="db__progress-fill" style="transform:translateX(42%)">
@@ -774,7 +800,11 @@
                                     </div>
                                     <div class="row mb-2">
                                         <div class="col-md-4">
+<<<<<<< HEAD
                                             <div class="db__cell box1 mt-3">
+=======
+                                            <div class="db__cell dynamic-data box1 mt-3">
+>>>>>>> old-repo/master
                                                 <h2 class="db__top-stat">Total Shippers</h2>
                                                 <div class="db__progress">
                                                     <div class="db__progress-fill" style="transform:translateX(15%)">
@@ -786,7 +816,11 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4">
+<<<<<<< HEAD
                                             <div class="db__cell box2 mt-3">
+=======
+                                            <div class="db__cell dynamic-data box2 mt-3">
+>>>>>>> old-repo/master
                                                 <h2 class="db__top-stat">Total Load in 24 Hours</h2>
                                                 <div class="db__progress">
                                                     <div class="db__progress-fill" style="transform:translateX(20%)">
@@ -801,7 +835,11 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4">
+<<<<<<< HEAD
                                             <div class="db__cell box3 mt-3">
+=======
+                                            <div class="db__cell dynamic-data box3 mt-3">
+>>>>>>> old-repo/master
                                                 <h2 class="db__top-stat">New Customer Added</h2>
                                                 <div class="db__progress">
                                                     <div class="db__progress-fill" style="transform:translateX(42%)">
@@ -816,6 +854,7 @@
                                         </div>
                                     </div>
                                 </div>
+<<<<<<< HEAD
                                 <div class="db__cell mt-3">
                                     <h2 class="db__subheading">Sales</h2>
                                     <canvas id="salesChart"></canvas>
@@ -859,6 +898,16 @@
                             <div class="db__cell mt-3">
                                     <h2 class="db__subheading">Best Performance Broker</h2>
                                     <table class="table table-bordered table-hover dataTable js-exportable">
+=======
+                                <div class="db__cell dynamic-data mt-3">
+                                    <h2 class="db__subheading">Sales</h2>
+                                    <canvas id="salesChart"></canvas>
+                                </div>
+                                
+                                <div class="db__cell dynamic-data mt-3">
+                                    <h2 class="db__subheading">Best Performance Broker</h2>
+                                    <table class="table table-responsive table-bordered table-hover dataTable js-exportable table-responsive">
+>>>>>>> old-repo/master
                                         <thead>
                                             <tr>
                                                 <th style="color: #fff !important;">Broker</th>
@@ -884,11 +933,49 @@
 
                                 </div>
                             </div>
+<<<<<<< HEAD
+=======
+                            <div class="col-md-4">
+                                <div class="col-md-12">
+                                    <div class="db__cell dynamic-data mt-3">
+                                        <h2 class="db__subheading">Number of Shippers and Carriers</h2>
+                                        <div class="db__bubbles">
+                                            <div class="db__bubble">
+                                                <span class="db__bubble-text">Loads<br><strong class="db__bubble-value">{{ $count }}</strong><br>Total Loads</span>
+                                            </div>
+                                            <div class="db__bubble">
+                                                <span class="db__bubble-text">Agents<br><strong class="db__bubble-value">{{ $agents }}</strong><br>Total Agents</span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="db__cell dynamic-data mt-3">
+                                        <h2 class="db__subheading">Maximum Loads With Customers</h2>
+                                        @foreach($topMaximumLoadCustomers as $loadCount)
+                                        <div class="db__order">
+                                            <div class="db__order-cat">
+                                                <img src="{{ asset('assets/images/dashboard_customer.png') }}" alt=""
+                                                    style="width: 32px;height: 32px;">
+                                            </div>
+                                            <div class="db__order-name">
+                                                {{ $loadCount-> load_bill_to}}<br>
+                                            </div>
+                                            <div><strong>{{ $loadCount->load_count }} Loads</strong></div>
+                                        </div>
+                                        @endforeach
+
+                                    </div>
+                                </div>
+                            </div>
+>>>>>>> old-repo/master
                         </div>
                     </div>
                 </div>
 
                 <div class="tab-pane fade" id="carriers" role="tabpanel" aria-labelledby="carriers-tab">
+<<<<<<< HEAD
                 
                   <div class="table-responsive">
                     <table class="table table-bordered table-hover dataTable js-exportable" id="dataTable">
@@ -1008,16 +1095,96 @@
                                 <td>abs</td> -->
                                 </tr>
                                 
+=======
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover js-basic-example dataTable no-footer">
+                                <thead>
+                                    <tr>
+                                        <th style="color: #fff !important;">Carrier</th>
+                                        <th style="color: #fff !important;"># of Load</th>
+                                        <th style="color: #fff !important;">Gross Revenue</th>
+                                        <th style="color: #fff !important;">Carrier Pay</th>
+                                        <th style="color: #fff !important;">Profit</th>
+                                        <th style="color: #fff !important;">Miles</th>
+                                        <th style="color: #fff !important;">Revenue / Mile</th>
+                                        <th style="color: #fff !important;">Pay / Mile</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($totalRevenueloadcarrier as $LoadCarrier)
+                                    @php
+                                    $finalRate = $LoadCarrier->total_revenue - $LoadCarrier->revenue_difference;
+                                    @endphp
+                                    <tr>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $LoadCarrier->load_carrier }}</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $LoadCarrier->load_count }}</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $LoadCarrier->total_revenue }}</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $LoadCarrier->revenue_difference }}</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $finalRate }}</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">-</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">-</td>
+                                        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">-</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+                <div class="tab-pane fade" id="customers" role="tabpanel" aria-labelledby="customers-tab">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover js-basic-example dataTable no-footer">
+                            <thead>
+                                <tr>
+                                    <th style="color: #fff !important;">Customer</th>
+                                    <th style="color: #fff !important;">Gross Revenue</th>
+                                    <th style="color: #fff !important;">Carrier Pay</th>
+                                    <th style="color: #fff !important;">Margin</th>
+                                    <th style="color: #fff !important;">No. Of Loads</th>
+                                    <th style="color: #fff !important;">Open Loads</th>
+                                    <th style="color: #fff !important;">Delivered Loads</th>
+                                    <th style="color: #fff !important;">Completed Loads</th>
+                                    <th style="color: #fff !important;">Approved Limit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($totalRevenueCustomer as $rc)
+                                @php
+                                $finalRate = $rc->total_revenue - $rc->revenue_difference;
+                                @endphp
+                                <tr>
+                                    <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $rc->load_bill_to }}</td>
+                                    <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ number_format($rc->total_revenue, 2) }}</td>
+                                    <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ number_format($rc->revenue_difference, 2) }}</td>
+                                    <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ number_format($finalRate, 2) }}</td>
+                                    <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $rc->load_count }}</td>
+                                    <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $rc->open_load_count }}</td>
+                                    <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $rc->deliverd_load_count }}</td>
+                                    <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $rc->completed_load_count }}</td>
+                                    <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ number_format($rc->adv_customer_credit_limit, 2) }}</td>
+                                </tr>
+>>>>>>> old-repo/master
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
+<<<<<<< HEAD
                 </div>
 
                 <div class="tab-pane fade" id="dispatchers" role="tabpanel" aria-labelledby="customers-tab">
                 
                    <div class="table-responsive">
                         <table class="table table-bordered table-hover dataTable js-exportable">
+=======
+
+                </div>
+
+                <div class="tab-pane fade" id="dispatchers" role="tabpanel" aria-labelledby="customers-tab">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover js-basic-example dataTable no-footer">
+>>>>>>> old-repo/master
                                 <thead>
                                     <tr>
                                         <th style="color: #fff !important;">Dispatcher</th>
@@ -1049,15 +1216,24 @@
                                     @endforeach
                                 </tbody>
                         </table>
+<<<<<<< HEAD
                    </div>
+=======
+                    </div>
+>>>>>>> old-repo/master
                 </div>
 
 
 
                 <div class="tab-pane fade" id="loads" role="tabpanel" aria-labelledby="customers-tab">
+<<<<<<< HEAD
                 
                    <div class="table-responsive">
                     <table class="table table-bordered table-hover dataTable js-exportable">
+=======
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-hover js-basic-example dataTable no-footer">
+>>>>>>> old-repo/master
                             <thead>
                                 <tr>
                                     <th style="color: #fff !important;">Load No</th>
@@ -1107,15 +1283,25 @@
                                     </tr>
                                     @endforeach
                             </tbody>           
+<<<<<<< HEAD
                      </table>
                   </div>
+=======
+                        </table>
+                    </div>
+>>>>>>> old-repo/master
                 </div>
 
 
                 <div class="tab-pane fade" id="sales" role="tabpanel" aria-labelledby="customers-tab">
+<<<<<<< HEAD
                 
                    <div class="table-responsive">
                      <table class="table table-bordered table-hover dataTable js-exportable">
+=======
+                  <div class="table-responsive">
+                     <table class="table table-bordered table-hover js-basic-example dataTable no-footer">
+>>>>>>> old-repo/master
                         <thead>
                             <tr>
                                 <th style="color: #fff !important;">Sales Rep</th>
@@ -1147,15 +1333,23 @@
                 </div>
 
                 <div class="tab-pane fade" id="log" role="tabpanel" aria-labelledby="customers-tab">
+<<<<<<< HEAD
                 
                      <div class="table-responsive">
                          <table class="table table-bordered table-hover dataTable js-exportable">
+=======
+                   <div class="table-responsive">
+                         <table class="table table-bordered table-hover js-basic-example dataTable no-footer">
+>>>>>>> old-repo/master
                             <thead>
                                 <tr>
                                     <th style="color: #fff !important;">Load #</th>
                                     <th style="color: #fff !important;">Agent Name</th>
                                     <th style="color: #fff !important;">Load Status</th>
+<<<<<<< HEAD
                                     <th style="color: #fff !important;">Customer Reference #</th>
+=======
+>>>>>>> old-repo/master
                                     <th style="color: #fff !important;">Load Create Date</th>
                                     <th style="color: #fff !important;">Customer Name</th>
                                     <th style="color: #fff !important;">Carrier Name</th>
@@ -1175,6 +1369,7 @@
                                     <th style="color: #fff !important;">Customer Rate</th>
                                     <th style="color: #fff !important;">Carrier Rate</th>
                                     <th style="color: #fff !important;">Margin</th>
+<<<<<<< HEAD
                                     <th style="color: #fff !important;">Work Order</th>
                                     <th style="color: #fff !important;">Customer Refrence#</th>
                                 </tr>
@@ -1264,6 +1459,75 @@
                      </div>
                 </div>
 
+=======
+                                </tr>
+                            </thead>
+                            <tbody>
+    @foreach($dashboard as $log)
+    @php
+        $shipper = json_decode($log->load_shipperr, true);
+        $consignee = json_decode($log->load_consignee, true);
+        $shipper_appointment = json_decode($log->load_shipper_appointment,true);
+        $shipper_location = json_decode($log->load_shipper_location,true);
+        $appointment = isset($shipper_location[0]['appointment']) ? $shipper_location[0]['appointment'] : '';
+        $consignee_location = json_decode($log->load_consignee_location,true); 
+        $consignee_appointment = json_decode($log->load_consignee_appointment,true);
+    @endphp
+    <tr>
+        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->load_number }}</td>
+        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->user->name }}</td>
+        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->load_status }}</td>
+        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->created_at }}</td>
+        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->load_bill_to }}</td>
+        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->load_carrier }}</td>
+        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $shipper_location[0]['location'] ?? '' }}</td>
+        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $consignee_location[0]['location'] ?? '' }}</td>
+        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->load_type_two }}</td>
+        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->load_advance_payment }}</td>
+        @php
+            // Get the last key of the consignee appointment array
+            $lastKey = array_key_last($consignee_appointment);
+
+            // Check if the appointment date is not empty
+            $appointmentDate = !empty($consignee_appointment[$lastKey]['appointment']) ? $consignee_appointment[$lastKey]['appointment'] : null;
+
+            // Format the date if it exists
+            $formattedDate = $appointmentDate ? (new DateTime($appointmentDate))->format('m-d-Y') : '';
+        @endphp
+        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
+            {{ $formattedDate }}
+        </td>
+        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->load_actual_delivery_date }}</td>
+        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->load_carrier_due_date }}</td>
+        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->load_carrier_due_date_on }}</td>
+        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->load_final_carrier_fee }}</td>
+        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->shipper_load_final_rate }}</td>
+        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->invoice_number }}</td>
+        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->invoice_date }}</td>
+        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->invoice_status_date }}</td>
+        @php
+            // Assign default values if null
+            $shipperLoadFinalRate = $log->shipper_load_final_rate ?? 0;
+            $loadFinalCarrierFee = $log->load_final_carrier_fee ?? 0;
+
+            // Ensure values are numeric
+            $shipperLoadFinalRate = is_numeric($shipperLoadFinalRate) ? $shipperLoadFinalRate : 0;
+            $loadFinalCarrierFee = is_numeric($loadFinalCarrierFee) ? $loadFinalCarrierFee : 0;
+
+            // Calculate margin
+            $margin = $shipperLoadFinalRate - $loadFinalCarrierFee;
+        @endphp
+        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->shipper_load_final_rate }}</td>
+        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ $log->load_final_carrier_fee }}</td>
+        <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">{{ number_format($margin, 2) }}</td>
+    </tr>
+    @endforeach
+</tbody>
+
+                        </table>
+                </div>
+     </div>
+>>>>>>> old-repo/master
             </div>
 </section>
 <div class="modal fade" id="datePickerModal" tabindex="-1" role="dialog" aria-labelledby="datePickerModalLabel"
@@ -1295,6 +1559,7 @@
 </script>
 
 <script>
+<<<<<<< HEAD
   $(document).ready(function () {
     // Get the last active tab from localStorage
     var activeTab = localStorage.getItem('activeTab');
@@ -1313,6 +1578,14 @@
       localStorage.setItem('activeTab', tabId);
     });
   });
+=======
+    $(document).ready(function () {
+        // Initialize Bootstrap tabs
+        var tabTriggerEl = document.getElementById('myTab');    
+        var tab = new bootstrap.Tab(tabTriggerEl);
+        tab.show();
+    });
+>>>>>>> old-repo/master
 </script>
 
 <script>
@@ -1428,6 +1701,7 @@
         });
     });
 </script>
+<<<<<<< HEAD
 
 <script>
     $(document).ready(function() {
@@ -1450,4 +1724,6 @@
     });
 </script>
 
+=======
+>>>>>>> old-repo/master
 @endsection

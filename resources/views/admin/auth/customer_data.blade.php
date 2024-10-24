@@ -1,6 +1,15 @@
+<<<<<<< HEAD
  @extends('layouts.admin.app')
 @section('content')
 
+=======
+@extends('layouts.admin.app')
+@section('content')
+
+
+
+
+>>>>>>> old-repo/master
 @if(session('success'))
 <div class="alert alert-success" id="successMessage">
     {{ session('success') }}
@@ -15,9 +24,12 @@
 </div>
 @endif
 <style>
+<<<<<<< HEAD
     .table>:not(caption)>*>* {
         background-color: unset !important;
     }
+=======
+>>>>>>> old-repo/master
     .dropdown-menu.show {
     display: block;
     left: -60px !important;
@@ -75,7 +87,11 @@
     }
 
     .card-body .form-group label {
+<<<<<<< HEAD
         font-size: 13px !important;
+=======
+        font-size: 11px !important;
+>>>>>>> old-repo/master
         text-align: left;
 
     }
@@ -117,7 +133,11 @@
     }
 
     .card-body .form-group {
+<<<<<<< HEAD
         margin: 10px 0 4px 0;
+=======
+        margin: 4px 0 17px 0;
+>>>>>>> old-repo/master
     }
 
     .card-body .form-group label {
@@ -129,7 +149,11 @@
 
     .card-body .form-group .form-control {
         height: 28px !important;
+<<<<<<< HEAD
         font-size: 11px !important;
+=======
+        font-size: 14px;
+>>>>>>> old-repo/master
     }
 
     .card-body {
@@ -159,6 +183,7 @@
         top: -13px !important;
         color: #ffff;
     }
+<<<<<<< HEAD
     .table-responsive {
             max-height: 73vh;
             overflow-y: auto; 
@@ -174,6 +199,8 @@
         .table th, .table td {
             white-space: nowrap; 
         }
+=======
+>>>>>>> old-repo/master
 </style>
 <section class="content">
     <div class="body_scroll">
@@ -186,6 +213,7 @@
             <div class="row clearfix">
                 <div class="col-lg-12">
                     <div class="card">
+<<<<<<< HEAD
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="dashboard-tab" data-bs-toggle="tab" href="#dashboard" role="tab" aria-controls="dashboard" aria-selected="true" style="font-size: 15px;color: #000;font-weight:500">Customer</a>
@@ -206,10 +234,46 @@
 
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+=======
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="dashboard-tab" data-bs-toggle="tab" href="#dashboard"
+                                    role="tab" aria-controls="dashboard" aria-selected="true"
+                                    style="font-size: 15px;color: #000;font-weight:500">Customer</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="carriers-tab" data-bs-toggle="tab" href="#carriers" role="tab"
+                                    aria-controls="carriers" aria-selected="false"
+                                    style="font-size: 15px;color: #000;font-weight:500">Carriers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="customers-tab" data-bs-toggle="tab" href="#customers" role="tab"
+                                    aria-controls="customers" aria-selected="false"
+                                    style="font-size: 15px;color: #000;font-weight:500">Consignee</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="dispatchers-tab" data-bs-toggle="tab" href="#dispatchers"
+                                    role="tab" aria-controls="dispatchers" aria-selected="false"
+                                    style="font-size: 15px;color: #000;font-weight:500">Shipper</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" id="loads-tab" data-bs-toggle="tab" href="#loads" role="tab"
+                                    aria-controls="loads" aria-selected="false"
+                                    style="font-size: 15px;color: #000;font-weight:500">Loads</a>
+                            </li>
+
+                        </ul>
+
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="dashboard" role="tabpanel"
+                                aria-labelledby="dashboard-tab">
+>>>>>>> old-repo/master
                                
                                 <div class="body p-0">
                                     <div class="table-responsive">
                                         <table class="table table-bordered table-responsive dataTable no-footer">
+<<<<<<< HEAD
                                         <div class="col-md-12 p-0 date-time mb-2">
                                             <div class="date m-0" style="width: 7%;">
                                                 <label for="start">Start Date</label>
@@ -252,6 +316,11 @@
                                                 data-target="#exampleModal"> ADD CUSTOMER </button>
                                         </div>
                                                 
+=======
+
+                                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#exampleModal"> ADD CUSTOMER </button>
+>>>>>>> old-repo/master
                                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog modal-xl" role="document">
@@ -261,7 +330,13 @@
                                                             style="top: 17px !important; color: #101010 !important;">
                                                             &times;
                                                         </button>
+<<<<<<< HEAD
                                                         <form method="POST" action="{{ route('customer.insert.by.admin') }}" id="myForm" enctype="multipart/form-data">
+=======
+                                                        <form method="POST"
+                                                            action="{{ route('customer.insert.by.admin') }}" id="myForm"
+                                                            enctype="multipart/form-data">
+>>>>>>> old-repo/master
                                                             @csrf
                                                             <div class="card-header m-0">
                                                                 <h3 class="card-title head">CUSTOMER DETAILS</h3>
@@ -616,6 +691,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
+<<<<<<< HEAD
                                                                     
                                                                     <!-- <div class="col-md-3">
                                                                         <div class="form-group">
@@ -623,6 +699,8 @@
                                                                             <input class="form-control select2" type="number" name="approved_limit" style="width: 100%;height:30px !important;padding: 0px 0 0 10px; ">
                                                                         </div>
                                                                     </div> -->
+=======
+>>>>>>> old-repo/master
                                                                     <div class="col-md-3">
                                                                         <div class="form-group">
                                                                             <label>Credit Limits</label>
@@ -713,12 +791,17 @@
                                                     <th style="color: #fff !important;">
                                                         Sr No.</th>
                                                     <th style="color: #fff !important;">
+<<<<<<< HEAD
                                                         Agent</th>
+=======
+                                                        Broker</th>
+>>>>>>> old-repo/master
                                                     <th style="color: #fff !important;">
                                                         Company</th>
                                                     <th style="color: #fff !important;">
                                                         Address</th>
                                                     <th style="color: #fff !important;">
+<<<<<<< HEAD
                                                     Telephone</th>
                                                     <th style="color: #fff !important">Date Added</th>
                                                         <th style="color: #fff !important;">
@@ -738,12 +821,26 @@
                                                     <th style="color: #fff !important;">
                                                         Last Load</th>
                                                    
+=======
+                                                        Telephone</th>
+                                                    <th style="color: #fff !important;">
+                                                        Team Manager</th>
+                                                    <th style="color: #fff !important;">
+                                                        Team Leader</th>
+                                                    <th style="color: #fff !important;">
+                                                        Credit Ask</th>
+                                                    <th style="color: #fff !important;">
+                                                        Approved Status</th>
+                                                    <th style="color: #fff !important;">
+                                                        Last Load With Customer</th>
+>>>>>>> old-repo/master
                                                     <th style="color: #fff !important;">
                                                         Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                             @php
+<<<<<<< HEAD
                                             $i = 1;
                                             @endphp
                                             @foreach($customers as $customer)
@@ -775,11 +872,39 @@
                                                 <td class="dynamic-data" style=" vertical-align: middle !important;">{{ $customer->status }}</td>
                                                 <td class="dynamic-data" style=" vertical-align: middle !important;">{{ $customer->aging_days !== null ? $customer->aging_days . ' days' : 'N/A' }}</td>
                                                
+=======
+$i = 1;
+@endphp
+@foreach($customers as $customer)
+<tr>
+    <td class="dynamic-data" style="padding: 0 10px !important; vertical-align: middle !important;">{{ $i++ }}</td>
+    <td class="dynamic-data" style="padding: 0 10px !important; vertical-align: middle !important;">{{ $customer->user->name }}</td>
+    <td class="dynamic-data" style="padding: 0 10px !important; vertical-align: middle !important;">{{ $customer->customer_name }}</td>
+    <td class="dynamic-data" style="padding: 0 10px !important; vertical-align: middle !important;">
+        {{ $customer->customer_address }} {{ $customer->customer_country }} {{ $customer->customer_state }} {{ $customer->customer_city }} {{ $customer->customer_zip }}
+    </td>
+    <td class="dynamic-data" style="padding: 0 10px !important; vertical-align: middle !important;">{{ $customer->customer_telephone }}</td>
+    <td class="dynamic-data" style="padding: 0 10px !important; vertical-align: middle !important;">{{ $customer->user->manager }}</td>
+    <td class="dynamic-data" style="padding: 0 10px !important; vertical-align: middle !important;">{{ $customer->user->team_lead }}</td>
+    <td class="dynamic-data" style="padding: 0 10px !important; vertical-align: middle !important;">${{ $customer->adv_customer_credit_limit }}</td>
+    <td class="dynamic-data" style="padding: 0 10px !important; vertical-align: middle !important;">{{ $customer->status }}</td>
+    <td class="dynamic-data" style="padding: 0 10px !important; vertical-align: middle !important;">
+        @if($customer->daysAgo !== null)
+            {{ $customer->daysAgo }} days ago.
+        @else
+            No loads have been created for this customer.
+        @endif
+    </td>
+>>>>>>> old-repo/master
 
 
                                                     <td class="dynamic-data">
                                                         <div class="d-flex justify-content-center">
+<<<<<<< HEAD
                                                                 @php
+=======
+                                                    @php
+>>>>>>> old-repo/master
                                                                 $st = $customer->status;
                                                                 @endphp
                                                                 @if($st == 'Completed')
@@ -794,10 +919,13 @@
                                                                             style="font-size: 17px;color: #0dcaf0;"
                                                                             disabled></i></a>
                                                                 @endif
+<<<<<<< HEAD
 
                                                                 <a href="javascript:void(0);" class="delete-customer" data-id="{{ $customer->id }}">
                                                                     <i class="fa fa-trash" style="font-size: 17px;color: red;"></i>
                                                                 </a>
+=======
+>>>>>>> old-repo/master
                                                          </div>
                                                     </td>
                                                 </tr>
@@ -810,10 +938,22 @@
 
                             <div class="tab-pane fade" id="carriers" role="tabpanel" aria-labelledby="carriers-tab">
                                 <div class="table-responsive">
+<<<<<<< HEAD
                                     <table class="table table-bordered table-responsive dataTable no-footer">
                                         <button type="button" class="btn btn-primary" data-toggle="modal"
                                             data-target="#exampleModal1">ADD CARRIER</button>
                                         
+=======
+                                    <table class="table table-bordered table-responsive dataTable no-footer"
+                                        id="dataTable">
+                                        <!-- <table class="table table-bordered table-responsive dataTable no-footer" id="dataTable"> -->
+
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#exampleModal1">ADD CARRIER</button>
+
+                                        <!-- Modal -->
+>>>>>>> old-repo/master
                                         <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-lg" role="document">
@@ -1011,7 +1151,11 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
+<<<<<<< HEAD
                                                                     <div class="form-group">
+=======
+                                                                    <div class="form-group1">
+>>>>>>> old-repo/master
                                                                         <label
                                                                             style="margin-bottom: 0; font-weight: 600;font-size: 16px;color: #4a4a4a;">Notes</label>
                                                                         <textarea class="form-control"
@@ -1049,6 +1193,7 @@
                                                     Sr No.</th>
                                                 <th style="color: #fff !important;">
                                                     Carrier Name</th>
+<<<<<<< HEAD
                                                 <th style="color: #fff !important;">MC#</th>
                                                 <th style="color: #fff !important;">DOT#</th>
                                                 <th style="color: #fff !important;">
@@ -1061,6 +1206,26 @@
                                                 <th style="color: #fff !important;">Team Leader</th>
                                                 <th style="color: #fff !important;">Manager</th>
                                                 <th style="color: #fff !important;">Status</th>
+=======
+                                                <th style="color: #fff !important;">MC
+                                                    No.</th>
+                                                <th style="color: #fff !important;">
+                                                    Address</th>
+                                                <th style="color: #fff !important;">Phone
+                                                    No.</th>
+                                                <th style="color: #fff !important;">
+                                                    Status</th>
+                                                <th style="color: #fff !important;">
+                                                    Approved status</th>
+                                                <th style="color: #fff !important;">Date
+                                                    Added</th>
+                                                <th style="color: #fff !important;">Added
+                                                    By Agent</th>
+                                                <th style="color: #fff !important;">Team
+                                                    Lead</th>
+                                                <th style="color: #fff !important;">Team
+                                                    Manager</th>
+>>>>>>> old-repo/master
                                                 <th style="color: #fff !important;"> Action</th>
                                             </tr>
                                         </thead>
@@ -1069,6 +1234,7 @@
                                             $i = 1;
                                             @endphp
                                             @foreach($external as $fetches)
+<<<<<<< HEAD
                                             <tr id="carrier-row-{{ $fetches->id }}">
                                                 <td class="dynamic-data">{{ $i++ }}</td>
                                                 <td class="dynamic-data">{{ $fetches->carrier_name }}</td>
@@ -1076,10 +1242,21 @@
                                                 <td class="dynamic-data">{{ $fetches->carrier_dot}}</td>
                                                 <td class="dynamic-data">{{ $fetches->carrier_address }}</td>
                                                 <td class="dynamic-data">{{ $fetches->carrier_telephone }}</td>
+=======
+                                            <tr>
+                                                <td class="dynamic-data">{{ $i++ }}</td>
+                                                <td class="dynamic-data">{{ $fetches->carrier_name }}</td>
+                                                <td class="dynamic-data">{{ $fetches->carrier_mc_ff_input }}</td>
+                                                <td class="dynamic-data">{{ $fetches->carrier_address }}</td>
+                                                <td class="dynamic-data">{{ $fetches->carrier_telephone }}</td>
+                                                <td class="dynamic-data">{{ $fetches->carrier_status }}</td>
+                                                <td class="dynamic-data">Need To Discuss</td>
+>>>>>>> old-repo/master
                                                 <td class="dynamic-data">{{ $fetches->created_at }}</td>
                                                 <td class="dynamic-data">{{ $fetches->user->name }}</td>
                                                 <td class="dynamic-data">{{ $fetches->user->team_lead}}</td>
                                                 <td class="dynamic-data">{{ $fetches->user->manager }}</td>
+<<<<<<< HEAD
                                                 <td class="dynamic-data">{{ $fetches->carrier_status }}</td>
                                                 <td class="dynamic-data">
                                                     <div class="d-flex justify-content-center">
@@ -1088,6 +1265,12 @@
                                                         <i class="fa fa-trash" style="font-size: 17px; color: red;"></i>
                                                     </a>
 
+=======
+                                                <td class="dynamic-data">
+                                                    <div class="d-flex justify-content-center">
+                                                    
+                                                    <a href="#"><i class="fa fa-trash" style="font-size: 17px;color: #DC3545;"></i></a>
+>>>>>>> old-repo/master
                                                     </div>
                                                 </td>
                                             </tr>
@@ -1096,7 +1279,12 @@
                                     </table>
                                 </div>
                             </div>
+<<<<<<< HEAD
                             <div class="tab-pane fade" id="customers" role="tabpanel" aria-labelledby="customers-tab">
+=======
+
+                            <div class="tab-pane fade" id="customers" role="tabpanel" aria-labelledby="carriers-tab">
+>>>>>>> old-repo/master
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-responsive dataTable no-footer"
                                         id="dataTable">
@@ -1105,7 +1293,10 @@
                                             data-target="#exampleModal2">
                                             ADD CONSIGNEE
                                         </button>
+<<<<<<< HEAD
                                         
+=======
+>>>>>>> old-repo/master
 
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog"
@@ -1328,7 +1519,11 @@
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-md-6 col-sm-6">
+<<<<<<< HEAD
                                                                     <div class="form-group">
+=======
+                                                                    <div class="form-group1">
+>>>>>>> old-repo/master
                                                                         <label
                                                                             style="margin-bottom: 0;font-weight: 600;font-size: 16px;color: #4a4a4a;">Internal
                                                                             Notes </label>
@@ -1338,7 +1533,11 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6 col-sm-6">
+<<<<<<< HEAD
                                                                     <div class="form-group">
+=======
+                                                                    <div class="form-group1">
+>>>>>>> old-repo/master
                                                                         <label
                                                                             style="margin-bottom: 0;font-weight: 600;font-size: 16px;color: #4a4a4a;">Shipping
                                                                             Notes </label>
@@ -1370,11 +1569,19 @@
                                             <th style="color: #fff !important;">Sr No</th>
                                             <th style="color: #fff !important;">Consignee Name</th>
                                             <th style="color: #fff !important;">Address</th>
+<<<<<<< HEAD
                                             <th style="color: #fff !important;">Telephone</th>
                                             <th style="color: #fff !important;">Added Date</th>
                                             <th style="color: #fff !important;">Agent</th>
                                             <th style="color: #fff !important;">Team Leader</th>
                                             <th style="color: #fff !important;">Manager</th>
+=======
+                                            <th style="color: #fff !important;">Phone No</th>
+                                            <th style="color: #fff !important;">Added Date</th>
+                                            <th style="color: #fff !important;">Added By Agent</th>
+                                            <th style="color: #fff !important;">Team Leader</th>
+                                            <th style="color: #fff !important;">Team Manager</th>
+>>>>>>> old-repo/master
                                             <th style="color: #fff !important;">Status</th>
                                             <th style="color: #fff !important;">Action</th>
                                     </tr>
@@ -1397,9 +1604,13 @@
                                         <td class="dynamic-data">{{ $consigne->consignee_status }}</td>
                                         <td class="dynamic-data">
                                          <div class="d-flex justify-content-center">
+<<<<<<< HEAD
                                             <!-- <a href="{{ route('admin.consignee.edit', ['id' => $consigne->id]) }}">
                                                 <i class="fa fa-edit" style="font-size: 17px;color: #0dcaf0;"></i>
                                             </a> -->
+=======
+                                            
+>>>>>>> old-repo/master
                                             <a href="#"><i class="fa fa-trash" style="font-size: 17px;color: #DC3545;"></i></a>
                                          </div>
                                         </td>
@@ -1410,7 +1621,13 @@
                                 </table>
                             </div>
                         </div>
+<<<<<<< HEAD
                         <div class="tab-pane fade" id="dispatchers" role="tabpanel" aria-labelledby="dispatchers-tab">
+=======
+
+
+                        <div class="tab-pane fade" id="dispatchers" role="tabpanel" aria-labelledby="carriers-tab">
+>>>>>>> old-repo/master
                             <div class="table-responsive">
                                 <!-- <table class="table table-bordered table-responsive dataTable no-footer"> -->
                                 <table class="table table-bordered table-responsive dataTable no-footer">
@@ -1419,7 +1636,10 @@
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-primary" data-toggle="modal"
                                         data-target="#exampleModal3">ADD SHIPPER</button>
+<<<<<<< HEAD
                                         
+=======
+>>>>>>> old-repo/master
                                     <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-lg" role="document">
@@ -1612,7 +1832,11 @@
 
                                                         <div class="row">
                                                             <div class="col-md-6 col-sm-6">
+<<<<<<< HEAD
                                                                 <div class="form-group">
+=======
+                                                                <div class="form-group1">
+>>>>>>> old-repo/master
                                                                     <label
                                                                         style="margin-bottom: 0;font-weight: 600;font-size: 16px;color: #4a4a4a;">Shipping
                                                                         Notes </label>
@@ -1622,7 +1846,11 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6 col-sm-6">
+<<<<<<< HEAD
                                                                 <div class="form-group">
+=======
+                                                                <div class="form-group1">
+>>>>>>> old-repo/master
                                                                     <label
                                                                         style="margin-bottom: 0;font-weight: 600;font-size: 16px;color: #4a4a4a;">Internal
                                                                         Notes </label>
@@ -1651,11 +1879,19 @@
                                             <th style="color: #fff !important;">Sr No.</th>
                                             <th style="color: #fff !important;">Shipper Name</th>
                                             <th style="color: #fff !important;">Address</th>
+<<<<<<< HEAD
                                             <th style="color: #fff !important;">Telephone</th>
                                             <th style="color: #fff !important;">Added Date</th>
                                             <th style="color: #fff !important;">Agent</th>
                                             <th style="color: #fff !important;">Team Leader</th>
                                             <th style="color: #fff !important;">Manager</th>
+=======
+                                            <th style="color: #fff !important;">Phone No</th>
+                                            <th style="color: #fff !important;">Added Date</th>
+                                            <th style="color: #fff !important;">Added By Agent</th>
+                                            <th style="color: #fff !important;">Team Leader</th>
+                                            <th style="color: #fff !important;">Team Manager</th>
+>>>>>>> old-repo/master
                                             <th style="color: #fff !important;">Status</th>
                                             <th style="color: #fff !important;">Action</th>
                                         </tr>
@@ -1677,7 +1913,11 @@
                                             <td class="dynamic-data">{{ $fetches->shipper_status }}</td>
                                             <td class="dynamic-data">
                                             <div class="d-flex justify-content-center">
+<<<<<<< HEAD
                                             <!-- <a href="#" style="margin-right: 7px;"><i class="fa fa-edit" style="font-size: 17px;color: #0dcaf0;"></i></a> -->
+=======
+                                            
+>>>>>>> old-repo/master
                                             <a href="#"><i class="fa fa-trash" style="font-size: 17px;color: #DC3545;"></i></a>
                                             </div>
                                         </td>
@@ -1687,14 +1927,23 @@
                                 </table>
                             </div>
                         </div>
+<<<<<<< HEAD
                         <div class="tab-pane fade" id="loads" role="tabpanel" aria-labelledby="loads-tab">
                               <div class="table-responsive">
+=======
+
+                        <div class="tab-pane fade" id="loads" role="tabpanel" aria-labelledby="carriers-tab">
+                            <div class="table-responsive">
+>>>>>>> old-repo/master
                                 <!-- <table class="table table-bordered table-responsive dataTable no-footer"> -->
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-responsive dataTable no-footer">
                                         <button type="button" class="btn btn-primary" data-toggle="modal"
                                             data-target="#add-load">ADD LOAD</button>
+<<<<<<< HEAD
                                             
+=======
+>>>>>>> old-repo/master
                                         <div class="modal fade" id="add-load" tabindex="-1" role="dialog"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-lg" role="document">
@@ -1711,7 +1960,11 @@
                                                         <div class="card-header m-0">
                                                             <h3 class="card-title head">Add Load</h3>
                                                         </div>
+<<<<<<< HEAD
                                                         <div class="card-body text-left pt-0 pb-0">
+=======
+                                                        <div class="card-body text-left">
+>>>>>>> old-repo/master
                                                             <div class="row">
                                                                 <div class="col-md-3">
                                                                     <div class="form-group">
@@ -2741,6 +2994,7 @@
                                             <tr>
                                                 <th style="color: #fff !important;">Sr No</th>
                                                 <th style="color: #fff !important;">Load #</th>
+<<<<<<< HEAD
                                                 <th style="color: #fff !important;">W/O #</th>
                                                 <th style="color: #fff !important;">Customer Name</th>
                                                 <th style="color: #fff !important;">Invoice #</th>
@@ -2763,6 +3017,27 @@
                                                 <th style="color: #fff !important;">Aging</th>
                                                 <th style="color: #fff !important;">Carrier PDF</th>
                                                 <th style="color: #fff !important;">Shipper PDF</th>
+=======
+                                                <th style="color: #fff !important;">Agent Name</th>
+                                                <th style="color: #fff !important;">Invoice #</th>
+                                                <th style="color: #fff !important;">Invoice Date</th>
+                                                <th style="color: #fff !important;">W/O #</th>
+                                                <th style="color: #fff !important;">Customer Name</th>
+                                                <th style="color: #fff !important;">Office</th>
+                                                <th style="color: #fff !important;">Manager</th>
+                                                <th style="color: #fff !important;">Team Leader</th>
+                                                <th style="color: #fff !important;">Load Create Date</th>
+                                                <th style="color: #fff !important;">Shipper Date</th>
+                                                <th style="color: #fff !important;">Delivery date</th>
+                                                <th style="color: #fff !important;">Actual Delivery date</th>
+                                                <th style="color: #fff !important;">Carrier MC</th>
+                                                <th style="color: #fff !important;">Carrier Name</th>                                                
+                                                <th style="color: #fff !important;">Pickup Location</th>
+                                                <th style="color: #fff !important;">Unloading Location</th>
+                                                <th style="color: #fff !important;">Load Status</th>
+                                                <th style="color: #fff !important;">Aging</th>
+                                                <th style="color: #fff !important;">PDF</th>
+>>>>>>> old-repo/master
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -2773,6 +3048,7 @@
                                             <tr>
                                                 <td class="dynamic-data">{{ $i++ }}</td>
                                                 <td class="dynamic-data"><a style="color: rgb(10 185 90) !important;font-weight: 700;" href="{{ route('admin.load.edit', $load->id) }}">{{ $load->load_number }}</a></td>
+<<<<<<< HEAD
                                                 <td class="dynamic-data">{{ $load->load_workorder }}</td>
                                                 <td class="dynamic-data">{{ $load->load_bill_to }}</td>
                                                 <td class="dynamic-data">{{ $load->invoice_number }}</td>
@@ -2781,6 +3057,16 @@
                                                 <td class="dynamic-data">{{ $load->user->office }}</td>
                                                 <td class="dynamic-data">{{ $load->user->team_lead }}</td>
                                                 <td class="dynamic-data">{{ $load->user->manager }}</td>
+=======
+                                                <td class="dynamic-data">{{ $load->user->name }}</td>
+                                                <td class="dynamic-data">{{ $load->invoice_number }}</td>
+                                                <td class="dynamic-data">{{ $load->invoice_date}}</td>
+                                                <td class="dynamic-data">{{ $load->load_workorder }}</td>
+                                                <td class="dynamic-data">{{ $load->load_bill_to }}</td>
+                                                <td class="dynamic-data">{{ $load->user->office }}</td>
+                                                <td class="dynamic-data">{{ $load->user->manager }}</td>
+                                                <td class="dynamic-data">{{ $load->user->team_lead }}</td>
+>>>>>>> old-repo/master
                                                 <td class="dynamic-data">{{ $load->created_at->format('Y-m-d') }}</td>
                                                     @php
                                                     $shipper_appointment = json_decode($load->load_shipper_appointment,true);
@@ -2810,6 +3096,7 @@
                                                     {{ $consignee_loaction[0]['location'] ?? '' }}
                                                 </td>
                                                 <td class="dynamic-data">
+<<<<<<< HEAD
                                                 @if($load->load_status == 'Delivered' && $load->invoice_status == 'Paid')
                                                    Invoiced
                                                 @else
@@ -2840,6 +3127,10 @@
                                                     {{ number_format($marginPercent, 2) }}%
                                                 </td>
                                                
+=======
+                                                    {{ $load->load_status }}
+                                                </td>
+>>>>>>> old-repo/master
                                                 <td class="dynamic-data">
                                                     @if($load->load_status == 'Delivered' ||
                                                     $load->invoice_status == 'Completed' )
@@ -2854,16 +3145,23 @@
                                                     Aging Complete
                                                     @endif
                                                 </td>
+<<<<<<< HEAD
                                                 <td class="dynamic-data text-center" style=" vertical-align: middle !important;">
+=======
+                                                <td class="dynamic-data" style="padding: 0 10px !important; vertical-align: middle !important;">
+>>>>>>> old-repo/master
                                                     <a href="{{ route('admin.rc.download.pdf', ['id' => $load->id]) }}" target="_blank">
                                                         <i class="fas fa-file-pdf text-danger" aria-hidden="true" style="font-size: 24px;"></i>
                                                     </a>
                                                 </td>
+<<<<<<< HEAD
                                                 <td class="dynamic-data text-center" style=" vertical-align: middle !important;">
                                                     <a href="{{ route('admin.shipper.rc.download.pdf', ['id' => $load->id]) }}" target="_blank">
                                                         <i class="fas fa-file-pdf text-danger" aria-hidden="true" style="font-size: 24px;"></i>
                                                     </a>
                                                 </td>
+=======
+>>>>>>> old-repo/master
                                                 <!-- <td class="dynamic-data"><button class="btn btn-sm btn-danger">Delete</button></td> -->
                                             </tr>
                                             @endforeach
@@ -2872,6 +3170,11 @@
                                 </div>
                             </div>
                         </div>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> old-repo/master
                     </div>
                 </div>
             </div>
@@ -2885,7 +3188,26 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<<<<<<< HEAD
 
+=======
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var lastActiveTab = localStorage.getItem('lastActiveTab');
+        if (lastActiveTab) {
+            $('#myTab a[href="' + lastActiveTab + '"]').tab('show');
+        } else {
+            // If no last active tab is stored, default to the first tab
+            $('#myTab a[data-bs-toggle="tab"]').first().tab('show');
+        }
+
+        $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+            var targetTab = e.target.getAttribute('href');
+            localStorage.setItem('lastActiveTab', targetTab);
+        });
+    });
+</script>
+>>>>>>> old-repo/master
 
 
 <script>
@@ -3450,6 +3772,7 @@
     });
 </script>
 
+<<<<<<< HEAD
 
 <script>
     $(document).on('click', '.delete-customer', function() {
@@ -3598,4 +3921,6 @@
         });
     });
 </script>
+=======
+>>>>>>> old-repo/master
 @endsection

@@ -90,7 +90,11 @@ table.dataTable thead .sorting {
       }
     section.content {
         font-family: poppins;
+<<<<<<< HEAD
         margin: 20px 0 20px 214px;
+=======
+        margin: 8px 0 20px 214px;
+>>>>>>> old-repo/master
     }
 
     body {
@@ -305,12 +309,18 @@ table.dataTable tbody th, table.dataTable tbody td {
     margin: 11px 59px 20px 259px !important;
 } */
     #menu-btn{
+<<<<<<< HEAD
   background-color:#fff;
   border:none;
   width:50px;
   position:absolute;
   left:0;
   top:20px;
+=======
+  background-color:unset;
+  border:none;
+  width:50px;
+>>>>>>> old-repo/master
   span{
     display:inline-block;
     width:100%;
@@ -355,9 +365,32 @@ aside.shrink{
 }
 
 @media only screen and (max-width: 767px) {
+<<<<<<< HEAD
     #DataTables_Table_0_filter {
         font-size: 15px;
         position: unset !important;
+=======
+    .profile-notification {
+    position: absolute !important;
+    right: 10px !important;
+    top: 7px !important;
+}
+    .dataTables_filter {
+    position: fixed;
+    top: 56px !important;
+    right: 91px !important;
+}
+.block-header {
+    height: 91px !important;
+}
+    .modal-footer {
+    display: block !important;
+}
+    #DataTables_Table_0_filter {
+        font-size: 15px;
+        position: fixed !important;
+        top: 52px !important;
+>>>>>>> old-repo/master
     }
     .date-time {
         display: block;
@@ -379,7 +412,11 @@ aside.shrink{
         width: 0;
     }
     section.content {
+<<<<<<< HEAD
         margin: -5px 0 0 40px !important;
+=======
+        margin: -5px 0 0 0 !important;
+>>>>>>> old-repo/master
         border:unset;
         padding: 0;
     }
@@ -432,7 +469,11 @@ button#hideFormButton {
 }
 table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td {
     border-bottom-width: 1px !important;
+<<<<<<< HEAD
     padding: 2px 10px !important;
+=======
+    padding: 5px 10px !important;
+>>>>>>> old-repo/master
     font-weight: 500 !important;
 }
 button.btn.btn-primary {
@@ -442,7 +483,11 @@ button.btn.btn-primary {
 }
 
 .sidebar.shrink {
+<<<<<<< HEAD
     width: auto;
+=======
+    width: 75px;
+>>>>>>> old-repo/master
     transition: all 0.7s;
 }
 .sidebar {
@@ -469,7 +514,11 @@ button.btn.btn-primary.dropdown-toggle i {
 .alert.alert-success {
     background-color: rgb(230 243 236);
     position: absolute;
+<<<<<<< HEAD
     top: 326px;
+=======
+    top: 39px;
+>>>>>>> old-repo/master
     z-index: 9;
     right: 40% !important;
     text-align: center;
@@ -477,6 +526,10 @@ button.btn.btn-primary.dropdown-toggle i {
     color: #000;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> old-repo/master
 .alert.alert-success i.fa.fa-check {
     position: absolute;
     top: -23px;
@@ -555,7 +608,10 @@ input#customerList .item.dropdown-item {
     margin-right: 0;
     margin-left: 13px;
     cursor: pointer;
+<<<<<<< HEAD
     margin-top: 7px;
+=======
+>>>>>>> old-repo/master
     padding: 5px 12px;
     border-radius: 4px;
     background: #263544;
@@ -625,8 +681,13 @@ input#customerList .item.dropdown-item {
     }
     .dataTables_filter {
         position: fixed;
+<<<<<<< HEAD
         top: 48px;
         right: 150px;
+=======
+        top: 40px;
+        right: 230px;
+>>>>>>> old-repo/master
         margin: 0 !important;
     }
     .dataTables_filter input {
@@ -652,10 +713,23 @@ input#customerList .item.dropdown-item {
         border: unset;
     }
     .dataTables_wrapper .dataTables_paginate .paginate_button {
+<<<<<<< HEAD
         font-size: 14px;
     }
     div#DataTables_Table_0_info{
         font-size: 14px;
+=======
+        font-size: 11px;
+    }
+    .dataTables_info {
+    font-size: 11px;
+}
+.dataTables_length {
+    font-size: 11px;
+}
+    div#DataTables_Table_0_info{
+        font-size: 11px;
+>>>>>>> old-repo/master
     }
     button.dt-button {
         padding: 1px 10px;
@@ -692,4 +766,11 @@ td a {
 }
 .modal .modal-header .close:hover {
     background: #ff3c3c;
+<<<<<<< HEAD
+=======
+}
+div.dataTables_wrapper div.dataTables_paginate {
+    position: fixed;
+    right: 34px;
+>>>>>>> old-repo/master
 }

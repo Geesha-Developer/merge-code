@@ -37,6 +37,25 @@ class AccountController extends Controller
         return view('accounts.login');
     }
 
+<<<<<<< HEAD
+=======
+    // public function AccountLoginAuth(Request $request)
+    // {
+    //     $request->validate([
+    //         'email' => 'required|email',
+    //         'password' => 'required',
+    //     ]);
+    
+    //     $accounts_login = AccountsAdmin::where('email', $request->input('email'))->first();
+        
+    //     if ($accounts_login && Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
+    //         return redirect()->route('accounts')->with('success', 'You are logged in successfully.');
+    //     } else {
+    //         return redirect()->back()->withErrors(['error' => 'Wrong credentials']);
+    //     }
+    // }
+
+>>>>>>> old-repo/master
     public function authenticate(Request $request)
     {
         // Validate the input
@@ -44,6 +63,7 @@ class AccountController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
+<<<<<<< HEAD
 
         // Retrieve the user from the accountslogin table
         $user = AccountsAdmin::where('email', $request->email)->first();
@@ -58,6 +78,35 @@ class AccountController extends Controller
 
         // If authentication fails, set flash message
         return redirect()->route('login')->with('success', 'Load updated successfully');
+=======
+    
+        $credentials = $request->only('email', 'password');
+    
+        // Log credentials for debugging (optional)
+        echo "<pre> 'Attempting login for:'";
+        $user = AccountsAdmin::where('email', $request->email)->first();
+        // print_r($user);
+        // die;
+        // if ($user && Hash::check($request->password, $user->password)) {
+        //     echo('Password matches, login successful');
+        // } else {
+        //     echo ('Password does not match');
+        // }
+        // print_r($credentials);
+        // die;
+    
+        if (Auth::guard('accountsadmin')->attempt($credentials)) {
+           
+            return redirect()->route('accounts'); // Redirect to accounts admin dashboard
+        }
+    
+        // Log failed attempt
+        \Log::info('Authentication failed for:', $credentials);
+    
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ]);
+>>>>>>> old-repo/master
     }
     
     public function AccountLogout()
@@ -68,8 +117,14 @@ class AccountController extends Controller
     
 
     public function AccountAdminDashboard(){
+<<<<<<< HEAD
         $dashboard = Load::with('user')->get();
         
+=======
+        // dd(auth()->user()->id);
+
+        $dashboard = Load::with('user')->get();
+>>>>>>> old-repo/master
         $revenueResult = Load::selectRaw("SUM(load_shipper_rate) AS total_revenue")->where('invoice_status', 'Paid')->first();
         $revenue = $revenueResult->total_revenue ?? 0;
     
@@ -231,9 +286,28 @@ class AccountController extends Controller
         $teamlead = TeamLeader::get();
         $office = Office::get();
         $customers = customer::get();
+<<<<<<< HEAD
         return view('accounts.accounting', compact('loads','loads_completed','loads_paid','loads_paid_record','manager','teamlead','office','customers'));
     }
     
+=======
+
+        return view('accounts.accounting', compact('loads','loads_completed','loads_paid','loads_paid_record','manager','teamlead','office','customers'));
+    }
+    
+    // public function updateInvoiceStatus($id)
+    // {
+    //     $load = Load::find($id);
+    
+    //     if ($load) {
+    //         $load->invoice_status = 'Paid';
+    //         $load->save();
+    //         return response()->json(['message' => 'Marked as Paid successfully'], 200);
+    //     }
+    
+    //     return response()->json(['message' => 'Load not found'], 404);
+    // }
+>>>>>>> old-repo/master
 
     public function updateInvoiceStatus($id)
     {
@@ -418,7 +492,10 @@ class AccountController extends Controller
 public function accounts_broker_status(){
 
     $status = Load::get();
+<<<<<<< HEAD
     // print_r($status); die;
+=======
+>>>>>>> old-repo/master
 
     return view('accounts.admin_broker_status', ['status' => $status]);
 
@@ -566,8 +643,11 @@ public function AccountsManagerDashboard(){
                                     ->limit(7)
                                     ->get();
 
+<<<<<<< HEAD
     $get_customers = customer::get();
 
+=======
+>>>>>>> old-repo/master
 
 
     return view('accounts.manager_dashboard', [
@@ -591,7 +671,10 @@ public function AccountsManagerDashboard(){
         'finalTotal' => $finalTotal,
         'agents' => $agents,
         'salesData' =>$salesData,
+<<<<<<< HEAD
         'get_customers' => $get_customers,
+=======
+>>>>>>> old-repo/master
     ]);
 }
 
@@ -734,7 +817,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
     
         if ($load) {
             $load->load_status = 'Delivered';
+<<<<<<< HEAD
             $load->invoice_status = 'Paid Record';
+=======
+            $load->invoice_status = 'Paid';
+>>>>>>> old-repo/master
             $load->save();
     
             \Log::info('Back to Invoice successfully');
@@ -746,6 +833,7 @@ public function updateInvoiceStatusAsBackDelivered($id)
     }
 
 
+<<<<<<< HEAD
     // public function AccountsEditLoad($id)
     // {
     //     $loads = Load::where('load_status', 'Delivered')->with('user')->get();
@@ -774,6 +862,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
     
 
         // echo "<pre>"; print_r($loads); die;
+=======
+    public function AccountsEditLoad($id)
+    {
+        $loads = Load::where('load_status', 'Delivered')->with('user')->get();
+>>>>>>> old-repo/master
         $loads_completed = Load::where('invoice_status', 'Completed')->get();
         $loads_paid = Load::where('invoice_status', 'Paid')->get();
         $loads_paid_record = Load::where('invoice_status', 'Paid Record')->get();
@@ -789,7 +882,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
     // Method to update data based on form submission
     public function AccountsUpdateLoad(Request $request, $id)
     {
+<<<<<<< HEAD
        // dd($request->all());
+=======
+        // dd($request->all());
+>>>>>>> old-repo/master
         // Find the load instance
         $load = Load::find($id);
    
@@ -809,7 +906,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
 
 
 
+<<<<<<< HEAD
         for ($i = 1; $i <= 15; $i++) { // Assuming there are up to 2 shippers based on your form
+=======
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 shippers based on your form
+>>>>>>> old-repo/master
             if ($request->has("load_shipper{$i}")) {
                 $shipper = [
                     'name' => $request->input("load_shipper{$i}"),
@@ -822,7 +923,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
             }
         }
 
+<<<<<<< HEAD
         for ($i = 1; $i <= 15; $i++) { // Assuming there are up to 2 shippers based on your form
+=======
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 shippers based on your form
+>>>>>>> old-repo/master
             if ($request->has("load_shipper_location{$i}")) {
                 $shipper = [
                     'location' => $request->input("load_shipper_location{$i}"),
@@ -836,7 +941,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
         }
 
 
+<<<<<<< HEAD
         for ($i = 1; $i <= 15; $i++) { // Assuming there are up to 2 shippers based on your form
+=======
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 shippers based on your form
+>>>>>>> old-repo/master
             if ($request->has("load_shipper_appointment{$i}")) {
                 $shipper = [
                     'appointment' => $request->input("load_shipper_appointment{$i}"),
@@ -850,7 +959,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
         }
 
 
+<<<<<<< HEAD
         for ($i = 1; $i <= 15; $i++) { // Assuming there are up to 2 shippers based on your form
+=======
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 shippers based on your form
+>>>>>>> old-repo/master
             if ($request->has("load_shipper_description{$i}")) {
                 $shipper = [
                     'description' => $request->input("load_shipper_description{$i}"),
@@ -863,7 +976,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
             }
         }
 
+<<<<<<< HEAD
         for ($i = 1; $i <= 15; $i++) { // Assuming there are up to 2 shippers based on your form
+=======
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 shippers based on your form
+>>>>>>> old-repo/master
             if ($request->has("load_shipper_commodity_type{$i}")) {
                 $shipper = [
                     'commodity_type' => $request->input("load_shipper_commodity_type{$i}"),
@@ -876,7 +993,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
             }
         }
 
+<<<<<<< HEAD
         for ($i = 1; $i <= 15; $i++) { // Assuming there are up to 2 shippers based on your form
+=======
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 shippers based on your form
+>>>>>>> old-repo/master
             if ($request->has("load_shipper_commodity{$i}")) {
                 $shipper = [
                     'commodity_name' => $request->input("load_shipper_commodity{$i}"),
@@ -889,7 +1010,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
             }
         }
 
+<<<<<<< HEAD
         for ($i = 1; $i <= 15; $i++) { // Assuming there are up to 2 shippers based on your form
+=======
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 shippers based on your form
+>>>>>>> old-repo/master
             if ($request->has("load_shipper_qty{$i}")) {
                 $shipper = [
                     'shipper_qty' => $request->input("load_shipper_qty{$i}"),
@@ -902,7 +1027,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
             }
         }
 
+<<<<<<< HEAD
         for ($i = 1; $i <= 15; $i++) { // Assuming there are up to 2 shippers based on your form
+=======
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 shippers based on your form
+>>>>>>> old-repo/master
             if ($request->has("load_shipper_weight{$i}")) {
                 $shipper = [
                     'shipper_weight' => $request->input("load_shipper_weight{$i}"),
@@ -916,7 +1045,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
         }
 
 
+<<<<<<< HEAD
         for ($i = 1; $i <= 15; $i++) { // Assuming there are up to 2 shippers based on your form
+=======
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 shippers based on your form
+>>>>>>> old-repo/master
             if ($request->has("load_shipper_value{$i}")) {
                 $shipper = [
                     'shipper_value' => $request->input("load_shipper_value{$i}"),
@@ -929,7 +1062,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
             }
         }
 
+<<<<<<< HEAD
         for ($i = 1; $i <= 15; $i++) { // Assuming there are up to 2 shippers based on your form
+=======
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 shippers based on your form
+>>>>>>> old-repo/master
             if ($request->has("load_shipper_shipping_notes{$i}")) {
                 $shipper = [
                     'shipping_notes' => $request->input("load_shipper_shipping_notes{$i}"),
@@ -942,7 +1079,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
             }
         }
 
+<<<<<<< HEAD
         for ($i = 1; $i <= 15; $i++) { // Assuming there are up to 2 shippers based on your form
+=======
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 shippers based on your form
+>>>>>>> old-repo/master
             if ($request->has("load_shipper_po_numbers{$i}")) {
                 $shipper = [
                     'shipping_po_numbers' => $request->input("load_shipper_po_numbers{$i}"),
@@ -956,7 +1097,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
         }
 
 
+<<<<<<< HEAD
         for ($i = 1; $i <= 15; $i++) { // Assuming there are up to 2 shippers based on your form
+=======
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 shippers based on your form
+>>>>>>> old-repo/master
             if ($request->has("load_shipper_contact{$i}")) {
                 $shipper = [
                     'shipping_contact' => $request->input("load_shipper_contact{$i}"),
@@ -987,7 +1132,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
         $load_consigneer_contact = [];
 
 
+<<<<<<< HEAD
         for ($i = 1; $i <= 15; $i++) { // Assuming there are up to 2 consignees based on your form
+=======
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 consignees based on your form
+>>>>>>> old-repo/master
             if ($request->has("load_consignee_{$i}")) {
                 $consignee = [
                     'name' => $request->input("load_consignee_{$i}"),
@@ -1000,7 +1149,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
             }
         }
 
+<<<<<<< HEAD
         for ($i = 1; $i <= 15; $i++) { // Assuming there are up to 2 consignees based on your form
+=======
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 consignees based on your form
+>>>>>>> old-repo/master
             if ($request->has("load_consignee_location_{$i}")) {
                 $consignee = [
                     'location' => $request->input("load_consignee_location_{$i}"),
@@ -1013,7 +1166,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
             }
         }
 
+<<<<<<< HEAD
         for ($i = 1; $i <= 15; $i++) { // Assuming there are up to 2 consignees based on your form
+=======
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 consignees based on your form
+>>>>>>> old-repo/master
             if ($request->has("load_consignee_appointment_{$i}")) {
                 $consignee = [
                     'appointment' => $request->input("load_consignee_appointment_{$i}"),
@@ -1026,7 +1183,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
             }
         }
 
+<<<<<<< HEAD
         for ($i = 1; $i <= 15; $i++) { // Assuming there are up to 2 consignees based on your form
+=======
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 consignees based on your form
+>>>>>>> old-repo/master
             if ($request->has("load_consignee_discription_{$i}")) {
                 $consignee = [
                     'description' => $request->input("load_consignee_discription_{$i}"),
@@ -1039,7 +1200,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
             }
         }
 
+<<<<<<< HEAD
         for ($i = 1; $i <= 15; $i++) { // Assuming there are up to 2 consignees based on your form
+=======
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 consignees based on your form
+>>>>>>> old-repo/master
             if ($request->has("load_consignee_commodity_{$i}")) {
                 $consignee = [
                     'consignee_commodity' => $request->input("load_consignee_commodity_{$i}"),
@@ -1052,7 +1217,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
             }
         }
 
+<<<<<<< HEAD
         for ($i = 1; $i <= 15; $i++) { // Assuming there are up to 2 consignees based on your form
+=======
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 consignees based on your form
+>>>>>>> old-repo/master
             if ($request->has("load_consignee_type_{$i}")) {
                 $consignee = [
                     'consignee_type' => $request->input("load_consignee_type_{$i}"),
@@ -1066,7 +1235,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
         }
 
 
+<<<<<<< HEAD
         for ($i = 1; $i <= 15; $i++) { // Assuming there are up to 2 consignees based on your form
+=======
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 consignees based on your form
+>>>>>>> old-repo/master
             if ($request->has("load_consignee_qty_{$i}")) {
                 $consignee = [
                     'consignee_qty' => $request->input("load_consignee_qty_{$i}"),
@@ -1080,7 +1253,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
         }
 
 
+<<<<<<< HEAD
         for ($i = 1; $i <= 15; $i++) { // Assuming there are up to 2 consignees based on your form
+=======
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 consignees based on your form
+>>>>>>> old-repo/master
             if ($request->has("load_consignee_weight_{$i}")) {
                 $consignee = [
                     'consignee_weight' => $request->input("load_consignee_weight_{$i}"),
@@ -1093,7 +1270,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
             }
         }
 
+<<<<<<< HEAD
         for ($i = 1; $i <= 15; $i++) { // Assuming there are up to 2 consignees based on your form
+=======
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 consignees based on your form
+>>>>>>> old-repo/master
             if ($request->has("load_consignee_value_{$i}")) {
                 $consignee = [
                     'consignee_value' => $request->input("load_consignee_value_{$i}"),
@@ -1106,7 +1287,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
             }
         }
 
+<<<<<<< HEAD
         for ($i = 1; $i <= 15; $i++) { // Assuming there are up to 2 consignees based on your form
+=======
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 consignees based on your form
+>>>>>>> old-repo/master
             if ($request->has("load_consigneer_notes_{$i}")) {
                 $consignee = [
                     'consignee_notes' => $request->input("load_consigneer_notes_{$i}"),
@@ -1119,7 +1304,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
             }
         }
 
+<<<<<<< HEAD
         for ($i = 1; $i <= 15; $i++) { // Assuming there are up to 2 consignees based on your form
+=======
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 consignees based on your form
+>>>>>>> old-repo/master
             if ($request->has("load_consignee_po_numbers_{$i}")) {
                 $consignee = [
                     'consignee_po_number' => $request->input("load_consignee_po_numbers_{$i}"),
@@ -1132,7 +1321,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
             }
         }
 
+<<<<<<< HEAD
         for ($i = 1; $i <= 15; $i++) { // Assuming there are up to 2 consignees based on your form
+=======
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 consignees based on your form
+>>>>>>> old-repo/master
             if ($request->has("load_consigneer_contact_{$i}")) {
                 $consignee = [
                     'consignee_contact' => $request->input("load_consigneer_contact_{$i}"),
@@ -1145,7 +1338,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
             }
         }
 
+<<<<<<< HEAD
         for ($i = 1; $i <= 15; $i++) { // Assuming there are up to 2 consignees based on your form
+=======
+        for ($i = 1; $i <= 2; $i++) { // Assuming there are up to 2 consignees based on your form
+>>>>>>> old-repo/master
             if ($request->has("load_consignee_delivery_notes_{$i}")) {
                 $consignee = [
                     'consignee_delivery_notes' => $request->input("load_consignee_delivery_notes_{$i}"),
@@ -1158,7 +1355,11 @@ public function updateInvoiceStatusAsBackDelivered($id)
             }
         }
 
+<<<<<<< HEAD
         for ($i = 1; $i <= 15; $i++) {
+=======
+        for ($i = 1; $i <= 2; $i++) {
+>>>>>>> old-repo/master
             // Check if the form input for consignee note exists
             if ($request->has("load_consignee_notes_{$i}")) {
                 // Get the consignee note value from the request
@@ -1227,6 +1428,7 @@ public function updateInvoiceStatusAsBackDelivered($id)
         $load->load_final_rate = $request->input('shipper_load_final_rate') ?? '';
         $load->load_other_charge = $request->input('load_other_charge') ?? '';
         $load->shipper_load_final_rate = $request->input('shipper_load_final_rate') ?? '';
+<<<<<<< HEAD
 
         $load->shipper_load_final_rate = $request->input('shipper_load_final_rate') ?? '';
         $load->customer_id = $request->input('customer_id') ?? '';
@@ -1275,6 +1477,15 @@ public function updateInvoiceStatusAsBackDelivered($id)
         $load->shipper_load_other_charge = json_encode($shipperCharges);
 
         
+=======
+        $load->shipper_load_final_rate = $request->input('shipper_load_final_rate') ?? '';
+        $load->comment = $request->input('comment') ?? '';
+        $load->invoice_number = '';
+        $load->invoice_date = '0000-00-00';
+        $load->load_carrier_due_date = '';
+        $load->carrier_mark_as_paid = '';
+
+>>>>>>> old-repo/master
         if ($request->hasFile('load_delivery_do_file')) {
             $file = $request->file('load_delivery_do_file');
             if ($file->isValid()) {
@@ -1286,11 +1497,15 @@ public function updateInvoiceStatusAsBackDelivered($id)
                 return back()->withErrors(['load_delivery_do_file' => 'Uploaded file is not valid.']);
             }
         }
+<<<<<<< HEAD
         
 
         
        
     // echo "<pre>"; print_r($load); die();
+=======
+            // echo "<pre>"; print_r($load); die();
+>>>>>>> old-repo/master
         $load->save();
     
         // Return success response
@@ -1325,6 +1540,7 @@ public function updateInvoiceStatusAsBackDelivered($id)
     }
     
 
+<<<<<<< HEAD
     public function printInvoice($id)
     {
         // Fetch the invoice based on load_number
@@ -1456,6 +1672,109 @@ public function updateInvoiceStatusAsBackDelivered($id)
         return view('accounts.vendormanagement', compact('vendormanagement'));
     }
     
+=======
+    
+    public function printInvoice($id)
+    {
+        // $invoice = Load::findOrFail($id);
+        $invoice = Load::join('customers', 'load.user_id', '=', 'customers.user_id')
+        ->select('load.*', 'customers.customer_address','customers.customer_state','customers.customer_city','customers.customer_zip','customers.customer_country')
+        ->where('load.id', $id)
+        ->firstOrFail();
+
+            $invoice->invoice_date = Carbon::parse($invoice->invoice_date);
+        return view('invoices_print', compact('invoice'));
+    }
+            
+    public function invoiceSendEmail(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'toEmail' => 'required|string',
+            'subject' => 'required|string',
+            'message' => 'required|string',
+            'attachments.*' => 'file|mimes:jpeg,png,pdf,docx|max:2048',
+        ]);
+    
+        if ($validator->fails()) {
+            return response()->json(['success' => false, 'errors' => $validator->errors()], 422);
+        }
+    
+        try {
+            // Initialize email details
+            $toEmail = $request->input('toEmail');
+            $subject = $request->input('subject');
+            $message = $request->input('message');
+            $attachments = $request->file('attachments', []);
+    
+            // Start building email headers and body
+            $boundary = md5(time());
+            $headers = "From: info@cargoconvoy.co\r\n";
+            $headers .= "Reply-To: info@cargoconvoy.co\r\n";
+            $headers .= "MIME-Version: 1.0\r\n";
+            $headers .= "Content-Type: multipart/mixed; boundary=\"$boundary\"\r\n";
+    
+            // Construct email body
+            $body = "--$boundary\r\n";
+            $body .= "Content-Type: text/html; charset=UTF-8\r\n";
+            $body .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
+            $body .= $message . "\r\n";
+    
+            // Process attachments if any
+            foreach ($attachments as $file) {
+                // Generate unique filename to avoid conflicts
+                $fileName = time() . '-' . $file->getClientOriginalName();
+                // Store file in 'public/upload/email_attachments' directory
+                $filePath = $file->storeAs('public/uploads/email_attachments', $fileName);
+                // Add attachment to email body
+                $fileContent = file_get_contents(storage_path('app/' . $filePath));
+                $body .= "--$boundary\r\n";
+                $body .= "Content-Type: application/octet-stream; name=\"" . basename($filePath) . "\"\r\n";
+                $body .= "Content-Transfer-Encoding: base64\r\n";
+                $body .= "Content-Disposition: attachment; filename=\"" . basename($filePath) . "\"\r\n\r\n";
+                $body .= chunk_split(base64_encode($fileContent)) . "\r\n";
+            }
+    
+            $body .= "--$boundary--";
+    
+            // Send email using PHP mail function
+            $mailSent = mail($toEmail, $subject, $body, $headers);
+    
+            if ($mailSent) {
+                // Save email details to database if sending successful
+                $email = new InvoicesEmail();
+                $email->from_email = 'info@cargoconvoy.co';
+                $email->to_email = $toEmail;
+                $email->subject = $subject;
+                $email->message = $message;
+                $email->attachments = json_encode($attachments);
+                $email->save();
+    
+                return response()->json(['success' => true, 'message' => 'Email sent successfully']);
+            } else {
+                return response()->json(['success' => false, 'message' => 'Server error: Email not sent'], 500);
+            }
+        } catch (\Exception $e) {
+            // Return an error response if something goes wrong
+            return response()->json(['success' => false, 'message' => 'Server error: ' . $e->getMessage()], 500);
+        }
+    }
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+
+    public function vendorManagement(){
+        $vendormanagement = Load:: get();
+        return view('accounts.vendormanagement',compact('vendormanagement'));
+    }
+
+>>>>>>> old-repo/master
 
 
     public function updateLoadDate(Request $request)
@@ -1560,6 +1879,61 @@ public function updateInvoiceStatusAsBackDelivered($id)
     }
     
     
+<<<<<<< HEAD
+=======
+//     public function fetchFiles($loadNumber)
+// {
+//     $load = Load::where('load_number', $loadNumber)->first();
+
+//     if (!$load) {
+//         return response()->json(['error' => 'Invalid load number.'], 400);
+//     }
+
+//     $files = json_decode($load->carrierDoc, true) ?? [];
+
+//     // Prepare file URLs and names
+//     $fileData = array_map(function ($file) use ($loadNumber) {
+//         return [
+//             'url' => Storage::url($file),
+//             'name' => basename($file) // Get the filename for display
+//         ];
+//     }, $files);
+
+//     return response()->json(['files' => $fileData]);
+// }
+
+
+// public function deleteFile(Request $request)
+// {
+//     $request->validate([
+//         'file_url' => 'required|string',
+//         'load_number' => 'required|string',
+//     ]);
+
+//     $loadNumber = $request->input('load_number');
+//     $load = Load::where('load_number', $loadNumber)->first();
+
+//     if (!$load) {
+//         return response()->json(['error' => 'Invalid load number.'], 400);
+//     }
+
+//     // Decode existing carrierDoc to get the list of files
+//     $files = json_decode($load->carrierDoc, true) ?? [];
+
+//     // Find the file path and remove it
+//     $filePath = str_replace('/storage/', 'public/', $request->input('file_url')); // Convert to storage path
+
+//     if (($key = array_search($filePath, $files)) !== false) {
+//         unset($files[$key]); // Remove the file path from the array
+//         $load->carrierDoc = json_encode(array_values($files)); // Re-index the array
+//         $load->save();
+//         Storage::delete($filePath); // Delete the file from storage
+//         return response()->json(['success' => 'File deleted successfully!']);
+//     }
+
+//     return response()->json(['error' => 'File not found.'], 404);
+// }
+>>>>>>> old-repo/master
 
 public function fetchFiles($loadNumber)
 {
@@ -1670,6 +2044,7 @@ public function deleteFile(Request $request)
     public function compliance()
     {
         $carrier = External::orderBy('id', 'DESC')->get();
+<<<<<<< HEAD
         $loads = Load::orderBy('id', 'DESC')->get();
         return view('accounts.compliance', compact('carrier', 'loads'));
     }
@@ -1717,6 +2092,12 @@ public function deleteFile(Request $request)
     
     
     
+=======
+        $loads = Load::orderBy('id','DESC')->get();
+        return view('accounts.compliance', compact('carrier','loads'));
+    }
+    
+>>>>>>> old-repo/master
 
     
     public function vendorUpdateLoadDetails(Request $request)
@@ -1741,6 +2122,7 @@ public function deleteFile(Request $request)
         return response()->json(['message' => 'Load not found'], 404);
     }
     
+<<<<<<< HEAD
 
     public function uploadCarrierDocs(Request $request)
     {
@@ -1890,6 +2272,49 @@ public function getFiles(Request $request)
 
 
 
+=======
+// Carrier File Upload
+
+
+public function uploadCarrierDocs(Request $request)
+{
+    $loadNumber = $request->input('load_number');
+    $files = $request->file('carrierDoc');
+
+    // Check if the load exists
+    $load = Load::where('load_number', $loadNumber)->first();
+    if (!$load) {
+        return response()->json(['error' => 'Load not found'], 404);
+    }
+
+    // Initialize the carrierDoc variable if it doesn't exist
+    if (!$load->carrierDoc) {
+        $load->carrierDoc = '';
+    }
+
+    if ($request->hasFile('carrierDoc')) {
+        foreach ($files as $file) {
+            // Create a unique filename
+            $filename = $loadNumber . '_' . time() . '_' . $file->getClientOriginalName();
+
+            // Ensure the directory exists before storing
+            $directoryPath = 'public/carrierDoc/' . $loadNumber;
+
+            // Store the file in the specified folder structure
+            $path = $file->storeAs($directoryPath, $filename);
+
+            // Append the file path to the carrierDoc field
+            $load->carrierDoc .= $load->carrierDoc ? ',' . $path : $path;
+        }
+
+        // Save the updated load record
+        $load->save();
+    }
+
+    return response()->json(['success' => 'Files uploaded successfully']);
+}
+
+>>>>>>> old-repo/master
 public function fetchUploadedFiles(Request $request)
 {
     $loadNumber = $request->input('load_number');
@@ -1954,6 +2379,7 @@ public function deleteUploadedFile(Request $request)
 
     return response()->json(['success' => 'File deleted successfully']);
 }
+<<<<<<< HEAD
 
 
 public function customerCarriersDetails(){
@@ -1993,6 +2419,83 @@ public function saveInternalNotes(Request $request)
 }
 
 public function fetchInvoiceDetails(Request $request)
+=======
+    // In AccountController.php
+    public function showPermissionPage()
+    {
+        // Fetch all AccountsAdmin users
+        $users = AccountsAdmin::all();
+        // foreach($users as $user){
+        //     if($user->can('manage accounting'))
+        //     {
+        //         echo "manage accounting";
+        //     }
+            
+            
+        //     if($user->can('manage account-manager'))
+        //     {
+        //         echo "manage account-manager";
+        //     }
+        //     if($user->can('manage reporting'))
+        //     {
+        //         echo "manage reporting";
+        //     }
+
+        //     if($user->can('manage vendors'))
+        //     {
+        //         echo "manage vendors";
+        //     }
+            
+        //     if($user->can('view compliance'))
+        //     {
+        //         echo "manage compliance";
+        //     }
+            
+
+        //     if ($user->hasRole('Accounts Manager'))
+        //     {
+        //         echo "manage Manager";
+        //     }
+        //     die;
+        // }
+        // Pass the users to the view
+        return view('accounts.role-permission.permission.index', compact('users'));
+    }
+    public function updateAccountsUserPermission(Request $request)
+    {
+        try {
+            // Find user by ID or fail
+            $user = AccountsAdmin::findOrFail($request->user_id);
+    
+            // Get the permission from request
+            $permission = $request->permission;
+    
+            // Check if the user already has the permission
+            if ($user->hasPermissionTo($permission)) {
+                // If they do, revoke the permission
+                $user->revokePermissionTo($permission);
+            } else {
+                // If they don't, give the permission
+                $user->givePermissionTo($permission);
+            }
+    
+            // Return success response
+            return response()->json([
+                'status' => 'successful',
+                'message' => 'Permission updated successfully'
+            ]);
+            
+        } catch (\Exception $e) {
+            // Catch and return any exceptions
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred: ' . $e->getMessage()
+            ]);
+        }
+    }
+    
+    public function fetchInvoiceDetails(Request $request)
+>>>>>>> old-repo/master
 {
     // Find the invoice by invoice_number, NOT by primary key
     $invoice = Load::where('invoice_number', $request->invoice_number)->first();
@@ -2055,6 +2558,7 @@ public function fetchInvoiceDetails(Request $request)
         
     ]);
 }
+<<<<<<< HEAD
   
 
 public function invoiceSendEmail(Request $request)
@@ -2134,6 +2638,21 @@ public function invoiceSendEmail(Request $request)
 }
 
 
+=======
+public function updateMacro(Request $request)
+{
+    $load = Load::find($request->load_id);
+    if ($load) {
+        $load->macro = $request->macro;
+        $load->no_of_macro = $request->no_of_macro;
+        $load->save();
+
+        return response()->json(['success' => 'Macro and No of Macro updated successfully!']);
+    } else {
+        return response()->json(['error' => 'Load not found'], 404);
+    }
+}
+>>>>>>> old-repo/master
 public function getComplianceData()
 {
     $carrier = External::with('user')->get(); // Fetch data as per your needs
@@ -2144,6 +2663,7 @@ public function getComplianceData()
         'loads' => $loads
     ]);
 }
+<<<<<<< HEAD
 
     
     
@@ -2152,4 +2672,144 @@ public function getComplianceData()
     
     
     
+=======
+public function getComplianceLoadInfo($id)
+{
+    $load = Load::find($id);
+
+    if ($load) {
+        // Fetch the carrier's address based on the carrier_id
+        $carrier = External::find($load->carrier_id);
+
+        // Concatenate the address fields from the carrier
+        $carrier_address = $carrier ? 
+            ($carrier->carrier_address_two ? $carrier->carrier_address_two . ', ' : '') .
+            ($carrier->carrier_city ? $carrier->carrier_city . ', ' : '') .
+            ($carrier->carrier_state ? $carrier->carrier_state . ', ' : '') .
+            ($carrier->carrier_country ? $carrier->carrier_country . ', ' : '') .
+            ($carrier->carrier_zip ? $carrier->carrier_zip : '')
+            : 'Address not available'; 
+
+        return response()->json([
+            'load_number' => $load->load_number,
+            'load_dispatcher' => $load->load_dispatcher,
+            'load_workorder' => $load->load_workorder,
+            'customer_refrence_number' => $load->customer_refrence_number,
+            'load_carrier' => $load->load_carrier,
+            'load_bill_to' => $load->load_bill_to,
+            'load_shipper_rate' => $load->load_shipper_rate,
+            'load_carrier_fee' => $load->load_carrier_fee,
+            'load_shipper_location' => $load->load_shipper_location,
+            'load_shipperr' => json_decode($load->load_shipperr, true) ?? [],
+            'load_consignee_location' => $load->load_consignee_location,
+            'load_consignee' => $load->load_consignee,
+            'load_carrier_location' => $carrier_address, // Add the concatenated address
+        ]);
+    } else {
+        return response()->json(['error' => 'Load not found'], 404);
+    }
+}
+public function getFiles(Request $request)
+{
+    // Find the Load by its ID
+    $load = Load::find($request->id);
+
+    // Decode the JSON array of file paths stored in carrierDoc
+    $files = json_decode($load->carrierDoc, true);
+
+    // Initialize an array to hold file URLs and names
+    $fileUrls = [];
+
+    // Loop through the files array
+    foreach ($files as $file) {
+        // Generate the full URL for each file and its name
+        $fileUrls[] = [
+            'url' => asset('storage/' . $file), // Corrected file path
+            'name' => basename($file)
+        ];
+    }
+
+    // Return the array of file URLs as a JSON response
+    return response()->json($fileUrls);
+}
+public function deleteCarrierDoc(Request $request)
+{
+    $id = $request->input('id');
+    $filename = $request->input('filename');
+    $load = Load::find($id);
+
+    if (!$load) {
+        return response()->json(['success' => false, 'message' => 'Load not found'], 404);
+    }
+
+    // Get existing files
+    $existingFiles = json_decode($load->carrierDoc, true) ?: [];
+
+    // Filter out the file to be deleted
+    $remainingFiles = array_filter($existingFiles, function($file) use ($filename) {
+        return basename($file) !== $filename;
+    });
+
+    // Update the Load record with the remaining files
+    $load->carrierDoc = json_encode(array_values($remainingFiles));
+    $load->save();
+
+    // Delete the file from storage
+    \Storage::disk('public')->delete($filename);
+
+    return response()->json(['success' => true, 'message' => 'File deleted successfully']);
+}
+
+public function deleteSelectedFiles(Request $request)
+{
+    $id = $request->input('id');
+    $filenames = $request->input('filenames');
+    $load = Load::find($id);
+
+    if (!$load) {
+        return response()->json(['success' => false, 'message' => 'Load not found'], 404);
+    }
+
+    $existingFiles = json_decode($load->carrierDoc, true) ?: [];
+
+    // Filter out files to delete
+    $remainingFiles = array_filter($existingFiles, function($file) use ($filenames) {
+        return !in_array($file, $filenames);
+    });
+
+    foreach ($filenames as $filename) {
+        $filePath = 'storage/uploads/' . $load->load_number . '/' . $filename;
+
+        if (Storage::exists($filePath)) {
+            Storage::delete($filePath);
+        }
+    }
+
+    // Update the Load record with the remaining files
+    $load->carrierDoc = json_encode(array_values($remainingFiles));
+    $load->save();
+
+    return response()->json(['success' => true]);
+}
+public function customerCarriersDetails(){
+    $carrier = External::with('user')->get();
+    $customers = Customer::get(); // Ensure that the model name `Customer` is correctly capitalized
+    return view('accounts.alldetail', compact('carrier', 'customers'));
+}
+public function saveInternalNotes(Request $request)
+{
+    // Validate the incoming request
+    $request->validate([
+        'id' => 'required|integer|exists:load,id', // Change delivered_table to your actual table name
+        'notes' => 'nullable|string',
+    ]);
+
+    // Find the record and update the notes
+    $delivered = Load::find($request->id);
+    $delivered->internal_notes = $request->notes; // Make sure to have the 'internal_notes' field in your table
+    $delivered->save();
+
+    return response()->json(['message' => 'Notes saved successfully!']);
+}
+>>>>>>> old-repo/master
 }

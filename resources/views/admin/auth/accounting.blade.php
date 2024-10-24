@@ -14,9 +14,12 @@
 </div>
 @endif
 <style>
+<<<<<<< HEAD
     .table>:not(caption)>*>* {
         background-color: unset !important;
     }
+=======
+>>>>>>> old-repo/master
     .button {
         display: inline-block;
         padding: 2px 6px;
@@ -196,25 +199,45 @@
                             <li class="nav-item">
                                 <a class="nav-link active" id="delivered-tab" data-bs-toggle="tab" role="tab"
                                     aria-controls="delivered" aria-selected="true" style="font-size:15px;"
+<<<<<<< HEAD
                                     href="#home_with_icon_title"> Delivered
+=======
+                                    href="#home_with_icon_title">
+                                     Delivered
+>>>>>>> old-repo/master
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="completed-tab" data-bs-toggle="tab" role="tab"
                                     aria-controls="completed" aria-selected="false"
+<<<<<<< HEAD
                                     style="font-size:15px;" href="#profile_with_icon_title">Completed
+=======
+                                    style="font-size:15px;" href="#profile_with_icon_title">
+                                     Completed
+>>>>>>> old-repo/master
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="invoiced-tab" data-bs-toggle="tab" role="tab"
                                     aria-controls="invoiced" aria-selected="false"
+<<<<<<< HEAD
                                     style="font-size:15px;" href="#messages_with_icon_title">Invoiced
+=======
+                                    style="font-size:15px;" href="#messages_with_icon_title">
+                                     Invoiced
+>>>>>>> old-repo/master
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="invoiced-paid-tab" data-bs-toggle="tab" role="tab"
                                     aria-controls="invoicedpaid" aria-selected="false"
+<<<<<<< HEAD
                                     style="font-size:15px;" href="#settings_with_icon_title">Invoice / Paid
+=======
+                                    style="font-size:15px;" href="#settings_with_icon_title">
+                                     Invoiced / Paid
+>>>>>>> old-repo/master
                                 </a>
                             </li>
                         </ul>
@@ -257,8 +280,11 @@
                                                 <option value="{{ $teamLead->tl }}">{{ $teamLead->tl }}</option>
                                                 @endforeach
                                             </select>
+<<<<<<< HEAD
 
                                         
+=======
+>>>>>>> old-repo/master
                                         </div>
 
                                         <table id="dataTable" class="table table-bordered table-responsive dataTable no-footer">
@@ -266,6 +292,7 @@
                                                 <tr>
                                                     <th>Sr No.</th>
                                                     <th>Load #</th>
+<<<<<<< HEAD
                                                     <th>W/O #</th>
                                                     <th>Customer #</th>
                                                     <th>Agent</th>
@@ -281,6 +308,22 @@
                                                     <th>Unloading Location</th>
                                                     <th>Load Status</th>
                                                     <th>Margin</th>
+=======
+                                                    <th>Agent Name</th>
+                                                    <th>W/O #</th>
+                                                    <th>Customer #</th>
+                                                    <th>Office</th>
+                                                    <th>Manager</th>
+                                                    <th>Team Leader</th>
+                                                    <th>Load Create Date</th>
+                                                    <th>Shipper Date</th>
+                                                    <th>Delivery Date</th>
+                                                    <th>Actual Delivery Date</th>
+                                                    <th>Carrier Name</th>
+                                                    <th>Pickup Location</th>
+                                                    <th>Unloading Location</th>
+                                                    <th>Load Status</th>
+>>>>>>> old-repo/master
                                                     <th>Aging</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -298,12 +341,21 @@
                                                             {{ $delivered->load_number }}
                                                         </a>
                                                     </td>
+<<<<<<< HEAD
                                                     <td class="dynamic-data">{{ $delivered->load_workorder }}</td>
                                                     <td class="dynamic-data">{{ $delivered->load_bill_to }}</td>
                                                     <td class="dynamic-data">{{ $delivered->user->name }}</td>
                                                     <td class="dynamic-data">{{ $delivered->user->office }}</td>
                                                     <td class="dynamic-data tl-column">{{ $delivered->user->team_lead }}</td>
                                                     <td class="dynamic-data manager-column">{{ $delivered->user->manager }}</td>
+=======
+                                                    <td class="dynamic-data">{{ $delivered->user->name }}</td>
+                                                    <td class="dynamic-data">{{ $delivered->load_workorder }}</td>
+                                                    <td class="dynamic-data">{{ $delivered->load_bill_to }}</td>
+                                                    <td class="dynamic-data">{{ $delivered->user->office }}</td>
+                                                    <td class="dynamic-data manager-column">{{ $delivered->user->manager }}</td>
+                                                    <td class="dynamic-data tl-column">{{ $delivered->user->team_lead }}</td>
+>>>>>>> old-repo/master
                                                     <td class="dynamic-data">{{ $delivered->created_at }}</td>
                                                     @php
                                                     $shipper_appointment =
@@ -349,6 +401,7 @@
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ $delivered->load_status }}
                                                     </td>
+<<<<<<< HEAD
                                                     @php
                                                         $shipperRate = floatval($delivered->shipper_load_final_rate);
                                                         $carrierFee = floatval($delivered->load_final_carrier_fee);
@@ -360,6 +413,9 @@
                                                 <td class="dynamic-data" style="color: {{ $getMargin >= 0 ? 'green' : 'red' }};">
                                                     {{ number_format($getMargin, 2) }}%
                                                 </td>
+=======
+
+>>>>>>> old-repo/master
                                                     <td class="dynamic-data">
                                                         @php
                                                         $deliveredDate = \Carbon\Carbon::parse($delivered->created_at);
@@ -456,13 +512,17 @@
                                                 <option value="{{ $teamLead->tl }}">{{ $teamLead->tl }}</option>
                                                 @endforeach
                                             </select>
+<<<<<<< HEAD
                                         
+=======
+>>>>>>> old-repo/master
                                         </div>
                                         <table id="dataTable" class="table table-bordered table-responsive dataTable no-footer">
                                         <thead>
                                                 <tr>
                                                     <th>Sr No.</th>
                                                     <th>Load #</th>
+<<<<<<< HEAD
                                                     <th>W/O #</th>
                                                     <th>Customer #</th>
                                                     <th>Agent</th>
@@ -474,6 +534,19 @@
                                                     <th>Delivered Date</th>
                                                     <th>Actual Del Date</th>
                                                     <th>Carrier</th>
+=======
+                                                    <th>Agent Name</th>
+                                                    <th>W/O #</th>
+                                                    <th>Customer #</th>
+                                                    <th>Office</th>
+                                                    <th>Manager</th>
+                                                    <th>Team Leader</th>
+                                                    <th>Load Create Date</th>
+                                                    <th>Shipper Date</th>
+                                                    <th>Delivery Date</th>
+                                                    <th>Actual Delivery Date</th>
+                                                    <th>Carrier Name</th>
+>>>>>>> old-repo/master
                                                     <th>Pickup Location</th>
                                                     <th>Unloading Location</th>
                                                     <th>Load Status</th>
@@ -496,15 +569,26 @@
                                                             {{ $completed->load_number }}
                                                         </a>
                                                     </td>
+<<<<<<< HEAD
                                                     <td class="dynamic-data">{{ $completed->load_workorder }}</td>
                                                     <td class="dynamic-data">{{ $completed->load_bill_to }}</td>
+=======
+>>>>>>> old-repo/master
                                                     <td class="dynamic-data">
                                                         {{$completed->user->name}}
                                                     </td>
 
+<<<<<<< HEAD
                                                     <td class="dynamic-data">{{ $completed->user->office }}</td>
                                                     <td class="dynamic-data tl-column">{{ $completed->user->team_lead }}</td>
                                                     <td class="dynamic-data manager-column">{{ $completed->user->manager }}</td>
+=======
+                                                    <td class="dynamic-data">{{ $completed->load_workorder }}</td>
+                                                    <td class="dynamic-data">{{ $completed->load_bill_to }}</td>
+                                                    <td class="dynamic-data">{{ $completed->user->office }}</td>
+                                                    <td class="dynamic-data manager-column">{{ $completed->user->manager }}</td>
+                                                    <td class="dynamic-data tl-column">{{ $completed->user->team_lead }}</td>
+>>>>>>> old-repo/master
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ $completed->created_at->format('m-d-y H:i:s') }}</td>
@@ -556,12 +640,15 @@
                                                         Completed
                                                         @endif
                                                     </td>
+<<<<<<< HEAD
                                                     @php
                                                         $shipperRate = floatval($completed->shipper_load_final_rate);
                                                         $carrierFee = floatval($completed->load_final_carrier_fee);
                                                         $getMargin = $shipperRate - $carrierFee;
                                                     @endphp
                                                     <td class="dynamic-data" style="color:green;">${{ number_format($getMargin, 2) }}</td>
+=======
+>>>>>>> old-repo/master
                                                     <td class="dynamic-data">
                                                         @if($completed->load_status == 'Delivered' ||
                                                         $completed->invoice_status == null)
@@ -664,13 +751,17 @@
                                                 <option value="{{ $teamLead->tl }}">{{ $teamLead->tl }}</option>
                                                 @endforeach
                                             </select>
+<<<<<<< HEAD
                                         
+=======
+>>>>>>> old-repo/master
                                         </div>
                                         <table id="dataTable" class="table table-bordered table-responsive dataTable no-footer">
                                         <thead>
                                                 <tr>
                                                     <th>Sr No.</th>
                                                     <th>Load #</th>
+<<<<<<< HEAD
                                                     <th>W/O #</th>
                                                     <th>Customer Name</th>
                                                     <th>Invoice #</th>
@@ -688,6 +779,24 @@
                                                     <th>Unloading Location</th>
                                                     <th>Load Status</th>
                                                     <th>Margin</th>
+=======
+                                                    <th>Agent Name</th>
+                                                    <th>W/O #</th>
+                                                    <th>Invoice #</th>
+                                                    <th>Invoice Date</th>
+                                                    <th>Customer #</th>
+                                                    <th>Office</th>
+                                                    <th>Manager</th>
+                                                    <th>Team Leader</th>
+                                                    <th>Load Create Date</th>
+                                                    <th>Shipper Date</th>
+                                                    <th>Delivery Date</th>
+                                                    <th>Actual Delivery Date</th>
+                                                    <th>Carrier Name</th>
+                                                    <th>Pickup Location</th>
+                                                    <th>Unloading Location</th>
+                                                    <th>Load Status</th>
+>>>>>>> old-repo/master
                                                     <th>Aging</th>
                                                     <th>Shipper Final Rate</th>
                                                     <th>Shipper Receiving Amount</th>
@@ -715,9 +824,12 @@
                                                             {{ $invoice->load_number }}
                                                         </a>
                                                     </td>
+<<<<<<< HEAD
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ $invoice->load_workorder }}</td>
+=======
+>>>>>>> old-repo/master
 
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
@@ -725,24 +837,45 @@
                                                     </td>
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
+<<<<<<< HEAD
+=======
+                                                        {{ $invoice->load_workorder }}</td>
+
+                                                    <td class="dynamic-data"
+                                                        style="padding: 7px 10px !important; vertical-align: middle !important;">
+>>>>>>> old-repo/master
                                                         {{ $invoice->invoice_number }}</td>
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ date('d-m-Y', strtotime($invoice->invoice_date)) }}</td>
+<<<<<<< HEAD
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ $invoice->load_bill_to }}</td>
 
 
+=======
+
+                                                    <td class="dynamic-data"
+                                                        style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                                        {{ $invoice->load_bill_to }}</td>
+>>>>>>> old-repo/master
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ $invoice->user->office }}</td>
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
+<<<<<<< HEAD
                                                         {{ $invoice->user->team_lead }}</td>
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ $invoice->user->manager }}</td>
+=======
+                                                        {{ $invoice->user->manager }}</td>
+                                                    <td class="dynamic-data"
+                                                        style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                                        {{ $invoice->user->team_lead }}</td>
+>>>>>>> old-repo/master
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ $invoice->created_at }}</td>
@@ -791,12 +924,16 @@
                                                         @endif
 
                                                     </td>
+<<<<<<< HEAD
                                                     @php
                                                         $shipperRate = floatval($invoice->shipper_load_final_rate);
                                                         $carrierFee = floatval($invoice->load_final_carrier_fee);
                                                         $getMargin = $shipperRate - $carrierFee;
                                                     @endphp
                                                     <td class="dynamic-data" style="color:green;">${{ number_format($getMargin, 2) }}</td>
+=======
+
+>>>>>>> old-repo/master
                                                     <td class="dynamic-data">
                                                         @if($invoice->load_status == 'Delivered' ||
                                                         $invoice->invoice_status == 'Completed' )
@@ -817,7 +954,12 @@
                                                             name="receiving_amount" data-invoice-id="{{ $invoice->id }}"
                                                             data-shipper-load-final-rate="{{ $invoice->shipper_load_final_rate }}"
                                                             id="receiving_amount_{{ $invoice->id }}"
+<<<<<<< HEAD
                                                             value="{{ $invoice->receiving_amount }}">
+=======
+                                                            value="{{ $invoice->receiving_amount }}"
+                                                            style="width:100px">
+>>>>>>> old-repo/master
                                                     </td>
                                                     @php
                                                     $shipperLoadFinalRate = floatval($invoice->shipper_load_final_rate);
@@ -825,7 +967,11 @@
                                                     $remaining = max($shipperLoadFinalRate - $receivingAmount, 0);
                                                     @endphp
                                                     <td class="dynamic-data">
+<<<<<<< HEAD
                                                         <input type="text" readonly class="remaining_amount form-control" name="remaining_amount" id="remaining_amount_{{ $invoice->id }}" value="{{ number_format($remaining, 2) }}">
+=======
+                                                        <input type="text" readonly class="remaining_amount" name="remaining_amount" id="remaining_amount_{{ $invoice->id }}" value="{{ number_format($remaining, 2) }}" style="width:100px">
+>>>>>>> old-repo/master
                                                     </td>
 
 
@@ -928,15 +1074,19 @@
                                                 <option value="{{ $teamLead->tl }}">{{ $teamLead->tl }}</option>
                                                 @endforeach
                                             </select>
+<<<<<<< HEAD
 
                                           
                                         
+=======
+>>>>>>> old-repo/master
                                         </div>
                                         <table id="dataTable" class="table table-bordered table-responsive dataTable no-footer">
                                         <thead>
                                                 <tr>
                                                     <th>Sr No.</th>
                                                     <th>Load #</th>
+<<<<<<< HEAD
                                                     <th>W/O #</th>
                                                     <th>Customer #</th>
                                                     <th>Invoice #</th>
@@ -949,11 +1099,28 @@
                                                     <th>Load Creation Date</th>
                                                     <th>Shipper Date</th>
                                                     <th>Delivered Date</th>
+=======
+                                                    <th>Agent Name</th>
+                                                    <th>Invoice #</th>
+                                                    <th>Invoice Date</th>
+                                                    <th>W/O #</th>
+                                                    <th>Customer #</th>
+                                                    <th>Customer Receiving Payment Date</th>
+                                                    <th>Office</th>
+                                                    <th>Manager</th>
+                                                    <th>Team Leader</th>
+                                                    <th>Load Create Date</th>
+                                                    <th>Shipper Date</th>
+                                                    <th>Delivery Date</th>
+>>>>>>> old-repo/master
                                                     <th>Carrier</th>
                                                     <th>Pickup Location</th>
                                                     <th>Unloading Location</th>
                                                     <th>Load Status</th>
+<<<<<<< HEAD
                                                     <th>Magin</th>
+=======
+>>>>>>> old-repo/master
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -974,12 +1141,17 @@
                                                             {{ $record->load_number }}
                                                         </a>
                                                     </td>
+<<<<<<< HEAD
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ $record-> load_workorder }}</td>
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ $record-> load_bill_to }}
+=======
+                                                    <td class="dynamic-data">
+                                                        {{ $record->user->name }}
+>>>>>>> old-repo/master
                                                     </td>
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
@@ -989,23 +1161,43 @@
                                                         {{ $record->invoice_date }}</td>
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
+<<<<<<< HEAD
                                                         {{ $record-> invoice_status_date }}
                                                     </td>
                                                     <td class="dynamic-data">
                                                         {{ $record->user->name }}
+=======
+                                                        {{ $record-> load_workorder }}</td>
+                                                    <td class="dynamic-data"
+                                                        style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                                        {{ $record-> load_bill_to }}
+                                                    </td>
+                                                    <td class="dynamic-data"
+                                                        style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                                        {{ $record-> invoice_status_date }}
+>>>>>>> old-repo/master
                                                     </td>
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ $record->user->office }}</td>
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
+<<<<<<< HEAD
                                                         {{ $record-> user->team_lead }}</td>
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
+=======
+>>>>>>> old-repo/master
                                                         {{ $record->user->manager }}</td>
 
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
+<<<<<<< HEAD
+=======
+                                                        {{ $record-> user->team_lead }}</td>
+                                                    <td class="dynamic-data"
+                                                        style="padding: 7px 10px !important; vertical-align: middle !important;">
+>>>>>>> old-repo/master
                                                         {{ $record->created_at }}</td>
                                                     @php
                                                     $shipper_appointment =
@@ -1044,12 +1236,15 @@
                                                         @if($record->invoice_status == 'Paid Record')
                                                         Invoiced</td>
                                                     @endif
+<<<<<<< HEAD
                                                     @php
                                                         $shipperRate = floatval($record->shipper_load_final_rate);
                                                         $carrierFee = floatval($record->load_final_carrier_fee);
                                                         $getMargin = $shipperRate - $carrierFee;
                                                     @endphp
                                                     <td class="dynamic-data" style="color:green;">${{ number_format($getMargin, 2) }}</td>
+=======
+>>>>>>> old-repo/master
                                                     <td class="dynamic-data">
                                                         <div class="dropdown">
                                                             <button type="button"
@@ -1112,7 +1307,11 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">View Files</h4>
+<<<<<<< HEAD
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+=======
+                <button type="button" class="close" data-dismiss="modal" style="padding: 0 5px;top: 21px;right: 23px;">&times;</button>
+>>>>>>> old-repo/master
             </div>
             <div class="modal-body">
                 <ul id="file-list"></ul>
@@ -2913,9 +3112,15 @@
         <form id="mailForm" enctype="multipart/form-data" action="{{ route('send.invoice.email') }}" method="POST">
             @csrf
             <div class="modal-content">
+<<<<<<< HEAD
                 <div class="modal-header" style="padding: 12px 30px;width: 100%;background: #555555;">
                     <h4 class="modal-title">Send Custom Email</h4>
                     <button type="button" style="top: 16px !important;color: #fff;font-size: 30px;" class="close"
+=======
+                <div class="modal-header">
+                    <h4 class="modal-title">Send Custom Email</h4>
+                    <button type="button" style="padding: 0 5px;top: 30px;right: 30px;" class="close"
+>>>>>>> old-repo/master
                         data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -2956,6 +3161,10 @@
     </div>
 </div>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> old-repo/master
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     function openModal(recordId) {
@@ -3189,8 +3398,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js">
 </script>
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> old-repo/master
 <script>
         function markAsPaid(loadId) {
             axios.post(`/update-invoice-status/${loadId}`, {
@@ -3373,6 +3585,7 @@
         
     });
 </script>
+<<<<<<< HEAD
 <script>
   $(document).ready(function () {
     // Get the last active tab from localStorage
@@ -3413,4 +3626,7 @@
         });
     });
 </script>
+=======
+
+>>>>>>> old-repo/master
 @endsection

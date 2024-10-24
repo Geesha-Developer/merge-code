@@ -41,6 +41,7 @@ class ResetPasswordController extends Controller
             : back()->withErrors(['email' => [__($status)]]);
     }
 }
+<<<<<<< HEAD
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
@@ -83,3 +84,5 @@ class ResetPasswordController extends Controller
     }
 }
 
+=======
+>>>>>>> old-repo/master

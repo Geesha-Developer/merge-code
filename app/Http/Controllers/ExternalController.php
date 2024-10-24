@@ -102,8 +102,12 @@ class ExternalController extends Controller
             $user = Auth::guard('teamlead')->user();  
         }
         $fetch = External::where('user_id', $user->id)->get();
+<<<<<<< HEAD
         $allcarrier = External::orderBy('id', 'DESC')->get(); // Specify the column to order by
         return view('broker.carrier',compact('countries', 'states','fetch','user','allcarrier'));
+=======
+        return view('broker.carrier',compact('countries', 'states','fetch','user'));
+>>>>>>> old-repo/master
     }
 
 
@@ -199,6 +203,11 @@ public function destroy_carrier($id)
     return response()->json(['error' => 'Carrier not found.'], 404);
 }
 
+<<<<<<< HEAD
+=======
+
+    
+>>>>>>> old-repo/master
 public function mc_check(Request $request)
 {
     // Validate the incoming form data
@@ -248,10 +257,13 @@ public function mc_check(Request $request)
 }
 
 
+<<<<<<< HEAD
 
 
     
 
 
 
+=======
+>>>>>>> old-repo/master
 }

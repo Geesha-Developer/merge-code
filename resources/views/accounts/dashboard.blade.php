@@ -777,7 +777,43 @@
                 <canvas id="salesChart"></canvas>
             </div>
 
+<<<<<<< HEAD
             
+=======
+            <div class="db__cell mt-3">
+                <h2 class="db__subheading">Best Performance Broker</h2>
+                <table
+                    class="table table-responsive table-bordered table-hover dataTable js-exportable table-responsive">
+                    <thead>
+                        <tr>
+                            <th style="background: #555555 !important;color: #fff !important;">Broker</th>
+                            <th style="background: #555555 !important;color: #fff !important;">No of Load</th>
+                            <th style="background: #555555 !important;color: #fff !important;">Total Carrier Pay</th>
+                            <th style="background: #555555 !important;color: #fff !important;">Status</th>
+                            <th style="background: #555555 !important;color: #fff !important;">Margin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($bestPerformance as $index => $bpc)
+                        <tr>
+                            <td style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                {{ $bpc->name }}</td>
+                            <td style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                {{ $bpc->load_number }}</td>
+                            <td style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                {{ $bpc->total_fee }}</td>
+                            <td style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                {{ $bpc->load_status }}</td>
+                            <td style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                {{ $bpc->load_final_carrier_fee }}</td>
+                        </tr>
+                        @endforeach
+
+                    </tbody>
+                </table>
+
+            </div>
+>>>>>>> old-repo/master
         </div>
         <div class="col-md-4">
             <div class="col-md-12">
@@ -815,6 +851,7 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
         <div class="col-md-12">
         <div class="db__cell mt-3">
                 <h2 class="db__subheading">Best Performance Broker</h2>
@@ -851,6 +888,8 @@
                 </div>
             </div>
         </div>
+=======
+>>>>>>> old-repo/master
     </div>
 </div>
 </section>

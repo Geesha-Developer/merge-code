@@ -2,9 +2,12 @@
 @section('content')
 
 <style>
+<<<<<<< HEAD
     .table>:not(caption)>*>* {
         background-color: unset !important;
     }
+=======
+>>>>>>> old-repo/master
     button#hideFormButton {
         float: right;
     }
@@ -16,6 +19,7 @@
 </style>
 
 @if(session('success'))
+<<<<<<< HEAD
 <div class="alert alert-success alert-dismissible fade show" role="alert">
     <i class="fa fa-check"></i>
   <h4 class="alert-heading"><b>Well done!</b></h4>
@@ -36,6 +40,18 @@
     <span aria-hidden="true">&times;</span>
   </button>
   <button type="button" class="btn btn-danger" onclick="$('.alert').alert('close');">OK</button>
+=======
+<div class="alert alert-success" id="successMessage">
+    {{ session('success') }}
+</div>
+@endif
+@if(session('error'))
+<div class="alert alert-danger" id="errorMessage">
+    <script>
+        alert("{{ session('error') }}");
+    </script>
+    {{ session('error') }}
+>>>>>>> old-repo/master
 </div>
 @endif
 
@@ -43,7 +59,15 @@
 <section class="content">
     <div class="body_scroll">
         <div class="block-header">
+<<<<<<< HEAD
             <h2>Consignee Listing</h2>
+=======
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>Consignee Listing</h2>
+                </div>
+            </div>
+>>>>>>> old-repo/master
         </div>
 
         <div class="container-fluid">
@@ -59,6 +83,10 @@
                                         data-target="#exampleModal">
                                         ADD CONSIGNEE
                                     </button>
+<<<<<<< HEAD
+=======
+                                    <!-- <button type="button" class="btn btn-success" id="hideFormButton"><i class="fa fa-eye"></i></button> -->
+>>>>>>> old-repo/master
 
                                     <!-- Modal -->
                                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
@@ -66,7 +94,11 @@
                                         <div class="modal-dialog modal-lg" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
+<<<<<<< HEAD
                                                     <button type="button" class="close" data-dismiss="modal" style="background: red;border-radius: 30px; padding: 0 5px; font-size: 22px;color: #fff;"
+=======
+                                                    <button type="button" class="close" data-dismiss="modal" style="top: 31px;font-size: 21px; padding:0 4px;"
+>>>>>>> old-repo/master
                                                         aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
@@ -200,7 +232,11 @@
                                                             <div class="col-md-3 col-sm-6">
                                                                 <div class="form-group">
                                                                     <label>Fax</label>
+<<<<<<< HEAD
                                                                     <input class="form-control" name="consignee_fax"
+=======
+                                                                    <input class="form-control" stype="number" name="consignee_fax"
+>>>>>>> old-repo/master
                                                                         style="width: 100%;">
                                                                 </div>
                                                             </div>
@@ -258,17 +294,26 @@
                                                                         style="width: 100%;height: 61px;"></textarea>
                                                                 </div>
                                                             </div>
+<<<<<<< HEAD
 
                                                            
                                                         </div>
                                                         <input type="text" name="added_by_user"
                                                             value="{{ Auth::user()->name }}" readonly hidden>
+=======
+                                                        </div>
+                                                        <input type="text" name="added_by_user"
+                                                            value="{{ $user->name }}" readonly hidden>
+>>>>>>> old-repo/master
 
                                                     </div>
                                                     <div class="modal-footer mt-4">
                                                         <input type="submit" class="btn btn-info" value="Save"
                                                             onclick="saveFormData()">
+<<<<<<< HEAD
                                                          <input type="button" style="font-size:14px !important;"  class="btn btn-warning" id="clearFormButton" Value="Clear Form">
+=======
+>>>>>>> old-repo/master
                                                         <input type="button" class="btn btn-danger" data-dismiss="modal"
                                                             value="Cancel">
                                                     </div>
@@ -280,15 +325,26 @@
                                     <thead>
                                         <tr>
                                             <th>Sr No</th>
+<<<<<<< HEAD
                                             <th>Consignee</th>
                                             <th>Address</th>
                                             <th>Telephone</th>
                                             <th>Status</th>
                                             <th>Date Added</th>
+=======
+                                            <th>Consignee Name</th>
+                                            <th>Address</th>
+                                            <th>Phone No</th>
+                                            <th>Added Date</th>
+>>>>>>> old-repo/master
                                             <th>Agent</th>
                                             <th>Team Leader</th>
                                             <th>Manager</th>
                                             <th>Comment / Notes</th>
+<<<<<<< HEAD
+=======
+                                            <th>Status</th>
+>>>>>>> old-repo/master
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -310,24 +366,40 @@
                                             </td>
                                             <td class="dynamic-data">{{ $consigne->consignee_telephone }}</td>
                                             
+<<<<<<< HEAD
                                             <td class="dynamic-data">{{ $consigne->created_at->format('m-d-y') }}</td>
                                             <td class="dynamic-data">{{ $consigne->user->name }}</td>
                                             <td class="dynamic-data">{{ $consigne->user->team_lead }}</td>
                                             <td class="dynamic-data">{{ $consigne->user->manager }}</td>
                                             <td class="dynamic-data">{{ $consigne ->user-> manager }}</td>
+=======
+                                            <td class="dynamic-data">{{ $consigne->created_at->format('m-d-Y') }}</td>
+                                            <td class="dynamic-data">{{ $consigne->user->name }}</td>
+                                            <td class="dynamic-data">{{ $consigne->user->team_lead }}</td>
+                                            <td class="dynamic-data">{{ $consigne->user->manager }}</td>
+                                            <td class="dynamic-data"><textarea disabled name="" id="" cols="30" rows="1"></textarea>
+>>>>>>> old-repo/master
                                             <td class="dynamic-data">{{ $consigne->consignee_status }}</td>
                                             <td class="dynamic-data">
                                                 <div class="d-flex">
                                                     <a href="{{ route('consignees.edit', $consigne->id) }}">
                                                         <i class="fa fa-edit" style="font-size: 17px;color: #0dcaf0;"></i>
                                                     </a>
+<<<<<<< HEAD
                                                     <!-- <form action="{{ route('consignee.delete', $consigne->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this Consignee?');">
+=======
+                                                    <form action="{{ route('consignee.delete', $consigne->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this Consignee?');">
+>>>>>>> old-repo/master
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" style="border: none; background: none;">
                                                             <i class="fa fa-trash" style="font-size: 17px; color: red;"></i>
                                                         </button>
+<<<<<<< HEAD
                                                     </form> -->
+=======
+                                                    </form>
+>>>>>>> old-repo/master
                                                 </div>
                                             </td>
 
@@ -343,6 +415,7 @@
         </div>
     </div>
 </section>
+<<<<<<< HEAD
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -374,6 +447,35 @@ $(document).ready(function () {
 // Clear form button click event
     $('#clearFormButton').on('click', function() {
         clearFormData(); // Call the clear form function
+=======
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+    // Check if script is running
+    console.log("Document is ready");
+
+    // Inject CSS dynamically via JavaScript
+    var style = '<style>' +
+                    'tbody tr.highlight-row {' +
+                        'background-color: #CAF1EB !important;' +
+                    '}' +
+                '</style>';
+    $('head').append(style); // Append the style to the head
+
+    // Check if tbody exists
+    console.log($('tbody'));
+
+    // Event delegation to target the first <td> in each row
+    $('tbody').on('click', 'td', function() {
+        console.log("A cell was clicked"); // Check if click event is triggered
+
+        // Remove the highlight from any previously selected row
+        $('tbody tr').removeClass('highlight-row');
+
+        // Add highlight to the clicked row
+        $(this).closest('tr').addClass('highlight-row');
+        console.log($(this).closest('tr')); // Log the row that was clicked
+>>>>>>> old-repo/master
     });
 });
 </script>

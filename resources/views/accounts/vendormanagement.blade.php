@@ -69,6 +69,7 @@ ul#fileList {
     align-items: center;
 }
 
+<<<<<<< HEAD
 #view-file #file-list button {
     background: #ffffff;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -79,6 +80,9 @@ ul#fileList {
     margin-bottom: 10px;
     border-radius: 10px;
 }
+=======
+
+>>>>>>> old-repo/master
 </style>
 
 <section class="content">
@@ -109,7 +113,10 @@ ul#fileList {
                             <th>Carrier Payment</th>
                             <th>Carrier Files Upload</th>
                             <th>Carrier Files</th>
+<<<<<<< HEAD
                             <th>Agent Files</th>
+=======
+>>>>>>> old-repo/master
                             <!-- <th>Comment</th> -->
                             <!-- <th>Action</th> -->
                         </tr>
@@ -144,6 +151,7 @@ ul#fileList {
                             </td>
                             <td class="dynamic-data">{{ $vendor->created_at }}</td>
                             <td class="dynamic-data">{{ $vendor->user->name }}</td>
+<<<<<<< HEAD
                             <td class="dynamic-data">
                                 <input type="date" class="load_carrier_due_date" name="load_carrier_due_date" value="{{ $vendor->load_carrier_due_date }}" data-id="{{ $vendor->id }}">
                             </td>
@@ -151,6 +159,15 @@ ul#fileList {
                                 <span class="formatted_date">{{ $vendor->load_carrier_due_date ? \Carbon\Carbon::parse($vendor->load_carrier_due_date)->format('d-m-Y') : '' }}</span>
                             </td>
 
+=======
+                            <td class="dynamic-data">                               
+                                    <input type="date" class="load_carrier_due_date" name="load_carrier_due_date" value="{{ $vendor->load_carrier_due_date }}" data-id="{{ $vendor->id }}">
+                            </td>
+                            <td class="dynamic-data">
+                            {{ $vendor->load_carrier_due_date ? \Carbon\Carbon::parse($vendor->load_carrier_due_date)->format('d-m-Y') : '' }}
+
+                            </td>
+>>>>>>> old-repo/master
                             <td class="dynamic-data">
                                 <select style="width: 100%;" name="quick_pay" class="quick_pay" data-id="{{ $vendor->id }}">
                                     <option value="{{ $vendor->quick_pay }}">{{ $vendor->quick_pay ?? 'Please Select Quick Pay' }}</option>
@@ -206,6 +223,7 @@ ul#fileList {
                             @else
                             <td class="dynamic-data"><p style="font-size:7px;color:red">No files uploaded</p></td>
                             @endif
+<<<<<<< HEAD
                             <td>
                             @if($vendor->public_file)
                                             <li>
@@ -244,6 +262,16 @@ ul#fileList {
                                         @endif
                             </td>
                            
+=======
+                                <!-- <td class="text-center dynamic-data">
+                                <button type="button" style="background: none;padding: 8px 7px;" class="btn" data-toggle="modal" data-target="#edit-detail">
+                                    <i class="fa fa-edit" style="font-size: 16px; color: #0DCAF0;"></i>
+                                </button>
+                            </td> -->
+                            <!-- <td>
+                                <textarea name="vendor_comment" id="vendor_comment"></textarea>
+                            </td> -->
+>>>>>>> old-repo/master
                         </tr>
                         @endforeach
                     </tbody>
@@ -251,6 +279,7 @@ ul#fileList {
             </div>
         </div>
     </section>
+<<<<<<< HEAD
     <div class="modal" id="view-file">
     <div class="modal-dialog">
 
@@ -268,6 +297,9 @@ ul#fileList {
 
     </div>
 </div> 
+=======
+
+>>>>>>> old-repo/master
     <!-- Modal -->
     <!-- <div class="modal fade" id="edit-detail" tabindex="-1" role="dialog" aria-labelledby="editDetailLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -379,10 +411,16 @@ ul#fileList {
         $('.load_carrier_due_date').change(function () {
             var date = $(this).val();
             var id = $(this).data('id'); // Retrieve the vendor ID from the data-id attribute
+<<<<<<< HEAD
             var dateInput = $(this); // Save reference to the input field
 
             $.ajax({
                 url: '{{ route('update.load.date') }}', // Adjust this route as per your setup
+=======
+
+            $.ajax({
+                url: '{{ route('update.load.date') }}',
+>>>>>>> old-repo/master
                 method: 'POST',
                 data: {
                     id: id,
@@ -392,6 +430,7 @@ ul#fileList {
                     if (response.success) {
                         console.log('Date updated successfully');
                         alert('Carrier Payment Date Selected successfully');
+<<<<<<< HEAD
 
                         // Format the updated date to d-m-Y format and update the display
                         var formattedDate = new Date(date).toLocaleDateString('en-GB'); // Converts to d-m-Y format
@@ -399,6 +438,11 @@ ul#fileList {
 
                         // Leave the input field editable
                         // Removed code that disabled the input field
+=======
+                        // location.reload();
+                        // Disable the input field after successful update
+                        $(this).prop('disabled', true);
+>>>>>>> old-repo/master
                     } else {
                         console.error('Failed to update date');
                     }
@@ -414,8 +458,11 @@ ul#fileList {
 
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> old-repo/master
 <script>
     $(document).ready(function () {
         $.ajaxSetup({
@@ -664,6 +711,7 @@ $(document).ready(function() {
     });
 </script>
 
+<<<<<<< HEAD
 <script>
     function openModal(recordId) {
         $.ajax({
@@ -733,4 +781,7 @@ $(document).ready(function() {
         });
     }
 </script>
+=======
+
+>>>>>>> old-repo/master
 @endsection

@@ -14,20 +14,36 @@
 </div>
 @endif
 <style>
+<<<<<<< HEAD
     .table>:not(caption)>*>* {
         background-color: unset !important;
     }
+=======
+>>>>>>> old-repo/master
     ul#fileList li {
     padding: 9px 12px;
     border-radius: 7px;
     margin-bottom: 18px;
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 10%), 0 6px 20px 0 rgb(0 0 0 / 4%);
+<<<<<<< HEAD
     justify-content: space-between;
     display: flex;
+=======
+    display: flex;
+    justify-content: space-between;
+>>>>>>> old-repo/master
 }
 ul#fileList li a{
     color:#000;
 }
+<<<<<<< HEAD
+=======
+ul#fileList li .fa{
+    position: absolute;
+    right: 19px;
+    top: 17px;
+}
+>>>>>>> old-repo/master
 #fileViewModal .modal-header {
     background: #555;
     padding: 10px 28px !important;
@@ -43,9 +59,12 @@ ul#fileList li a{
     border: 1px solid #ddd;
     border-radius: 4px;
 }
+<<<<<<< HEAD
 ul#fileList {
     padding-inline-start: 0;
 }
+=======
+>>>>>>> old-repo/master
 .modal.fade.show {
     background: #00000075;
 }
@@ -59,6 +78,7 @@ ul#fileList {
 .modal-open .modal {
     background: #0000007d;
 }
+<<<<<<< HEAD
 .form-check {
     margin-left: 1rem;
 }
@@ -75,16 +95,29 @@ button.dt-button {
     padding: 1px 10px;
     font-size: 13px;
 }
+=======
+>>>>>>> old-repo/master
 </style>
 
 <section class="content">
         <div class="body_scroll">
             <div class="block-header">
+<<<<<<< HEAD
                <h2><b>Vendor Management</b></h2>
             </div>
             
             <div class="table-responsive">
                 <table class="table table-bordered table-hover dataTable no-footer" id="dataTable">
+=======
+                <div class="row">
+                    <div class="col-lg-7 col-md-6 col-sm-12">
+                        <h2><b>Vendor System</b></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered  dataTable no-footer" id="dataTable">
+>>>>>>> old-repo/master
                     <thead>
                         <tr>
                             <th>Load#</th>
@@ -98,15 +131,24 @@ button.dt-button {
                             <th>Payment Method</th>
                             <th>Ready to Pay</th>
                             <th>Carrier Payment</th>
+<<<<<<< HEAD
                             <th>Carrier Files Upload</th>
                             <th>Carrier Files</th>
                             <!-- <th>Action</th> -->
+=======
+                            <th>Carrier Paid Date</th>
+                            <th>Action</th>
+>>>>>>> old-repo/master
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($vendormanagement as $vendor)
                         <tr>
+<<<<<<< HEAD
                             <td class="dynamic-data"><a style="color: rgb(10 185 90) !important;font-weight: 700;" href="{{ route('accounting.load.edit', $vendor->id) }}">{{ $vendor->load_number }}</a></td>
+=======
+                            <td class="dynamic-data">{{ $vendor->load_number }}</td>
+>>>>>>> old-repo/master
                             <td class="dynamic-data">{{ $vendor->load_bill_to }}</td>
                             <td class="dynamic-data">{{ $vendor->load_carrier }}</td>
                             <td class="dynamic-data">{{ $vendor->load_status }}</td>
@@ -153,6 +195,7 @@ button.dt-button {
                                     Paid
                                 @endif
                             </td>
+<<<<<<< HEAD
                             <td class="dynamic-data">
                                 <input type="file" class="carrierDoc" name="carrierDoc[]" multiple data-id="{{ $vendor->id }}">
                                 <div class="progress" style="display:none; margin-top:10px;">
@@ -173,6 +216,17 @@ button.dt-button {
                                     <i class="fa fa-edit" style="font-size: 16px; color: #0DCAF0;"></i>
                                 </button>
                             </td> -->
+=======
+                            <td class="dynamic-data">{{ $vendor->load_carrier_due_date_on }}</td>
+                            <td class="dynamic-data text-center">
+                                <button type="button" style="background: none;padding: 8px 7px;" class="btn" data-toggle="modal" data-target="#fileUploadModal" data-id="{{ $vendor->id }}" data-load_number="{{ $vendor->load_number }}">
+                                   <i class="fa fa-paperclip" style="font-size: 16px; color: #ce8d05;"></i>
+                                </button>
+                                <button type="button" style="background: none;padding: 8px 7px;" class="btn" data-toggle="modal" data-target="#edit-detail">
+                                    <i class="fa fa-edit" style="font-size: 16px; color: #0DCAF0;"></i>
+                                </button>
+                            </td>
+>>>>>>> old-repo/master
                         </tr>
                         @endforeach
                     </tbody>
@@ -182,6 +236,7 @@ button.dt-button {
     </section>
 
     <!-- Modal -->
+<<<<<<< HEAD
     <!-- <div class="modal fade" id="edit-detail" tabindex="-1" role="dialog" aria-labelledby="editDetailLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -266,12 +321,102 @@ button.dt-button {
                     <label class="form-check-label" for="select-all">Select All</label>
                 </div> -->
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+=======
+ <div class="modal" id="edit-detail">
+    <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h5 class="modal-title"><b>Edit</b></h5>
+    <button type="button" class="close" data-dismiss="modal" style="padding: 0 5px;">&times;</button>
+    </div>
+    <div class="modal-body p-0">
+        <div class="card-body">
+        <form>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Due Date</label>
+                        <input type="date" class="load_carrier_due_date form-control" name="load_carrier_due_date" value="{{ $vendor->load_carrier_due_date }}" data-id="{{ $vendor->id }}">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Quick Pay</label>
+                        <select style="width: 100%;" name="quick_pay" class="quick_pay form-control" data-id="{{ $vendor->id }}">
+                            <option value="{{ $vendor->quick_pay }}">{{ $vendor->quick_pay ?? 'Please Select Quick Pay' }}</option>
+                            <option value="6%">6%</option>
+                            <option value="4%">4%</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Payment Method</label>
+                        <select style="width: 100%;" name="payment_method" class="payment_method form-control" data-id="{{ $vendor->id }}">
+                            <option value="{{ $vendor->payment_method }}">{{ $vendor->payment_method ?? 'Please Select Payment Method' }}</option>
+                            <option value="ACH">ACH</option>
+                            <option value="Quick Pay">Quick Pay</option>
+                            <option value="OTR">OTR</option>
+                            <option value="Zelle">Zelle</option>
+                            <option value="Check">Check</option>
+                            <option value="Wire">Wire</option>
+                            <option value="Buyout">Buyout</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Ready to Pay</label>
+                        <select style="width: 100%;" name="ready_to_pay" class="ready_to_pay form-control" data-id="{{ $vendor->id }}">
+                            <option value="{{ $vendor->ready_to_pay }}">{{ $vendor->ready_to_pay ?? 'Please Select Ready to Pay' }}</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                            <option value="Hold">Hold</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>
+    <div class="text-center mb-3">
+    <!-- <button type="button" class="btn btn-info">Save</button> -->
+    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+    </div>
+
+    </div>
+    </div>
+</div>
+   <!-- Modal -->
+<div class="modal fade" id="fileUploadModal" tabindex="-1" role="dialog" aria-labelledby="fileUploadModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="fileUploadModalLabel"><b>Upload Carrier Documents</b></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style=" padding: 0 5px">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="fileUploadForm" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name="load_number" id="load_number" value="">
+                    <input type="file" name="carrierDoc[]" id="carrierDocs" multiple style="border: 1px solid #ccc; width: 100%; border-radius: 5px;padding: 6px;font-size: 10px;">
+                    <div id="uploadedFiles"></div>
+                    <a href="#" id="fetchUploadedFiles">Fetch Uploaded Files</a>
+                </form>
+            </div>
+            <div class="text-center mb-3">
+                <button type="button" class="btn btn-info" id="uploadFilesBtn">Upload Files</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+>>>>>>> old-repo/master
             </div>
         </div>
     </div>
 </div>
 
 
+<<<<<<< HEAD
 
 
 
@@ -279,6 +424,8 @@ button.dt-button {
 
 
 
+=======
+>>>>>>> old-repo/master
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function () {
@@ -389,6 +536,7 @@ $(document).ready(function() {
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<<<<<<< HEAD
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 
@@ -441,10 +589,99 @@ $(document).ready(function() {
             error: function() {
                 alert('Failed to upload files.');
                 progressBar.hide(); // Hide the progress bar on error
+=======
+
+<!-- <script>
+    $(document).ready(function() {
+        // When the modal is about to be shown
+        $('#fileUploadModal').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget); // Button that triggered the modal
+            var loadNumber = button.data('load_number'); // Extract info from data-* attributes
+            var modal = $(this);
+            modal.find('.modal-title').text('Upload Carrier Documents Load No. ' + loadNumber);
+            modal.find('#load_number').val(loadNumber);
+            modal.find('#fetchUploadedFiles').data('load_number', loadNumber);
+        });
+
+        // Upload files using AJAX
+        $('#uploadFilesBtn').click(function(e) {
+            e.preventDefault();
+            var formData = new FormData($('#fileUploadForm')[0]);
+
+            $.ajax({
+                url: "{{ route('uploadCarrierDocs') }}",
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    alert(response.success);
+                    $('#fileUploadModal').modal('hide');
+                },
+                error: function(response) {
+                    alert('Error uploading files');
+                }
+            });
+        });
+
+        // Fetch uploaded files using AJAX
+        $('#fetchUploadedFiles').click(function(e) {
+            e.preventDefault();
+            var loadNumber = $(this).data('load_number');
+
+            $.ajax({
+                url: "{{ route('fetchUploadedFiles') }}", // Ensure you have this route set up
+                type: 'GET',
+                data: { load_number: loadNumber },
+                success: function(response) {
+                    $('#uploadedFiles').html(response);
+                },
+                error: function(response) {
+                    alert('Error fetching files');
+                }
+            });
+        });
+    });
+</script> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<script>
+$(document).ready(function() {
+    // When the modal is about to be shown
+    $('#fileUploadModal').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget);
+        var loadNumber = button.data('load_number');
+        var modal = $(this);
+        modal.find('.modal-title').text('Upload Carrier Documents Load No. ' + loadNumber);
+        modal.find('#load_number').val(loadNumber);
+        modal.find('#fetchUploadedFiles').data('load_number', loadNumber);
+        fetchUploadedFiles(loadNumber);
+    });
+
+    // Upload files using AJAX
+    $('#uploadFilesBtn').click(function(e) {
+        e.preventDefault();
+        var loadNumber = $('#load_number').val();
+        var formData = new FormData($('#fileUploadForm')[0]);
+
+        $.ajax({
+            url: "{{ route('uploadCarrierDocs') }}",
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                alert(response.success);
+                fetchUploadedFiles(loadNumber);
+            },
+            error: function(response) {
+                alert('Error uploading files: ' + response.responseJSON.error);
+>>>>>>> old-repo/master
             }
         });
     });
 
+<<<<<<< HEAD
     // Handle the click event on the "View Files" button
     $('.view-files').on('click', function () {
         var id = $(this).data('id');
@@ -566,5 +803,61 @@ $(document).ready(function() {
         });
     });
 </script>
+=======
+    // Fetch uploaded files using AJAX
+    function fetchUploadedFiles(loadNumber) {
+        $.ajax({
+            url: "{{ route('fetchUploadedFiles') }}",
+            type: 'GET',
+            data: { load_number: loadNumber },
+            success: function(response) {
+                var fileList = '';
+                response.files.forEach(function(file) {
+                    var fileType = file.type;
+                    var isImageOrPdf = fileType === 'image/jpeg' || fileType === 'image/png' || fileType === 'application/pdf';
+
+                    // Add a delete icon for each file
+                    fileList += '<li>' + file.name + 
+                        (isImageOrPdf ? ' <a href="' + file.url + '" target="_blank">View</a>' : ' <span class="text-danger">(Not supported)</span>') +
+                        ' <i class="fas fa-trash delete-file" data-load_number="' + loadNumber + '" data-file_name="' + file.name + '" style="cursor: pointer; color: red;" title="Delete"></i>' +
+                        '</li>';
+                });
+                $('#uploadedFiles').html('<ul>' + fileList + '</ul>');
+            },
+            error: function(response) {
+                alert('Error fetching files');
+            }
+        });
+    }
+
+    // Delete file functionality
+    $(document).on('click', '.delete-file', function() {
+        var loadNumber = $(this).data('load_number');
+        var fileName = $(this).data('file_name');
+
+        if (confirm('Are you sure you want to delete this file?')) {
+            $.ajax({
+                url: "{{ route('deleteUploadedFile') }}",
+                type: 'DELETE',
+                data: {
+                    load_number: loadNumber,
+                    file_name: fileName,
+                    _token: $('input[name="_token"]').val() // Include CSRF token
+                },
+                success: function(response) {
+                    alert(response.success);
+                    fetchUploadedFiles(loadNumber); // Refresh the uploaded files
+                },
+                error: function(response) {
+                    alert('Error deleting file: ' + response.responseJSON.error);
+                }
+            });
+        }
+    });
+});
+</script>
+
+
+>>>>>>> old-repo/master
 
 @endsection

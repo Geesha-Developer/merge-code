@@ -25,7 +25,10 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="body">
+<<<<<<< HEAD
                           
+=======
+>>>>>>> old-repo/master
                             <div class="table-responsive">
                                 <table class="table table-bordered table-responsive dataTable no-footer">
                                     <thead>
@@ -86,6 +89,7 @@
 
     </div>
 </section>
+<<<<<<< HEAD
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
@@ -109,3 +113,6 @@
     });
 </script>
 @endsection
+=======
+@endsection
+>>>>>>> old-repo/master

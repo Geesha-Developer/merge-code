@@ -7,14 +7,31 @@ use App\Models\Shipper;
 use App\Models\Country;
 use App\Models\States;
 use App\Models\Consignee;
+<<<<<<< HEAD
+=======
+use Illuminate\Support\Facades\Auth;
+
+>>>>>>> old-repo/master
 
 class ShipperController extends Controller
 {
     public function shipper_insert(Request $request){
+<<<<<<< HEAD
         // echo '<pre>'; print_r($request->all()); die();
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
         Shipper::create([
             'user_id' => auth()->user()->id,
+=======
+        $user = auth()->user();
+        
+        if(!$user){
+            $user = Auth::guard('teamlead')->user();  
+        }
+        // echo '<pre>'; print_r($request->all()); die();
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        Shipper::create([
+            'user_id' => $user->id,
+>>>>>>> old-repo/master
             'shipper_name' => $request->input('shipper_name') ?? '',
             'shipper_address' => $request->input('shipper_address') ?? '',
             'shipper_country' => $request->input('customer_country') ?? '',
@@ -37,8 +54,18 @@ class ShipperController extends Controller
     }
 
         if($request->same_as_consignee) {
+<<<<<<< HEAD
             Consignee::create([
                 'user_id' => auth()->user()->id,
+=======
+            $user = auth()->user();
+        
+        if(!$user){
+            $user = Auth::guard('teamlead')->user();  
+        }
+            Consignee::create([
+                'user_id' => $user->id,
+>>>>>>> old-repo/master
                 'consignee_name' => $request->input('shipper_name') ?? '',
                 'consignee_address' => $request->input('shipper_address') ?? '',
                 'consignee_country' => $request->input('customer_country') ?? '',
@@ -63,10 +90,22 @@ class ShipperController extends Controller
     }
 
     public function shipper(){
+<<<<<<< HEAD
         $countries = Country::orderByRaw('CASE WHEN id = 233 THEN 0 WHEN id = 39 THEN 1 ELSE 2 END')->orderBy('name')->get();
         $states = States::all();
         $fetch = Shipper::where('user_id', auth()->user()->id)->get();
         return view('broker.shipper', compact('countries', 'states', 'fetch'));
+=======
+        $user = auth()->user();
+        
+        if(!$user){
+            $user = Auth::guard('teamlead')->user();  
+        }
+        $countries = Country::orderByRaw('CASE WHEN id = 233 THEN 0 WHEN id = 39 THEN 1 ELSE 2 END')->orderBy('name')->get();
+        $states = States::all();
+        $fetch = Shipper::where('user_id', $user->id)->get();
+        return view('broker.shipper', compact('countries', 'states', 'fetch','user'));
+>>>>>>> old-repo/master
     }
 
     public function shipper_list(){
@@ -96,6 +135,7 @@ class ShipperController extends Controller
 
     public function shipperUpdate(Request $request, $id)
     {
+<<<<<<< HEAD
         // Validate request
         $request->validate([
             'shipper_name' => 'required|string|max:255',
@@ -156,6 +196,48 @@ class ShipperController extends Controller
     
     
 
+=======
+        $request->validate([
+            'shipper_name' => 'required|string|max:255',
+            'shipper_address' => 'nullable|string|max:255',
+            'customer_country' => 'required|string|max:255',
+            'customer_state' => 'required|string|max:255',
+            'customer_city' => 'nullable|string|max:255',
+            'customer_zip' => 'nullable|string|max:255',
+            'shipper_contact_name' => 'nullable|string|max:255',
+            'shipper_contact_email' => 'nullable|email|max:255',
+            'shipper_telephone' => 'required|string|max:255',
+            'shipper_extn' => 'nullable|string|max:255',
+            'shipper_fax' => 'nullable|string|max:255',
+            'shipper_appointments' => 'nullable|string|max:255',
+            'shipper_status' => 'required|string|max:255',
+            'shipper_shipping_notes' => 'nullable|string',
+            'shipper_internal_notes' => 'nullable|string',
+        ]);
+
+        $shipper = Shipper::findOrFail($id);
+        $shipper->update([
+            'user_id' => auth()->user()->id,
+            'shipper_name' => $request->input('shipper_name'),
+            'shipper_address' => $request->input('shipper_address'),
+            'shipper_country' => $request->input('customer_country'),
+            'shipper_state' => $request->input('customer_state'),
+            'shipper_city' => $request->input('customer_city'),
+            'shipper_zip' => $request->input('customer_zip'),
+            'shipper_contact_name' => $request->input('shipper_contact_name'),
+            'shipper_contact_email' => $request->input('shipper_contact_email'),
+            'shipper_telephone' => $request->input('shipper_telephone'),
+            'shipper_extn' => $request->input('shipper_extn'),
+            'shipper_fax' => $request->input('shipper_fax'),
+            'shipper_appointments' => $request->input('shipper_appointments'),
+            'shipper_status' => $request->input('shipper_status'),
+            'shipper_shipping_notes' => $request->input('shipper_shipping_notes'),
+            'shipper_internal_notes' => $request->input('shipper_internal_notes'),
+        ]);
+
+        return redirect()->route('shipper')->with('success', 'Shipper data has been updated!');
+    }
+>>>>>>> old-repo/master
 
 
     public function destroyshipper($id)

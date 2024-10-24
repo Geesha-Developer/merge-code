@@ -12,4 +12,12 @@ class TeamLeader extends Model
     protected $table = 'teamleader';
 
     protected $fillable = ['tl','leader_email','leader_manager','office'];
+<<<<<<< HEAD
+=======
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'team_lead');
+    }
+>>>>>>> old-repo/master
 }

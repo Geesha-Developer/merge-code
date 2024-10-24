@@ -2,6 +2,7 @@
 @section('content')
 
 @if(session('success'))
+<<<<<<< HEAD
 <div class="alert alert-success alert-dismissible fade show" role="alert">
     <i class="fa fa-check"></i>
   <h4 class="alert-heading"><b>Well done!</b></h4>
@@ -22,19 +23,35 @@
     <span aria-hidden="true">&times;</span>
   </button>
   <button type="button" class="btn btn-danger" onclick="$('.alert').alert('close');">OK</button>
+=======
+<div class="alert alert-success" id="successMessage">
+    {{ session('success') }}
+</div>
+@endif
+@if(session('error'))
+<div class="alert alert-danger" id="errorMessage">
+    {{ session('error') }}
+>>>>>>> old-repo/master
 </div>
 @endif
 
 <style>
+<<<<<<< HEAD
     .table>:not(caption)>*>* {
         background-color: unset !important;
     }
+=======
+>>>>>>> old-repo/master
     button#hideFormButton {
         float: right;
     }
 </style>
 <div class="modal" tabindex="-1" role="dialog">
+<<<<<<< HEAD
     <div class="modal-dialog modal-lg" role="document">
+=======
+    <div class="modal-dialog" role="document">
+>>>>>>> old-repo/master
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -57,7 +74,15 @@
 <section class="content">
     <div class="body_scroll">
         <div class="block-header">
+<<<<<<< HEAD
             <h2>Shipper Listing </h2>
+=======
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>Shipper Listing </h2>
+                </div>
+            </div>
+>>>>>>> old-repo/master
         </div>
 
         <div class="container-fluid">
@@ -74,16 +99,25 @@
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-primary" data-toggle="modal"
                                         data-target="#exampleModal">ADD SHIPPER</button>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> old-repo/master
                                     <!-- Modal -->
                                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-lg" role="document">
                                             <div class="modal-content">
+<<<<<<< HEAD
                                                 <div class="modal-header" style="margin-top: -10px;">
                                                     <button type="button" class="close" data-dismiss="modal" style="background: red;border-radius: 30px; padding: 0 5px; font-size: 22px;color: #fff;top: 30px;"
                                                         aria-label="Close">
+=======
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close" style="top: 31px;font-size: 21px; padding:0 4px;">
+>>>>>>> old-repo/master
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
@@ -190,9 +224,15 @@
                                                             </div>
                                                             <div class="col-md-3 col-sm-6">
                                                                 <div class="form-group">
+<<<<<<< HEAD
                                                                     <label>Telephone</label>
                                                                     <input type="number" class="form-control"
                                                                         name="shipper_telephone"
+=======
+                                                                    <label>Telephone <code>*</code></label>
+                                                                    <input type="number" class="form-control"
+                                                                        name="shipper_telephone" required
+>>>>>>> old-repo/master
                                                                         style="width: 100%;">
                                                                 </div>
                                                             </div>
@@ -206,7 +246,11 @@
                                                             <div class="col-md-3 col-sm-6">
                                                                 <div class="form-group">
                                                                     <label>Fax</label>
+<<<<<<< HEAD
                                                                     <input type="text" class="form-control"
+=======
+                                                                    <input type="number" class="form-control"
+>>>>>>> old-repo/master
                                                                         name="shipper_fax" style="width: 100%;">
                                                                 </div>
                                                             </div>
@@ -269,7 +313,10 @@
                                                         </div>
                                                     <div class="modal-footer mt-4">
                                                         <input type="submit" class="btn btn-info" value="Save">
+<<<<<<< HEAD
                                                         <input type="button" style="font-size:14px !important;"  class="btn btn-warning" id="clearFormButton" Value="Clear Form">
+=======
+>>>>>>> old-repo/master
                                                         <input type="button" class="btn btn-danger" data-dismiss="modal"
                                                             value="Cancel">
                                                     </div>
@@ -282,11 +329,19 @@
                                     <thead>
                                         <tr>
                                             <th>Sr No</th>
+<<<<<<< HEAD
                                             <th>Shipper</th>
                                             <th>Address</th>
                                             <th>Telephone</th>
                                             <th>Status</th>
                                             <th>Date Added</th>
+=======
+                                            <th>Shipper Name</th>
+                                            <th>Address</th>
+                                            <th>Phone No</th>
+                                            <th>Status</th>
+                                            <th>Added Date</th>
+>>>>>>> old-repo/master
                                             <th>Agent</th>
                                             <th>Team Leader</th>
                                             <th>Manager</th>
@@ -295,10 +350,17 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+<<<<<<< HEAD
                                         @php $i=1; @endphp
                                         @foreach($fetch as $fetches)
                                         <tr>
                                             <td class="dynamic-data">{{ $i++ }}</td>
+=======
+                                        
+                                        @foreach($fetch as $fetches)
+                                        <tr>
+                                            <td class="dynamic-data">{{ $fetches->id }}</td>
+>>>>>>> old-repo/master
                                             <td class="dynamic-data">{{ $fetches->shipper_name }}</td>
                                             @php
                                             $countryName = explode(' ', $fetches->shipper_country, 2)[1] ?? '';
@@ -317,13 +379,21 @@
                                             <td class="dynamic-data">
                                                <div class="d-flex">
                                                 <a href="{{ route('shipper.edit', $fetches->id) }}"><i class="fa fa-edit" style="font-size: 17px;color: #0dcaf0;"></i></a>
+<<<<<<< HEAD
                                                     <!-- <form action="{{ route('shipper.delete.data', $fetches->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this Shipper?');">
+=======
+                                                    <form action="{{ route('shipper.delete.data', $fetches->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this Shipper?');">
+>>>>>>> old-repo/master
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" style="border: none; background: none;">
                                                             <i class="fa fa-trash" style="font-size: 17px; color: red;"></i>
                                                         </button>
+<<<<<<< HEAD
                                                     </form> -->
+=======
+                                                    </form>
+>>>>>>> old-repo/master
                                                </div>
                                             </td>
                                             </tr>
@@ -339,6 +409,7 @@
 
     </div>
 </section>
+<<<<<<< HEAD
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -374,4 +445,38 @@ $(document).ready(function () {
     });
 });
 </script>
+=======
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+    // Check if script is running
+    console.log("Document is ready");
+
+    // Inject CSS dynamically via JavaScript
+    var style = '<style>' +
+                    'tbody tr.highlight-row {' +
+                        'background-color: #CAF1EB !important;' +
+                    '}' +
+                '</style>';
+    $('head').append(style); // Append the style to the head
+
+    // Check if tbody exists
+    console.log($('tbody'));
+
+    // Event delegation to target the first <td> in each row
+    $('tbody').on('click', 'td', function() {
+        console.log("A cell was clicked"); // Check if click event is triggered
+
+        // Remove the highlight from any previously selected row
+        $('tbody tr').removeClass('highlight-row');
+
+        // Add highlight to the clicked row
+        $(this).closest('tr').addClass('highlight-row');
+        console.log($(this).closest('tr')); // Log the row that was clicked
+    });
+});
+</script>
+
+
+>>>>>>> old-repo/master
 @endsection

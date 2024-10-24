@@ -27,10 +27,13 @@ return [
     | Of course, a great default configuration has been defined for you
     | here which uses session storage and the Eloquent user provider.
     |
+<<<<<<< HEAD
     | All authentication drivers have a user provider. This defines how the
     | users are actually retrieved out of your database or other storage
     | mechanisms used by this application to persist your user's data.
     |
+=======
+>>>>>>> old-repo/master
     | Supported: "session"
     |
     */
@@ -46,11 +49,26 @@ return [
         ],
         'superadmin' => [
             'driver' => 'session',
+<<<<<<< HEAD
             'provider' => 'superadmin',
         ],
     ],
     
 
+=======
+            'provider' => 'superadmins',
+        ],
+        'accountsadmin' => [
+            'driver' => 'session',
+            'provider' => 'accountsadmins',
+        ],
+        'teamlead' => [
+            'driver' => 'session',
+            'provider' => 'teamleads', // Ensure this matches the provider below
+        ],
+    ],
+    
+>>>>>>> old-repo/master
     /*
     |--------------------------------------------------------------------------
     | User Providers
@@ -77,12 +95,29 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
         ],
+<<<<<<< HEAD
         'superadmin' => [
             'driver' => 'eloquent',
             'model' => App\Models\SuperAdmin::class, // Replace with your actual SuperAdmin model
         ],
     
     ],
+=======
+        'superadmins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\SuperAdmin::class,
+        ],
+        'accountsadmins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\AccountsAdmin::class,
+        ],
+        'teamleads' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Teamlead::class, // Ensure this matches your Teamlead model
+        ],
+    ],
+
+>>>>>>> old-repo/master
     /*
     |--------------------------------------------------------------------------
     | Resetting Passwords
@@ -105,6 +140,33 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+<<<<<<< HEAD
+=======
+        'admins' => [
+            'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'superadmins' => [
+            'provider' => 'superadmins',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'accountsadmins' => [
+            'provider' => 'accountsadmins',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'teamleads' => [
+            'provider' => 'teamleads',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+>>>>>>> old-repo/master
     ],
 
     /*

@@ -14,11 +14,14 @@
     {{ session('error') }}
 </div>
 @endif
+<<<<<<< HEAD
 <style>
     .table>:not(caption)>*>* {
         background-color: unset !important;
     }
 </style>
+=======
+>>>>>>> old-repo/master
 <section class="content">
     <div class="body_scroll">
         <div class="block-header" style="padding: 16px 15px !important;">
@@ -58,7 +61,11 @@
                 <li class="nav-item">
                     <a class="nav-link" id="invoiced_paid-tab" data-bs-toggle="tab" href="#invoiced_paid" role="tab"
                         aria-controls="invoiced_paid" aria-selected="false"
+<<<<<<< HEAD
                         style="font-size: 15px;color: #000;font-weight:500">Invoice / Paid</a>
+=======
+                        style="font-size: 15px;color: #000;font-weight:500">Invoiced / Paid</a>
+>>>>>>> old-repo/master
                 </li>
             </ul>
 
@@ -66,6 +73,7 @@
             <div class="tab-content" id="myTabContent">
 
                 <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="delivered-tab">
+<<<<<<< HEAD
                 
                     <!-- Delivered data table -->
                     <div class="table-responsive">
@@ -197,6 +205,131 @@
 
                 <div class="tab-pane fade" id="open" role="tabpanel" aria-labelledby="delivered-tab">
                    
+=======
+                    <!-- Delivered data table -->
+                     <div class="table-responsive">
+                         <table id="dataTable" class="table table-bordered dataTable no-footer">
+                             <thead>
+                                 <tr>
+                                     <th style="color: #fff !important;">Sr No</th>
+                                     <th style="color: #fff !important;">Load #</th>
+                                     <th style="color: #fff !important;">Agent Name</th>
+                                     <th style="color: #fff !important;">Invoice #</th>
+                                     <th style="color: #fff !important;">Invoice Date</th>
+                                     <th style="color: #fff !important;">W/O #</th>
+                                     <th style="color: #fff !important;">Customer Name</th>
+                                     <th style="color: #fff !important;">Office</th>
+                                     <th style="color: #fff !important;">Manager</th>
+                                     <th style="color: #fff !important;">Team Leader</th>
+                                     <th style="color: #fff !important;">Load Create Date</th>
+                                     <th style="color: #fff !important;">Shipper Date</th>
+                                     <th style="color: #fff !important;">Delivery date</th>
+                                     <th style="color: #fff !important;">Actual Delivery date</th>
+                                     <th style="color: #fff !important;">Carrier Name</th>
+                                     <th style="color: #fff !important;">Pickup Location</th>
+                                     <th style="color: #fff !important;">Unloading Location</th>
+                                     <th style="color: #fff !important;">Load Status</th>
+                                     <th style="color: #fff !important;">Aging</th>
+                                     <th style="color: #fff !important;">Action</th>
+                                 </tr>
+                             </thead>
+                             <tbody>
+                                 @php
+                                 $i = 1;
+                                 @endphp
+                                 @foreach($broker_status as $s)
+     
+     
+                                 <tr>
+                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">{{ $i++ }}
+                                     </td>
+                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                     <a style="color: rgb(10 185 90) !important;font-weight: 700;" href="{{ route('admin.load.edit', $s->id) }}">{{ $s->load_number }}</a></td>
+                                   
+                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                     {{ $s->user->name }}</td>
+                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                         {{ $s->invoice_number }}</td> 
+                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                         {{ $s->invoice_date }}</td>
+                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                     {{ $s->load_workorder }}</td>
+                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                     {{ $s->load_bill_to }}</td>
+                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                         {{ $s->user->office }}</td>
+                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                         {{ $s->user->manager }}</td>
+                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                         {{ $s->user->team_lead }}</td>
+                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                         {{ $s->created_at->format('Y-m-d') }}</td>
+                                         @php
+                                            $shipper_appointment = json_decode($s->load_shipper_appointment,true);
+                                         @endphp
+                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">{{ isset($shipper_appointment[0]['appointment']) ? \Carbon\Carbon::parse($shipper_appointment[0]['appointment'])->format('y-m-d') : '' }}</td>
+                                         @php
+                                             $consignee_appointment = json_decode($s->load_consignee_appointment,true);
+                                         @endphp
+                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;"> {{ isset($consignee_appointment[0]['appointment']) ? \Carbon\Carbon::parse($consignee_appointment[0]['appointment'])->format('y-m-d') : '' }}
+                                     </td>
+                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                         {{ $s->load_actual_delivery_date }}</td>
+                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                         {{ $s->load_carrier }}</td>
+                                     @php
+                                         $shipper_location = json_decode($s->load_shipper_location,true);
+                                     @endphp
+                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                         {{ $shipper_location[0]['location'] ?? '' }}
+                                     </td>
+                                     @php
+                                         $consignee_loaction = json_decode($s->load_consignee_location,
+                                     true);
+                                     @endphp
+     
+                                     <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                         {{ $consignee_loaction[0]['location'] ?? '' }}
+     
+                                     </td>
+     
+                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                         {{ $s->load_status }}</td>
+     
+                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                         
+                                         @php
+                                         $deliveredDate = \Carbon\Carbon::parse($s->created_at);
+                                         $currentDate = \Carbon\Carbon::now();
+                                         $differenceInDays = $deliveredDate->diffInDays($currentDate);
+                                         @endphp
+                                         @if($s->load_status == 'Delivered' )
+                                         {{ $differenceInDays }} days
+                                         @elseif($s->invoice_status == 'Completed' || $s->load_status == 'Delivered')
+                                         Aging Complete
+                                         @endif
+                                     </td>
+                                     <td class="dynamic-data text-center">
+                                         <div class="d-flex">
+                                         <a href="{{ route('admin.load.edit', $s->id) }}"><i class="fa fa-edit" style="font-size: 17px;color: #0dcaf0;"></i></a>
+                                         <form action="{{ route('admin.destroy.load', $s->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this load?');">
+                                             @csrf
+                                             @method('DELETE')
+                                             <button type="submit" style="border: none; background: none;">
+                                                 <i class="fa fa-trash" style="color: red; font-size: 17px;"></i>
+                                             </button>
+                                         </form>
+                                         </div>
+                                     </td>
+                                 </tr>
+                                 @endforeach
+                             </tbody>
+                         </table>
+                     </div>
+                </div>
+
+                <div class="tab-pane fade" id="open" role="tabpanel" aria-labelledby="delivered-tab">
+>>>>>>> old-repo/master
                     <!-- Delivered data table -->
                     <div class="table-responsive">
                         <table id="dataTable" class="table table-bordered dataTable no-footer">
@@ -204,6 +337,7 @@
                                 <tr>
                                     <th style="color: #fff !important;">Sr No</th>
                                     <th style="color: #fff !important;">Load #</th>
+<<<<<<< HEAD
                                     <th style="color: #fff !important;">W/O #</th>
                                     <th style="color: #fff !important;">Customer Name</th>
                                     <th style="color: #fff !important;">Invoice #</th>
@@ -217,6 +351,21 @@
                                     <th style="color: #fff !important;">Delivered Date</th>
                                     <th style="color: #fff !important;">Actual Del Date</th>
                                     <th style="color: #fff !important;">Carrier</th>
+=======
+                                    <th style="color: #fff !important;">Agent Name</th>
+                                    <th style="color: #fff !important;">Invoice #</th>
+                                    <th style="color: #fff !important;">Invoice Date</th>
+                                    <th style="color: #fff !important;">W/O #</th>
+                                    <th style="color: #fff !important;">Customer Name</th>
+                                    <th style="color: #fff !important;">Office</th>
+                                    <th style="color: #fff !important;">Manager</th>
+                                    <th style="color: #fff !important;">Team Leader</th>
+                                    <th style="color: #fff !important;">Load Create Date</th>
+                                    <th style="color: #fff !important;">Shipper Date</th>
+                                    <th style="color: #fff !important;">Delivery date</th>
+                                    <th style="color: #fff !important;">Actual Delivery date</th>
+                                    <th style="color: #fff !important;">Carrier Name</th>
+>>>>>>> old-repo/master
                                     <th style="color: #fff !important;">Pickup Location</th>
                                     <th style="color: #fff !important;">Unloading Location</th>
                                     <th style="color: #fff !important;">Load Status</th>
@@ -228,21 +377,34 @@
                                 @endphp
                                 @foreach($broker_status as $s)
                                 @if($s->load_status == 'Open')
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> old-repo/master
                                 <tr>
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">{{ $i++ }}
                                     </td>
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+<<<<<<< HEAD
                                     <a style="color: rgb(10 185 90) !important;font-weight: 700;" href="{{ route('admin.load.edit', $s->id) }}"> {{ $s->load_number }}</a></td>
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                     {{ $s->load_workorder }}</td>
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                     {{ $s->load_bill_to }}</td>
+=======
+                                      <a style="color: rgb(10 185 90) !important;font-weight: 700;" href="{{ route('admin.load.edit', $s->id) }}">{{ $s->load_number }}</a>  
+                                    </td>
+                                  
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                    {{ $s->user->name }}</td>
+>>>>>>> old-repo/master
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                         {{ $s->invoice_number }}</td> 
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                         {{ $s->invoice_date}}</td>
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+<<<<<<< HEAD
                                     {{ $s->user->name }}</td>
                                     
                                     
@@ -256,6 +418,21 @@
                                         {{ $s->created_at->format('Y-m-d') }}</td>
                                         @php
                                         $shipper_appointment = json_decode($s->load_shipper_appointment,true);
+=======
+                                    {{ $s->load_workorder }}</td>
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                    {{ $s->load_bill_to }}</td>
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                        {{ $s->user->office }}</td>
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                        {{ $s->user->manager }}</td>
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                        {{ $s->user->team_lead }}</td>
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                        {{ $s->created_at->format('Y-m-d') }}</td>
+                                        @php
+                                           $shipper_appointment = json_decode($s->load_shipper_appointment,true);
+>>>>>>> old-repo/master
                                         @endphp
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">{{ isset($shipper_appointment[0]['appointment']) ? \Carbon\Carbon::parse($shipper_appointment[0]['appointment'])->format('y-m-d') : '' }}</td>
                                         @php
@@ -277,22 +454,43 @@
                                         $consignee_loaction = json_decode($s->load_consignee_location,
                                     true);
                                     @endphp
+<<<<<<< HEAD
 
                                     <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
                                         {{ $consignee_loaction[0]['location'] ?? '' }}</td>
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                         {{ $s->load_status }}</td>
 
+=======
+    
+                                    <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                        {{ $consignee_loaction[0]['location'] ?? '' }}
+    
+                                    </td>
+    
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                        {{ $s->load_status }}</td>
+    
+                                   
+                                    
+>>>>>>> old-repo/master
                                 </tr>
                                 @endif
                                 @endforeach
                             </tbody>
                         </table>
+<<<<<<< HEAD
                    </div>
                 </div>
 
                 <div class="tab-pane fade" id="delivered" role="tabpanel" aria-labelledby="delivered-tab">
                    
+=======
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="delivered" role="tabpanel" aria-labelledby="delivered-tab">
+>>>>>>> old-repo/master
                     <!-- Delivered data table -->
                     <div class="table-responsive">
                         <table id="dataTable" class="table table-bordered dataTable no-footer">
@@ -300,6 +498,7 @@
                                 <tr>
                                     <th style="color: #fff !important;">Sr No</th>
                                     <th style="color: #fff !important;">Load #</th>
+<<<<<<< HEAD
                                     <th style="color: #fff !important;">W/O #</th>
                                     <th style="color: #fff !important;">Customer Name</th>
                                     <th style="color: #fff !important;">Agent </th>
@@ -311,6 +510,21 @@
                                     <th style="color: #fff !important;">Delivered Date</th>
                                     <th style="color: #fff !important;">Actual Del Date</th>
                                     <th style="color: #fff !important;">Carrier</th>
+=======
+                                    <th style="color: #fff !important;">Agent Name</th>
+                                    <th style="color: #fff !important;">Invoice #</th>
+                                    <th style="color: #fff !important;">Invoice Date</th>
+                                    <th style="color: #fff !important;">W/O #</th>
+                                    <th style="color: #fff !important;">Customer Name</th>
+                                    <th style="color: #fff !important;">Office</th>
+                                    <th style="color: #fff !important;">Manager</th>
+                                    <th style="color: #fff !important;">Team Leader</th>
+                                    <th style="color: #fff !important;">Load Create Date</th>
+                                    <th style="color: #fff !important;">Shipper Date</th>
+                                    <th style="color: #fff !important;">Delivery date</th>
+                                    <th style="color: #fff !important;">Actual Delivery date</th>
+                                    <th style="color: #fff !important;">Carrier Name</th>
+>>>>>>> old-repo/master
                                     <th style="color: #fff !important;">Pickup Location</th>
                                     <th style="color: #fff !important;">Unloading Location</th>
                                     <th style="color: #fff !important;">Load Status</th>
@@ -322,17 +536,32 @@
                                 @endphp
                                 @foreach($broker_status as $s)
                                 @if($s->load_status == 'Delivered')
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> old-repo/master
                                 <tr>
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">{{ $i++ }}
                                     </td>
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                         {{ $s->load_number }}</td>
+<<<<<<< HEAD
+=======
+                                  
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                    {{ $s->user->name }}</td>
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                        {{ $s->invoice_number }}</td> 
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                        {{ $s->invoice_date }}</td>
+>>>>>>> old-repo/master
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                     {{ $s->load_workorder }}</td>
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                     {{ $s->load_bill_to }}</td>
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+<<<<<<< HEAD
                                     {{ $s->user->name }}</td>
                                     
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
@@ -345,6 +574,17 @@
                                         {{ $s->created_at->format('Y-m-d') }}</td>
                                         @php
                                         $shipper_appointment = json_decode($s->load_shipper_appointment,true);
+=======
+                                        {{ $s->user->office }}</td>
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                        {{ $s->user->manager }}</td>
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                        {{ $s->user->team_lead }}</td>
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                        {{ $s->created_at->format('Y-m-d') }}</td>
+                                        @php
+                                           $shipper_appointment = json_decode($s->load_shipper_appointment,true);
+>>>>>>> old-repo/master
                                         @endphp
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">{{ isset($shipper_appointment[0]['appointment']) ? \Carbon\Carbon::parse($shipper_appointment[0]['appointment'])->format('y-m-d') : '' }}</td>
                                         @php
@@ -366,6 +606,7 @@
                                         $consignee_loaction = json_decode($s->load_consignee_location,
                                     true);
                                     @endphp
+<<<<<<< HEAD
 
                                     <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
                                         {{ $consignee_loaction[0]['location'] ?? '' }}
@@ -375,6 +616,17 @@
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                         {{ $s->load_status }}</td>
 
+=======
+    
+                                    <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                        {{ $consignee_loaction[0]['location'] ?? '' }}
+    
+                                    </td>
+    
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                        {{ $s->load_status }}</td>
+    
+>>>>>>> old-repo/master
                                     
                                     
                                 </tr>
@@ -386,7 +638,10 @@
                 </div>
 
                 <div class="tab-pane fade" id="completed" role="tabpanel" aria-labelledby="delivered-tab">
+<<<<<<< HEAD
                   
+=======
+>>>>>>> old-repo/master
                     <!-- Delivered data table -->
                     <div class="table-responsive">
                         <table id="dataTable" class="table table-bordered dataTable no-footer">
@@ -394,6 +649,7 @@
                                 <tr>
                                     <th style="color: #fff !important;">Sr No</th>
                                     <th style="color: #fff !important;">Load #</th>
+<<<<<<< HEAD
                                     <th style="color: #fff !important;">W/O #</th>
                                     <th style="color: #fff !important;">Customer Name</th>
                                     <th style="color: #fff !important;">Agent Name</th>
@@ -405,6 +661,21 @@
                                     <th style="color: #fff !important;">Delivered Date</th>
                                     <th style="color: #fff !important;">Actual Del Date</th>
                                     <th style="color: #fff !important;">Carrier</th>
+=======
+                                    <th style="color: #fff !important;">Agent Name</th>
+                                    <th style="color: #fff !important;">Invoice #</th>
+                                    <th style="color: #fff !important;">Invoice Date</th>
+                                    <th style="color: #fff !important;">W/O #</th>
+                                    <th style="color: #fff !important;">Customer Name</th>
+                                    <th style="color: #fff !important;">Office</th>
+                                    <th style="color: #fff !important;">Manager</th>
+                                    <th style="color: #fff !important;">Team Leader</th>
+                                    <th style="color: #fff !important;">Load Create Date</th>
+                                    <th style="color: #fff !important;">Shipper Date</th>
+                                    <th style="color: #fff !important;">Delivery date</th>
+                                    <th style="color: #fff !important;">Actual Delivery date</th>
+                                    <th style="color: #fff !important;">Carrier Name</th>
+>>>>>>> old-repo/master
                                     <th style="color: #fff !important;">Pickup Location</th>
                                     <th style="color: #fff !important;">Unloading Location</th>
                                     <th style="color: #fff !important;">Load Status</th>
@@ -416,18 +687,33 @@
                                 @endphp
                                 @foreach($broker_status as $s)
                                 @if($s->load_status == 'Completed')
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> old-repo/master
                                 <tr>
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">{{ $i++ }}
                                     </td>
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                         {{ $s->load_number }}</td>
+<<<<<<< HEAD
                                 
+=======
+                                  
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                    {{ $s->user->name }}</td>
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                        {{ $s->invoice_number }}</td> 
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                        {{ $s->invoice_date->format('Y-m-d') }}</td>
+>>>>>>> old-repo/master
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                     {{ $s->load_workorder }}</td>
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                     {{ $s->load_bill_to }}</td>
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+<<<<<<< HEAD
                                     {{ $s->user->name }}</td>
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                         {{ $s->user->office }}</td>
@@ -439,6 +725,17 @@
                                         {{ $s->created_at->format('Y-m-d') }}</td>
                                         @php
                                         $shipper_appointment = json_decode($s->load_shipper_appointment,true);
+=======
+                                        {{ $s->user->office }}</td>
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                        {{ $s->user->manager }}</td>
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                        {{ $s->user->team_lead }}</td>
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                        {{ $s->created_at->format('Y-m-d') }}</td>
+                                        @php
+                                           $shipper_appointment = json_decode($s->load_shipper_appointment,true);
+>>>>>>> old-repo/master
                                         @endphp
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">{{ isset($shipper_appointment[0]['appointment']) ? \Carbon\Carbon::parse($shipper_appointment[0]['appointment'])->format('y-m-d') : '' }}</td>
                                         @php
@@ -460,6 +757,7 @@
                                         $consignee_loaction = json_decode($s->load_consignee_location,
                                     true);
                                     @endphp
+<<<<<<< HEAD
 
                                     <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
                                         {{ $consignee_loaction[0]['location'] ?? '' }}
@@ -469,6 +767,17 @@
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                         {{ $s->load_status }}</td>
 
+=======
+    
+                                    <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                        {{ $consignee_loaction[0]['location'] ?? '' }}
+    
+                                    </td>
+    
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                        {{ $s->load_status }}</td>
+    
+>>>>>>> old-repo/master
                                     
                                 </tr>
                                 @endif
@@ -479,7 +788,10 @@
                 </div>
 
                 <div class="tab-pane fade" id="invoiced" role="tabpanel" aria-labelledby="delivered-tab">
+<<<<<<< HEAD
                   
+=======
+>>>>>>> old-repo/master
                     <!-- Delivered data table -->
                     <div class="table-responsive">
                         <table id="dataTable" class="table table-bordered dataTable no-footer">
@@ -487,6 +799,7 @@
                                 <tr>
                                     <th style="color: #fff !important;">Sr No</th>
                                     <th style="color: #fff !important;">Load #</th>
+<<<<<<< HEAD
                                     <th style="color: #fff !important;">W/O #</th>
                                     <th style="color: #fff !important;">Customer Name</th>
                                     <th style="color: #fff !important;">Invoice #</th>
@@ -500,6 +813,21 @@
                                     <th style="color: #fff !important;">Delivered Date</th>
                                     <th style="color: #fff !important;">Actual Del Date</th>
                                     <th style="color: #fff !important;">Carrier</th>
+=======
+                                    <th style="color: #fff !important;">Agent Name</th>
+                                    <th style="color: #fff !important;">Invoice #</th>
+                                    <th style="color: #fff !important;">Invoice Date</th>
+                                    <th style="color: #fff !important;">W/O #</th>
+                                    <th style="color: #fff !important;">Customer Name</th>
+                                    <th style="color: #fff !important;">Office</th>
+                                    <th style="color: #fff !important;">Manager</th>
+                                    <th style="color: #fff !important;">Team Leader</th>
+                                    <th style="color: #fff !important;">Load Create Date</th>
+                                    <th style="color: #fff !important;">Shipper Date</th>
+                                    <th style="color: #fff !important;">Delivery date</th>
+                                    <th style="color: #fff !important;">Actual Delivery date</th>
+                                    <th style="color: #fff !important;">Carrier Name</th>
+>>>>>>> old-repo/master
                                     <th style="color: #fff !important;">Pickup Location</th>
                                     <th style="color: #fff !important;">Unloading Location</th>
                                     <th style="color: #fff !important;">Load Status</th>
@@ -511,21 +839,32 @@
                                 @endphp
                                 @foreach($broker_status as $s)
                                 @if($s->invoice_status == 'Paid')
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> old-repo/master
                                 <tr>
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">{{ $i++ }}
                                     </td>
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                         {{ $s->load_number }}</td>
+<<<<<<< HEAD
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                     {{ $s->load_workorder }}</td>
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                     {{ $s->load_bill_to }}</td>
+=======
+                                  
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                    {{ $s->user->name }}</td>
+>>>>>>> old-repo/master
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                         {{ $s->invoice_number }}</td> 
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                         {{ $s->invoice_date}}</td>
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+<<<<<<< HEAD
                                     {{ $s->user->name }}</td>
 
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
@@ -538,6 +877,21 @@
                                         {{ $s->created_at->format('Y-m-d') }}</td>
                                         @php
                                         $shipper_appointment = json_decode($s->load_shipper_appointment,true);
+=======
+                                    {{ $s->load_workorder }}</td>
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                    {{ $s->load_bill_to }}</td>
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                        {{ $s->user->office }}</td>
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                        {{ $s->user->manager }}</td>
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                        {{ $s->user->team_lead }}</td>
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                        {{ $s->created_at->format('Y-m-d') }}</td>
+                                        @php
+                                           $shipper_appointment = json_decode($s->load_shipper_appointment,true);
+>>>>>>> old-repo/master
                                         @endphp
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">{{ isset($shipper_appointment[0]['appointment']) ? \Carbon\Carbon::parse($shipper_appointment[0]['appointment'])->format('y-m-d') : '' }}</td>
                                         @php
@@ -559,12 +913,21 @@
                                         $consignee_loaction = json_decode($s->load_consignee_location,
                                     true);
                                     @endphp
+<<<<<<< HEAD
 
                                     <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
                                         {{ $consignee_loaction[0]['location'] ?? '' }}
 
                                     </td>
 
+=======
+    
+                                    <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                        {{ $consignee_loaction[0]['location'] ?? '' }}
+    
+                                    </td>
+    
+>>>>>>> old-repo/master
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                     @if($s->invoice_status == 'Paid')
                                         Invoiced
@@ -579,7 +942,10 @@
                 </div>
 
                 <div class="tab-pane fade" id="invoiced_paid" role="tabpanel" aria-labelledby="delivered-tab">
+<<<<<<< HEAD
                    
+=======
+>>>>>>> old-repo/master
                     <!-- Delivered data table -->
                     <div class="table-responsive">
                         <table id="dataTable" class="table table-bordered dataTable no-footer">
@@ -587,6 +953,7 @@
                                 <tr>
                                     <th style="color: #fff !important;">Sr No</th>
                                     <th style="color: #fff !important;">Load #</th>
+<<<<<<< HEAD
                                     <th style="color: #fff !important;">W/O #</th>
                                     <th style="color: #fff !important;">Customer Name</th>
                                     <th style="color: #fff !important;">Invoice #</th>
@@ -600,6 +967,21 @@
                                     <th style="color: #fff !important;">Delivered Date</th>
                                     <th style="color: #fff !important;">Actual Del Date</th>
                                     <th style="color: #fff !important;">Carrier</th>
+=======
+                                    <th style="color: #fff !important;">Agent Name</th>
+                                    <th style="color: #fff !important;">Invoice #</th>
+                                    <th style="color: #fff !important;">Invoice Date</th>
+                                    <th style="color: #fff !important;">W/O #</th>
+                                    <th style="color: #fff !important;">Customer Name</th>
+                                    <th style="color: #fff !important;">Office</th>
+                                    <th style="color: #fff !important;">Manager</th>
+                                    <th style="color: #fff !important;">Team Leader</th>
+                                    <th style="color: #fff !important;">Load Create Date</th>
+                                    <th style="color: #fff !important;">Shipper Date</th>
+                                    <th style="color: #fff !important;">Delivery date</th>
+                                    <th style="color: #fff !important;">Actual Delivery date</th>
+                                    <th style="color: #fff !important;">Carrier Name</th>
+>>>>>>> old-repo/master
                                     <th style="color: #fff !important;">Pickup Location</th>
                                     <th style="color: #fff !important;">Unloading Location</th>
                                     <th style="color: #fff !important;">Load Status</th>
@@ -611,21 +993,32 @@
                                 @endphp
                                 @foreach($broker_status as $s)
                                 @if($s->invoice_status == 'Paid Record')
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> old-repo/master
                                 <tr>
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">{{ $i++ }}
                                     </td>
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                         {{ $s->load_number }}</td>
+<<<<<<< HEAD
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                       {{ $s->load_workorder }}</td>
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                     {{ $s->load_bill_to }}</td>
+=======
+                                  
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                    {{ $s->user->name }}</td>
+>>>>>>> old-repo/master
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                         {{ $s->invoice_number }}</td> 
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                         {{ $s->invoice_date }}</td>
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+<<<<<<< HEAD
                                     {{ $s->user->name }}</td>
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                         {{ $s->user->office }}</td>
@@ -637,6 +1030,21 @@
                                         {{ $s->created_at->format('Y-m-d') }}</td>
                                         @php
                                         $shipper_appointment = json_decode($s->load_shipper_appointment,true);
+=======
+                                    {{ $s->load_workorder }}</td>
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                    {{ $s->load_bill_to }}</td>
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                        {{ $s->user->office }}</td>
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                        {{ $s->user->manager }}</td>
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                        {{ $s->user->team_lead }}</td>
+                                    <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
+                                        {{ $s->created_at->format('Y-m-d') }}</td>
+                                        @php
+                                           $shipper_appointment = json_decode($s->load_shipper_appointment,true);
+>>>>>>> old-repo/master
                                         @endphp
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">{{ isset($shipper_appointment[0]['appointment']) ? \Carbon\Carbon::parse($shipper_appointment[0]['appointment'])->format('y-m-d') : '' }}</td>
                                         @php
@@ -658,12 +1066,21 @@
                                         $consignee_loaction = json_decode($s->load_consignee_location,
                                     true);
                                     @endphp
+<<<<<<< HEAD
 
                                     <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
                                         {{ $consignee_loaction[0]['location'] ?? '' }}
 
                                     </td>
 
+=======
+    
+                                    <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                        {{ $consignee_loaction[0]['location'] ?? '' }}
+    
+                                    </td>
+    
+>>>>>>> old-repo/master
                                     <td class="dynamic-data" style="padding: 9px 10px !important; vertical-align: middle !important;">
                                         @if($s->invoice_status)
                                             Invoiced / Paid
@@ -683,7 +1100,10 @@
         </div>
     </div>
 </section>
+<<<<<<< HEAD
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+=======
+>>>>>>> old-repo/master
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 
@@ -708,6 +1128,7 @@
     });
 </script>
 
+<<<<<<< HEAD
 <script>
     $(document).ready(function() {
         // Inject CSS dynamically via JavaScript
@@ -728,4 +1149,6 @@
         });
     });
 </script>
+=======
+>>>>>>> old-repo/master
 @endsection

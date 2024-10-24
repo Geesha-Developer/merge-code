@@ -20,9 +20,13 @@
         text-align: left;
         font-weight: 700;
     }
+<<<<<<< HEAD
     .modal-backdrop {
     background-color: #0000007d;
 }
+=======
+
+>>>>>>> old-repo/master
     .modal-content {
         padding: 12px 12px !important;
     }
@@ -101,6 +105,7 @@
         padding: 4px 0 7px 4px;
         margin: -8px 0 0 0;
     }
+<<<<<<< HEAD
     #view-file #file-list button {
     background: #ffffff;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -179,11 +184,18 @@ label.upload-button {
         padding: 5px 6px;
         border-radius: 6px;
      }
+=======
+
+>>>>>>> old-repo/master
 </style>
 <section class="content">
     <div class="body_scroll">
         <div class="block-header" style="padding: 16px 15px !important">
+<<<<<<< HEAD
             <h2><b>Load Data </b></h2>
+=======
+            <h2>Load Data </h2>
+>>>>>>> old-repo/master
         </div>
 
         <div class="container-fluid">
@@ -195,16 +207,31 @@ label.upload-button {
                         <form action="{{ route('accounting.update.load', $load->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
+<<<<<<< HEAD
                                 <div class="card-body">
                                  <h3 class="title mt-0" style="font-size:13px;background: #263544;color:#fff;padding: 9px 6px;">Load Details</h3>
                                     <div class="row">
                                         <div class="col-md-2">
+=======
+                                <div class="card-header">
+                                    <h3 class="card-title" style="font-size:13px;">Add Load</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-3">
+>>>>>>> old-repo/master
                                             <div class="form-group">
                                                 <label>Load Number <code>*</code></label>
                                                 <input class="form-control" name="load_number" disabled value="{{ $load->load_number }}" style="width: 100%;">
                                             </div>
                                         </div>
+<<<<<<< HEAD
                                         <div class="col-md-2">
+=======
+
+
+                                        <div class="col-md-3">
+>>>>>>> old-repo/master
                                             <div class="form-group">
                                                 <label>Bill To <code>*</code>&nbsp;
                                                     <a href="{{ route('customer') }}" target="blank"
@@ -212,6 +239,7 @@ label.upload-button {
                                                         <i class="fa fa-plus mr-1"></i>Add New
                                                     </a>
                                                 </label>
+<<<<<<< HEAD
                                                 <div class="d-flex">
                                                 <input class="form-control" name="load_bill_to" readonly value="{{ $load->load_bill_to }}" style="width: 100%;">
 
@@ -223,19 +251,78 @@ label.upload-button {
                                                 <button type="button" class="btn btn-primary info" data-toggle="modal" data-target="#information" style="padding: 4px 13px !important;margin-left: 10px;margin-top: 0;"><i class="fa fa-info-circle"></i></button>
                                                 </div>
                                                 <input type="hidden" id="customer_id" name="customer_id" value="{{ $load->customer_id }}">
+=======
+                                                <select id="load_bill_to" name="load_bill_to" class="form-control"
+                                                    required>
+                                                    <option value="{{ $load->load_bill_to }}">{{ $load->load_bill_to }}</option>
+
+                                                </select>
+                                                <input type="hidden" id="customer_id" name="customer_id" value="">
+>>>>>>> old-repo/master
                                                 <input type="hidden" id="customer_credit_limit"
                                                     name="customer_credit_limit" value="">
                                                 <input type="hidden" id="remaining_credit" name="remaining_credit"
                                                     value="">
                                             </div>
                                         </div>
+<<<<<<< HEAD
                                         <div class="col-md-2">
+=======
+
+
+
+
+
+
+                                        <div class="col-md-3">
+>>>>>>> old-repo/master
                                             <div class="form-group">
                                                 <label>Dispatcher <code>*</code></label>
                                                 <input class="form-control" name="load_dispatcher" required readonly value="{{ $load->user->name }}" style="width: 100%;">
                                             </div>
                                         </div>
+<<<<<<< HEAD
                                         <div class="col-md-2">
+=======
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Status</label>
+                                                <select class="form-control select2" name="load_status" style="width: 100%;">
+                                                    <option value="{{ $load->load_status }}">{{ $load->load_status }}</option>
+                                                    <option>Open</option>
+                                                    <option>Covered</option>
+                                                    <option>Dispatched</option>
+                                                    <option>Loading</option>
+                                                    <option>On Route</option>
+                                                    <option>Un loading</option>
+                                                    <option>Deliverd</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Work Order </label>
+                                                <input class="form-control" name="load_workorder" value="{{ $load->load_workorder }}" style="width: 100%;">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Customer r/f# </label>
+                                                <input class="form-control" name="customer_refrence_number" value="{{ $load->customer_refrence_number }}" style="width: 100%;">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Payment Type <code>*</code></label>
+                                                <select class="form-control select2" required name="load_payment_type" style="width: 100%;">
+                                                    <option value="{{ $load->load_payment_type }}">{{ $load->load_payment_type }}</option>
+                                                    <option>Prepaid</option>
+                                                    <option>Postpaid</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+>>>>>>> old-repo/master
                                             <div class="form-group">
                                                 <label>Load type<code>*</code></label>
                                                 <div class="select2-purple">
@@ -249,6 +336,7 @@ label.upload-button {
                                                 </div>
                                             </div>
                                         </div>
+<<<<<<< HEAD
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>Customer r/f# </label>
@@ -264,11 +352,15 @@ label.upload-button {
                                     </div>
                                     <div class="row">
                                         <div class="col-md-2">
+=======
+                                        <div class="col-md-3">
+>>>>>>> old-repo/master
                                             <div class="form-group">
                                                 <label>Type</label>
                                                 <input class="form-control" value=" {{ $load->load_type }} " name="load_type" style="width: 100%;">
                                             </div>
                                         </div>
+<<<<<<< HEAD
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>Payment Type <code>*</code></label>
@@ -280,6 +372,293 @@ label.upload-button {
                                             </div>
                                         </div>
                                         <div class="col-md-2">
+=======
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Shipper Rate <code>*</code></label>
+                                                <input type="number" class="form-control number value"
+                                                    name="load_shipper_rate" id="load_shipper_rate" required value="{{ $load->load_shipper_rate }}" style="width: 100%;">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>F.S.C Rate % <input hidden type="checkbox"
+                                                        name="calculate_fsc_percentage"
+                                                        id="calculate_fsc_percentage"></label>
+                                                <input class="form-control number percent" name="load_fsc_rate" value="{{ $load->load_fsc_rate }}" id="load_fsc_rate" style="width: 100%;">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="other_charge">Shipper Other Charges &nbsp; <i
+                                                        class="fa fa-plus" data-toggle="modal" data-target="#myModal"
+                                                        id="load_shipper_other_charges"></i></label>
+                                                <input class="form-control" style="width: 100%;">
+                                            </div>
+                                            <div class="modal close_shipper_other_charges_form" id="myModal">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+
+                                                        <!-- Modal Header -->
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Shipper Other Charges</h4>
+                                                        </div>
+
+                                                        <!-- Modal Body -->
+                                                        <div class="modal-body">
+                                                            <div class="container">
+                                                                @php
+                                                                $shipperCharges =
+                                                                json_decode($load->shipper_load_other_charge, true) ??
+                                                                [];
+                                                                $carrierCharges =
+                                                                json_decode($load->carrier_load_other_charge, true) ??
+                                                                [];
+                                                                @endphp
+
+                                                                @foreach($shipperCharges as $index => $shipperCharge)
+                                                                <div class="row">
+                                                                    <div class="col-md-5">
+                                                                        <div class="form-group">
+                                                                            <label for="shipperchargeType">Charge
+                                                                                Type:</label>
+                                                                            <input type="text" class="form-control"
+                                                                                name="shipperchargeType[]"
+                                                                                value="{{ $shipperCharge['type'] }}"
+                                                                                placeholder="Enter charge type">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-5">
+                                                                        <div class="form-group">
+                                                                            <label>Charge Amount:</label>
+                                                                            <input type="number" class="form-control"
+                                                                                name="shipperchargeAmount[]"
+                                                                                value="{{ $shipperCharge['amount'] }}"
+                                                                                placeholder="Enter charge amount">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-2" style="margin-top: 27px;">
+                                                                        <button class="remove-row"
+                                                                            style="background:unset;border:none"
+                                                                            type="button"><i style="margin-top: 19px;"
+                                                                                class="fa fa-trash"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                                @endforeach
+
+                                                                @foreach($carrierCharges as $index => $carrierCharge)
+                                                                <div class="row">
+                                                                    <div class="col-md-5">
+                                                                        <div class="form-group">
+                                                                            <label for="shipper_type_charge">Carrier
+                                                                                Charge Type:</label>
+                                                                            <input type="text" class="form-control"
+                                                                                name="shipper_type_charge[]"
+                                                                                value="{{ $carrierCharge['type'] }}"
+                                                                                placeholder="Enter carrier charge type">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-5">
+                                                                        <div class="form-group">
+                                                                            <label>Carrier Charge Amount:</label>
+                                                                            <input type="number" class="form-control"
+                                                                                name="shipper_other_charge[]"
+                                                                                value="{{ $carrierCharge['amount'] }}"
+                                                                                placeholder="Enter carrier charge amount">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-2" style="margin-top: 27px;">
+                                                                        <button class="remove-row"
+                                                                            style="background:unset;border:none"
+                                                                            type="button"><i style="margin-top: 19px;"
+                                                                                class="fa fa-trash"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                                @endforeach
+
+                                                                <!-- Add a button to dynamically add more rows if needed -->
+                                                                <div id="dynamic-field-container">
+                                                                    <!-- Rows will be dynamically added here -->
+                                                                </div>
+                                                                <!-- <button type="button" id="add-row" class="btn btn-primary">Add Charge</button> -->
+
+
+                                                                <!-- Hidden template row -->
+                                                                <div class="row" id="chargeRowTemplate"
+                                                                    style="display: none;">
+                                                                    <div class="col-md-5">
+                                                                        <div class="form-group">
+                                                                            <label for="shipperchargeType">Charge
+                                                                                Type:</label>
+                                                                            <input type="text" class="form-control"
+                                                                                name="shipperchargeType[]"
+                                                                                placeholder="Enter charge type">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-5">
+                                                                        <div class="form-group">
+                                                                            <label>Charge Amount:</label>
+                                                                            <input type="number" class="form-control"
+                                                                                name="shipperchargeAmount[]"
+                                                                                placeholder="Enter charge amount">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-2" style="margin-top: 27px;">
+                                                                        <button class="remove-row" type="button"
+                                                                            style="background:unset;border:none"><i
+                                                                                style="margin-top: 19px;"
+                                                                                class="fa fa-trash"></i></button>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- Container for new rows -->
+                                                                <div id="chargeRowsContainer"></div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Modal Footer -->
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-success"
+                                                                id="addChargeBtn">Add Charge</button>
+                                                        </div>
+                                                        <!-- Modal Footer -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Shipper Load Final Rate</label>
+                                                <!-- <input type="number" id="shipper_load_final_rate" name="shipper_load_final_rate" class="form-control" required> -->
+                                                <input type="text" class="form-control" id="shipper_load_final_rate" value="{{ $load->shipper_load_final_rate }}" name="shipper_load_final_rate" readonly required data-readonly />
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>MC No <code>*</code></label>
+                                                <input class="form-control" required name="load_mc_no"  value="{{ $load->load_mc_no }}" id="carrier_mc_ff_input" style="width: 100%;"
+                                                    placeholder="Enter MC Number">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Carrier <code>*</code></label>
+                                                <input type="text" id="load_carrier" name="load_carrier" value="{{ $load->load_carrier }}" class="form-control" style="width: 100%;" readonly>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Carrier Phone<code>*</code></label>
+                                                <input type="text" id="load_carrier_phone" name="load_carrier_phone" value="{{ $load->load_carrier_phone }}" class="form-control" style="width: 100%;" readonly>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Advance Payment</label>
+                                                <input class="form-control" name="load_advance_payment" value="{{ $load->load_advance_payment }}" style="width: 100%;" autocomplete="off">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Billing Type</label>
+                                                <select class="form-control select2" name="load_billing_type"
+                                                    style="width: 100%;">
+                                                    <option value="{{ $load->load_billing_type }}">{{ $load->load_billing_type }}</option>
+                                                    <option>Factoring</option>
+                                                    <option>Direct Billing</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Carrier Fee <code>*</code></label>
+                                                <input class="form-control" type="number" name="load_carrier_fee" value="{{ $load->load_carrier_fee }}" id="load_carrier_fee" required style="width: 100%;">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>FSC Rate %</label>
+                                                <input type="text" name="load_billing_fsc_rate" value="{{ $load->load_billing_fsc_rate }}" id="load_billing_fsc_rate" class="form-control" style="width: 100%;">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="other_charge">Carrier Other Charges <i class="fa fa-plus"
+                                                        id="openModalIcon"></i> </label>
+                                                <input class="form-control" name="load_other_charge"
+                                                    style="width: 100%;">
+                                            </div>
+
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="otherChargesModal" tabindex="-1" role="dialog"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content" id="model_content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Carrier Other Charges
+                                                            </h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="container" id="container">
+                                                                <div class="row" id="chargeRowTemplate"
+                                                                    style="margin-top: 10px;">
+                                                                    <div class="col-md-5">
+                                                                        <div class="form-group">
+                                                                            <label>Charge Type:</label>
+                                                                            <input type="text"
+                                                                                class="form-control typeofcharge"
+                                                                                placeholder="Please enter type of charges"
+                                                                                name="shipper_type_charge[]"
+                                                                                value="{{ $load->load_other_charge }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-5">
+                                                                        <div class="form-group">
+                                                                            <label>Charge Amount:</label>
+                                                                            <input type="number"
+                                                                                class="form-control otheramount"
+                                                                                placeholder="Please enter amount"
+                                                                                name="shipper_other_charge[]"
+                                                                                value="">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-2" style="margin-top: 27px;">
+                                                                        <a type="button"
+                                                                            style="background:unset;border:none"
+                                                                            class="remove-charge"
+                                                                            name="shipperchargeAmountdelete[]">
+                                                                            <i class="fa fa-trash"
+                                                                                style="margin-top: 19px; margin-left: 7px;"
+                                                                                aria-hidden="true"></i>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-success"
+                                                                    id="add_charge">Add Charge</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Final Carrier Fee</label>
+                                                <input class="form-control" readonly name="load_final_carrier_fee" value="{{ $load->load_final_carrier_fee }}" id="load_final_carrier_fee" style="width: 100%;">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+>>>>>>> old-repo/master
                                             <div class="form-group">
                                                 <label>Currency</label>
                                                 <select class="form-control select2" name="load_currency" style="width: 100%;">
@@ -289,7 +668,11 @@ label.upload-button {
                                                 </select>
                                             </div>
                                         </div>
+<<<<<<< HEAD
                                         <div class="col-md-2">
+=======
+                                        <div class="col-md-3">
+>>>>>>> old-repo/master
                                             <div class="form-group">
                                                 <label>Equipment Type <code>*</code></label>
                                                 <select class="form-control select2" required name="load_equipment_type"
@@ -522,6 +905,7 @@ label.upload-button {
                                                 </select>
                                             </div>
                                         </div>
+<<<<<<< HEAD
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>Status</label>
@@ -859,6 +1243,19 @@ label.upload-button {
                                         
                                        
                                         
+=======
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Delivery Order</label>
+                                                <input class="form-control" type="file" readonly
+                                                    name="load_delivery_do_file" id="load_delivery_do_file"
+                                                    style="width: 100%;padding: 3px 5px">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+>>>>>>> old-repo/master
 
                                     @php
                                     // Shipper Data Initialization
@@ -879,6 +1276,7 @@ label.upload-button {
                                     $shipperCounter = count($shipperData) + 1; // Adjust counter based on existing data
                                     @endphp
 
+<<<<<<< HEAD
                                     <div class="table-responsive p-3">
                                         <!-- <button id="btnAddShipper" type="button" class="btn btn-primary mt-4"
                                             style="padding: 4px 6px; font-size: 12px;">
@@ -914,6 +1312,43 @@ label.upload-button {
                                                     <th style="vertical-align: middle;font-size: 12px;">
                                                         Shipper Notes</th>
                                                     <th style="vertical-align: middle;font-size: 12px;">
+=======
+                                    <div class="table-responsive">
+                                        <button id="btnAddShipper" type="button" class="btn btn-primary mt-4"
+                                            style="padding: 4px 6px; font-size: 12px;">
+                                            <i class="fa fa-plus" style="font-size: 10px;"></i> Add Shipper
+                                        </button>
+                                        <table class="table table-bordered" id="shipperTable">
+                                            <thead>
+                                                <tr>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">Sr.
+                                                        No</th>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">
+                                                        Shipper <code>*</code></th>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">
+                                                        Shipper Location</th>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">
+                                                        Shipper Appointment</th>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">
+                                                        Commodity Type</th>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">
+                                                        Commodity Name<code>*</code></th>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">Qty
+                                                    </th>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">
+                                                        Weight (lbs)</th>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">
+                                                        Value ($) <code>*</code></th>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">PO
+                                                        Numbers</th>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">
+                                                        Contact</th>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">
+                                                        Shipper Description</th>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">
+                                                        Shipper Notes</th>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">
+>>>>>>> old-repo/master
                                                         Actions</th>
                                                 </tr>
                                             </thead>
@@ -922,7 +1357,11 @@ label.upload-button {
                                                 <tr id="shipperRow{{ $key + 1 }}">
                                                     <td style="padding: 7px;">S {{ $key + 1 }}</td>
                                                     <td>
+<<<<<<< HEAD
                                                         <!-- <select class="form-control load_shipper"
+=======
+                                                        <select class="form-control load_shipper"
+>>>>>>> old-repo/master
                                                             name="load_shipper{{ $key + 1 }}"
                                                             id="load_shipper{{ $key + 1 }}" data-row="{{ $key + 1 }}"
                                                             required>
@@ -936,11 +1375,18 @@ label.upload-button {
                                                                 {{ $get->shipper_name }}
                                                             </option>
                                                             @endforeach
+<<<<<<< HEAD
                                                         </select> -->
                                                         <input type="text" style="width: 200px;" class="form-control load_shipper" name="load_shipper{{ $key + 1 }}" id="load_shipper{{ $key + 1 }}" data-row="{{ $key + 1 }}" readonly required>
                                                     </td>
                                                     <td style="padding: 7px;">
                                                         <input class="form-control" readonly style="width: 480px;" title="{{ $shipperLocation[$key]['location'] ?? '' }}"
+=======
+                                                        </select>
+                                                    </td>
+                                                    <td style="padding: 7px;">
+                                                        <input class="form-control" readonly title="{{ $shipperLocation[$key]['location'] ?? '' }}"
+>>>>>>> old-repo/master
                                                             name="load_shipper_location{{ $key + 1 }}"
                                                             id="load_shipper_location{{ $key + 1 }}"
                                                             value="{{ $shipperLocation[$key]['location'] ?? '' }}">
@@ -962,28 +1408,48 @@ label.upload-button {
                                                             required>
                                                     </td>
                                                     <td style="padding: 7px;">
+<<<<<<< HEAD
                                                         <input class="form-control" style=" width: 87px;"
+=======
+                                                        <input class="form-control"
+>>>>>>> old-repo/master
                                                             name="load_shipper_qty{{ $key + 1 }}" type="number"
                                                             value="{{ $shipperQty[$key]['shipper_qty'] ?? '' }}">
                                                     </td>
                                                     <td style="padding: 7px;">
+<<<<<<< HEAD
                                                         <input class="form-control" style=" width: 90px;"
+=======
+                                                        <input class="form-control"
+>>>>>>> old-repo/master
                                                             name="load_shipper_weight{{ $key + 1 }}" type="number"
                                                             value="{{ $shipperWeight[$key]['shipper_weight'] ?? '' }}">
                                                     </td>
                                                     <td style="padding: 7px;">
+<<<<<<< HEAD
                                                         <input class="form-control" style=" width: 90px;"
+=======
+                                                        <input class="form-control"
+>>>>>>> old-repo/master
                                                             name="load_shipper_value{{ $key + 1 }}" required
                                                             type="number"
                                                             value="{{ $shipperValue[$key]['shipper_value'] ?? '' }}">
                                                     </td>
                                                     <td style="padding: 7px;">
+<<<<<<< HEAD
                                                         <input class="form-control" style=" width: 130px;"
+=======
+                                                        <input class="form-control"
+>>>>>>> old-repo/master
                                                             name="load_shipper_po_numbers{{ $key + 1 }}"
                                                             value="{{ $shipperPoNumber[$key]['shipping_po_numbers'] ?? '' }}">
                                                     </td>
                                                     <td style="padding: 7px;">
+<<<<<<< HEAD
                                                         <input class="form-control" style=" width: 131px;"
+=======
+                                                        <input class="form-control"
+>>>>>>> old-repo/master
                                                             name="load_shipper_contact{{ $key + 1 }}" type="number"
                                                             value="{{ $shipperContact[$key]['shipping_contact'] ?? '' }}">
                                                     </td>
@@ -993,12 +1459,21 @@ label.upload-button {
                                                             value="{{ $shipperDescription[$key]['description'] ?? '' }}">
                                                     </td>
                                                     <td style="padding: 7px;">
+<<<<<<< HEAD
                                                         <textarea style="width: auto;font-size: 12px;border: 1px solid #ced4da; border-radius: .25rem;"
                                                             name="load_shipper_shipping_notes{{ $key + 1 }}">{{ $shipperNotes[$key]['shipping_notes'] ?? '' }}</textarea>
                                                     </td>
                                                     <td class="text-center" style="padding: 7px;">
                                                         <a href="javascript:void(0);" class="btn-remove-shipper"
                                                             data-row="shipperRow{{ $key + 1 }}"><i style="color:red;"
+=======
+                                                        <textarea class="form-control"
+                                                            name="load_shipper_shipping_notes{{ $key + 1 }}">{{ $shipperNotes[$key]['shipping_notes'] ?? '' }}</textarea>
+                                                    </td>
+                                                    <td style="padding: 7px;">
+                                                        <a href="javascript:void(0);" class="btn-remove-shipper"
+                                                            data-row="shipperRow{{ $key + 1 }}"><i
+>>>>>>> old-repo/master
                                                                 class="fa fa-trash"></i></a>
                                                     </td>
                                                 </tr>
@@ -1030,6 +1505,7 @@ label.upload-button {
                                     $consigneeCounter = count($consigneeData);
                                     @endphp
 
+<<<<<<< HEAD
                                     <div class="table-responsive p-3">
                                         <!-- <button id="btnAddConsignee" type="button" class="btn btn-primary mt-4"
                                             style="padding: 4px 6px;font-size: 12px;">
@@ -1065,6 +1541,43 @@ label.upload-button {
                                                     <th style="vertical-align: middle;font-size: 12px;">
                                                         Consignee Notes</th>
                                                     <th style="vertical-align: middle;font-size: 12px;">
+=======
+                                    <div class="table-responsive">
+                                        <button id="btnAddConsignee" type="button" class="btn btn-primary mt-4"
+                                            style="padding: 4px 6px;font-size: 12px;">
+                                            <i class="fa fa-plus mr-2" style="font-size: 10px;"></i> Add Consignee
+                                        </button>
+                                        <table class="table table-bordered" id="consigneeTable">
+                                            <thead>
+                                                <tr>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">Sr.
+                                                        No</th>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">
+                                                        Consignee <code>*</code></th>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">
+                                                        Consignee Location</th>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">
+                                                        Consignee Appointment</th>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">
+                                                        Commodity Type</th>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">
+                                                        Commodity Name<code>*</code></th>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">Qty
+                                                    </th>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">
+                                                        Weight (lbs)</th>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">
+                                                        Value($) <code>*</code></th>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">PO
+                                                        Number</th>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">
+                                                        Contact</th>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">
+                                                        Consignee Description</th>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">
+                                                        Consignee Notes</th>
+                                                    <th class="p-0" style="vertical-align: middle;font-size: 12px;">
+>>>>>>> old-repo/master
                                                         Actions</th>
                                                 </tr>
                                             </thead>
@@ -1073,7 +1586,11 @@ label.upload-button {
                                                 <tr id="consigneeRow{{ $key + 1 }}">
                                                     <td style="padding: 7px;">C {{ $key + 1 }}</td>
                                                     <td style="padding: 7px;">
+<<<<<<< HEAD
                                                         <!-- <select class="form-control load_consignee consignee-select"
+=======
+                                                        <select class="form-control load_consignee consignee-select"
+>>>>>>> old-repo/master
                                                             name="load_consignee_{{ $key + 1 }}"
                                                             id="load_consignee_{{ $key + 1 }}" data-row="{{ $key + 1 }}"
                                                             required>
@@ -1085,12 +1602,19 @@ label.upload-button {
                                                                 data-id="{{ $get->id }}">{{ $get->consignee_name }}
                                                             </option>
                                                             @endforeach
+<<<<<<< HEAD
                                                         </select> -->
 
                                                         <input type="text" style="width: 200px;" class="form-control load_consignee consignee-select" value="{{ $load->consignee_name }}" readonly name="load_consignee_{{ $key + 1 }}" id="load_consignee_{{ $key + 1 }}" data-row="{{ $key + 1 }}" required>
                                                     </td>
                                                     <td style="padding: 7px;">
                                                         <input class="form-control" style="width: 480px;"
+=======
+                                                        </select>
+                                                    </td>
+                                                    <td style="padding: 7px;">
+                                                        <input class="form-control"
+>>>>>>> old-repo/master
                                                             name="load_consignee_location_{{ $key + 1 }}" title="{{ $consigneeLocation[$key]['location'] ?? '' }}"
                                                             id="load_consignee_location_{{ $key + 1 }}"
                                                             value="{{ $consigneeLocation[$key]['location'] ?? '' }}"
@@ -1143,12 +1667,22 @@ label.upload-button {
                                                             value="{{ $consigneeDescription[$key]['description'] ?? '' }}">
                                                     </td>
                                                     <td style="padding: 7px;">
+<<<<<<< HEAD
                                                         <textarea style="width: auto;font-size: 12px;border: 1px solid #ced4da; border-radius: .25rem;" 
                                                             name="load_consignee_notes_{{ $key + 1 }}">{{ isset($consigneeNotes[$key]['load_consignee_notes']) ? htmlspecialchars(trim($consigneeNotes[$key]['load_consignee_notes']), ENT_QUOTES, 'UTF-8') : '' }}</textarea>
                                                     </td>
                                                     <td class="text-center" style="padding: 7px;">
                                                         <a href="javascript:void(0);" class="btn-remove-consignee"
                                                             data-row="consigneeRow{{ $key + 1 }}"><i style="color:red;"
+=======
+                                                        <textarea class="form-control"
+                                                            style="width: auto;font-size: 12px;"
+                                                            name="load_consignee_notes_{{ $key + 1 }}">{{ isset($consigneeNotes[$key]['load_consignee_notes']) ? htmlspecialchars(trim($consigneeNotes[$key]['load_consignee_notes']), ENT_QUOTES, 'UTF-8') : '' }}</textarea>
+                                                    </td>
+                                                    <td style="padding: 7px;">
+                                                        <a href="javascript:void(0);" class="btn-remove-consignee"
+                                                            data-row="consigneeRow{{ $key + 1 }}"><i
+>>>>>>> old-repo/master
                                                                 class="fa fa-trash"></i></a>
                                                     </td>
                                                 </tr>
@@ -1159,6 +1693,7 @@ label.upload-button {
 
                                     <input type="hidden" id="consignee_count" name="consignee_count">
 
+<<<<<<< HEAD
                                     <div class="modal-footer col-md-12">
                                         @if($load->public_file)
                                             <li>
@@ -1172,12 +1707,21 @@ label.upload-button {
                                         <input type="submit" class="btn btn-info" value="Save" onclick="saveFormData()">
                                         <a href="{{ route('accounts') }}" class="btn btn-danger" data-dismiss="modal">Cancel</a>
                                     </div>
+=======
+
+                                    <div class="modal-footer">
+                                        <input type="submit" class="btn btn-info" value="Save" onclick="saveFormData()">
+                                        <a href="{{ route('accounts') }}" class="btn btn-danger" data-dismiss="modal">Cancel</a>
+                                    </div>
+
+>>>>>>> old-repo/master
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
     </div>
     <div class="modal" id="carrier-detail">
      <div class="modal-dialog modal-lg">
@@ -1518,10 +2062,16 @@ label.upload-button {
     </div>
 </div>
          
+=======
+
+    </div>
+</section>
+>>>>>>> old-repo/master
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<<<<<<< HEAD
 <script>
     function openModal(recordId) {
         $.ajax({
@@ -1591,6 +2141,9 @@ label.upload-button {
         });
     }
 </script>
+=======
+
+>>>>>>> old-repo/master
 <script>
 $(document).ready(function () {
     let shipperCounter = {{ $shipperCounter }}; // Start from the existing count
@@ -1653,7 +2206,11 @@ $(document).ready(function () {
                 <textarea class="form-control" name="load_shipper_shipping_notes${shipperCounter}"></textarea>
             </td>
             <td style="padding: 7px;">
+<<<<<<< HEAD
                 <a href="javascript:void(0);" class="btn-remove-shipper" data-row="shipperRow${shipperCounter}"><i style="color:red;" class="fa fa-trash"></i></a>
+=======
+                <a href="javascript:void(0);" class="btn-remove-shipper" data-row="shipperRow${shipperCounter}"><i class="fa fa-trash"></i></a>
+>>>>>>> old-repo/master
             </td>
         </tr>`;
 
@@ -1780,7 +2337,11 @@ $(document).ready(function () {
                 <textarea class="form-control" name="load_consignee_notes_${consigneeCounter}"></textarea>
             </td>
             <td style="padding: 7px;">
+<<<<<<< HEAD
                 <a href="javascript:void(0);" class="btn-remove-consignee" data-row="consigneeRow${consigneeCounter}"><i style="color:red;" class="fa fa-trash"></i></a>
+=======
+                <a href="javascript:void(0);" class="btn-remove-consignee" data-row="consigneeRow${consigneeCounter}"><i class="fa fa-trash"></i></a>
+>>>>>>> old-repo/master
             </td>
         </tr>`;
 
@@ -1885,7 +2446,11 @@ $(document).on('change', '.consignee-select', function () {
         // Add a click event listener to the "Add Charge" button
         $('#addChargeBtn').click(function () {
             // Close the modal with the specified ID
+<<<<<<< HEAD
            
+=======
+            $('#myModal').modal('hide');
+>>>>>>> old-repo/master
         });
     });
 
@@ -2032,6 +2597,10 @@ $(document).on('change', '.consignee-select', function () {
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> old-repo/master
 <script>
     $(document).ready(function () {
         // Function to add input row
@@ -2039,7 +2608,11 @@ $(document).on('change', '.consignee-select', function () {
             var inputRow = $('<div class="row">' +
                 '<div class="col-md-5"><div class="form-group"><label>Charge Type:</label><input style="width:100%;margin-bottom: 29px;" type="text" name="shipper_type_charge[]" placeholder="Type Of Charge"></div></div>' +
                 '<div class="col-md-5"><div class="form-group"><label>Charge Type:</label><input style="width:100%;margin-bottom: 29px;" type="number" name="shipper_other_charge[]" placeholder="Price" /></div></div>' +
+<<<<<<< HEAD
                 '<div class="col-md-2"><button class="closebtn" style="border: none;background: unset;"><i style="color:red;" class="fa fa-trash"></i></button></div>' +
+=======
+                '<div class="col-md-2"><button class="closebtn" style="border: none;background: unset;"><i class="fa fa-trash"></i></button></div>' +
+>>>>>>> old-repo/master
                 '</div>');
             $('#inputs').append(inputRow);
         });
@@ -2168,6 +2741,7 @@ $(function () {
 
 </script>
 
+<<<<<<< HEAD
 <script>
         $(document).ready(function () {
             $('#shipper_other_charge').click(function () {
@@ -2337,6 +2911,9 @@ $(function () {
         calculateCarrierTotalCharge();
     });
 </script>
+=======
+
+>>>>>>> old-repo/master
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
 </script>

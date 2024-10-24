@@ -1,6 +1,27 @@
 @extends('layouts.accounts.app')
+<<<<<<< HEAD
 @section('content')
 <section class="content">
+=======
+
+@section('content')
+    @if(session('success'))
+        <div class="alert alert-success" id="successMessage">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if(session('error'))
+        <div class="alert alert-danger" id="errorMessage">
+            <script>
+                alert("{{ session('error') }}");
+            </script>
+            {{ session('error') }}
+        </div>
+    @endif
+
+    <section class="content">
+>>>>>>> old-repo/master
         <div class="body_scroll">
             <div class="block-header" style="padding: 16px 15px !important;">
                 <h2>Carrier And Customer Data</h2>
@@ -85,6 +106,7 @@
                                                 <thead>
                                                     <tr>
                                                         <th>Sr No.</th>
+<<<<<<< HEAD
                                                         <th>Agent Name</th>
                                                         <th>Customer Name</th>
                                                         <th>Address</th>
@@ -103,6 +125,30 @@
                                                            
                                                         </tr>
                                                     @endforeach
+=======
+                                                        <th>Load #</th>
+                                                        <th>Agent Name</th>
+                                                        <th>W/O #</th>
+                                                        <th>Customer #</th>
+                                                        <th>Office</th>
+                                                        <th>Manager</th>
+                                                        <th>Team Leader</th>
+                                                        <th>Load Create Date</th>
+                                                        <th>Shipper Date</th>
+                                                        <th>Delivery Date</th>
+                                                        <th>Equipment Type</th>
+                                                        <th>Carrier Name</th>
+                                                        <th>Pickup Location</th>
+                                                        <th>Unloading Location</th>
+                                                        <th>Load Status</th>
+                                                        <th>CPR</th>
+                                                        <th>CPR Status</th>
+                                                        <th>Documents</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- Add dynamic data for customers here -->
+>>>>>>> old-repo/master
                                                 </tbody>
                                             </table>
                                         </div>
@@ -115,6 +161,7 @@
             </div>
         </div>
     </section>
+<<<<<<< HEAD
 
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
@@ -143,4 +190,6 @@
   });
 </script>
 
+=======
+>>>>>>> old-repo/master
 @endsection

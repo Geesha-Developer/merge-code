@@ -31,6 +31,10 @@
     <link rel="stylesheet" href="{{ asset('assets/css/custome.css') }}">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+<<<<<<< HEAD
+=======
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+>>>>>>> old-repo/master
 
 
 
@@ -75,6 +79,10 @@
 ul.dropdown-menu.info.show {
     right: 0 !important;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> old-repo/master
 </style>
 
 <body class="theme-blush">
@@ -101,6 +109,7 @@ ul.dropdown-menu.info.show {
 
 
     <!-- Left Sidebar -->
+<<<<<<< HEAD
 <aside id="leftsidebar" class="sidebar">
     <button class="btn-menu ls-toggle-btn" id="menu-btn" onclick="toggleMenu()" type="button"><i class="zmdi zmdi-menu"></i></button>
     <div class="user-info">
@@ -132,11 +141,35 @@ ul.dropdown-menu.info.show {
                 </a>
             </li>
             <div id="accordion">
+=======
+    <aside id="leftsidebar" class="sidebar">
+        
+            <div class="user-info">
+                <a href="{{ route('all.load.status') }}" class="text-center"><img src="{{ asset('images/only logo.png') }}" width="35%" alt="Aero" /></a>
+                <div class="detail text-center m-0 admin_name"> <small>Super Admin</small> </div>
+            </div>
+        <div class="menu">
+            <ul class="list" style="padding: 0 11px;    margin: 54px 0;">
+                <li class="menu  {{ isset($activeIndex) && $activeIndex == 0 ? 'active' : '' }}"><a href="{{ route('all.load.status') }}"><img src="{{ asset('assets/images/sidebar-icons/home-side.png') }}" width="25"><span>Home</span></a></li>
+                <!-- <li class="menu {{ isset($activeIndex) && $activeIndex == 1 ? 'active' : '' }}"><a href="{{ route('admin.dashboard') }}"><img src="{{ asset('assets/images/sidebar-icons/dashboard-control.png') }}" width="25"><span>Dashboard</span></a></li> -->
+                <!-- <li class="menu {{ isset($activeIndex) && $activeIndex == 2 ? 'active' : '' }}">
+                    <a href="{{ route('user.register.form') }}" target="_blank">
+                        <img src="{{ asset('assets/images/sidebar-icons/registration.png') }}" width="25">
+                        <span>Add New User</span>
+                    </a>
+                </li> -->
+                <li class="menu {{ isset($activeIndex) && $activeIndex == 3 ? 'active' : '' }}"><a href="{{ route('broker_data') }}"><img src="{{ asset('assets/images/sidebar-icons/customer-service.png') }}" width="25"><span>All Data</span></a></li>
+                <div id="accordion">
+>>>>>>> old-repo/master
                 <li class="menu">
                     <a data-toggle="collapse" href="#collapseOne" class="d-flex align-items-center">
                         <img src="{{ asset('assets/images/sidebar-icons/administrator.png') }}" width="25">
                         <span style="margin-left: 17px;">Admin</span>
+<<<<<<< HEAD
                         <i class="fas fa-chevron-right ms-auto"></i>
+=======
+                        <i class="fas fa-chevron-right" style="margin-left: auto;"></i>
+>>>>>>> old-repo/master
                     </a>
                     <div id="collapseOne" class="collapse" data-parent="#accordion">
                         <a href="{{ route('user.register.form') }}" target="_blank"><span>Add New User</span></a>
@@ -149,11 +182,16 @@ ul.dropdown-menu.info.show {
                     <a data-toggle="collapse" data-toggle="collapse" href="#collapseTwo" class="d-flex align-items-center">
                         <img src="{{ asset('assets/images/sidebar-icons/multiple-users-silhouette.png') }}" width="25">
                         <span style="margin-left: 17px;">User</span>
+<<<<<<< HEAD
                         <i class="fas fa-chevron-right ms-auto"></i>
+=======
+                        <i class="fas fa-chevron-right" style="margin-left: auto;"></i>
+>>>>>>> old-repo/master
                     </a>
                     <div id="collapseTwo" class="collapse" data-parent="#accordion">
                         <a href="{{ route('all.users') }}"><span>User List</span></a>
                         <a href="{{ route('accountuser') }}"><span>A/C User</span></a>
+<<<<<<< HEAD
                     </div>
                 </li>
             </div>
@@ -304,6 +342,100 @@ ul.dropdown-menu.info.show {
             </ul>
     </div>
 
+=======
+                        <a href="{{ route('showTeamAssignmentPage') }}"><span>Team Reassign</span></a>
+                    </div>
+                </li>
+            </div>
+                <li class="menu {{ request()->routeIs('its.data') ? 'active' : '' }}"><a href="{{ route('its.data') }}"><img src="{{ asset('assets/images/sidebar-icons/customer-service.png') }}" width="25"><span>ITS Data</span></a></li>
+                <li class="menu {{ isset($activeIndex) && $activeIndex == 6 ? 'active' : '' }}"><a href="{{ route('accounts.supper.admin') }}"><img src="{{ asset('assets/images/sidebar-icons/account.png') }}" width="25"><span>Accounts</span></a></li>
+                <li class="menu {{ isset($activeIndex) && $activeIndex == 7 ? 'active' : '' }}"><a href="{{ route('admin.broker.status') }}"><img src="{{ asset('assets/images/sidebar-icons/account-manager.png') }}" width="25"><span>A/C Manager</span></a></li>
+                <li class="menu {{ isset($activeIndex) && $activeIndex == 8 ? 'active' : '' }}"><a href="{{ route('admin.manager.dashboard') }}"><img src="{{ asset('assets/images/sidebar-icons/reporting.png') }}" width="25"><span>Reporting</span></a></li>
+                <li class="menu {{ isset($activeIndex) && $activeIndex == 9 ? 'active' : '' }}"><a href="{{ route('admin.vendor') }}"><img src="{{ asset('assets/images/sidebar-icons/frontal-truck.png') }}" width="25"><span>Vendor System</span></a></li>
+                <li class="menu {{ isset($activeIndex) && $activeIndex == 9 ? 'active' : '' }}"><a href="{{ route('admin.compliance') }}"><img src="{{ asset('assets/images/sidebar-icons/compliance.png') }}" width="25"><span>Compliance</span></a></li> 
+                <!-- <li class="menu {{ isset($activeIndex) && $activeIndex == 13 ? 'active' : '' }}"><a href="#"><img src="{{ asset('assets/images/sidebar-icons/notification.png') }}" width="25"><span>Notification</span></a></li> -->
+                <li class="menu {{ isset($activeIndex) && $activeIndex == 13 ? 'active' : '' }}"><a href="{{ route('workflows.index') }}"><img src="{{ asset('assets/images/sidebar-icons/notification.png') }}" width="25"><span>Logs</span></a></li>    
+                <!-- <li class="menu {{ isset($activeIndex) && $activeIndex == 14 ? 'active' : '' }}"><a href="{{ route('Super.Admin.Logout') }}" class="mega-menu" title="Sign Out"><i class="zmdi zmdi-power"></i><span>Logout</span> </a></li>  -->
+                
+            </ul>
+        </div>
+    </aside>
+    <div class="profile-notification">
+        <ul class="d-flex">
+             <li class="mr-3"><button class="btn-menu ls-toggle-btn" id="menu-btn" onclick="toggleMenu()" type="button"><i class="zmdi zmdi-menu"></i></button></li>
+            <!-- <li>
+                        <div class="btn-group show-on-hover">
+                            <button type="button" class="btn dropdown-toggle p-0 m-0" data-toggle="dropdown"><i
+                                    class="fa fa-bell"></i>
+                            </button>
+                            <ul class="dropdown-menu info" role="menu">
+                                <div class="drop-title text-white text-center"><b>Notifications</b></div>
+                                <li>
+                                    <a href="#">
+                                        <div class="notification-contnet">
+                                            <h5>This is LTC coin</h5>
+                                            <p class="mail-desc">Just a reminder that you have event</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="notification-contnet">
+                                            <h5>This is LTC coin</h5>
+                                            <p class="mail-desc">Just a reminder that you have event</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="notification-contnet">
+                                            <h5>This is LTC coin</h5>
+                                            <p class="mail-desc">Just a reminder that you have event</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="notification-contnet">
+                                            <h5>This is LTC coin</h5>
+                                            <p class="mail-desc">Just a reminder that you have event</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="notification-contnet">
+                                            <h5>This is LTC coin</h5>
+                                            <p class="mail-desc">Just a reminder that you have event</p>
+                                        </div>
+                                    </a>
+                                </li>
+                
+                            </ul>
+                        </div>
+                    </li> -->
+            <li>
+                <i class="zmdi zmdi-eye toggleBlurButton"></i>
+            </li>
+            <li>
+                <div class="btn-group ml-3">
+                    <button type="button" class="btn dropdown-toggle p-0 m-0" data-toggle="dropdown">
+                        <i class="zmdi zmdi-settings"></i>
+                    </button>
+                    <ul class="dropdown-menu info" role="menu">
+                        <li><a class="text-white" href="#"><i
+                                    style="background:unset;color:#fff; margin-top:0;"
+                                    class="mr-2 zmdi zmdi-account-circle"></i>Profile</a></li>
+                        <li><a class="text-white" href="{{ route('Super.Admin.Logout') }}" title="Sign Out"><i
+                                    style="background:unset;color:#fff; margin-top:0;" class="mr-2 zmdi zmdi-power"></i>Log
+                                Out</a></li>
+
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+>>>>>>> old-repo/master
     <!-- Right Sidebar -->
    
     <!-- Main Content -->
@@ -706,7 +838,11 @@ $(document).ready(function () {
         }
 
         $('.table').DataTable({
+<<<<<<< HEAD
             pageLength: 50,
+=======
+            pageLength: -1,
+>>>>>>> old-repo/master
             dom: 'Bfrtip', 
             buttons: [
                 'copy', 'excel', 'pdf', 'print','csv'
@@ -717,6 +853,20 @@ $(document).ready(function () {
         });
     });
 </script>
+<<<<<<< HEAD
+=======
+<!-- 
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleButton = document.getElementById('#menu_toggel');
+            const sidebar = document.querySelector('.sidebar');
+
+            toggleButton.addEventListener('click', function () {
+                sidebar.classList.toggle('active');
+            });
+        });
+    </script> -->
+>>>>>>> old-repo/master
 
   <script>
         function toggleMenu() {
@@ -735,7 +885,11 @@ $(document).ready(function () {
                 });
 
                 // Apply styles for the content section when sidebar is shrunk
+<<<<<<< HEAD
                 contentSection.style.margin = '11px 0 20px 96px';
+=======
+                contentSection.style.margin = '11px 0 20px 0';
+>>>>>>> old-repo/master
             } else {
                 userInfo.classList.remove('hide');
 
@@ -744,7 +898,11 @@ $(document).ready(function () {
                 });
 
                 // Apply styles for the content section when sidebar is expanded
+<<<<<<< HEAD
                 contentSection.style.margin = '11px 0 20px 214px';
+=======
+                contentSection.style.margin = '11px 0 20px 207px';
+>>>>>>> old-repo/master
             }
         }
     </script>
@@ -752,6 +910,29 @@ $(document).ready(function () {
 
 
 <script>
+<<<<<<< HEAD
+=======
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuItems = document.querySelectorAll('.list .menu');
+
+        menuItems.forEach((menuItem, index) => {
+            menuItem.addEventListener('click', function () {
+                menuItems.forEach(item => {
+                    item.classList.remove('active');
+                });
+                this.classList.add('active');
+                localStorage.setItem('activeIndex', index);
+            });
+        });
+        const activeIndex = localStorage.getItem('activeIndex');
+        if (activeIndex !== null) {
+            menuItems[activeIndex].classList.add('active');
+        }
+    });
+</script>
+
+<script>
+>>>>>>> old-repo/master
     document.addEventListener("DOMContentLoaded", function() {
         setTimeout(function() {
             // Fade out success message
@@ -790,6 +971,7 @@ $(document).ready(function () {
         });
     });
 </script>
+<<<<<<< HEAD
 <script>
     $(document).ready(function () {
         // Automatically hide success alert after 2 seconds
@@ -807,6 +989,8 @@ $(document).ready(function () {
         @endif
     });
 </script>
+=======
+>>>>>>> old-repo/master
 </body>
 
 </html>

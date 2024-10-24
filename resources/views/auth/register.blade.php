@@ -14,7 +14,10 @@
         border-radius: 20px;
         background: #f1f3f4;
         padding: 14px 0;
+<<<<<<< HEAD
         margin: 4% auto
+=======
+>>>>>>> old-repo/master
     }
 
     .form .btn.btn-primary {
@@ -52,6 +55,7 @@
             <h2><b>New Register User</b></h2>
         </div>
 
+<<<<<<< HEAD
         <div class="col-md-12">
             <form method="POST" action="{{ route('user.register') }}" class="col-md-6 offset-md-3 form">
                 @csrf
@@ -210,12 +214,175 @@
                     </div>
                 </div>
             </form>
+=======
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="body mb-5 mt-5">
+                            <form method="POST" action="{{ route('user.register') }}" class="col-md-6 offset-md-3 form">
+                                @csrf
+                                <div class="row mb-3">
+                                    <label for="name" class="col-md-4 col-form-label text-right">Full Name <code>*</code></label>
+                                    <div class="col-md-6">
+                                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror w-100" name="name" value="{{ old('name') }}" placeholder="Enter Full Name" required
+                                            autocomplete="name" autofocus>
+                                        @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="email"
+                                        class="col-md-4 col-form-label text-right">Email Address <code>*</code></label>
+                                    <div class="col-md-6">
+                                        <input id="email" type="email"
+                                            class="form-control @error('email') is-invalid @enderror w-100" name="email"
+                                            value="{{ old('email') }}" placeholder="Enter Email Address" required
+                                            autocomplete="email">
+                                        @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="confirm_email"
+                                        class="col-md-4 col-form-label text-right">Confirm Email Address <code>*</code></label>
+                                    <div class="col-md-6">
+                                        <input id="confirm_email" type="email"
+                                            class="form-control @error('confirm_email') is-invalid @enderror w-100"
+                                            name="confirm_email" value="{{ old('confirm_email') }}"
+                                            placeholder="Confirm Email Address" required autocomplete="email">
+                                            <span id="paste-error-email" style="color: red; display: none;">Paste not allowed.
+                                            Please type your Confirm Email Address.</span>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="password"
+                                        class="col-md-4 col-form-label text-right">Password <code>*</code></label>
+                                    <div class="col-md-6">
+                                        <div style="position: relative;">
+                                            <input id="password" type="password" class="form-control w-100" name="password" required autocomplete="new-password"
+                                                placeholder="Enter Password">
+                                            <button type="button" id="togglePassword"
+                                                style="position: absolute; top: 46%; transform: translateY(-50%); border: unset; background: #b5b5b5; font-size: 17px; right: 0; border-radius: 6px;">
+                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="password-confirm"
+                                        class="col-md-4 col-form-label text-right">Confirm Password <code>*</code></label>
+                                    <div class="col-md-6">
+                                        <input id="password-confirm" type="password" class="form-control w-100"
+                                            name="password_confirmation" required autocomplete="new-password"
+                                            placeholder="Confirm Password">
+                                        <span id="paste-error" style="color: red; display: none;">Paste not allowed.
+                                            Please type your password.</span>
+                                    </div>
+                                </div>
+
+
+                                <div class="row mb-3">
+                                    <label for="emp_code"
+                                        class="col-md-4 col-form-label text-right">Employe Code</label>
+                                    <div class="col-md-6">
+                                        <input id="emp_code" type="text" class="form-control w-100" placeholder="Enter Employe Code" name="emp_code">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="address"
+                                        class="col-md-4 col-form-label text-right">Full Address <code>*</code></label>
+                                    <div class="col-md-6">
+                                        <input id="address" type="text" class="form-control w-100"
+                                            placeholder="Enter Full Address" name="address" required
+                                            autocomplete="address">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+    <label for="office" class="col-md-4 col-form-label text-right">Assign Office <code>*</code></label>
+    <div class="col-md-6">
+        <select class="form-control w-100" name="office" id="office" required>
+            <option value="">Please Select Office</option>
+            @foreach ($offices as $office)
+            @if($office->status == 'Active')
+            <option value="{{ $office->office_name }}">{{ $office->office_name }}</option>
+            @endif
+            @endforeach
+        </select>
+    </div>
+</div>
+
+<div class="row mb-3">
+    <label for="manager" class="col-md-4 col-form-label text-right">Assign Manager <code>*</code></label>
+    <div class="col-md-6">
+        <select class="form-control w-100" name="manager" id="manager" required disabled>
+            <option value="">Please Select Manager</option>
+            <option value="Amren">Amren</option>
+            <option value="Amren">Adam</option>
+            @foreach ($managers as $manager)
+            <option value="{{ $manager->manager }}">{{ $manager->manager }}</option>
+            @endforeach
+        </select>
+    </div>
+</div>
+
+<div class="row mb-3">
+    <label for="team_lead" class="col-md-4 col-form-label text-right">Assign Team Leader <code>*</code></label>
+    <div class="col-md-6">
+        <select class="form-control w-100" name="team_lead" id="team_lead" required disabled>
+            <option value="">Please Select Team Leader</option>
+            @foreach ($team_leaders as $team_lead)
+            <option value="{{ $team_lead->tl }}">{{ $team_lead->tl }}</option>
+            @endforeach
+        </select>
+    </div>
+</div>
+
+<!-- Validation Messages -->
+<div id="validationMessage" style="color: red; display: none;"></div>
+                                <div class="row mb-3">
+                                    <label for="emergency_contact"
+                                        class="col-md-4 col-form-label text-right">Emergency Contact <code>*</code></label>
+                                    <div class="col-md-6">
+                                        <input id="emergency_contact" type="text" class="form-control w-100" placeholder="Enter Emergency Contact" name="emergency_contact" required>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-0">
+                                    <div class="col-md-12 text-center">
+                                        <button type="submit" class="btn btn-info">
+                                            {{ __('Register') }}
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+>>>>>>> old-repo/master
         </div>
     </div>
 </section>
 @endsection
+<<<<<<< HEAD
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+=======
+
+>>>>>>> old-repo/master
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var emailInput = document.getElementById('email');
@@ -255,6 +422,7 @@
 </script>
 
 <script>
+<<<<<<< HEAD
     document.addEventListener('DOMContentLoaded', function () {
         var confirmPasswordInput = document.getElementById('password-confirm');
         var pasteError = document.getElementById('paste-error');
@@ -284,6 +452,37 @@
             pasteError.style.display = 'none'; // Hide error message when user starts typing
         });
     });
+=======
+document.addEventListener('DOMContentLoaded', function() {
+    var confirmPasswordInput = document.getElementById('password-confirm');
+    var pasteError = document.getElementById('paste-error');
+
+    confirmPasswordInput.addEventListener('paste', function(event) {
+        event.preventDefault(); // Prevent paste
+        pasteError.style.display = 'block'; // Show error message
+    });
+
+    confirmPasswordInput.addEventListener('input', function(event) {
+        pasteError.style.display = 'none'; // Hide error message when user starts typing
+    });
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var confirmPasswordInput = document.getElementById('confirm_email');
+    var pasteError = document.getElementById('paste-error-email');
+
+    confirmPasswordInput.addEventListener('paste', function(event) {
+        event.preventDefault(); // Prevent paste
+        pasteError.style.display = 'block'; // Show error message
+    });
+
+    confirmPasswordInput.addEventListener('input', function(event) {
+        pasteError.style.display = 'none'; // Hide error message when user starts typing
+    });
+});
+>>>>>>> old-repo/master
 </script>
 
 <script>
@@ -335,4 +534,9 @@
             }
         });
     });
+<<<<<<< HEAD
 </script>
+=======
+</script>
+
+>>>>>>> old-repo/master

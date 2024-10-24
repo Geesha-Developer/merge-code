@@ -15,6 +15,10 @@ class Consignee extends Model
 
     public function user()
     {
+<<<<<<< HEAD
         return $this->belongsTo(User::class);
+=======
+        return $this->belongsTo(User::class, 'user_id');
+>>>>>>> old-repo/master
     }
 }

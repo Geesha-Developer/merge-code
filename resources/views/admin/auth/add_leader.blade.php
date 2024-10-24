@@ -15,9 +15,12 @@
 </div>
 @endif
 <style>
+<<<<<<< HEAD
     .table>:not(caption)>*>* {
         background-color: unset !important;
     }
+=======
+>>>>>>> old-repo/master
     .content .body_scroll .nav1 {
         padding: 2px 0 4px 0;
     margin-bottom: 9px;
@@ -54,6 +57,7 @@ li{
         </ul>
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+<<<<<<< HEAD
             <form id="leaderForm" action="{{ route('leader.add') }}" method="post">
                 @csrf
                 <div class="body">
@@ -115,6 +119,69 @@ li{
                     </div>
                 </div>
             </form>
+=======
+                <form id="leaderForm" action="{{ route('leader.add') }}" method="post">
+                    @csrf
+                    <div class="body">
+                        <div class="row clearfix">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="leader" style="margin-bottom: 7px;font-weight: 600;font-size: 16px;color: #4a4a4a;">Leader Name</label>
+                                    <input type="text" class="form-control" id="leader" name="leader" autocomplete="off" style="background: #fff; padding: 17px 8px;" required>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="leader_email" style="margin-bottom: 7px;font-weight: 600;font-size: 16px;color: #4a4a4a;">Leader Email</label>
+                                    <input type="email" class="form-control" id="leader_email" name="leader_email" autocomplete="off" style="background: #fff; padding: 17px 8px;" required>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="leader_office" style="margin-bottom: 7px; font-weight: 600; font-size: 16px; color: #4a4a4a;">Leader Office</label>
+                                    <select class="form-control" id="leader_office" name="leader_office" autocomplete="off" style="background: #fff;" required>
+                                        <option value="">Please Select Office</option>
+                                        @foreach($offices as $offc)
+                                            <option value="{{ $offc->office_name }}">{{ $offc->office_name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="leader_manager" style="margin-bottom: 7px; font-weight: 600; font-size: 16px; color: #4a4a4a;">Assign Manager</label>
+                                    <select class="form-control" id="leader_manager" name="leader_manager" autocomplete="off" style="background: #fff;" required>
+                                        <option value="">Please Select Manager</option>
+                                        <option value="Amren">Amren</option>
+                                        <option value="Adam">Adam</option>
+                                        @php
+                                            $managers = \App\Models\Manger::all();
+                                        @endphp
+                                        @foreach($managers as $manager)
+                                            <option value="{{ $manager->manager }}">{{ $manager->manager }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <div class="checkbox d-flex">
+                                    <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="managerCheckbox" name="Manager" value="1">
+                                        <label class="form-check-label" for="managerCheckbox">Manager</label>
+                                    </div>
+                                    <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="tlCheckbox" name="TL" value="1">
+                                        <label class="form-check-label" for="tlCheckbox">TL</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-sm btn-info">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+>>>>>>> old-repo/master
             </div>
             <div class="tab-pane fade" id="carriers" role="tabpanel" aria-labelledby="carriers-tab">
             <ul class="nav1 nav-tabs" id="myTab" role="tablist">
@@ -131,6 +198,7 @@ li{
         </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="manager" role="tabpanel" aria-labelledby="manager-tab">
+<<<<<<< HEAD
                 
                   <div class="table-responsive" style="max-height: 70vh;">
                     <table class="table table-bordered dataTable no-footer">
@@ -224,6 +292,99 @@ li{
                         </tbody>
                     </table>
                    </div>
+=======
+                    <div class="table-responsive">
+                        <table class="table table-bordered dataTable no-footer">
+                            <label for="customer_name"
+                                style="margin-bottom: 7px;font-weight: 600;font-size: 16px;color: #4a4a4a;">Manager List</label>
+                            <thead>
+                                <tr>
+                                    <th style="color: #fff !important;">Sr No.</th>
+                                    <th style="color: #fff !important;">Manager Name</th>
+                                    <th style="color: #fff !important;">Manager Email</th>
+                                    <th style="color: #fff !important;">Leader Manager</th>
+                                    <th style="color: #fff !important;">Office</th>
+                                    <th style="color: #fff !important;">Action</th>
+                                </tr>
+                            </thead>
+    
+                            <tbody>
+                                @php
+                                    $i = 1;
+                                    $managers = \App\Models\Manger::all();
+                                @endphp
+    
+                                @foreach ($managers as $manager)
+                                <tr>
+                                    <td class="dynamic-data" style="vertical-align: middle !important;">{{ $i++ }}</td>
+                                    <td class="dynamic-data" style="vertical-align: middle !important;">{{ $manager->manager }}</td>
+                                    <td class="dynamic-data" style="vertical-align: middle !important;">{{ $manager->leader_email }}</td>
+                                    <td class="dynamic-data" style="vertical-align: middle !important;">{{ $manager->leader_manager }}</td>
+                                    <td class="dynamic-data" style="vertical-align: middle !important;">{{ $manager->office }}</td>
+                                    <td class="dynamic-data" style="vertical-align: middle !important;text-align:center">
+                                        <a href="javascript:void(0)" class="edit-manager btn" data-toggle="modal" data-target="#editManagerModal" data-id="{{ $manager->id }}"><i class="fa fa-edit" style="font-size: 17px;color: #0dcaf0;"></i> </a>
+                                        <form id="delete-form-{{ $manager->id }}" action="{{ route('manager.destroy', $manager->id) }}" method="POST" style="display: inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn" onclick="return confirm('Are you sure you want to delete this manager?');" title="Delete">
+                                            <i class="fa fa-trash" style="font-size: 17px;color: red;"></i> 
+                                            </button>
+                                        </form>
+                                    </td>
+    
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="team" role="tabpanel" aria-labelledby="team-tab">
+                    <div class="table-responsive">
+                        <table class="table table-bordered dataTable no-footer">
+                            <label for="customer_name"
+                                style="margin-bottom: 7px;font-weight: 600;font-size: 16px;color: #4a4a4a;">Team Leader List</label>
+                            <thead>
+                                <tr>
+                                    <th style="color: #fff !important;">Sr No.</th>
+                                    <th style="color: #fff !important;">Team Leader Name</th>
+                                    <th style="color: #fff !important;">Team Leader Email</th>
+                                    <th style="color: #fff !important;">Team Leader Manager</th>
+                                    <th style="color: #fff !important;">Office</th>
+                                    <th style="color: #fff !important;">Action</th>
+                                </tr>
+                            </thead>
+    
+                            <tbody>
+                                @php
+                                    $i = 1;
+                                    $teamLeader = \App\Models\TeamLeader::all();
+                                @endphp
+    
+                                @foreach ($teamLeader as $tl)
+                                <tr>
+                                    <td class="dynamic-data" style="vertical-align: middle !important;">{{ $i++ }}</td>
+                                    <td class="dynamic-data" style="vertical-align: middle !important;">{{ $tl->tl }}</td>
+                                    <td class="dynamic-data" style="vertical-align: middle !important;">{{ $tl->leader_email }}</td>
+                                    <td class="dynamic-data" style="vertical-align: middle !important;">{{ $tl->leader_manager }}</td>
+                                    <td class="dynamic-data" style="vertical-align: middle !important;">{{ $tl->office }}</td>
+                                    <td class="dynamic-data" style="vertical-align: middle !important;text-align:center">
+                                        
+                                        <a href="javascript:void(0)" class="edit-tl btn" data-toggle="modal" data-target="#edittlModal" data-id="{{ $tl->id }}"><i class="fa fa-edit" style="font-size: 17px;color: #0dcaf0;"></i></a>
+                                        <form id="delete-form-{{ $tl->id }}" action="{{ route('teamleader.destroy', $tl->id) }}" method="POST" style="display: inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn" onclick="return confirm('Are you sure you want to delete this team leader?');" title="Delete">
+                                            <i class="fa fa-trash" style="font-size: 17px;color: red;"></i>
+                                            </button>
+                                        </form>
+    
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+>>>>>>> old-repo/master
                 </div>
             </div>
             </div>
@@ -236,7 +397,11 @@ li{
             <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Edit Manager</h4>
+<<<<<<< HEAD
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+=======
+                <button type="button" class="close" data-dismiss="modal" style="padding: 0 3px;">&times;</button>
+>>>>>>> old-repo/master
             </div>
             <div class="modal-body">
                     <form id="editManagerForm">
@@ -287,7 +452,11 @@ li{
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="edittlModalLabel">Edit Team Leader</h5>
+<<<<<<< HEAD
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+=======
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="padding: 0 3px;">
+>>>>>>> old-repo/master
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -340,7 +509,10 @@ li{
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<<<<<<< HEAD
 
+=======
+>>>>>>> old-repo/master
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var lastActiveTab = localStorage.getItem('lastActiveTab');
@@ -380,7 +552,12 @@ li{
             type: "POST",
             data: formData,
             success: function(response) {
+<<<<<<< HEAD
                 if (response.success) {
+=======
+                // console.log(response);
+                if (response == 1) {
+>>>>>>> old-repo/master
                     alert('New Leader has been added!');
                     // Optionally reset the form or perform other actions
                     $('#leaderForm')[0].reset();
@@ -480,6 +657,11 @@ $(document).on('click', '.edit-tl', function() {
 });
 
 </script>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> old-repo/master
 <script>
     $('#editTeamLeaderForm').submit(function(e) {
         e.preventDefault();
@@ -507,6 +689,7 @@ $(document).on('click', '.edit-tl', function() {
         });
     });
 </script>
+<<<<<<< HEAD
 <script>
     $(document).ready(function() {
         // Inject CSS dynamically via JavaScript
@@ -527,5 +710,8 @@ $(document).on('click', '.edit-tl', function() {
         });
     });
 </script>
+=======
+
+>>>>>>> old-repo/master
 
 @endsection

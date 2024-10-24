@@ -181,7 +181,11 @@ label.upload-button {
 <section class="content">
     <div class="body_scroll">
         <div class="block-header" style="padding: 16px 15px !important">
+<<<<<<< HEAD
             <h2>Load Data </h2>
+=======
+            <h2><b>Load Data</b> </h2>
+>>>>>>> old-repo/master
         </div>
 
         <div class="container-fluid">
@@ -892,8 +896,13 @@ label.upload-button {
                                             <tbody>
                                                 @foreach ($shipperData as $key => $shipper)
                                                 <tr id="shipperRow{{ $key + 1 }}">
+<<<<<<< HEAD
                                                     <td style="padding: 7px;">S {{ $key + 1 }}</td>
                                                     <td>
+=======
+                                                    <td class="dynamic-data" style="padding: 7px;">S {{ $key + 1 }}</td>
+                                                    <td class="dynamic-data">
+>>>>>>> old-repo/master
                                                         <select class="form-control load_shipper"
                                                             name="load_shipper{{ $key + 1 }}"
                                                             id="load_shipper{{ $key + 1 }}" data-row="{{ $key + 1 }}"
@@ -910,64 +919,112 @@ label.upload-button {
                                                             @endforeach
                                                         </select>
                                                     </td>
+<<<<<<< HEAD
                                                     <td style="padding: 7px;">
+=======
+                                                    <td class="dynamic-data" style="padding: 7px;">
+>>>>>>> old-repo/master
                                                         <input class="form-control" readonly title="{{ $shipperLocation[$key]['location'] ?? '' }}"
                                                             name="load_shipper_location{{ $key + 1 }}"
                                                             id="load_shipper_location{{ $key + 1 }}"
                                                             value="{{ $shipperLocation[$key]['location'] ?? '' }}">
                                                     </td>
+<<<<<<< HEAD
                                                     <td style="padding: 7px;">
+=======
+                                                    <td class="dynamic-data" style="padding: 7px;">
+>>>>>>> old-repo/master
                                                         <input class="form-control" type="datetime-local"
                                                             name="load_shipper_appointment{{ $key + 1 }}"
                                                             value="{{ $shipperAppointment[$key]['appointment'] ?? '' }}">
                                                     </td>
+<<<<<<< HEAD
                                                     <td style="padding: 7px;">
+=======
+                                                    <td class="dynamic-data" style="padding: 7px;">
+>>>>>>> old-repo/master
                                                         <input class="form-control"
                                                             name="load_shipper_commodity_type{{ $key + 1 }}"
                                                             value="{{ $shipperType[$key]['commodity_type'] ?? '' }}">
                                                     </td>
+<<<<<<< HEAD
                                                     <td style="padding: 7px;">
+=======
+                                                    <td class="dynamic-data" style="padding: 7px;">
+>>>>>>> old-repo/master
                                                         <input class="form-control"
                                                             name="load_shipper_commodity{{ $key + 1 }}" required
                                                             value="{{ $shipperCommodity[$key]['commodity_name'] ?? '' }}"
                                                             required>
                                                     </td>
+<<<<<<< HEAD
                                                     <td style="padding: 7px;">
+=======
+                                                    <td class="dynamic-data" style="padding: 7px;">
+>>>>>>> old-repo/master
                                                         <input class="form-control"
                                                             name="load_shipper_qty{{ $key + 1 }}" type="number"
                                                             value="{{ $shipperQty[$key]['shipper_qty'] ?? '' }}">
                                                     </td>
+<<<<<<< HEAD
                                                     <td style="padding: 7px;">
+=======
+                                                    <td class="dynamic-data" style="padding: 7px;">
+>>>>>>> old-repo/master
                                                         <input class="form-control"
                                                             name="load_shipper_weight{{ $key + 1 }}" type="number"
                                                             value="{{ $shipperWeight[$key]['shipper_weight'] ?? '' }}">
                                                     </td>
+<<<<<<< HEAD
                                                     <td style="padding: 7px;">
+=======
+                                                    <td class="dynamic-data" style="padding: 7px;">
+>>>>>>> old-repo/master
                                                         <input class="form-control"
                                                             name="load_shipper_value{{ $key + 1 }}" required
                                                             type="number"
                                                             value="{{ $shipperValue[$key]['shipper_value'] ?? '' }}">
                                                     </td>
+<<<<<<< HEAD
                                                     <td style="padding: 7px;">
+=======
+                                                    <td class="dynamic-data" style="padding: 7px;">
+>>>>>>> old-repo/master
                                                         <input class="form-control"
                                                             name="load_shipper_po_numbers{{ $key + 1 }}"
                                                             value="{{ $shipperPoNumber[$key]['shipping_po_numbers'] ?? '' }}">
                                                     </td>
+<<<<<<< HEAD
                                                     <td style="padding: 7px;">
+=======
+                                                    <td class="dynamic-data" style="padding: 7px;">
+>>>>>>> old-repo/master
                                                         <input class="form-control"
                                                             name="load_shipper_contact{{ $key + 1 }}" type="number"
                                                             value="{{ $shipperContact[$key]['shipping_contact'] ?? '' }}">
                                                     </td>
+<<<<<<< HEAD
                                                     <td style="padding: 7px;">
+=======
+                                                    <td class="dynamic-data" style="padding: 7px;">
+>>>>>>> old-repo/master
                                                         <input class="form-control"
                                                             name="load_shipper_description{{ $key + 1 }}"
                                                             value="{{ $shipperDescription[$key]['description'] ?? '' }}">
                                                     </td>
+<<<<<<< HEAD
                                                     <td style="padding: 7px;">
                                                         <textarea class="form-control"
                                                             name="load_shipper_shipping_notes{{ $key + 1 }}">{{ $shipperNotes[$key]['shipping_notes'] ?? '' }}</textarea>
                                                     </td>
                                                     <td style="padding: 7px;">
+=======
+                                                    <td class="dynamic-data" style="padding: 7px;">
+                                                        <textarea class="form-control"
+                                                            name="load_shipper_shipping_notes{{ $key + 1 }}">{{ $shipperNotes[$key]['shipping_notes'] ?? '' }}</textarea>
+                                                    </td>
+                                                    <td class="dynamic-data" style="padding: 7px;">
+>>>>>>> old-repo/master
                                                         <a href="javascript:void(0);" class="btn-remove-shipper"
                                                             data-row="shipperRow{{ $key + 1 }}"><i
                                                                 class="fa fa-trash"></i></a>
@@ -1042,8 +1099,13 @@ label.upload-button {
                                             <tbody>
                                                 @foreach ($consigneeData as $key => $consignee)
                                                 <tr id="consigneeRow{{ $key + 1 }}">
+<<<<<<< HEAD
                                                     <td style="padding: 7px;">C {{ $key + 1 }}</td>
                                                     <td style="padding: 7px;">
+=======
+                                                    <td class="dynamic-data" style="padding: 7px;">C {{ $key + 1 }}</td>
+                                                    <td class="dynamic-data" style="padding: 7px;">
+>>>>>>> old-repo/master
                                                         <!-- <select class="form-control load_consignee consignee-select"
                                                             name="load_consignee_{{ $key + 1 }}"
                                                             id="load_consignee_{{ $key + 1 }}" data-row="{{ $key + 1 }}"
@@ -1060,65 +1122,113 @@ label.upload-button {
 
                                                         <input type="text" class="form-control load_consignee consignee-select" value="{{ $load->consignee_name }}" readonly name="load_consignee_{{ $key + 1 }}" id="load_consignee_{{ $key + 1 }}" data-row="{{ $key + 1 }}" required>
                                                     </td>
+<<<<<<< HEAD
                                                     <td style="padding: 7px;">
+=======
+                                                    <td class="dynamic-data" style="padding: 7px;">
+>>>>>>> old-repo/master
                                                         <input class="form-control"
                                                             name="load_consignee_location_{{ $key + 1 }}" title="{{ $consigneeLocation[$key]['location'] ?? '' }}"
                                                             id="load_consignee_location_{{ $key + 1 }}"
                                                             value="{{ $consigneeLocation[$key]['location'] ?? '' }}"
                                                             readonly>
                                                     </td>
+<<<<<<< HEAD
                                                     <td style="padding: 7px;">
+=======
+                                                    <td class="dynamic-data" style="padding: 7px;">
+>>>>>>> old-repo/master
                                                         <input class="form-control" type="datetime-local"
                                                             name="load_consignee_appointment_{{ $key + 1 }}"
                                                             value="{{ $consigneeAppointment[$key]['appointment'] ?? '' }}">
                                                     </td>
+<<<<<<< HEAD
                                                     <td style="padding: 7px;">
+=======
+                                                    <td class="dynamic-data" style="padding: 7px;">
+>>>>>>> old-repo/master
                                                         <input class="form-control"
                                                             name="load_consignee_type_{{ $key + 1 }}"
                                                             value="{{ $consigneeType[$key]['consignee_type'] ?? '' }}">
                                                     </td>
+<<<<<<< HEAD
                                                     <td style="padding: 7px;">
+=======
+                                                    <td class="dynamic-data" style="padding: 7px;">
+>>>>>>> old-repo/master
                                                         <input class="form-control"
                                                             name="load_consignee_commodity_{{ $key + 1 }}"
                                                             value="{{ $consigneeCommodity[$key]['consignee_commodity'] ?? '' }}"
                                                             required>
                                                     </td>
+<<<<<<< HEAD
                                                     <td style="padding: 7px;">
+=======
+                                                    <td class="dynamic-data" style="padding: 7px;">
+>>>>>>> old-repo/master
                                                         <input class="form-control"
                                                             name="load_consignee_qty_{{ $key + 1 }}"
                                                             value="{{ $consigneeQty[$key]['consignee_qty'] ?? '' }}">
                                                     </td>
+<<<<<<< HEAD
                                                     <td style="padding: 7px;">
+=======
+                                                    <td class="dynamic-data" style="padding: 7px;">
+>>>>>>> old-repo/master
                                                         <input class="form-control"
                                                             name="load_consignee_weight_{{ $key + 1 }}" type="number"
                                                             value="{{ $consigneeWeight[$key]['consignee_weight'] ?? '' }}">
                                                     </td>
+<<<<<<< HEAD
                                                     <td style="padding: 7px;">
+=======
+                                                    <td class="dynamic-data" style="padding: 7px;">
+>>>>>>> old-repo/master
                                                         <input class="form-control" required
                                                             name="load_consignee_value_{{ $key + 1 }}" type="number"
                                                             value="{{ $consigneeValue[$key]['consignee_value'] ?? '' }}">
                                                     </td>
+<<<<<<< HEAD
                                                     <td style="padding: 7px;">
+=======
+                                                    <td class="dynamic-data" style="padding: 7px;">
+>>>>>>> old-repo/master
                                                         <input class="form-control"
                                                             name="load_consignee_po_numbers_{{ $key + 1 }}"
                                                             value="{{ $consigneePoNumber[$key]['consignee_po_number'] ?? '' }}">
                                                     </td>
+<<<<<<< HEAD
                                                     <td style="padding: 7px;">
+=======
+                                                    <td class="dynamic-data" style="padding: 7px;">
+>>>>>>> old-repo/master
                                                         <input class="form-control"
                                                             name="load_consigneer_contact_{{ $key + 1 }}" type="number"
                                                             value="{{ $consigneeContact[$key]['consignee_contact'] ?? '' }}">
                                                     </td>
+<<<<<<< HEAD
                                                     <td style="padding: 7px;">
+=======
+                                                    <td class="dynamic-data" style="padding: 7px;">
+>>>>>>> old-repo/master
                                                         <input class="form-control"
                                                             name="load_consignee_discription_{{ $key + 1 }}"
                                                             value="{{ $consigneeDescription[$key]['description'] ?? '' }}">
                                                     </td>
+<<<<<<< HEAD
                                                     <td style="padding: 7px;">
+=======
+                                                    <td class="dynamic-data" style="padding: 7px;">
+>>>>>>> old-repo/master
                                                         <textarea class="form-control"
                                                             style="width: auto;font-size: 12px;"
                                                             name="load_consignee_notes_{{ $key + 1 }}">{{ isset($consigneeNotes[$key]['load_consignee_notes']) ? htmlspecialchars(trim($consigneeNotes[$key]['load_consignee_notes']), ENT_QUOTES, 'UTF-8') : '' }}</textarea>
                                                     </td>
+<<<<<<< HEAD
                                                     <td style="padding: 7px;">
+=======
+                                                    <td class="dynamic-data" style="padding: 7px;">
+>>>>>>> old-repo/master
                                                         <a href="javascript:void(0);" class="btn-remove-consignee"
                                                             data-row="consigneeRow{{ $key + 1 }}"><i
                                                                 class="fa fa-trash"></i></a>

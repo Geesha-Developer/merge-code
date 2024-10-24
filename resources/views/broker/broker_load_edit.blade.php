@@ -226,7 +226,11 @@ label.upload-button {
                                                 <div class="select2-purple">
                                                     <select class="form-control select2" name="load_type_two" style="width: 100%;" required>
                                                         <!-- Preselected value -->
+<<<<<<< HEAD
                                                         <option disabled selected value="{{ $post->load_type_two }}" style="color:#e9ecef" title="Already Selected">
+=======
+                                                        <option hidden disabled selected value="{{ $post->load_type_two }}" style="color:#e9ecef" title="Already Selected">
+>>>>>>> old-repo/master
                                                             {{ $post->load_type_two ? $post->load_type_two : 'Select Load Type' }}
                                                         </option>
 
@@ -259,7 +263,11 @@ label.upload-button {
                                             <label>Shipment Type <code>*</code></label>
                                             <select required class="form-control select2" name="load_type" style="width: 100%;">
                                                 <!-- Preselected value with a disabled option -->
+<<<<<<< HEAD
                                                 <option disabled selected value="{{ $post->load_type }}" style="color:#e9ecef" title="Already Selected">
+=======
+                                                <option disabled hidden selected value="{{ $post->load_type }}" style="color:#e9ecef" title="Already Selected">
+>>>>>>> old-repo/master
                                                     {{ $post->load_type ? $post->load_type : 'Select Shipment Type' }}
                                                 </option>
 
@@ -281,7 +289,11 @@ label.upload-button {
                                                 <label>Payment Type <code>*</code></label>
                                                 <select class="form-control select2" required name="load_payment_type" style="width: 100%;">
                                                     <!-- Preselected value with a disabled option -->
+<<<<<<< HEAD
                                                     <option disabled selected value="{{ $post->load_payment_type }}" style="color:#e9ecef" title="Already Selected">
+=======
+                                                    <option disabled selected hidden value="{{ $post->load_payment_type }}" style="color:#e9ecef" title="Already Selected">
+>>>>>>> old-repo/master
                                                         {{ $post->load_payment_type ? $post->load_payment_type : 'Select Payment Type' }}
                                                     </option>
                                                     
@@ -299,7 +311,11 @@ label.upload-button {
                                                 <label>Currency</label>
                                                 <select class="form-control select2" name="load_currency" style="width: 100%;">
                                                     <!-- Preselected value with a disabled option -->
+<<<<<<< HEAD
                                                     <option disabled selected value="{{ $post->load_currency }}" style="color:#e9ecef" title="Already Selected">
+=======
+                                                    <option disabled selected hidden value="{{ $post->load_currency }}" style="color:#e9ecef" title="Already Selected">
+>>>>>>> old-repo/master
                                                         {{ $post->load_currency }}
                                                     </option>
                                                     <option value="$" {{ $post->load_currency == '$' ? 'selected' : '' }}>$</option>
@@ -312,7 +328,11 @@ label.upload-button {
                                             <div class="form-group">
                                                 <label>Equipment Type <code>*</code></label>
                                                 <select class="form-control select2" name="load_equipment_type" id="load_equipment_type" style="width: 100%;" required>
+<<<<<<< HEAD
                                                 <option disabled value="{{ $post->load_currency }}" style="color:#e9ecef" title="Already Selected">{{ $post->load_equipment_type }}</option>
+=======
+                                                <option hidden value="{{ $post->load_equipment_type }}" style="color:#e9ecef" title="Already Selected">{{ $post->load_equipment_type }}</option>
+>>>>>>> old-repo/master
                                                     <option value="Container Trailer">Container Trailer</option>
                                                     <option value="22' VAN">22' VAN
                                                     </option>
@@ -627,7 +647,11 @@ label.upload-button {
                                                 <label>Status</label>
                                                 <select class="form-control select2" name="load_status"
                                                     style="width: 100%;">
+<<<<<<< HEAD
                                                     <option selected="selected" value="{{ $post->load_status }}">
+=======
+                                                    <option hidden selected="selected" value="{{ $post->load_status }}">
+>>>>>>> old-repo/master
                                                         {{ $post->load_status }}</option>
                                                     <option>Open</option>
                                                     <option>Covered</option>
@@ -715,7 +739,11 @@ label.upload-button {
                                                                             <input type="text" class="form-control"
                                                                                 name="shipperchargeType[]"
                                                                                 value="{{ htmlspecialchars($shipperCharge['type'] ?? '') }}"
+<<<<<<< HEAD
                                                                                 placeholder="Enter charge type">
+=======
+                                                                                placeholder="Please enter type of charges">
+>>>>>>> old-repo/master
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-5">
@@ -725,7 +753,11 @@ label.upload-button {
                                                                                 class="form-control"
                                                                                 name="shipperchargeAmount[]"
                                                                                 value="{{ number_format((float)($shipperCharge['amount'] ?? 0), 2) }}"
+<<<<<<< HEAD
                                                                                 placeholder="Enter charge amount">
+=======
+                                                                                placeholder="Please enter amount">
+>>>>>>> old-repo/master
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-1" style="margin-top: 27px;">
@@ -756,7 +788,11 @@ label.upload-button {
                                                                                 Type:</label>
                                                                             <input type="text" class="form-control"
                                                                                 name="shipperchargeType[]"
+<<<<<<< HEAD
                                                                                 placeholder="Enter charge type">
+=======
+                                                                                placeholder="Please enter type of charges">
+>>>>>>> old-repo/master
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-5">
@@ -764,7 +800,11 @@ label.upload-button {
                                                                             <label>Charge Amount:</label>
                                                                             <input type="text" class="form-control"
                                                                                 name="shipperchargeAmount[]"
+<<<<<<< HEAD
                                                                                 placeholder="Enter charge amount">
+=======
+                                                                                placeholder="Please enter amount">
+>>>>>>> old-repo/master
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-1" style="margin-top: 27px;">
@@ -811,11 +851,18 @@ label.upload-button {
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Carrier <code>*</code></label>
+<<<<<<< HEAD
                                                 <input type="text" id="load_carrier" name="load_carrier"
                                                     value="{{ $post->load_carrier }}" class="form-control"
                                                     style="width: 100%;">
                                                 <input type="text" hidden name="carrier_id" id="carrier_id"
                                                     value="{{ $post->carrier_id }}">
+=======
+                                                <input type="text" id="load_carrier" name="load_carrier" value="{{ $post->load_carrier }}" class="form-control" style="width: 100%;" autocomplete="off">
+                                                <input type="text" hidden name="carrier_id" id="carrier_id" value="{{ $post->carrier_id }}">
+                                                <!-- Dropdown to show the carrier suggestions -->
+                                                <ul id="carrier-list" class="list-group" style="position: absolute; z-index: 1000; width: 100%; display: none;"></ul>
+>>>>>>> old-repo/master
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -918,7 +965,11 @@ label.upload-button {
                                                                             <label>Charge Type:</label>
                                                                             <input type="text"
                                                                                 class="form-control typeofcharge"
+<<<<<<< HEAD
                                                                                 placeholder="Please enter type of charges"
+=======
+                                                                                placeholder="Enter charge type"
+>>>>>>> old-repo/master
                                                                                 name="shipper_type_charge[]"
                                                                                 value="{{ htmlspecialchars($carrierCharge['type'] ?? '') }}">
                                                                         </div>
@@ -928,7 +979,11 @@ label.upload-button {
                                                                             <label>Charge Amount:</label>
                                                                             <input type="text" step="0.01"
                                                                                 class="form-control otheramount"
+<<<<<<< HEAD
                                                                                 placeholder="Please enter amount"
+=======
+                                                                                placeholder="Enter charge amount"
+>>>>>>> old-repo/master
                                                                                 name="shipper_other_charge[]"
                                                                                 value="{{ number_format((float)($carrierCharge['amount'] ?? 0), 2) }}">
                                                                         </div>
@@ -1032,12 +1087,16 @@ label.upload-button {
                                             <button id="btnAddShipper" type="button" class="btn btn-primary mt-4" style="padding: 4px 6px; font-size: 12px;float: left; margin-right: 10px;">
                                                 <i class="fa fa-plus" style="font-size: 10px;"></i> Add Shipper
                                             </button>
+<<<<<<< HEAD
 
                                        
+=======
+>>>>>>> old-repo/master
                                         <div class="table-responsive">
                                             <table class="table table-bordered" id="shipperTable">
                                                 <thead>
                                                     <tr>
+<<<<<<< HEAD
                                                         <th>#</th>
                                                         <th>Shipper</th>
                                                         <th>Location</th>
@@ -1051,6 +1110,21 @@ label.upload-button {
                                                         <th>Contact</th>
                                                         <th>Description</th>
                                                         <th>Notes</th>
+=======
+                                                        <th>Sr. No</th>
+                                                        <th>Shipper</th>
+                                                        <th>Shipper Location</th>
+                                                        <th>Shipper Appointment</th>
+                                                        <th>Commodity Type</th>
+                                                        <th>Commodity Name</th>
+                                                        <th>Quantity</th>
+                                                        <th>Weight (lbs)</th>
+                                                        <th>Value</th>
+                                                        <th>PO Number</th>
+                                                        <th>Contact</th>
+                                                        <th>Shipper Description</th>
+                                                        <th>Shipper Notes</th>
+>>>>>>> old-repo/master
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -1059,8 +1133,13 @@ label.upload-button {
                                                     <tr id="shipperRow{{ $key + 1 }}">
                                                         <td style="padding: 7px;">S {{ $key + 1 }}</td>
                                                         <td style="padding: 7px;">
+<<<<<<< HEAD
                                                             <select class="form-control load_shipper shipper-select" style="width:200px;" name="load_shipper_{{ $key + 1 }}" id="load_shipper_{{ $key + 1 }}" required>
                                                                 <option value="{{ $shipper['name'] }}">{{ $shipper['name'] }}</option>
+=======
+                                                            <select class="form-control load_shipper shipper-select" style="width: 200px;" name="load_shipper_{{ $key + 1 }}" id="load_shipper_{{ $key + 1 }}" required>
+                                                                <option value="{{ $shipper['name'] }}" hidden>{{ $shipper['name'] }}</option>
+>>>>>>> old-repo/master
                                                                 <option value="">Select Shipper</option>
                                                                 @foreach($allShippers as $get)
                                                                 <option value="{{ $get->shipper_name }}" data-id="{{ $get->id }}">{{ $get->shipper_name }}</option>
@@ -1075,7 +1154,11 @@ label.upload-button {
                                                             <input class="form-control" type="datetime-local" name="load_shipper_appointment_{{ $key + 1 }}" value="{{ $shipperAppointment[$key]['appointment'] ?? '' }}">
                                                         </td>
                                                         <td style="padding: 7px;">
+<<<<<<< HEAD
                                                             <input class="form-control" style="width: 160px;" name="load_shipper_type_{{ $key + 1 }}" value="{{ isset($shipperType[$key]['commodity_type']) ? $shipperType[$key]['commodity_type'] : ($shipperType[$key]['type'] ?? '') }}">
+=======
+                                                            <input class="form-control" name="load_shipper_type_{{ $key + 1 }}" value="{{ isset($shipperType[$key]['commodity_type']) ? $shipperType[$key]['commodity_type'] : ($shipperType[$key]['type'] ?? '') }}">
+>>>>>>> old-repo/master
                                                         </td>
 
                                                         <td style="padding: 7px;">
@@ -1141,11 +1224,19 @@ label.upload-button {
                                             style="padding: 4px 6px;font-size: 12px; float: left; margin-right: 10px;">
                                             <i class="fa fa-plus mr-2" style="font-size: 10px;"></i> Add Consignee
                                         </button>
+<<<<<<< HEAD
                                       
                                         <table class="table table-bordered" id="consigneeTable">
                                             <thead>
                                                 <tr>
                                                     <th style="vertical-align: middle;font-size: 12px;">#</th>
+=======
+
+                                        <table class="table table-bordered" id="consigneeTable">
+                                            <thead>
+                                                <tr>
+                                                    <th style="vertical-align: middle;font-size: 12px;">Sr. No</th>
+>>>>>>> old-repo/master
                                                     <th style="vertical-align: middle;font-size: 12px;">Consignee
                                                         <code>*</code></th>
                                                     <th style="vertical-align: middle;font-size: 12px;">Consignee
@@ -1179,8 +1270,12 @@ label.upload-button {
                                                             name="load_consignee_{{ $key + 1 }}"
                                                             id="load_consignee_{{ $key + 1 }}" data-row="{{ $key + 1 }}"
                                                             required style="width: 200px;">
+<<<<<<< HEAD
                                                             <option value="{{ $consignee['name'] }}">
                                                                 {{ $consignee['name'] }}</option>
+=======
+                                                            <option value="{{ $consignee['name'] }}" hidden>{{ $consignee['name'] }}</option>
+>>>>>>> old-repo/master
                                                             <option value="">Select Consignee</option>
                                                             @foreach($allConsignees as $get)
                                                             <option value="{{ $get->consignee_name }}"
@@ -1203,7 +1298,11 @@ label.upload-button {
                                                             value="{{ $consigneeAppointment[$key]['appointment'] ?? '' }}">
                                                     </td>
                                                     <td style="padding: 7px;">
+<<<<<<< HEAD
                                                         <input class="form-control" style="width: 160px;"
+=======
+                                                        <input class="form-control"
+>>>>>>> old-repo/master
                                                             name="load_consignee_type_{{ $key + 1 }}"
                                                             value="{{ $consigneeType[$key]['consignee_type'] ?? '' }}">
                                                     </td>
@@ -1271,8 +1370,12 @@ label.upload-button {
                                                 style="margin:0 10px; font-size: 20px;"></i>Upload</a>
                                             <button type="button" data-toggle="modal" data-target="#billOfLadingModal" class="btn btn-warning"><i class="fas fa-file-pdf mr-2"></i>Bill of Lading</button>
                                         <input type="submit" class="btn btn-info" value="Save" onclick="saveFormData()">
+<<<<<<< HEAD
                                         <a href="https://crmcargoconvoy.co/load" class="btn btn-danger"
                                             data-dismiss="modal">Cancel</a>
+=======
+                                        <a href="javascript:history.back()" class="btn btn-danger">Cancel</a>
+>>>>>>> old-repo/master
                                     </div>
 
                             </form>
@@ -1290,7 +1393,11 @@ label.upload-button {
                 <div class="modal-header">
                     <h5 class="modal-title" id="billOfLadingLabel">Bill of Lading</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<<<<<<< HEAD
                         <span style="color:#000;" aria-hidden="true">&times;</span>
+=======
+                        <span style="color:#fff;" aria-hidden="true">&times;</span>
+>>>>>>> old-repo/master
                     </button>
                 </div>
                 <div class="modal-body">
@@ -1462,7 +1569,11 @@ $(document).ready(function() {
             <tr id="shipperRow${shipperCounter}">
                 <td style="padding: 7px;">S ${shipperCounter}</td>
                 <td style="padding: 7px;">
+<<<<<<< HEAD
                     <select class="form-control load_shipper shipper-select" style="width:200px;" name="load_shipper_${shipperCounter}" id="load_shipper_${shipperCounter}" required>
+=======
+                    <select class="form-control load_shipper shipper-select" name="load_shipper_${shipperCounter}" id="load_shipper_${shipperCounter}" required>
+>>>>>>> old-repo/master
                         <option value="">Select Shipper</option>
                         @foreach($allShippers as $get)
                         <option value="{{ $get->shipper_name }}" data-id="{{ $get->id }}">{{ $get->shipper_name }}</option>
@@ -1732,6 +1843,7 @@ $(document).on('change', '.consignee-select', function () {
 </script>
 
 
+<<<<<<< HEAD
 <script>
     $(function () {
         function fetchCarrierNames(query) {
@@ -1772,6 +1884,9 @@ $(document).on('change', '.consignee-select', function () {
     });
 
 </script>
+=======
+
+>>>>>>> old-repo/master
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
@@ -2009,6 +2124,7 @@ $(function () {
 });
 </script>
 
+<<<<<<< HEAD
 
 <script>
 $(document).ready(function () {
@@ -2074,6 +2190,8 @@ $(document).ready(function () {
 });
 </script>
 
+=======
+>>>>>>> old-repo/master
 <script>
     $(document).ready(function() {
         // Hide the success message after 1 second (1000 milliseconds)
@@ -2088,6 +2206,97 @@ $(document).ready(function () {
     });
 </script>
 
+<<<<<<< HEAD
+=======
+<script>
+    $(document).ready(function () {
+    // Function to fetch carrier suggestions based on any input (name, MC number, DOT number)
+    function fetchCarrierSuggestions(field, inputValue) {
+    $.ajax({
+        url: '{{ route('fetch.carrier.suggestions') }}',
+        method: 'POST',
+        data: {
+            field: field,          // Specify the field (name, MC, DOT)
+            inputValue: inputValue, // User input
+            _token: '{{ csrf_token() }}'
+        },
+        success: function (response) {
+            let carrierList = $('#carrier-list');
+            carrierList.empty(); 
+
+            if (response.length > 0) {
+                response.forEach(function (carrier) {
+                    carrierList.append('<li class="list-group-item carrier-item" data-id="' + carrier.id + '">' + carrier.carrier_name + ' - MC: ' + carrier.mcNumber + ', DOT: ' + carrier.dotNumber + '</li>');
+                });
+                carrierList.show();
+            } else {
+                carrierList.hide();
+            }
+        },
+        error: function (xhr, status, error) {
+            console.error("Error fetching carrier suggestions: ", error);
+        }
+    });
+}
+
+
+    // Function to fetch full carrier details once a carrier is selected
+    function fetchCarrierDetails(carrierId) {
+    $.ajax({
+        url: '{{ route('fetch.carrier.details') }}',
+        method: 'POST',
+        data: {
+            carrierId: carrierId, 
+            _token: '{{ csrf_token() }}'
+        },
+        success: function (response) {
+            if (response) {
+                $('#carrier_id').val(response.id);
+                $('#load_carrier').val(response.carrier_name);
+                $('#carrier_mc_ff_input').val(response.mcNumber);
+                $('#carrier_dot').val(response.dotNumber);
+                $('#load_carrier_phone').val(response.phone);
+            }
+            $('#carrier-list').hide(); 
+        },
+        error: function (xhr, status, error) {
+            console.error("Error fetching carrier details: ", error);
+        }
+    });
+}
+
+
+    // Event handler for input fields to trigger carrier suggestions
+    function handleInputChange() {
+        let inputValue = $(this).val();
+        let field = $(this).attr('id');
+
+        if (inputValue.length >= 3) {
+            fetchCarrierSuggestions(field, inputValue);
+        } else {
+            $('#carrier-list').hide();
+        }
+    }
+
+    // Attach the event to all relevant fields (carrier name, MC number, DOT number)
+    $('#load_carrier, #carrier_mc_ff_input, #carrier_dot').on('input', handleInputChange);
+
+    // Handle selection of a carrier from the suggestion list
+    $(document).on('click', '.carrier-item', function () {
+        let carrierId = $(this).data('id');
+        fetchCarrierDetails(carrierId); // Fetch the full carrier details
+    });
+
+    // Hide the suggestion list when clicking outside the input fields
+    $(document).click(function (e) {
+        if (!$(e.target).closest('#load_carrier, #carrier_mc_ff_input, #carrier_dot, #carrier-list').length) {
+            $('#carrier-list').hide();
+        }
+    });
+});
+</script>
+
+>>>>>>> old-repo/master
 
 
 

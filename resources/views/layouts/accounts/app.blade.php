@@ -35,12 +35,18 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="{{ asset('assets/css/account.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/custome.css') }}">
+<<<<<<< HEAD
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 </head>
 <style>
      .profile-picture-container {
+=======
+</head>
+<style>
+   .profile-picture-container {
+>>>>>>> old-repo/master
     border: 2px solid #263544;
     border-radius: 110px;
     padding: 3px;
@@ -56,6 +62,10 @@
 ul.dropdown-menu.info.show {
     right: 0 !important;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> old-repo/master
 </style>
 <body class="theme-blush">
 
@@ -82,8 +92,12 @@ ul.dropdown-menu.info.show {
     <!-- Left Sidebar -->
     <aside id="leftsidebar" class="sidebar">
         <div class="navbar-brand">
+<<<<<<< HEAD
             <button class="btn-menu ls-toggle-btn" id="menu-btn" onclick="toggleMenu()" type="button"><i
                     class="zmdi zmdi-menu"></i></button>
+=======
+           
+>>>>>>> old-repo/master
         </div>
         <div class="menu">
             <div class="user-info">
@@ -99,6 +113,7 @@ ul.dropdown-menu.info.show {
                     <h4>{{ $adminData->name }}</h4>
                     @endforeach
                     @endif
+<<<<<<< HEAD
                     <p> Accounts Admin</P>
                 </div>
             </div>
@@ -160,21 +175,168 @@ ul.dropdown-menu.info.show {
                         <span>Logout</span>
                     </a>
                 </li> -->
+=======
+                    
+                        <h4 class="mt-2 mb-0">{{auth()->user()->name}}</h4>
+                        <p>{{auth()->user()->role}}</p>
+                    
+                    
+                </div>
+            </div>
+            <ul class="list" style="padding: 0 11px;    margin: 54px 0;">
+                <li class="menu {{ isset($activeIndex) && $activeIndex == 1 ? 'active' : '' }}"><a href="{{ route('accounts.admin.dashboard') }}"><img
+                            src="{{ asset('assets/images/sidebar-icons/dashboard-control.png') }}"
+                            width="25"><span>Dashboard</span></a></li>
+
+                            @if(auth()->user()->hasPermissionTo('manage accounting'))
+                                <li class="menu {{ isset($activeIndex) && $activeIndex == 2 ? 'active' : '' }}"><a href="{{ route('accounts') }}"><img
+                                src="{{ asset('assets/images/sidebar-icons/registration.png') }}"
+                                width="25"><span>Accounting</span></a></li>
+                            @endif
+                            
+                            @if(auth()->user()->hasPermissionTo('manage account-manager'))
+                                <li class="menu {{ isset($activeIndex) && $activeIndex == 3 ? 'active' : '' }}"><a href="{{ route('accounts.broker.status') }}">
+                                    <img src="{{ asset('assets/images/sidebar-icons/team.png') }}" width="25"><span>A/C Manager</span></a>
+                                </li>
+                            @endif
+                            @if(auth()->user()->hasPermissionTo('manage reporting'))
+                                <li class="menu {{ isset($activeIndex) && $activeIndex == 4 ? 'active' : '' }}"><a href="{{ route('accounts.manager.dashboard') }}">
+                                    <img src="{{ asset('assets/images/sidebar-icons/report.png') }}" width="25"><span>Reporting</span></a></li>
+                            @endif
+
+                            @if(auth()->user()->hasPermissionTo('manage vendors'))
+                                <li class="menu {{ isset($activeIndex) && $activeIndex == 5 ? 'active' : '' }}"><a href="{{ route('vendor.management') }}"><img src="{{ asset('assets/images/sidebar-icons/frontal-truck.png') }}"
+                                        width="25"><span>Vendor System</span></a></li>
+                            @endif
+                            @if(auth()->user()->hasPermissionTo('view compliance'))
+                                <li class="menu {{ isset($activeIndex) && $activeIndex == 6 ? 'active' : '' }}"><a href="{{ route('compliance') }}">
+                                    <img src="{{ asset('assets/images/sidebar-icons/compliance.png') }}"
+                                        width="25"><span>Compliance</span></a></li>
+                            @endif
+
+                            @if (auth()->user()->hasPermissionTo('manage account-manager'))
+                            <li class="menu {{ isset($activeIndex) && $activeIndex == 6 ? 'active' : '' }}"><a href="{{ route('account-permissions') }}">
+                                    <img src="{{ asset('assets/images/sidebar-icons/compliance.png') }}"
+                                        width="25"><span>User Permissions</span></a></li>
+                            @endif
+                            <!-- <li class="menu {{ isset($activeIndex) && $activeIndex == 6 ? 'active' : '' }}"><a href="{{ route('account-permissions') }}">
+                                    <img src="{{ asset('assets/images/sidebar-icons/compliance.png') }}"
+                                        width="25"><span>User Permissions</span></a></li>
+                         -->
+                                        
+<!-- 
+                                <li class="menu {{ isset($activeIndex) && $activeIndex == 7 ? 'active' : '' }}">
+                                        <a href="#"><img src="{{ asset('assets/images/sidebar-icons/notification.png') }}"
+                                        width="25"><span>Notification</span></a>
+                                </li>
+
+
+                        <li class="menu {{ isset($activeIndex) && $activeIndex == 8 ? 'active' : '' }}"><a href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                        class="mega-menu"><img src="{{ asset('assets/images/sidebar-icons/logout.png') }}"
+                            width="25"><span>Logout</span></a></li> -->
+>>>>>>> old-repo/master
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
             </ul>
+<<<<<<< HEAD
 
+=======
+>>>>>>> old-repo/master
         </div>
     </aside>
     <div class="profile-notification">
         <ul class="d-flex p-0">
+<<<<<<< HEAD
+=======
+            <li class="mr-3"><button class="btn-menu ls-toggle-btn" id="menu-btn" onclick="toggleMenu()" type="button"><i class="zmdi zmdi-menu"></i></button></li>
+            <!-- <li>
+                <div class="btn-group show-on-hover">
+                    <button type="button" class="btn dropdown-toggle p-0 m-0" data-toggle="dropdown"><i
+                            class="fa fa-bell"></i>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <div class="drop-title text-white text-center"><b>Notifications</b></div>
+                        <li>
+                            <a href="#">
+                                <div class="notification-contnet">
+                                    <h5>This is LTC coin</h5>
+                                    <p class="mail-desc">Just a reminder that you have event</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="notification-contnet">
+                                    <h5>This is LTC coin</h5>
+                                    <p class="mail-desc">Just a reminder that you have event</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="notification-contnet">
+                                    <h5>This is LTC coin</h5>
+                                    <p class="mail-desc">Just a reminder that you have event</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="notification-contnet">
+                                    <h5>This is LTC coin</h5>
+                                    <p class="mail-desc">Just a reminder that you have event</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="notification-contnet">
+                                    <h5>This is LTC coin</h5>
+                                    <p class="mail-desc">Just a reminder that you have event</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="notification-contnet">
+                                    <h5>This is LTC coin</h5>
+                                    <p class="mail-desc">Just a reminder that you have event</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="notification-contnet">
+                                    <h5>This is LTC coin</h5>
+                                    <p class="mail-desc">Just a reminder that you have event</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="notification-contnet">
+                                    <h5>This is LTC coin</h5>
+                                    <p class="mail-desc">Just a reminder that you have event</p>
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </li> -->
+>>>>>>> old-repo/master
             <li>
              <i class="zmdi zmdi-eye toggleBlurButton"></i>
             </li>
             <li>
+<<<<<<< HEAD
                 <div class="btn-group">
+=======
+                <div class="btn-group ml-3">
+>>>>>>> old-repo/master
                     <button type="button" class="btn dropdown-toggle p-0 m-0" data-toggle="dropdown">
                     <i class="zmdi zmdi-settings"></i>
                     </button>
@@ -182,7 +344,12 @@ ul.dropdown-menu.info.show {
                         <li><a class="text-white" href="#"><i
                                     style="background:unset;color:#fff; margin-top:0;"
                                     class="mr-2 zmdi zmdi-account-circle"></i>Profile</a></li>
+<<<<<<< HEAD
                         <li><a class="text-white" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="Sign Out"><i
+=======
+                        <li><a class="text-white" href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="Sign Out"><i
+>>>>>>> old-repo/master
                                     style="background:unset;color:#fff; margin-top:0;" class="mr-2 zmdi zmdi-power"></i>Log Out</a>
                         </li>
 
@@ -235,6 +402,10 @@ ul.dropdown-menu.info.show {
     <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
 
     <!-- this script for Approval button chnage event when admin approve the case and its show another button using customer id  -->
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> old-repo/master
     <script>
         function approveCustomer(customerId) {
             // Make an AJAX request to the Laravel route
@@ -392,7 +563,11 @@ ul.dropdown-menu.info.show {
         function markAsPaidRecord(loadId) {
             console.log('Inside markAsPaidRecord function');
 
+<<<<<<< HEAD
             if (confirm('Are you sure you want to mark this as Paid ?')) {
+=======
+            if (confirm('Are you sure you want to mark this as Invoiced ?')) {
+>>>>>>> old-repo/master
                 axios.post(`/update-invoice-status-as-paid-record/${loadId}`, {
                         status: 'Paid Record',
                         _token: '{{ csrf_token() }}'
@@ -491,7 +666,11 @@ ul.dropdown-menu.info.show {
                 });
 
                 // Apply styles for the content section when sidebar is shrunk
+<<<<<<< HEAD
                 contentSection.style.margin = '11px 0 20px 96px';
+=======
+                contentSection.style.margin = '11px 0 20px 0';
+>>>>>>> old-repo/master
             } else {
                 userInfo.classList.remove('hide');
 
@@ -500,7 +679,11 @@ ul.dropdown-menu.info.show {
                 });
 
                 // Apply styles for the content section when sidebar is expanded
+<<<<<<< HEAD
                 contentSection.style.margin = '11px 0 20px 259px';
+=======
+                contentSection.style.margin = '11px 0 20px 207px';
+>>>>>>> old-repo/master
             }
         }
     </script>
@@ -525,7 +708,11 @@ ul.dropdown-menu.info.show {
     </script>
 
 
+<<<<<<< HEAD
     <!-- <script>
+=======
+    <script>
+>>>>>>> old-repo/master
         document.addEventListener('DOMContentLoaded', function () {
             var lastActiveTab = localStorage.getItem('lastActiveTab');
             if (lastActiveTab) {
@@ -538,7 +725,11 @@ ul.dropdown-menu.info.show {
             $('#dataTableOpen').DataTable();
             $('#dataTableDelivered').DataTable();
         });
+<<<<<<< HEAD
     </script> -->
+=======
+    </script>
+>>>>>>> old-repo/master
 
     <script>
         document.getElementById('registrationForm').addEventListener('submit', function (event) {
@@ -640,7 +831,29 @@ fetchDataAndUpdateTable();
 setInterval(fetchDataAndUpdateTable, 5000); // 5000 milliseconds = 5 seconds
 
 </script>
+<<<<<<< HEAD
 
+=======
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuItems = document.querySelectorAll('.list .menu');
+
+        menuItems.forEach((menuItem, index) => {
+            menuItem.addEventListener('click', function () {
+                menuItems.forEach(item => {
+                    item.classList.remove('active');
+                });
+                this.classList.add('active');
+                localStorage.setItem('activeIndex', index);
+            });
+        });
+        const activeIndex = localStorage.getItem('activeIndex');
+        if (activeIndex !== null) {
+            menuItems[activeIndex].classList.add('active');
+        }
+    });
+</script>
+>>>>>>> old-repo/master
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         setTimeout(function() {
@@ -680,6 +893,7 @@ setInterval(fetchDataAndUpdateTable, 5000); // 5000 milliseconds = 5 seconds
         });
     });
 </script>
+<<<<<<< HEAD
 <script>
     $(document).ready(function () {
         // Automatically hide success alert after 2 seconds
@@ -697,6 +911,8 @@ setInterval(fetchDataAndUpdateTable, 5000); // 5000 milliseconds = 5 seconds
         @endif
     });
 </script>
+=======
+>>>>>>> old-repo/master
 </body>
 
 </html>

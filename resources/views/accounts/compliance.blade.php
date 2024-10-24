@@ -1,6 +1,7 @@
 @extends('layouts.accounts.app')
 
 @section('content')
+<<<<<<< HEAD
 
 <style>
     thead#sticky {
@@ -14,6 +15,8 @@
         background-color: unset !important;
     }
 </style>
+=======
+>>>>>>> old-repo/master
 @if(session('success'))
 <div class="alert alert-success" id="successMessage">
     {{ session('success') }}
@@ -44,14 +47,22 @@
                                 <a class="nav-link active" id="delivered-tab" data-bs-toggle="tab" role="tab"
                                     aria-controls="delivered" aria-selected="true" style="font-size:15px;"
                                     href="#home_with_icon_title">
+<<<<<<< HEAD
                                     <i class="fas fa-shipping-fast"></i> MC Check
+=======
+                                     MC Check
+>>>>>>> old-repo/master
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="completed-tab" data-bs-toggle="tab" role="tab"
                                     aria-controls="completed" aria-selected="false"
                                     style="font-size:15px;" href="#profile_with_icon_title">
+<<<<<<< HEAD
                                     <i class="fa fa-check"></i> CPR Check
+=======
+                                     CPR Check
+>>>>>>> old-repo/master
                                 </a>
                             </li>
                         </ul>
@@ -62,6 +73,7 @@
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane in active col-12 p-0" id="home_with_icon_title">
                                 <div class="body p-0">
+<<<<<<< HEAD
 
                                    <div class="table-responsive">
                                         <table class="table table-bordered dataTable no-footer" id="dataTable">
@@ -70,11 +82,24 @@
                                                 <tr>
                                                     <th>MC NO</th>
                                                     <th>DOT</th>
+=======
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover js-basic-example dataTable no-footer">
+                                            <thead>
+                                                <tr>
+                                                    <th>Sr No</th>
+                                                    <th>MC NO</th>
+>>>>>>> old-repo/master
                                                     <th>Carrier Name</th>
                                                     <th>Added By Agent</th>
                                                     <th>Added Date</th>
                                                     <th>MC Check</th>
+<<<<<<< HEAD
                                                     <th>MC Status</th>
+=======
+                                                    <!-- <th>CPR</th> -->
+                                                    <th>MC / CPR Status</th>
+>>>>>>> old-repo/master
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -85,6 +110,7 @@
                                                 @endphp
                                                 @foreach($carrier as $c)
                                                 <tr style="background-color: {{ $c->created_at == $latestDate ? '#CAF1EB' : 'transparent' }};">
+<<<<<<< HEAD
                                                    
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
@@ -92,6 +118,14 @@
                                                         <td class="dynamic-data">
                                                         {{ $c->carrier_dot }}
                                                     </td>
+=======
+                                                    <td class="dynamic-data"
+                                                        style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                                        {{ $i++ }}</td>
+                                                    <td class="dynamic-data"
+                                                        style="padding: 7px 10px !important; vertical-align: middle !important;">
+                                                        {{ $c->carrier_mc_ff_input }}</td>
+>>>>>>> old-repo/master
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ $c->carrier_name }}
@@ -111,13 +145,21 @@
                                                             <option value="Not Approved" {{ $c->mc_check == 'Not Approved' ? 'selected' : '' }}>Not Approved</option>
                                                         </select>
                                                     </td>
+<<<<<<< HEAD
                                                     
+=======
+                                                  
+>>>>>>> old-repo/master
                                                     @if($c->mc_check == 'Approved')
                                                     <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important; color: green;">
                                                         Approved</td>
                                                     @else
                                                     <td class="dynamic-data"
+<<<<<<< HEAD
                                                         style="padding: 7px 10px !important; vertical-align: middle !important; color: red;  font-weight: 600 !important;">
+=======
+                                                        style="padding: 7px 10px !important; vertical-align: middle !important;    font-weight: 100 !important;">
+>>>>>>> old-repo/master
                                                         Not Approved </td>
                                                     @endif
 
@@ -131,11 +173,19 @@
                             </div>
                             <div role="tabpanel" class="tab-pane" id="profile_with_icon_title">
                                 <div class="body p-0">
+<<<<<<< HEAD
                                 <div class="table-responsive">
                                     <table class="table table-bordered dataTable no-footer" id="cpr">
                                     
                                             <thead>
                                                 <tr>
+=======
+                                    <div class="table-responsive">
+                                    <table class="table table-bordered table-hover js-basic-example dataTable no-footer">
+                                            <thead>
+                                                <tr>
+                                                    <th>Sr No.</th>
+>>>>>>> old-repo/master
                                                     <th>Load #</th>
                                                     <th>Agent Name</th>
                                                     <th>W/O #</th>
@@ -151,10 +201,14 @@
                                                     <th>Pickup Location</th>
                                                     <th>Unloading Location</th>
                                                     <th>Load Status</th>
+<<<<<<< HEAD
                                                     <!-- <th>Micro Point</th> -->
                                                     <th>CPR</th>
                                                     <th>Macro</th>
                                                     <th>No Of Macro</th>
+=======
+                                                    <th>CPR</th>
+>>>>>>> old-repo/master
                                                     <th>CPR Status</th>
                                                     <th>Documents</th>
                                                 </tr>
@@ -166,9 +220,15 @@
                                                 @endphp
                                                 @foreach($loads as $delivered)
                                                 <tr style="background-color: {{ $delivered->created_at == $latestDate ? '#CAF1EB' : 'transparent' }};">
+<<<<<<< HEAD
                                                     
                                                     <td class="dynamic-data">
                                                         <a style="color: rgb(10 185 90) !important;font-weight: 700;" href="#" onclick="openUploadWindow('{{ route('accounting.load.edit', $delivered->id) }}'); return false;" style="text-decoration: unset;">
+=======
+                                                    <td class="dynamic-data">{{ $i++ }}</td>
+                                                    <td class="dynamic-data">
+                                                        <a style="color: #39b309;font-weight: 700;" href="{{ route('accounting.load.edit', $delivered->id) }}" style="text-decoration: unset;">
+>>>>>>> old-repo/master
                                                             {{ $delivered->load_number }}
                                                         </a>
                                                     </td>
@@ -192,7 +252,13 @@
                                                     <td class="dynamic-data"> {{ isset($consignee_appointment[0]['appointment']) ? \Carbon\Carbon::parse($consignee_appointment[0]['appointment'])->format('y-m-d') : '' }}
                                                     </td>
                                                     <td class="dynamic-data">{{ $delivered->load_equipment_type }}</td>
+<<<<<<< HEAD
                                                     <td class="dynamic-data">{{$delivered->load_carrier}}</td>
+=======
+
+                                                    <td class="dynamic-data">{{$delivered->load_carrier}}</td>
+
+>>>>>>> old-repo/master
                                                     @php
                                                     $shipper_location = json_decode($delivered->load_shipper_location, true);
                                                     @endphp
@@ -200,6 +266,12 @@
                                                         <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                             {{ $shipper_location[0]['location'] ?? '' }}
                                                         </td>
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> old-repo/master
                                                     @php
                                                     $consignee_location =
                                                     json_decode($delivered->load_consignee_location, true);
@@ -210,11 +282,16 @@
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ $last_consignee_location['location'] ?? '' }}
                                                     </td>
+<<<<<<< HEAD
                                                    
+=======
+
+>>>>>>> old-repo/master
                                                     <td class="dynamic-data"
                                                         style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         {{ $delivered->load_status }}
                                                     </td>
+<<<<<<< HEAD
                                                     <!-- <td>
                                                         <select name="micro_point" id="micro_point">
                                                             <option value="">Select Micro Point</option>
@@ -222,6 +299,8 @@
                                                             <option value=""></option>
                                                         </select>
                                                     </td> -->
+=======
+>>>>>>> old-repo/master
                                                     <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         <select name="cpr_check" id="cpr_check-{{ $delivered->id }}" data-load-id="{{ $delivered->id }}">
                                                             <option value="">Please Select CPR</option>
@@ -230,6 +309,7 @@
                                                             <option value="Not Received" {{ $delivered->cpr_check == 'Not Received' ? 'selected' : '' }}>Not Received</option>
                                                         </select>
                                                     </td>
+<<<<<<< HEAD
                                                     <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;">
                                                         <select name="macro" id="macro-{{ $delivered->id }}" data-load-id="{{ $delivered->id }}">
                                                             <option value="">Select Macro</option>
@@ -246,6 +326,8 @@
                                                         </select>
                                                     </td>
 
+=======
+>>>>>>> old-repo/master
                                                     @if($delivered->cpr_check == 'Verified')
                                                     <td class="dynamic-data" style="padding: 7px 10px !important; vertical-align: middle !important;color: green;">
                                                     Verified
@@ -264,8 +346,12 @@
                                                     </td>
                                                     @endif
                                                     <td class="dynamic-data">
+<<<<<<< HEAD
                                                     
                                                     @if (!empty($delivered->load_delivery_do_file))
+=======
+                                                        @if (!empty($delivered->load_delivery_do_file))
+>>>>>>> old-repo/master
                                                             @php
                                                                 $fileUrl = asset('storage/' . $delivered->load_delivery_do_file);
                                                             @endphp
@@ -290,9 +376,12 @@
     </div>
 </section>
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> old-repo/master
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
@@ -312,7 +401,11 @@
             },
             success: function (response) {
                 alert('MC Check updated successfully.');
+<<<<<<< HEAD
                 // location.reload();
+=======
+                location.reload();
+>>>>>>> old-repo/master
             },
             error: function (response) {
                 alert('An error occurred while updating the MC Check.');
@@ -335,7 +428,11 @@
             },
             success: function (response) {
                 alert('CPR Check updated successfully.');
+<<<<<<< HEAD
                 // location.reload();
+=======
+                location.reload();
+>>>>>>> old-repo/master
             },
             error: function (response) {
                 alert('An error occurred while updating the CPR Check.');
@@ -356,6 +453,7 @@
 });
 </script>
 <script>
+<<<<<<< HEAD
     $(document).ready(function() {
     $('select[name="macro"], select[name="no_of_macro"]').change(function() {
         var loadId = $(this).data('load-id');
@@ -443,6 +541,8 @@
     });
 </script>
 <script>
+=======
+>>>>>>> old-repo/master
   $(document).ready(function () {
     // Get the last active tab from localStorage
     var activeTab = localStorage.getItem('activeTab');
@@ -463,5 +563,13 @@
   });
 </script>
 
+<<<<<<< HEAD
 
+=======
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JavaScript library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js">
+</script>
+>>>>>>> old-repo/master
 @endsection

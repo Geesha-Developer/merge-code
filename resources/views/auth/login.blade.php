@@ -12,7 +12,11 @@
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <div class="card-body p-0">
+<<<<<<< HEAD
                 <form method="POST" action="{{ route('login') }}" class="login-form" style="padding: 28px;    margin: 20% 0;">
+=======
+                <form method="POST" action="{{ route('agent-tl-login') }}" class="login-form" style="padding: 28px;    margin: 20% 0;">
+>>>>>>> old-repo/master
                     @csrf
                     <div class="logo text-center">
                     <div class="login-heading" style="font-size: 27px; font-weight: 700; color: #525151;">Agent Login</div>
@@ -30,7 +34,11 @@
                                     alt="" id="profile"><i class="fa fa-user"></i></span>
                         </div>
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email"
+<<<<<<< HEAD
                             name="email" value="{{ old('email') }}" required autocomplete="off" autofocus>
+=======
+                            name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+>>>>>>> old-repo/master
 
                         
                     </div>

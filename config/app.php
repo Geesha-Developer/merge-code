@@ -181,6 +181,10 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+<<<<<<< HEAD
+=======
+        Yajra\DataTables\DataTablesServiceProvider::class,
+>>>>>>> old-repo/master
 
         /*
          * Package Service Providers...
@@ -213,7 +217,11 @@ return [
         // Other aliases
         'App' => Illuminate\Support\Facades\App::class,
         'LogActivity' => App\Helpers\LogActivity::class,
+<<<<<<< HEAD
 
+=======
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+>>>>>>> old-repo/master
     ])->toArray(),
     
 
