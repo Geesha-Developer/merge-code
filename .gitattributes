@@ -1,0 +1,10 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+## Specify the line endings for specific file types
+*.gitattributes text eol=lf
+*.editorconfig text eol=lf
+*.env.example text eol=lf
+*.gitignore text eol=lf
+*.md text eol=lf
+*.zip filter=lfs diff=lfs merge=lfs -text
+*.largefileextension filter=lfs diff=lfs merge=lfs -text
